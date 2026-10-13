@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "tests/test_fee.py",
+   "explanation": "The `apply_fee` function in `money.py` does not handle the case where cents is exactly half of a basis point (e.g., 50 cents and bps = 1). The current implementation will round down, but the Intent specifies that it should round half up."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_fee.py",
+   "explanation": "The test `test_rounds_half_up` is missing a case where cents is exactly half of bps. The current implementation will pass this test, but the Intent specifies that it should round half up."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 47.76,
+ "reviewer": "ollama-qwen2.5:3b"
+}

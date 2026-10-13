@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_accounts.py",
+   "explanation": "The diff deletes the existing test test_rejects_negative_opening_balance. Intent I04 is about daily limits and doesn't mention this test or Account validation. Removing it weakens existing coverage and is out of scope. A human should decide whether this is intended. If it isn't, restore the test."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.008071600000000002,
+ "seconds": 3.33,
+ "reviewer": "claude-sonnet"
+}

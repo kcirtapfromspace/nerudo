@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "tests/test_parse.py",
+   "explanation": "The test function `test_rejects_empty` is testing for an empty string, but the implementation in `parse_amount` does not handle leading or trailing spaces. The current implementation strips whitespace from the input and raises a ValueError if the text starts with a `-`. This means that an empty string should be rejected as well."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 24.05,
+ "reviewer": "ollama-qwen2.5:3b"
+}

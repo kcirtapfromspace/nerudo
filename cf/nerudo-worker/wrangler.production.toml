@@ -1,0 +1,39 @@
+# Existing forge migration. Deploy this instead of wrangler.toml for the hosted forge.
+# The destination must never be deployed with new_sqlite_classes before this transfer.
+name = "nerudo"
+main = "build/index.js"
+compatibility_date = "2026-10-01"
+
+[build]
+command = "worker-build --release"
+
+[[durable_objects.bindings]]
+name = "TRUNK"
+class_name = "Trunk"
+
+[[durable_objects.bindings]]
+name = "HUB"
+class_name = "Hub"
+
+[[migrations]]
+tag = "nerudo-transfer-v1"
+transferred_classes = [
+    { from = "Trunk", from_script = "landseq", to = "Trunk" },
+    { from = "Hub", from_script = "landseq", to = "Hub" },
+]
+
+# Artifacts has no namespace rename API. Keep this storage address and its scoped tokens.
+[[artifacts]]
+binding = "ARTIFACTS"
+namespace = "landseq"
+remote = true
+
+[[services]]
+binding = "CI"
+service = "nerudo-ci"
+
+[ai]
+binding = "AI"
+
+[vars]
+NERUDO_WEB = "https://nerudo-web.patrickdeutsch.workers.dev"

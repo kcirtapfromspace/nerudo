@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The condition `bps >= 10000` rejects bps=10000, but the requirement explicitly states '10000 bps (100%) is allowed' and 'bps must be in 0..10000 inclusive'. The condition should be `bps > 10000` to allow the value 10000."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "The test `test_rejects_bps_outside_range` only tests bps values of -1 and 10001, but doesn't test the upper valid boundary bps=10000. This means the test passes even with the implementation bug, failing to verify that 10000 basis points is actually accepted as required."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.041174,
+ "seconds": 69.87,
+ "reviewer": "claude-haiku"
+}

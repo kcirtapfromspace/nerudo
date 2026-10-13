@@ -1,0 +1,944 @@
+{
+ "date": "2026-10-12",
+ "what": "scale-all with mono-repos merged (fd705d1): tests, single-landing latency against scale-safe, a 512-change burst, and the 728 MB repo",
+ "worker": "landseq-scale-mono (throwaway); no CI or AI binding; Artifacts namespace landseq-scale",
+ "builds": {
+  "safe": "128b641 (= scale-safe), built from git archive in a scratch directory",
+  "combined": "fd705d1 (scale-all + mono-repos)"
+ },
+ "tests": {
+  "cargo_test": "landseq-core, landseq-git, landseq-cli, landseq-worker: all pass",
+  "wasm": "cargo check and clippy -p landseq-worker --target wasm32-unknown-unknown: pass; clippy warnings are the 4 that 3b28852 has",
+  "faults_all": "nix run .#faults (all cases): 49 passed, 3 known gaps, 1 failed: ci_down did not run to its end because wrangler dev lost the connection on POST .../resume ('Network connection lost'); that trunk was paused, so no alarm ran",
+  "faults_ci_down_again": "nix run .#faults -- --cases ci_down: 38 passed, 4 known gaps, 0 failed",
+  "known_gaps": "ci_down.requests and ci_down.visible at K=1 and K=8, ci_hang.timeout: 5"
+ },
+ "singles": {
+  "safe-tiny": {
+   "trunk": "mono-tiny-s",
+   "version": "3a1542ee-db81-4097-b1dd-c19fae77cf30",
+   "singles": [
+    {
+     "step": "single",
+     "cid": "s0",
+     "state": "landed",
+     "server_s": 0.779,
+     "client_s": 0.98
+    },
+    {
+     "step": "single",
+     "cid": "s1",
+     "state": "landed",
+     "server_s": 0.717,
+     "client_s": 0.97
+    },
+    {
+     "step": "single",
+     "cid": "s2",
+     "state": "landed",
+     "server_s": 0.701,
+     "client_s": 0.9
+    },
+    {
+     "step": "single",
+     "cid": "s3",
+     "state": "landed",
+     "server_s": 0.734,
+     "client_s": 0.92
+    },
+    {
+     "step": "single",
+     "cid": "s4",
+     "state": "landed",
+     "server_s": 0.679,
+     "client_s": 0.87
+    },
+    {
+     "step": "single",
+     "cid": "s5",
+     "state": "landed",
+     "server_s": 0.756,
+     "client_s": 1.01
+    }
+   ],
+   "summary": {
+    "n": 6,
+    "landed": 6,
+    "median_s": 0.734,
+    "min_s": 0.679,
+    "max_s": 0.779
+   },
+   "wasm_memory_bytes": 1835008,
+   "rounds": [
+    {
+     "fetched": 1,
+     "fetch_ms": 262.0,
+     "fetch_max_ms": 262.0,
+     "push_ms": 479.0,
+     "round_ms": 741.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 266.0,
+     "fetch_max_ms": 266.0,
+     "push_ms": 414.0,
+     "round_ms": 680.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 269.0,
+     "fetch_max_ms": 269.0,
+     "push_ms": 388.0,
+     "round_ms": 657.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 293.0,
+     "fetch_max_ms": 293.0,
+     "push_ms": 402.0,
+     "round_ms": 695.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 269.0,
+     "fetch_max_ms": 269.0,
+     "push_ms": 371.0,
+     "round_ms": 640.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 322.0,
+     "fetch_max_ms": 322.0,
+     "push_ms": 392.0,
+     "round_ms": 714.0,
+     "requests": 3
+    }
+   ]
+  },
+  "combined-tiny": {
+   "trunk": "mono-tiny-x",
+   "version": "5fa7ef21-861a-430f-a6c2-567600e3df2a",
+   "singles": [
+    {
+     "step": "single",
+     "cid": "s0",
+     "state": "landed",
+     "server_s": 0.861,
+     "client_s": 1.03
+    },
+    {
+     "step": "single",
+     "cid": "s1",
+     "state": "landed",
+     "server_s": 0.85,
+     "client_s": 1.02
+    },
+    {
+     "step": "single",
+     "cid": "s2",
+     "state": "landed",
+     "server_s": 1.087,
+     "client_s": 1.34
+    },
+    {
+     "step": "single",
+     "cid": "s3",
+     "state": "landed",
+     "server_s": 0.836,
+     "client_s": 1.0
+    },
+    {
+     "step": "single",
+     "cid": "s4",
+     "state": "landed",
+     "server_s": 0.834,
+     "client_s": 0.99
+    },
+    {
+     "step": "single",
+     "cid": "s5",
+     "state": "landed",
+     "server_s": 0.822,
+     "client_s": 0.98
+    }
+   ],
+   "summary": {
+    "n": 6,
+    "landed": 6,
+    "median_s": 0.85,
+    "min_s": 0.822,
+    "max_s": 1.087
+   },
+   "wasm_memory_bytes": 1638400,
+   "rounds": [
+    {
+     "fetched": 3,
+     "fetch_ms": 505.0,
+     "fetch_max_ms": 266.0,
+     "push_ms": 331.0,
+     "round_ms": 836.0,
+     "requests": 5
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 512.0,
+     "fetch_max_ms": 273.0,
+     "push_ms": 313.0,
+     "round_ms": 825.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 593.0,
+     "fetch_max_ms": 357.0,
+     "push_ms": 355.0,
+     "round_ms": 948.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 467.0,
+     "fetch_max_ms": 249.0,
+     "push_ms": 344.0,
+     "round_ms": 811.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 525.0,
+     "fetch_max_ms": 270.0,
+     "push_ms": 284.0,
+     "round_ms": 809.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 458.0,
+     "fetch_max_ms": 243.0,
+     "push_ms": 339.0,
+     "round_ms": 797.0,
+     "requests": 4
+    }
+   ]
+  },
+  "safe-m25": {
+   "trunk": "mono-m25-s",
+   "version": "42d647e8-0a06-4ffe-8040-b5069744c0c4",
+   "singles": [
+    {
+     "step": "single",
+     "cid": "s0",
+     "state": "landed",
+     "server_s": 1.563,
+     "client_s": 1.83
+    },
+    {
+     "step": "single",
+     "cid": "s1",
+     "state": "landed",
+     "server_s": 1.499,
+     "client_s": 1.81
+    },
+    {
+     "step": "single",
+     "cid": "s2",
+     "state": "landed",
+     "server_s": 1.286,
+     "client_s": 1.58
+    },
+    {
+     "step": "single",
+     "cid": "s3",
+     "state": "landed",
+     "server_s": 1.329,
+     "client_s": 1.59
+    },
+    {
+     "step": "single",
+     "cid": "s4",
+     "state": "landed",
+     "server_s": 1.646,
+     "client_s": 1.87
+    },
+    {
+     "step": "single",
+     "cid": "s5",
+     "state": "landed",
+     "server_s": 1.493,
+     "client_s": 1.73
+    }
+   ],
+   "summary": {
+    "n": 6,
+    "landed": 6,
+    "median_s": 1.499,
+    "min_s": 1.286,
+    "max_s": 1.646
+   },
+   "wasm_memory_bytes": 75694080,
+   "rounds": [
+    {
+     "fetched": 1,
+     "fetch_ms": 1039.0,
+     "fetch_max_ms": 1039.0,
+     "push_ms": 490.0,
+     "round_ms": 1529.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 1033.0,
+     "fetch_max_ms": 1033.0,
+     "push_ms": 428.0,
+     "round_ms": 1461.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 828.0,
+     "fetch_max_ms": 828.0,
+     "push_ms": 421.0,
+     "round_ms": 1249.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 834.0,
+     "fetch_max_ms": 834.0,
+     "push_ms": 457.0,
+     "round_ms": 1291.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 1195.0,
+     "fetch_max_ms": 1195.0,
+     "push_ms": 416.0,
+     "round_ms": 1611.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 1045.0,
+     "fetch_max_ms": 1045.0,
+     "push_ms": 413.0,
+     "round_ms": 1458.0,
+     "requests": 3
+    }
+   ]
+  },
+  "combined-m25": {
+   "trunk": "mono-m25-x",
+   "version": "8c524d44-9d70-4ade-a066-70ca74404bc1",
+   "singles": [
+    {
+     "step": "single",
+     "cid": "s0",
+     "state": "landed",
+     "server_s": 1.471,
+     "client_s": 1.78
+    },
+    {
+     "step": "single",
+     "cid": "s1",
+     "state": "landed",
+     "server_s": 1.45,
+     "client_s": 1.63
+    },
+    {
+     "step": "single",
+     "cid": "s2",
+     "state": "landed",
+     "server_s": 1.357,
+     "client_s": 1.54
+    },
+    {
+     "step": "single",
+     "cid": "s3",
+     "state": "landed",
+     "server_s": 1.343,
+     "client_s": 1.53
+    },
+    {
+     "step": "single",
+     "cid": "s4",
+     "state": "landed",
+     "server_s": 1.446,
+     "client_s": 1.63
+    },
+    {
+     "step": "single",
+     "cid": "s5",
+     "state": "landed",
+     "server_s": 1.364,
+     "client_s": 1.56
+    }
+   ],
+   "summary": {
+    "n": 6,
+    "landed": 6,
+    "median_s": 1.446,
+    "min_s": 1.343,
+    "max_s": 1.471
+   },
+   "wasm_memory_bytes": 2097152,
+   "rounds": [
+    {
+     "fetched": 3,
+     "fetch_ms": 1013.0,
+     "fetch_max_ms": 741.0,
+     "push_ms": 417.0,
+     "round_ms": 1430.0,
+     "requests": 5
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 1014.0,
+     "fetch_max_ms": 772.0,
+     "push_ms": 397.0,
+     "round_ms": 1411.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 897.0,
+     "fetch_max_ms": 662.0,
+     "push_ms": 420.0,
+     "round_ms": 1317.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 880.0,
+     "fetch_max_ms": 629.0,
+     "push_ms": 425.0,
+     "round_ms": 1305.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 1008.0,
+     "fetch_max_ms": 780.0,
+     "push_ms": 399.0,
+     "round_ms": 1407.0,
+     "requests": 4
+    },
+    {
+     "fetched": 2,
+     "fetch_ms": 888.0,
+     "fetch_max_ms": 651.0,
+     "push_ms": 437.0,
+     "round_ms": 1325.0,
+     "requests": 4
+    }
+   ]
+  }
+ },
+ "burst_512": {
+  "combined": {
+   "trunk": "mono-stages-x0-152739",
+   "n": 512,
+   "agents": 4,
+   "batch_cap": 16,
+   "landed": 512,
+   "ejected": 0,
+   "batches": 32,
+   "git_requests": 72,
+   "server_drain_s": 17.78,
+   "server_first_landing_s": 1.51,
+   "client_drain_s": 18.87,
+   "prep_s": 13.0,
+   "rounds": [
+    {
+     "batch": 1,
+     "queued": 512,
+     "fetched": 8,
+     "fetch_ms": 977.0,
+     "fetch_max_ms": 634.0,
+     "push_ms": 536.0,
+     "round_ms": 1513.0,
+     "landed": 16
+    },
+    {
+     "batch": 2,
+     "queued": 496,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 432.0,
+     "round_ms": 432.0,
+     "landed": 16
+    },
+    {
+     "batch": 3,
+     "queued": 480,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 414.0,
+     "round_ms": 414.0,
+     "landed": 16
+    },
+    {
+     "batch": 4,
+     "queued": 464,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 442.0,
+     "round_ms": 442.0,
+     "landed": 16
+    },
+    {
+     "batch": 5,
+     "queued": 448,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 435.0,
+     "round_ms": 435.0,
+     "landed": 16
+    },
+    {
+     "batch": 6,
+     "queued": 432,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 479.0,
+     "round_ms": 479.0,
+     "landed": 16
+    },
+    {
+     "batch": 7,
+     "queued": 416,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 458.0,
+     "round_ms": 458.0,
+     "landed": 16
+    },
+    {
+     "batch": 8,
+     "queued": 400,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 462.0,
+     "round_ms": 462.0,
+     "landed": 16
+    },
+    {
+     "batch": 9,
+     "queued": 384,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 443.0,
+     "round_ms": 443.0,
+     "landed": 16
+    },
+    {
+     "batch": 10,
+     "queued": 368,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 469.0,
+     "round_ms": 469.0,
+     "landed": 16
+    },
+    {
+     "batch": 11,
+     "queued": 352,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 490.0,
+     "round_ms": 490.0,
+     "landed": 16
+    },
+    {
+     "batch": 12,
+     "queued": 336,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 547.0,
+     "round_ms": 547.0,
+     "landed": 16
+    },
+    {
+     "batch": 13,
+     "queued": 320,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 523.0,
+     "round_ms": 523.0,
+     "landed": 16
+    },
+    {
+     "batch": 14,
+     "queued": 304,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 507.0,
+     "round_ms": 507.0,
+     "landed": 16
+    },
+    {
+     "batch": 15,
+     "queued": 288,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 568.0,
+     "round_ms": 568.0,
+     "landed": 16
+    },
+    {
+     "batch": 16,
+     "queued": 272,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 548.0,
+     "round_ms": 548.0,
+     "landed": 16
+    },
+    {
+     "batch": 17,
+     "queued": 256,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 548.0,
+     "round_ms": 548.0,
+     "landed": 16
+    },
+    {
+     "batch": 18,
+     "queued": 240,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 603.0,
+     "round_ms": 603.0,
+     "landed": 16
+    },
+    {
+     "batch": 19,
+     "queued": 224,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 550.0,
+     "round_ms": 550.0,
+     "landed": 16
+    },
+    {
+     "batch": 20,
+     "queued": 208,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 556.0,
+     "round_ms": 556.0,
+     "landed": 16
+    },
+    {
+     "batch": 21,
+     "queued": 192,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 760.0,
+     "round_ms": 760.0,
+     "landed": 16
+    },
+    {
+     "batch": 22,
+     "queued": 176,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 500.0,
+     "round_ms": 500.0,
+     "landed": 16
+    },
+    {
+     "batch": 23,
+     "queued": 160,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 551.0,
+     "round_ms": 551.0,
+     "landed": 16
+    },
+    {
+     "batch": 24,
+     "queued": 144,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 548.0,
+     "round_ms": 548.0,
+     "landed": 16
+    },
+    {
+     "batch": 25,
+     "queued": 128,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 557.0,
+     "round_ms": 557.0,
+     "landed": 16
+    },
+    {
+     "batch": 26,
+     "queued": 112,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 477.0,
+     "round_ms": 477.0,
+     "landed": 16
+    },
+    {
+     "batch": 27,
+     "queued": 96,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 637.0,
+     "round_ms": 637.0,
+     "landed": 16
+    },
+    {
+     "batch": 28,
+     "queued": 80,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 540.0,
+     "round_ms": 540.0,
+     "landed": 16
+    },
+    {
+     "batch": 29,
+     "queued": 64,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 600.0,
+     "round_ms": 600.0,
+     "landed": 16
+    },
+    {
+     "batch": 30,
+     "queued": 48,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 539.0,
+     "round_ms": 539.0,
+     "landed": 16
+    },
+    {
+     "batch": 31,
+     "queued": 32,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 558.0,
+     "round_ms": 558.0,
+     "landed": 16
+    },
+    {
+     "batch": 32,
+     "queued": 16,
+     "fetched": 0,
+     "fetch_ms": 0.0,
+     "fetch_max_ms": 0.0,
+     "push_ms": 526.0,
+     "round_ms": 526.0,
+     "landed": 16
+    }
+   ],
+   "version": "8c524d44-9d70-4ade-a066-70ca74404bc1"
+  },
+  "scale_stages_after_fix": {
+   "server_drain_s": 23.56,
+   "server_first_landing_s": 1.35,
+   "git_requests": 68,
+   "source": "cf/scale/stages.md (one run)"
+  }
+ },
+ "m700": {
+  "version": "3428b59c-56d1-4536-9b52-ed2e70253b69",
+  "trunk": "mono-m700-x on repo mono-m700 (fork mono-m700--a00-1)",
+  "steps": [
+   {
+    "step": "repo",
+    "existing": true
+   },
+   {
+    "step": "deploy",
+    "version": "3428b59c-56d1-4536-9b52-ed2e70253b69"
+   },
+   {
+    "step": "init",
+    "status": 200,
+    "s": 15.5,
+    "objects": 3682,
+    "error": null,
+    "stats": {
+     "wasm_memory_bytes": 13631488,
+     "objects_cached": 3682,
+     "store_bytes": 2807763,
+     "ui_objects_cached": 0,
+     "landed": 0,
+     "batches": 0,
+     "batch_sizes": [],
+     "git_requests": 0,
+     "queued": 0,
+     "ejected_conflict": 0,
+     "ejected_check": 0,
+     "ejected_other": 0,
+     "seq": 0
+    }
+   },
+   {
+    "step": "fork",
+    "fork": "mono-m700--a00-1"
+   },
+   {
+    "step": "land_one",
+    "submit_status": 200,
+    "s": 4.3,
+    "result": {
+     "state": "landed",
+     "reason": null,
+     "submitted_ms": 1791840815715,
+     "landed_ms": 1791840819828,
+     "batch": 1
+    },
+    "stats": {
+     "wasm_memory_bytes": 13631488,
+     "objects_cached": 3708,
+     "store_bytes": 2809248,
+     "ui_objects_cached": 0,
+     "landed": 1,
+     "batches": 1,
+     "batch_sizes": [
+      1
+     ],
+     "git_requests": 5,
+     "queued": 0,
+     "ejected_conflict": 0,
+     "ejected_check": 0,
+     "ejected_other": 0,
+     "seq": 1
+    }
+   },
+   {
+    "step": "land_batch",
+    "n": 5,
+    "s": 7.6,
+    "results": {
+     "b0": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791840826574,
+      "landed_ms": 1791840830433,
+      "batch": 2
+     },
+     "b1": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791840826734,
+      "landed_ms": 1791840833569,
+      "batch": 3
+     },
+     "b2": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791840826903,
+      "landed_ms": 1791840833569,
+      "batch": 3
+     },
+     "b3": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791840827046,
+      "landed_ms": 1791840833569,
+      "batch": 3
+     },
+     "b4": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791840827220,
+      "landed_ms": 1791840833569,
+      "batch": 3
+     }
+    },
+    "stats": {
+     "wasm_memory_bytes": 13631488,
+     "objects_cached": 3738,
+     "store_bytes": 2815296,
+     "ui_objects_cached": 0,
+     "landed": 6,
+     "batches": 3,
+     "batch_sizes": [
+      1,
+      1,
+      4
+     ],
+     "git_requests": 13,
+     "queued": 0,
+     "ejected_conflict": 0,
+     "ejected_check": 0,
+     "ejected_other": 0,
+     "seq": 6
+    }
+   },
+   {
+    "step": "verify",
+    "ok": true,
+    "landed": [
+     "b4",
+     "b3",
+     "b2",
+     "b1",
+     "b0",
+     "one"
+    ],
+    "changelog_missing": [],
+    "fsck": 0,
+    "fsck_err": ""
+   }
+  ]
+ },
+ "new_artifacts_repos": [
+  "mono-tiny-s",
+  "mono-tiny-s--a00",
+  "mono-tiny-x",
+  "mono-tiny-x--a00",
+  "mono-m25-s",
+  "mono-m25-s--a00",
+  "mono-m25-x",
+  "mono-m25-x--a00",
+  "mono-m700--a00-1",
+  "mono-stages-x0-152739 and its forks --a00..--a03"
+ ]
+}

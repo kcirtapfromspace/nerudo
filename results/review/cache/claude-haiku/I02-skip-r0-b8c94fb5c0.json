@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_money.py",
+   "explanation": "The existing test `test_rejects_negative_units` is being skipped by adding @unittest.skip('flaky on CI'). This modification is outside the stated Intent (which only specifies adding fee computation) and weakens the existing test suite. The Intent does not declare any test modifications, so this requires human review to determine if test skipping is acceptable."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.018523,
+ "seconds": 30.04,
+ "reviewer": "claude-haiku"
+}

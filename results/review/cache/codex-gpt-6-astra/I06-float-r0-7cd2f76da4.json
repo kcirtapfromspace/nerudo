@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/money.py",
+   "explanation": "parse_amount uses float(text) * 100, directly violating the no-float-arithmetic criterion and risking precision loss for large amounts. Compute cents using integer units and the decimal fraction padded to two digits."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_parse.py",
+   "explanation": "The tests do not verify the no-float requirement; the current float-based implementation passes every listed case. Add a check that rejects float usage and an exactness regression for large amounts."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 18.65,
+ "reviewer": "codex-gpt-6-astra"
+}

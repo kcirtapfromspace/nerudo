@@ -1,0 +1,209 @@
+{
+ "date": "2026-10-12",
+ "commit": "the Worker code of 5f8a5fe (d5e7c29 has the same Worker code)",
+ "worker": {
+  "name": "landseq-scale-resil",
+  "artifacts_namespace": "landseq-scale",
+  "ci": "landseq-ci-scale, then the stub landseq-ci-scale-resil (MODE=down answers 503, else it forwards to landseq-ci-scale)",
+  "versions": {
+   "first deploy": "b8bddb25-d0ac-4797-9ab2-9de2690a7c22",
+   "CI bound to the stub": "cc149742-2d30-4caf-8492-e093ee7b0c63"
+  }
+ },
+ "scenarios": {
+  "host": "artifacts",
+  "results": {
+   "approvals": "pass (18 s)",
+   "recovery": "pass (13 s)",
+   "ci": "pass (26 s)",
+   "ci_red": "pass (44 s)",
+   "git": "pass (20 s)",
+   "identity": "pass (39 s)"
+  }
+ },
+ "ci_down_on_cloudflare": {
+  "trunk": "scn-resil-cidown-155624",
+  "outage_s": 90,
+  "failed_tries_in_outage": 7,
+  "budget": 12.0,
+  "landed_after_ci_back_s": 6.6,
+  "stall_after": null,
+  "samples": [
+   {
+    "t": 0.4,
+    "kind": null,
+    "attempts": null,
+    "next_in_s": null,
+    "detail": null
+   },
+   {
+    "t": 6.8,
+    "kind": "ci_unavailable",
+    "attempts": 3,
+    "next_in_s": 1.1,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 13.3,
+    "kind": "ci_unavailable",
+    "attempts": 4,
+    "next_in_s": 4.0,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 19.7,
+    "kind": "ci_unavailable",
+    "attempts": 5,
+    "next_in_s": 14.3,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 26.1,
+    "kind": "ci_unavailable",
+    "attempts": 5,
+    "next_in_s": 7.8,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 32.5,
+    "kind": "ci_unavailable",
+    "attempts": 5,
+    "next_in_s": 1.4,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 38.9,
+    "kind": "ci_unavailable",
+    "attempts": 6,
+    "next_in_s": 30.1,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 45.3,
+    "kind": "ci_unavailable",
+    "attempts": 6,
+    "next_in_s": 23.7,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 51.8,
+    "kind": "ci_unavailable",
+    "attempts": 6,
+    "next_in_s": 17.2,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 58.2,
+    "kind": "ci_unavailable",
+    "attempts": 6,
+    "next_in_s": 10.8,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 64.6,
+    "kind": "ci_unavailable",
+    "attempts": 6,
+    "next_in_s": 4.4,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 71.0,
+    "kind": "ci_unavailable",
+    "attempts": 7,
+    "next_in_s": 28.2,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 77.6,
+    "kind": "ci_unavailable",
+    "attempts": 7,
+    "next_in_s": 21.6,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   },
+   {
+    "t": 83.9,
+    "kind": "ci_unavailable",
+    "attempts": 7,
+    "next_in_s": 15.2,
+    "detail": "ci_unavailable: the CI Worker answered HTTP 503: ci down (resilience test)\n"
+   }
+  ]
+ },
+ "overload": {
+  "path": "a: GET /v1/repos/resilload/nope/stats, the Hub lookup of an unknown name; a 404 is a success",
+  "driver": "cf/scale/hub_driver.js as landseq-scale-resil-driver (deleted after the test), with the Retry-After header in its error bodies for the second step",
+  "before": "cf/scale/hub.md: the same overload gave HTTP 500 INTERNAL SERVER ERROR",
+  "steps": [
+   {
+    "label": "step1000",
+    "driver_rate": 25,
+    "seconds": 20,
+    "calls_per_driver_request": 40,
+    "offered_calls_per_s": 1000,
+    "driver_codes": {
+     "200": 500
+    },
+    "call_codes": {
+     "404": 16236,
+     "503": 3764
+    },
+    "p50_ms": 3558,
+    "p99_ms": 7796,
+    "error_bodies": [
+     {
+      "status": 404,
+      "body": "{\"error\":\"unknown repo resilload/nope\"}",
+      "count": 809
+     },
+     {
+      "status": 503,
+      "body": "{\"error\":\"busy, try again in 1 s: Error: Durable Object is overloaded. Requests queued for too long.\",\"retry_after_s\":1}",
+      "count": 166
+     },
+     {
+      "status": 503,
+      "body": "{\"error\":\"busy, try again in 1 s: Error: Durable Object is overloaded. Too many requests queued.\",\"retry_after_s\":1}",
+      "count": 25
+     }
+    ]
+   },
+   {
+    "label": "step1000-headers",
+    "driver_rate": 25,
+    "seconds": 10,
+    "calls_per_driver_request": 40,
+    "offered_calls_per_s": 1000,
+    "driver_codes": {
+     "200": 250
+    },
+    "call_codes": {
+     "404": 8563,
+     "503": 1437
+    },
+    "p50_ms": 2489,
+    "p99_ms": 4674,
+    "error_bodies": [
+     {
+      "status": 404,
+      "body": "retry-after=null {\"error\":\"unknown repo resilload/nope\"}",
+      "count": 434
+     },
+     {
+      "status": 503,
+      "body": "retry-after=1 {\"error\":\"busy, try again in 1 s: Error: Durable Object is overloaded. Requests queued for too long.\",\"retry_after_s\":1}",
+      "count": 66
+     }
+    ]
+   }
+  ]
+ },
+ "artifacts_repos_created": [
+  "scn-resil-approvals-155240 (trunk); forks: scn-resil-approvals-155240--a00",
+  "scn-resil-ci-155311 (trunk); forks: scn-resil-ci-155311--a00, scn-resil-ci-155311--a01, scn-resil-ci-155311--a02",
+  "scn-resil-ci-red-155336 (trunk); forks: scn-resil-ci-red-155336--a00, scn-resil-ci-red-155336--a01",
+  "scn-resil-cidown-155624 (trunk); forks: scn-resil-cidown-155624--a00",
+  "scn-resil-git-155420 (trunk); forks: see the scenario",
+  "scn-resil-identity-155441 (trunk); forks: scn-resil-identity-155441--a00, scn-resil-identity-155441--a01",
+  "scn-resil-recovery-155258 (trunk); forks: scn-resil-recovery-155258--a00"
+ ]
+}

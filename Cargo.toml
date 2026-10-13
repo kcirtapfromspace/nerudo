@@ -1,0 +1,7 @@
+[workspace]
+members = ["seqd"]
+exclude = ["cf"]   # Cloudflare entry: separate wasm workspace
+resolver = "3"
+
+[profile.release]
+debug = false

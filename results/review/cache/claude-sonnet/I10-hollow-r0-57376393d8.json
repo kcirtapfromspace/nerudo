@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.9,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_display.py",
+   "explanation": "test_masks_middle and test_three_characters only assert the length of the result. They never check that the first and last characters are kept or that the middle is '*'. An implementation that returned '*' * len(name) would pass both. The first criterion (keep first and last character, mask the rest) is therefore not verified. Assert exact values, for example mask_name('savings') == 's*****s' and mask_name('abc') == 'a*c'."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0069776,
+ "seconds": 3.96,
+ "reviewer": "claude-sonnet"
+}

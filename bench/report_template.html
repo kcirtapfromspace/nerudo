@@ -1,0 +1,833 @@
+<meta charset="utf-8">
+<title>Nerudo Contention Bench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one reading column (~68ch) that widens to a 2x2 small-multiple grid for charts;
+   everything stacks to one column at phone width. Chrome is warm-neutral; only data is loud. */
+:root {
+  --plane: #f6f5f1;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #6f6d67;
+  --axis-text: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --code-bg: #eeede8;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --s4: #eda100;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --critical: #d03b3b;
+  --critical-text: #b42f2f;
+  --focus: #2a78d6;
+  --o1: #86b6ef; --o2: #3987e5; --o3: #1c5cab; --o4: #0d366b; --escaped: #d03b3b;
+  --display: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --plane: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #a3a29a;
+    --axis-text: #898781; --grid: #2c2c2a; --axis: #383835; --border: rgba(255, 255, 255, 0.10);
+    --code-bg: #232321; --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --good-text: #2fbf2f; --critical-text: #ef7a7a; --focus: #3987e5; color-scheme: dark;
+    --o1: #184f95; --o2: #2a78d6; --o3: #6da7ec; --o4: #b7d3f6;
+  }
+}
+:root[data-theme="dark"] {
+  --plane: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #a3a29a;
+  --axis-text: #898781; --grid: #2c2c2a; --axis: #383835; --border: rgba(255, 255, 255, 0.10);
+  --code-bg: #232321; --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --good-text: #2fbf2f; --critical-text: #ef7a7a; --focus: #3987e5; color-scheme: dark;
+  --o1: #184f95; --o2: #2a78d6; --o3: #6da7ec; --o4: #b7d3f6;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--plane); color: var(--ink); font-family: var(--sans);
+  font-size: 15px; line-height: 1.55; padding-inline: 16px; padding-block: 40px 72px;
+}
+.wrap { max-width: 1120px; margin-inline: auto; display: grid; gap: 56px; }
+.prose { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; font-stretch: 82%; line-height: 1.02; }
+h2 { font-size: 1.55rem; font-weight: 700; font-stretch: 88%; }
+h3 { font-size: 1.05rem; font-weight: 700; font-stretch: 92%; }
+p { margin: 0; }
+section { display: grid; gap: 18px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.12rem; color: var(--ink-2); max-width: 64ch; }
+code, .mono { font-family: var(--mono); font-size: 0.86em; }
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+a { color: inherit; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.meta span b { color: var(--ink-2); font-weight: 500; }
+
+/* Summary tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
+.tile .label { font-size: 13px; color: var(--ink-2); }
+.tile .value { font-size: 2.1rem; font-weight: 600; line-height: 1.1; }
+.tile .value small { font-size: 0.95rem; font-weight: 500; color: var(--ink-2); margin-left: 4px; }
+.tile .note { font-size: 13px; color: var(--muted); }
+
+/* Correctness table */
+.tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-2); font-size: 12.5px; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td .sub { display: block; color: var(--muted); font-size: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; white-space: nowrap; }
+.chip svg { flex: none; }
+.chip.ok { color: var(--good-text); }
+.chip.bad { color: var(--critical-text); }
+.groupcell { font-family: var(--mono); font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Charts */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.controls .label { font-size: 13px; color: var(--ink-2); margin-right: 4px; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 3px; }
+.seg button {
+  font: inherit; font-size: 13px; color: var(--ink-2); background: transparent; border: 0;
+  border-radius: 6px; padding: 6px 11px; cursor: pointer;
+}
+.seg button:hover { background: var(--code-bg); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 14px; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 16px 10px; display: grid; gap: 8px; min-width: 0; position: relative; }
+.panel header { display: grid; gap: 2px; }
+.panel header p { font-size: 12.5px; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.panel svg.chart { width: 100%; height: auto; display: block; touch-action: pan-y; }
+.panel svg.chart:focus-visible { outline-offset: 0; }
+.empty { font-size: 13px; color: var(--muted); padding: 40px 0; text-align: center; }
+.tip {
+  position: absolute; pointer-events: none; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12.5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); min-width: 170px; z-index: 5;
+}
+.tip .h { color: var(--muted); font-size: 11.5px; margin-bottom: 4px; }
+.tip .row { display: grid; grid-template-columns: 14px auto 1fr; gap: 6px; align-items: center; }
+.tip .row b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.tip .row span { color: var(--ink-2); }
+.axis-note { font-size: 12.5px; color: var(--muted); }
+
+/* Findings */
+.findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 14px; }
+.finding { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.finding p { font-size: 14px; color: var(--ink-2); }
+pre.out {
+  margin: 0; font-family: var(--mono); font-size: 12px; line-height: 1.5; background: var(--code-bg);
+  border-radius: 6px; padding: 10px 12px; overflow-x: auto; white-space: pre-wrap;
+  overflow-wrap: anywhere; color: var(--ink);
+}
+.where { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+
+.legend .key { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.stack { display: block; width: 100%; max-width: 260px; height: 14px; }
+.stackcell { min-width: 180px; }
+.heat { text-align: center; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.verdict { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+.verdict.approve { color: var(--ink-2); }
+.verdict.stop { color: var(--ink); font-weight: 500; }
+.callouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+ul.plain { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: 72ch; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+details summary { cursor: pointer; padding: 12px 16px; font-weight: 600; font-size: 14px; }
+details .tablebox { border: 0; border-top: 1px solid var(--grid); border-radius: 0 0 10px 10px; }
+@media (prefers-reduced-motion: no-preference) {
+  .seg button { transition: background-color 120ms ease, color 120ms ease; }
+}
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:16px">
+    <div class="eyebrow">nerudo · trunk contention benchmark</div>
+    <h1>Nerudo Contention Bench</h1>
+    <p class="lede">Each of N agents lands K changes into one shared trunk. Every configuration runs the same seeded workload with the same simulated CI. Only the coordination differs: the VCS client, the forge, or the sequencer.</p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <section aria-labelledby="sum-h">
+    <h2 id="sum-h" class="eyebrow" style="font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.06em">At 16 agents</h2>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section aria-labelledby="corr-h">
+    <div class="prose" style="display:grid;gap:8px">
+      <h2 id="corr-h">Did trunk stay correct?</h2>
+      <p>Each change writes a unique marker file, so the final trunk shows exactly which landings survived. "Lost" counts changes whose agent saw a successful push but which aren't on the final trunk. "Broken commits" counts trunk commits that fail the CI check, either a duplicate migration number or a stale lockfile.</p>
+    </div>
+    <div class="tablebox"><table id="corr"></table></div>
+  </section>
+
+  <section aria-labelledby="perf-h">
+    <div class="prose" style="display:grid;gap:8px">
+      <h2 id="perf-h">Throughput and what it costs</h2>
+      <p>Each panel shows one place trunk can live. Colors follow the coordination model on every panel: blue is rebase, retest and push; orange is merge without retesting; aqua is the sequencer. The jj panel reuses the local sequencer line as its reference. The X axis is agents, log-scaled. Values are means across repetitions; hover a point to see every repetition.</p>
+    </div>
+    <div class="controls" role="group" aria-label="Metric">
+      <span class="label">Metric</span>
+      <div class="seg" id="metric"></div>
+    </div>
+    <div class="panels" id="panels"></div>
+    <p class="axis-note" id="metric-note"></p>
+  </section>
+
+  <section aria-labelledby="seq-h">
+    <div class="prose" style="display:grid;gap:8px">
+      <h2 id="seq-h">Inside the sequencer</h2>
+      <p>The sequencer lands changes in batches whose footprints don't overlap and runs CI once per batch. Batch size is the lever. It's capped at 16, and the hottest exclusive target limits it no matter how many agents are waiting.</p>
+    </div>
+    <div class="panels" id="seqpanels"></div>
+  </section>
+
+  <section aria-labelledby="rev-h" id="review">
+    <div class="prose" style="display:grid;gap:8px">
+      <h2 id="rev-h">Can models do the review?</h2>
+      <p id="rev-lede">A hand-built corpus of changes to a small ledger package, each against a human-written Intent. Some are clean. The rest carry one planted defect, and every one of them passes the test suite. Each change goes through the deterministic gates and then four reviewer models. The routing policies below are scored from the same recorded verdicts.</p>
+    </div>
+    <div class="tiles" id="rev-tiles"></div>
+    <h3>Where each policy sends the defects</h3>
+    <div class="legend" id="rev-legend"></div>
+    <div class="tablebox"><table id="rev-policies"></table></div>
+    <p class="axis-note">Human load counts seals, escalations, and a 10% audit sample of auto-landed changes, per 100 changes. Anything that reaches a human is assumed caught, which is optimistic. "Escaped" means the defect landed without a human seeing it.</p>
+    <h3>Reviewers, one at a time</h3>
+    <div class="tablebox"><table id="rev-reviewers"></table></div>
+    <div class="tablebox"><table id="rev-classes"></table></div>
+    <div class="callouts" id="rev-callouts"></div>
+    <details>
+      <summary>Every change and every verdict</summary>
+      <div class="tablebox"><table id="rev-changes"></table></div>
+    </details>
+  </section>
+
+  <section aria-labelledby="find-h">
+    <div class="prose" style="display:grid;gap:8px">
+      <h2 id="find-h">What broke, verbatim</h2>
+      <p>These are output from this run's tools, not paraphrases. Each one is a failure mode the charts above only show as a number.</p>
+    </div>
+    <div class="findings">
+      <article class="finding">
+        <h3>jj workspaces lose landings silently</h3>
+        <p>Workspaces share one repo, so they share its record of where <code>main@origin</code> is. When agent A pushes, B's lease refreshes too, and B's next push moves the remote branch <em>sideways</em> and drops A's commit. There is no error.</p>
+        <pre class="out">  bookmark: main [move forward from 952bbfbc6de6 to a1cfcc6dcce3]   # A
+  bookmark: main [move sideways from a1cfcc6dcce3 to 145fbcc8d400]  # B, accepted
+$ git log --oneline main
+145fbcc B's change
+952bbfb base                                                     # A is gone</pre>
+        <div class="where">jj 0.44.0 · two workspaces, one repo, by hand · <span id="jj-sweep-note"></span></div>
+      </article>
+      <article class="finding">
+        <h3>jj's guard wedges every agent</h3>
+        <p>Two concurrent <code>bookmark set</code> calls leave <code>main</code> conflicted. Without <code>--allow-backwards</code>, every later set is refused, so all agents spin. Before the harness used the workaround below, one 8-agent run logged 5,817 op-log reconciles and 4 pushes in 12 minutes. The hint jj prints is the flag that causes the silent loss above.</p>
+        <pre class="out">Error: Refusing to move bookmark backwards or sideways: main
+Hint: Use --allow-backwards to allow it.</pre>
+        <div class="where">harness workaround: snap the bookmark to main@origin first, then move it forward</div>
+      </article>
+      <article class="finding">
+        <h3>git worktrees fight over shared refs</h3>
+        <p>Worktrees separate the checkout but not the remote-tracking refs, the stash, or the config. Twelve worktrees fetching at once: 11 failed. One agent's stash is visible to every other.</p>
+        <pre class="out">error: cannot lock ref 'refs/remotes/origin/main': is at &lt;sha&gt; but expected &lt;sha&gt;   ×11
+$ git stash list            # run in worktree c
+stash@{0}: On agent-a: agent-a scratch</pre>
+        <div class="where">git 2.55.0 · isolated test, then retried with backoff in the harness</div>
+      </article>
+      <article class="finding">
+        <h3>Compare-and-swap is correct, and wasteful</h3>
+        <p>Forty writers race on <code>update-ref main new old</code>. One wins and 39 must regenerate and retest. Without the old-value check, all 40 succeed and 39 commits vanish without a word.</p>
+        <pre class="out">39 fatal: update_ref failed for ref 'refs/heads/main': cannot lock ref
+   'refs/heads/main': is at &lt;sha&gt; but expected &lt;sha&gt;
+blind update-ref: errors 0 · commits reachable from main: 1 of 40</pre>
+        <div class="where">git 2.55.0 · 40 concurrent processes on one bare repo</div>
+      </article>
+      <article class="finding">
+        <h3>Forgejo's merge ignores merge=union</h3>
+        <p>With <code>CHANGELOG.md merge=union</code> in <code>.gitattributes</code>, local git merges two appends cleanly. Forgejo's server-side merge marks the second PR unmergeable and refuses it. That's why PR-merge needed hundreds of conflict resolutions at 32 agents: about half of all changes append to the changelog.</p>
+        <pre class="out">$ git merge f/b            # local, union driver
+  merges clean
+forgejo PR b mergeable=False   (polled for 18 s after PR a merged)
+POST /pulls/2/merge -> HTTP 405 {"message":"Please try again later"}</pre>
+        <div class="where">Forgejo 16.0.5 · GitHub not tested for this</div>
+      </article>
+      <article class="finding">
+        <h3>GitHub's push path failed while its status page was green</h3>
+        <p>From about 16:55 UTC every <code>git push</code> to the bench repo failed at the ref update, over SSH and HTTPS, for new and existing commits. The status API said all systems were operational, and the REST API could still create refs. The sequencer kept landing with GitHub as its mirror. The mirror fell behind, retried with backoff, and caught up when pushes recovered.</p>
+        <pre class="out"> ! [remote rejected] HEAD -> diag/new-1791392187 (Internal Server Error)
+githubstatus.com: All Systems Operational
+POST /repos/.../git/refs -> 201 Created</pre>
+        <div class="where" id="gh-outage-note">2026-10-07 · private repo kcirtapfromspace/nerudo-bench</div>
+      </article>
+      <article class="finding">
+        <h3>Allocation races merge cleanly</h3>
+        <p>Two agents each pick "the next migration number" on their own base. The files have different names, so git sees no conflict. Trunk gets two 0042s, and nothing fails until CI runs on trunk itself. The sequencer assigns the number at landing instead.</p>
+        <pre class="out">$ ls migrations/
+0041_users.sql  0042_add_email.sql  0042_add_tenant.sql</pre>
+        <div class="where">same pattern hits proto field numbers, enum values, version bumps</div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="method-h">
+    <h2 id="method-h">Method and caveats</h2>
+    <ul class="plain">
+      <li><b>Workload.</b> 40 targets with Zipf(1.1) popularity. Every change edits one line of one target and adds a unique marker file. Of each change: 50% append to <code>CHANGELOG.md</code>, 30% add a dependency (which rewrites <code>deps.lock</code>, whose digest header makes lockfile edits conflict), and 20% add a migration. The specs are seeded, so every configuration gets identical changes.</li>
+      <li><b>Agents.</b> A retry regenerates the change on the new trunk; it never rebases text. Simulated generation takes 0.2 s and CI takes <span class="ci-s"></span> s per run. "Merge without retest" resolves conflicts the way an agent would: regenerate the lockfile and keep its own edit. It never re-runs CI.</li>
+      <li><b>Baselines get their best configuration.</b> <code>CHANGELOG.md merge=union</code> is set in <code>.gitattributes</code>, fetches retry on lock errors with backoff, and jj agents use the careful bookmark recipe. GitHub's merge queue isn't available on a personal account, so its two native paths are direct push and PR plus the merge API.</li>
+      <li><b>Placement.</b> Local trunks are bare repos on the Mac Studio. Forgejo 16.0.5 runs on talos-jetson-2 on node-local disk, not Longhorn. GitHub is a private repo reached over the internet with SSH push. The forge rows measure <em>the forge as the coordination point</em>, which is exactly what the sequencer replaces. In the "as mirror" rows the forge only receives trunk.</li>
+      <li><b>Sequencer MVP.</b> One process with a SQLite hash-chained log, footprints at target level from changed paths, derived and allocated files, commutative append, one CI run per batch, bisect on failure, and idempotent <code>(change_id, rev)</code>. <b>Not implemented:</b> speculative execution of the next batch, Raft replication, read-set footprints, and footprint learning.</li>
+      <li><b>The sequencer runs CI twice per change at low load.</b> The agent pre-tests and the batch is tested again, so one agent lands at half the rate of rebase-retest-push. The evidence carry-forward rule (skip the retest when nothing that change affects has moved) would fix it, but it isn't implemented in the MVP.</li>
+      <li><b>CI cost is fixed per run.</b> A batch of 16 changes is tested in the same <span class="ci-s"></span> s as a single change. Real batch CI costs more, because more tests are affected, so the real gain is smaller than shown. The CI-runs-per-landing chart is the cost model to adjust.</li>
+      <li><b>Repetitions.</b> Two per point for local configurations, one for Forgejo and GitHub. GitHub ran smaller (N ≤ 16, K = 2) to stay inside a bounded load; per-landing metrics normalize for that. A single repetition on a shared network is noisy, so read the GitHub points as indicative.</li>
+      <li><b>The Cloudflare sequencer.</b> The Rust Trunk Durable Object (workers-rs 0.8.7) runs twice. <em>Live</em> (Cloudflare panel): the deployed Worker, with the trunk and every agent's fork as Artifacts repos; the Durable Object mints its own trunk write token, and each agent gets a fork it can write and a trunk token it can only read. <em>Local</em> (aqua circles on the Forgejo panel, faded on the Cloudflare panel): the same code under local workerd, with Forgejo standing in for Artifacts, so it compares directly with Forgejo push and PR-merge on the same host. Agents don't run CI themselves; only the sequencer's batch run counts, which is why CI runs per landing drop below 1. The "agents also pre-test" controls at 16 agents are in the correctness and run tables. Compare-and-swap on push was confirmed on both hosts; on Artifacts a stale old value is refused even when the push would fast-forward, and of 8 concurrent writers exactly one lands. Fetch errors in these rows are the bench's agents sharing one clone through worktrees (the lock race described above), not the sequencer. One repetition per point.</li>
+      <li><b>Review experiment.</b> The corpus is small and hand-built (see the counts above), so treat the rates as a pilot. The reviewer prompt names the problem categories, as a real reviewer checklist would, and that primes the models. That's why clean changes are in the mix: they measure false alarms. Each reviewer ran once per change. The local model's output was capped at 1,024 tokens after one runaway generation. Claude ran through the Claude Code CLI with settings and tools disabled; Codex ran in an empty read-only directory. Both still load user-level instructions, if any exist. The mutation-testing threshold (0.70) was fixed before any defect results were seen. The review run overlapped the GitHub phase of the landing sweep.</li>
+      <li><b>Not measured.</b> Semantic conflicts beyond migrations and lockfiles, real CI variance, and larger repos. The batching gain depends on the footprint distribution, which is assumed here, not measured from a real codebase.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="runs-h">
+    <h2 id="runs-h">Every run</h2>
+    <details>
+      <summary id="runs-sum">All runs as a table</summary>
+      <div class="tablebox"><table id="runs"></table></div>
+    </details>
+  </section>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+
+const MODELS = {
+  strict: { color: "var(--s1)", shape: "circle" },
+  merge: { color: "var(--s2)", shape: "square" },
+  seq: { color: "var(--s3)", shape: "diamond" },
+  jjws: { color: "var(--s4)", shape: "triangle" },
+  cf: { color: "var(--s3)", shape: "circle" },
+  cfref: { color: "var(--s3)", shape: "circle", faded: true },
+};
+const PANELS = [
+  { id: "local", title: "Local trunk, git client", sub: "Bare repo on the Mac Studio · git worktrees share one clone" },
+  { id: "jj", title: "Local trunk, jj client", sub: "Bare repo on the Mac Studio · jj 0.44.0" },
+  { id: "forgejo", title: "Forgejo", sub: "Forgejo 16.0.5 on talos-jetson-2 · LAN · HTTP push · aqua circle: the Rust Durable Object sequencer under local workerd" },
+  { id: "github", title: "GitHub", sub: "Private repo · internet · SSH push · N ≤ 16, K = 2" },
+  { id: "cloudflare", title: "Cloudflare (live)", sub: "Deployed Worker and Trunk Durable Object · Artifacts trunk and one Artifacts fork per agent · faded: the same code under local workerd over Forgejo" },
+];
+const METRICS = [
+  { key: "throughput_per_min", label: "Landings per minute", short: "Throughput", fmt: v => v.toFixed(1), note: "Landings per minute of wall time. Higher is better." },
+  { key: "ci_runs_per_landing", label: "CI runs per landing", short: "CI cost", fmt: v => v.toFixed(2), note: "Total CI runs (agent pre-tests, retests, and sequencer batch runs) divided by landings. 1.0 means every change was tested exactly once. Lower is better." },
+  { key: "rejects_per_landing", label: "Rejected pushes per landing", short: "Wasted pushes", fmt: v => v.toFixed(2), note: "Pushes that lost a compare-and-swap race, per landing. The sequencer's agents never push to trunk, so theirs is zero by construction." },
+  { key: "lat_p50", label: "Ready → landed, median (s)", short: "Latency p50", fmt: v => v.toFixed(1) + " s", note: "Seconds from the change first passing CI to being on trunk. Lower is better." },
+  { key: "lat_p95", label: "Ready → landed, p95 (s)", short: "Latency p95", fmt: v => v.toFixed(1) + " s", note: "95th-percentile wait from first passing CI to being on trunk." },
+];
+const NS = [1, 2, 4, 8, 16, 32];
+const svgNS = "http://www.w3.org/2000/svg";
+
+function el(tag, attrs = {}, parent) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "text") n.textContent = v; else if (k === "cls") n.className = v; else n.setAttribute(k, v);
+  }
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function sv(tag, attrs = {}, parent) {
+  const n = document.createElementNS(svgNS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function marker(shape, x, y, r, color, parent) {
+  const ring = { stroke: "var(--surface)", "stroke-width": 2, style: `fill:${color}` };
+  if (shape === "circle") return sv("circle", { cx: x, cy: y, r, ...ring }, parent);
+  if (shape === "square") return sv("rect", { x: x - r * 0.9, y: y - r * 0.9, width: r * 1.8, height: r * 1.8, rx: 1.5, ...ring }, parent);
+  if (shape === "diamond") return sv("path", { d: `M${x} ${y - r * 1.25}L${x + r * 1.25} ${y}L${x} ${y + r * 1.25}L${x - r * 1.25} ${y}Z`, ...ring }, parent);
+  return sv("path", { d: `M${x} ${y - r * 1.2}L${x + r * 1.15} ${y + r * 0.9}L${x - r * 1.15} ${y + r * 0.9}Z`, ...ring }, parent);
+}
+function swatch(shape, color) {
+  const s = sv("svg", { width: 22, height: 12, viewBox: "0 0 22 12", "aria-hidden": "true" });
+  sv("line", { x1: 1, y1: 6, x2: 21, y2: 6, "stroke-width": 2, "stroke-linecap": "round", style: `stroke:${color}` }, s);
+  marker(shape, 11, 6, 3.6, color, s);
+  return s;
+}
+function niceTicks(max) {
+  if (!(max > 0)) return [0, 1];
+  const raw = max / 4, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw);
+  const ticks = [];
+  for (let v = 0; v <= max + step * 0.001; v += step) ticks.push(+v.toFixed(6));
+  if (ticks[ticks.length - 1] < max) ticks.push(+(ticks[ticks.length - 1] + step).toFixed(6));
+  return ticks;
+}
+const fmtTick = v => Math.abs(v) >= 1000 ? v.toLocaleString() : (Number.isInteger(v) ? String(v) : v.toFixed(v < 1 ? 2 : 1));
+
+function seriesFor(panelId) {
+  const out = [];
+  for (const [label, s] of Object.entries(DATA.series)) if (s.panel === panelId) out.push({ label, ...s });
+  for (const ref of (DATA.panel_refs[panelId] || [])) {
+    const s = DATA.series[ref];
+    if (!s) continue;
+    // A reference drawn in the same model as the panel's own line is faded to tell them apart.
+    const clash = out.some(o => o.model === s.model);
+    out.push({ label: ref, ...s, model: clash ? s.model + "ref" : s.model,
+               name: s.name + (s.panel === "local" ? " (local trunk, reference)" : " (reference)") });
+  }
+  const order = { strict: 0, jjws: 1, merge: 2, seq: 3, cf: 4, cfref: 5 };
+  return out.sort((a, b) => order[a.model] - order[b.model]);
+}
+
+/* ---------- small-multiple line chart ---------- */
+function lineChart(container, series, metric, yMax, opts = {}) {
+  container.querySelectorAll("svg.chart,.tip,.empty").forEach(n => n.remove());
+  const pts = series.flatMap(s => s.points.filter(p => p[metric.key] != null));
+  if (!pts.length) { el("div", { cls: "empty", text: "No runs recorded for this panel yet." }, container); return; }
+  const W = 480, H = 270, m = { l: 46, r: 16, t: 14, b: 38 };
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const xs = n => m.l + (Math.log2(n) / Math.log2(32)) * iw;
+  const ticks = niceTicks(yMax);
+  const top = ticks[ticks.length - 1];
+  const ys = v => m.t + ih - (v / top) * ih;
+  const svg = sv("svg", { class: "chart", viewBox: `0 0 ${W} ${H}`, role: "img", tabindex: "0",
+    "aria-label": `${metric.label} by number of agents. Use left and right arrow keys to read values.` }, container);
+  const g = sv("g", {}, svg);
+  for (const t of ticks) {
+    sv("line", { x1: m.l, x2: W - m.r, y1: ys(t), y2: ys(t), "stroke-width": 1, style: `stroke:${t === 0 ? "var(--axis)" : "var(--grid)"}` }, g);
+    const tx = sv("text", { x: m.l - 8, y: ys(t) + 4, "text-anchor": "end", "font-size": 11, style: "fill:var(--axis-text);font-variant-numeric:tabular-nums" }, g);
+    tx.textContent = fmtTick(t);
+  }
+  for (const n of NS) {
+    const tx = sv("text", { x: xs(n), y: H - m.b + 18, "text-anchor": "middle", "font-size": 11, style: "fill:var(--axis-text);font-variant-numeric:tabular-nums" }, g);
+    tx.textContent = n;
+  }
+  const xl = sv("text", { x: m.l + iw / 2, y: H - 4, "text-anchor": "middle", "font-size": 11, style: "fill:var(--axis-text)" }, g);
+  xl.textContent = "agents";
+  const layer = st => st.faded ? sv("g", { opacity: 0.45 }, g) : g;
+  for (const s of series) {
+    const st = MODELS[s.model];
+    const p = s.points.filter(q => q[metric.key] != null).sort((a, b) => a.n - b.n);
+    if (!p.length) continue;
+    sv("path", { d: p.map((q, i) => `${i ? "L" : "M"}${xs(q.n).toFixed(1)} ${ys(q[metric.key]).toFixed(1)}`).join(""),
+      fill: "none", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round",
+      ...(st.faded ? { "stroke-dasharray": "5 4" } : {}), style: `stroke:${st.color}` }, layer(st));
+  }
+  for (const s of series) {
+    const st = MODELS[s.model], lg = layer(st);
+    for (const q of s.points) if (q[metric.key] != null) marker(st.shape, xs(q.n), ys(q[metric.key]), 4.2, st.color, lg);
+  }
+  // crosshair + tooltip
+  const cross = sv("line", { y1: m.t, y2: m.t + ih, "stroke-width": 1, style: "stroke:var(--axis);display:none" }, svg);
+  const hit = sv("rect", { x: m.l - 12, y: 0, width: iw + 24, height: H, fill: "transparent" }, svg);
+  const tip = el("div", { cls: "tip", hidden: "" }, container);
+  const present = [...new Set(pts.map(p => p.n))].sort((a, b) => a - b);
+  let cur = -1;
+  function show(i) {
+    cur = Math.max(0, Math.min(present.length - 1, i));
+    const n = present[cur], x = xs(n);
+    cross.setAttribute("x1", x); cross.setAttribute("x2", x); cross.style.display = "";
+    tip.replaceChildren();
+    el("div", { cls: "h", text: `${n} agent${n > 1 ? "s" : ""}` }, tip);
+    for (const s of series) {
+      const q = s.points.find(p => p.n === n);
+      if (!q || q[metric.key] == null) continue;
+      const row = el("div", { cls: "row" }, tip);
+      const key = sv("svg", { width: 14, height: 4, viewBox: "0 0 14 4" }, row);
+      sv("line", { x1: 1, y1: 2, x2: 13, y2: 2, "stroke-width": 2.5, "stroke-linecap": "round", style: `stroke:${MODELS[s.model].color}` }, key);
+      el("b", { text: metric.fmt(q[metric.key]) }, row);
+      const reps = (q[metric.key + "_reps"] || []).filter(v => v != null);
+      el("span", { text: s.name + (reps.length > 1 ? `  (reps: ${reps.map(metric.fmt).join(", ")})` : "") }, row);
+    }
+    tip.hidden = false;
+    const box = svg.getBoundingClientRect(), cb = container.getBoundingClientRect();
+    const px = (x / W) * box.width + (box.left - cb.left);
+    const tw = tip.offsetWidth;
+    tip.style.left = Math.max(8, Math.min(cb.width - tw - 8, px + 12 + tw > cb.width ? px - tw - 12 : px + 12)) + "px";
+    tip.style.top = (box.top - cb.top + 18) + "px";
+  }
+  function hide() { tip.hidden = true; cross.style.display = "none"; }
+  hit.addEventListener("pointermove", e => {
+    const box = svg.getBoundingClientRect();
+    const x = ((e.clientX - box.left) / box.width) * W;
+    let best = 0;
+    present.forEach((n, i) => { if (Math.abs(xs(n) - x) < Math.abs(xs(present[best]) - x)) best = i; });
+    show(best);
+  });
+  hit.addEventListener("pointerleave", hide);
+  svg.addEventListener("focus", () => show(cur < 0 ? present.length - 1 : cur));
+  svg.addEventListener("blur", hide);
+  svg.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { show(cur + 1); e.preventDefault(); }
+    else if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
+    else if (e.key === "Escape") hide();
+  });
+}
+
+function legend(parent, series) {
+  if (series.length < 2) return;
+  const lg = el("div", { cls: "legend" }, parent);
+  for (const s of series) {
+    const it = el("span", {}, lg);
+    it.appendChild(swatch(MODELS[s.model].shape, MODELS[s.model].color));
+    it.appendChild(document.createTextNode(s.name));
+  }
+}
+
+/* ---------- performance panels ---------- */
+let metricIdx = 0;
+function renderPanels() {
+  const metric = METRICS[metricIdx];
+  const root = document.getElementById("panels");
+  root.replaceChildren();
+  const all = PANELS.flatMap(p => seriesFor(p.id).flatMap(s => s.points.map(q => q[metric.key]))).filter(v => v != null);
+  const yMax = all.length ? Math.max(...all) * 1.05 : 1;
+  for (const p of PANELS) {
+    const card = el("div", { cls: "panel" }, root);
+    const hd = el("header", {}, card);
+    el("h3", { text: p.title }, hd);
+    el("p", { text: p.sub }, hd);
+    const ss = seriesFor(p.id);
+    legend(card, ss);
+    lineChart(card, ss, metric, yMax);
+  }
+  document.getElementById("metric-note").textContent = metric.note + " Y axis is shared across panels.";
+  document.querySelectorAll("#metric button").forEach((b, i) => b.setAttribute("aria-pressed", String(i === metricIdx)));
+}
+function renderMetricControls() {
+  const seg = document.getElementById("metric");
+  METRICS.forEach((m, i) => {
+    const b = el("button", { type: "button", id: "metric-" + m.key, "aria-pressed": "false", text: m.short, title: m.label }, seg);
+    b.addEventListener("click", () => { metricIdx = i; try { localStorage.setItem("nerudo-metric", m.key); } catch (_) {} renderPanels(); });
+  });
+  try {
+    const saved = localStorage.getItem("nerudo-metric");
+    const i = METRICS.findIndex(m => m.key === saved);
+    if (i >= 0) metricIdx = i;
+  } catch (_) {}
+}
+
+/* ---------- sequencer panels ---------- */
+function renderSeqPanels() {
+  const root = document.getElementById("seqpanels");
+  const seqSeries = ["seq", "seq-forgejo-mirror", "seq-github-mirror"].filter(k => DATA.series[k]);
+  const card = el("div", { cls: "panel" }, root);
+  const hd = el("header", {}, card);
+  el("h3", { text: "Average batch size" }, hd);
+  el("p", { text: "Changes landed per CI run, local trunk" }, hd);
+  const s = DATA.series.seq;
+  if (s) {
+    const max = Math.max(...s.points.map(p => p.avg_batch || 0)) * 1.1;
+    lineChart(card, [{ ...s, name: "Changes per batch" }], { key: "avg_batch", label: "Average batch size", fmt: v => v.toFixed(2) }, max);
+  } else el("div", { cls: "empty", text: "No sequencer runs recorded yet." }, card);
+
+  const mir = seqSeries.filter(k => k !== "seq");
+  const card2 = el("div", { cls: "panel" }, root);
+  const hd2 = el("header", {}, card2);
+  el("h3", { text: "Mirror lag, median" }, hd2);
+  el("p", { text: "Seconds from landing until the forge acknowledges a push containing it. Colors here identify the forge, not a coordination model. The GitHub runs overlapped a GitHub push outage: at 1 and 4 agents the mirror never caught up, so only the 16-agent point has a lag." }, hd2);
+  const ms = mir.map(k => ({ label: k, ...DATA.series[k], model: k.includes("github") ? "merge" : "strict", name: k.includes("github") ? "GitHub mirror" : "Forgejo mirror" }));
+  const vals = ms.flatMap(x => x.points.map(p => p.mirror_lag_p50)).filter(v => v != null);
+  if (vals.length) {
+    legend(card2, ms);
+    lineChart(card2, ms, { key: "mirror_lag_p50", label: "Mirror lag median", fmt: v => v.toFixed(2) + " s" }, Math.max(...vals) * 1.1);
+  } else el("div", { cls: "empty", text: "Mirror runs not recorded yet." }, card2);
+}
+
+/* ---------- summary tiles ---------- */
+function at(label, n, key) {
+  const s = DATA.series[label];
+  const p = s && s.points.find(q => q.n === n);
+  return p ? p[key] : null;
+}
+function renderTiles() {
+  const root = document.getElementById("tiles");
+  const N = 16;
+  const tile = (label, value, unit, note) => {
+    const t = el("div", { cls: "tile" }, root);
+    el("div", { cls: "label", text: label }, t);
+    const v = el("div", { cls: "value", text: value }, t);
+    if (unit) el("small", { text: unit }, v);
+    el("div", { cls: "note", text: note }, t);
+  };
+  const seqT = at("seq", N, "throughput_per_min"), gitT = at("git-strict", N, "throughput_per_min");
+  if (seqT != null && gitT != null)
+    tile("Sequencer landings per minute", seqT.toFixed(0), "/min", `${(seqT / gitT).toFixed(1)}× rebase-retest-push on the same local trunk (${gitT.toFixed(0)}/min)`);
+  const seqC = at("seq", N, "ci_runs_per_landing"), gitC = at("git-strict", N, "ci_runs_per_landing");
+  if (seqC != null && gitC != null)
+    tile("CI runs per landed change", seqC.toFixed(2), "", `vs ${gitC.toFixed(2)} for rebase-retest-push: every lost race re-runs CI`);
+  const careful = DATA.correctness.filter(r => !r.hazard);
+  const lost = careful.reduce((a, r) => a + r.lost, 0);
+  const lostRows = careful.filter(r => r.lost > 0).map(r => r.name);
+  const hz = DATA.correctness.filter(r => r.hazard).reduce((a, r) => a + r.lost, 0);
+  tile("Landings silently lost", String(lost), "",
+    (lost ? `All in: ${lostRows.join("; ")}.` : "None with careful agents.") +
+    ` Another ${hz} when jj agents follow the --allow-backwards hint.`);
+  const broken = DATA.correctness.filter(r => r.broken > 0);
+  const nb = broken.reduce((a, r) => a + r.broken, 0);
+  tile("Broken commits on trunk", String(nb), "", nb ? `From ${broken.map(r => r.name).join("; ")}` : "None in any configuration");
+}
+
+/* ---------- correctness table ---------- */
+const ICON_OK = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.2 7.3l1.9 1.9 3.8-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_BAD = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.2l6 10.8H1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 5.4v3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="7" cy="10.3" r="0.9" fill="currentColor"/></svg>';
+function chip(n, okText, badText) {
+  const c = el("span", { cls: "chip " + (n ? "bad" : "ok") });
+  c.innerHTML = n ? ICON_BAD : ICON_OK;
+  c.appendChild(document.createTextNode(n ? `${n} ${badText}` : okText));
+  return c;
+}
+function renderCorrectness() {
+  const t = document.getElementById("corr");
+  const head = el("thead", {}, t), hr = el("tr", {}, head);
+  for (const [h, num] of [["Configuration", 0], ["Landed", 1], ["Lost silently", 0], ["Duplicate migrations", 0], ["Broken trunk commits", 0], ["Runs", 1]])
+    el("th", { cls: num ? "num" : "", text: h, scope: "col" }, hr);
+  const body = el("tbody", {}, t);
+  const groups = { local: "Local trunk, git client", jj: "Local trunk, jj client", forgejo: "Forgejo", github: "GitHub", cloudflare: "Cloudflare (live)" };
+  for (const [gid, gname] of Object.entries(groups)) {
+    const rows = DATA.correctness.filter(r => r.panel === gid);
+    if (!rows.length) continue;
+    const gr = el("tr", {}, body);
+    el("td", { cls: "groupcell", colspan: "6", text: gname }, gr);
+    for (const r of rows) {
+      const tr = el("tr", {}, body);
+      const c0 = el("td", {}, tr);
+      c0.appendChild(document.createTextNode(r.name));
+      const extra = [];
+      if (r.sideways) extra.push(`${r.sideways} sideways push${r.sideways > 1 ? "es" : ""}`);
+      if (r.timeouts) extra.push(`${r.timeouts} run${r.timeouts > 1 ? "s" : ""} hit the 15 min deadline`);
+      if (r.stale) extra.push(`${r.stale} stale working copies`);
+      if (r.fetch_errors) extra.push(`${r.fetch_errors} fetch lock errors retried`);
+      if (r.mirror_behind) extra.push(`mirror still ${r.mirror_behind} landings behind at the end (lag, not loss)`);
+      if (r.hazard) extra.push("hazard series: shows what the jj hint leads to");
+      if (extra.length) el("span", { cls: "sub", text: extra.join(" · ") }, c0);
+      el("td", { cls: "num", text: `${r.landed} / ${r.expected}` }, tr);
+      el("td", {}, tr).appendChild(chip(r.lost, "None", "lost"));
+      el("td", {}, tr).appendChild(chip(r.dups, "None", "on trunk tips"));
+      el("td", {}, tr).appendChild(chip(r.broken, "None", `of ${r.trunk_commits}`));
+      el("td", { cls: "num", text: `${r.runs} · N ≤ ${r.max_n}` }, tr);
+    }
+  }
+}
+
+/* ---------- all runs ---------- */
+function renderRuns() {
+  const t = document.getElementById("runs");
+  const cols = [["label", "Configuration"], ["n", "N"], ["rep", "Rep"], ["wall_s", "Wall s"], ["landed", "Landed"], ["throughput_per_min", "Per min"],
+    ["ci_runs_per_landing", "CI / landing"], ["rejects_per_landing", "Rejects / landing"], ["lat_p50", "p50 s"], ["lat_p95", "p95 s"],
+    ["lost_changes", "Lost"], ["dup_migrations", "Dup mig."], ["broken_commits", "Broken"], ["mirror_lag_p50", "Mirror lag s"]];
+  const hr = el("tr", {}, el("thead", {}, t));
+  cols.forEach(([, h], i) => el("th", { cls: i ? "num" : "", text: h, scope: "col" }, hr));
+  const body = el("tbody", {}, t);
+  const rows = [...DATA.runs].sort((a, b) => a.label.localeCompare(b.label) || a.n - b.n || a.rep - b.rep);
+  for (const r of rows) {
+    const tr = el("tr", {}, body);
+    cols.forEach(([k], i) => {
+      let v = r[k];
+      if (k === "landed") v = `${r.landed}/${r.expected}`;
+      else if (typeof v === "number" && !Number.isInteger(v)) v = v.toFixed(2);
+      el("td", { cls: i ? "num" : "mono", text: v == null ? "–" : String(v) }, tr);
+    });
+  }
+  document.getElementById("runs-sum").textContent = `All ${rows.length} runs as a table`;
+}
+
+function renderMeta() {
+  const m = document.getElementById("meta");
+  const items = [["date", "2026-10-07"], ["git", "2.55.0"], ["jj", "0.44.0"], ["forgejo", "16.0.5"],
+    ["simulated CI", DATA.ci_seconds.join(", ") + " s"], ["runs", String(DATA.n_runs)], ["changes per agent", "3 (GitHub 2)"]];
+  for (const [k, v] of items) { const s = el("span", {}, m); s.appendChild(document.createTextNode(k + " ")); el("b", { text: v }, s); }
+  document.querySelectorAll(".ci-s").forEach(n => n.textContent = DATA.ci_seconds.join(", "));
+  const gm = DATA.correctness.find(r => r.label === "seq-github-mirror");
+  if (gm) document.getElementById("gh-outage-note").textContent +=
+    ` · during it the sequencer landed ${gm.landed}/${gm.expected} with ${gm.lost} lost; mirror still ${gm.mirror_behind} behind at the end of the runs that never recovered`;
+  const jw = DATA.correctness.find(r => r.label === "jj-workspaces");
+  document.getElementById("jj-sweep-note").textContent = jw
+    ? `benchmark sweep, careful recipe: ${jw.lost} lost, ${jw.sideways} sideways pushes across ${jw.runs} runs`
+    : "benchmark sweep data not recorded";
+}
+
+/* ---------- review experiment ---------- */
+const OUTCOMES = [
+  { key: "gate_reject", label: "Rejected by a gate", color: "var(--o1)" },
+  { key: "seal", label: "Sent to a human seal", color: "var(--o2)" },
+  { key: "model_reject", label: "Rejected by a reviewer", color: "var(--o3)" },
+  { key: "escalate", label: "Escalated to a human", color: "var(--o4)" },
+  { key: "auto_land", label: "Escaped to trunk", color: "var(--escaped)" },
+];
+const CLASS_NAMES = {
+  hollow_test: "Hollow test", weakened_test: "Weakened existing test", boundary_bug: "Boundary bug",
+  missing_requirement: "Missing requirement", skipped_or_deleted_test: "Skipped or deleted test",
+  governance_change: "CI or rules edit", irreversible_change: "Undeclared irreversible change",
+  out_of_scope_change: "Out-of-scope edit",
+};
+const shareTip = el("div", { cls: "tip", hidden: "" });
+function stackBar(counts, total) {
+  const W = 260, H = 14;
+  const s = sv("svg", { class: "stack", viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: "none", role: "img",
+    "aria-label": OUTCOMES.map(o => `${o.label}: ${counts[o.key] || 0}`).join(", ") });
+  let x = 0;
+  for (const o of OUTCOMES) {
+    const n = counts[o.key] || 0;
+    if (!n) continue;
+    const w = (n / total) * W;
+    const r = sv("rect", { x: x + (x ? 1 : 0), y: 0, width: Math.max(0, w - (x ? 1 : 0) - (x + w < W - 0.5 ? 1 : 0)), height: H,
+      rx: 2, style: `fill:${o.color}`, tabindex: "0" }, s);
+    const show = (ev) => {
+      shareTip.replaceChildren();
+      el("div", { cls: "h", text: o.label }, shareTip);
+      const row = el("div", { cls: "row" }, shareTip);
+      el("span", { text: "" }, row);
+      el("b", { text: `${n} of ${total}` }, row);
+      shareTip.hidden = false;
+      const host = s.closest("section"), hb = host.getBoundingClientRect(), rb = r.getBoundingClientRect();
+      if (shareTip.parentNode !== host) { host.style.position = "relative"; host.appendChild(shareTip); }
+      shareTip.style.left = Math.min(hb.width - 180, rb.left - hb.left) + "px";
+      shareTip.style.top = (rb.bottom - hb.top + 6) + "px";
+    };
+    r.addEventListener("pointerenter", show);
+    r.addEventListener("focus", show);
+    r.addEventListener("pointerleave", () => shareTip.hidden = true);
+    r.addEventListener("blur", () => shareTip.hidden = true);
+    x += w;
+  }
+  return s;
+}
+function renderReview() {
+  const R = DATA.review;
+  const sec = document.getElementById("review");
+  if (!R) { sec.hidden = true; return; }
+  const S = R.reps[0];
+  const pol = name => S.policies.find(p => p.name === name);
+  document.getElementById("rev-lede").textContent =
+    `${S.n_defects + S.n_clean} changes to a small ledger package, each written against a human Intent. ${S.n_clean} are clean; ` +
+    `${S.n_defects} carry one planted defect from ${S.classes.length} classes, and every one of them passes the test suite. ` +
+    `Each change goes through the deterministic gates, then ${R.reviewers.length} reviewer models. The routing policies below are scored from the same recorded verdicts.`;
+
+  const tiles = document.getElementById("rev-tiles");
+  const tile = (label, value, unit, note) => {
+    const t = el("div", { cls: "tile" }, tiles);
+    el("div", { cls: "label", text: label }, t);
+    const v = el("div", { cls: "value", text: value }, t);
+    if (unit) el("small", { text: unit }, v);
+    el("div", { cls: "note", text: note }, t);
+  };
+  const testsOnly = pol("Tests only"), gates = pol("Deterministic gates");
+  const best = [...S.policies].filter(p => p.reviewers.length)
+    .sort((a, b) => a.defects_escaped - b.defects_escaped || b.clean_landed - a.clean_landed || a.human_per_100 - b.human_per_100)[0];
+  if (testsOnly) tile("Defects that pass the tests", `${testsOnly.defects_escaped}`, `of ${S.n_defects}`, "Every planted defect is green in CI, so CI alone lands all of them.");
+  if (gates) tile("Escaped past deterministic gates", `${gates.defects_escaped}`, `of ${S.n_defects}`, `Mutation testing, the ratchet, and path rules, with no model. ${gates.clean_landed} of ${S.n_clean} clean changes still land.`);
+  if (best) tile("Escaped with the best panel", `${best.defects_escaped}`, `of ${S.n_defects}`, `${best.name}: ${best.clean_landed} of ${S.n_clean} clean changes land, ${best.human_per_100} human decisions per 100 changes.`);
+
+  const lg = document.getElementById("rev-legend");
+  for (const o of OUTCOMES) {
+    const it = el("span", {}, lg);
+    el("span", { cls: "key", style: `background:${o.color}` }, it);
+    it.appendChild(document.createTextNode(o.label));
+  }
+  const t = document.getElementById("rev-policies");
+  const hr = el("tr", {}, el("thead", {}, t));
+  [["Policy", ""], ["Defects", "stackcell"], ["Escaped", "num"], ["Clean changes landed", "num"], ["Human / 100", "num"]]
+    .forEach(([h, c]) => el("th", { cls: c, text: h, scope: "col" }, hr));
+  const body = el("tbody", {}, t);
+  for (const p of S.policies) {
+    const tr = el("tr", {}, body);
+    el("td", { text: p.name }, tr);
+    el("td", { cls: "stackcell" }, tr).appendChild(stackBar(p.outcomes_defects, S.n_defects));
+    el("td", { cls: "num" }, tr).appendChild(chip(p.defects_escaped, "None", "escaped"));
+    el("td", { cls: "num", text: `${p.clean_landed} / ${S.n_clean}` }, tr);
+    el("td", { cls: "num", text: p.human_per_100.toFixed(1) }, tr);
+  }
+
+  const rt = document.getElementById("rev-reviewers");
+  const rh = el("tr", {}, el("thead", {}, rt));
+  [["Reviewer", ""], ["Defects stopped", "num"], ["Named the right problem", "num"], ["Clean changes flagged", "num"], ["Errors", "num"], ["Seconds / review", "num"], ["Cost", "num"]]
+    .forEach(([h, c]) => el("th", { cls: c, text: h, scope: "col" }, rh));
+  const rb = el("tbody", {}, rt);
+  for (const r of S.reviewers) {
+    const tr = el("tr", {}, rb);
+    const c0 = el("td", {}, tr);
+    c0.appendChild(document.createTextNode(r.name));
+    el("span", { cls: "sub", text: r.model }, c0);
+    el("td", { cls: "num", text: `${r.defects_stopped} / ${r.defects}` }, tr);
+    el("td", { cls: "num", text: `${r.right_reason} / ${r.defects_stopped}` }, tr);
+    el("td", { cls: "num", text: `${r.clean_stopped} / ${r.clean}` }, tr);
+    el("td", { cls: "num", text: String(r.errors) }, tr);
+    el("td", { cls: "num", text: r.mean_seconds == null ? "–" : r.mean_seconds.toFixed(1) }, tr);
+    el("td", { cls: "num", text: r.cost_usd == null ? (r.name.startsWith("ollama") ? "local" : "plan") : "$" + r.cost_usd.toFixed(2) }, tr);
+  }
+
+  const ct = document.getElementById("rev-classes");
+  const ch = el("tr", {}, el("thead", {}, ct));
+  el("th", { text: "Defect class: stopped by", scope: "col" }, ch);
+  el("th", { cls: "num", text: "Gates", scope: "col" }, ch);
+  for (const r of S.reviewers) el("th", { cls: "heat", text: r.name.replace("claude-", "").replace("codex-", "").replace("ollama-", ""), scope: "col" }, ch);
+  const cb = el("tbody", {}, ct);
+  const byId = Object.fromEntries(S.changes.map(c => [c.id, c]));
+  const gatesPol = gates;
+  for (const cls of S.classes) {
+    const tr = el("tr", {}, cb);
+    el("td", { text: CLASS_NAMES[cls] || cls }, tr);
+    const g = gatesPol.by_class[cls];
+    el("td", { cls: "num", text: `${g.n - g.escaped} / ${g.n}` }, tr);
+    for (const r of S.reviewers) {
+      const pc = r.per_class[cls];
+      const frac = pc.n ? pc.stopped / pc.n : 0;
+      const td = el("td", { cls: "heat", text: `${pc.stopped} / ${pc.n}` }, tr);
+      td.style.background = `color-mix(in oklab, var(--o2) ${Math.round(frac * 38)}%, transparent)`;
+    }
+  }
+
+  const co = document.getElementById("rev-callouts");
+  const worst = [...S.co_miss].sort((a, b) => b.both_missed - a.both_missed)[0];
+  const bestPair = [...S.co_miss].sort((a, b) => a.both_missed - b.both_missed)[0];
+  const sweep = S.mutation_sweep.map(x => `${x.threshold.toFixed(1)}: ${x.defects_rejected}/${S.n_defects} defects, ${x.clean_rejected}/${S.n_clean} clean`).join(" · ");
+  const card = (title, text) => { const f = el("article", { cls: "finding" }, co); el("h3", { text: title }, f); el("p", { text }, f); };
+  if (worst) {
+    const misses = S.reviewers.filter(r => r.defects_stopped < r.defects).map(r => `${r.name} (${r.defects - r.defects_stopped})`);
+    card("Correlated blind spots", worst.both_missed
+      ? `${worst.a} and ${worst.b} both approved ${worst.both_missed} of the same defects (they missed ${worst.a_missed} and ${worst.b_missed} each). Least overlap: ${bestPair.a} and ${bestPair.b}, with ${bestPair.both_missed}.`
+      : `No defect was approved by two reviewers. ${misses.length ? "Every miss came from a single reviewer: " + misses.join(", ") + "." : "No reviewer missed any."} With a corpus this easy for frontier models, it can't measure their correlation. That needs harder defects.`);
+  }
+  card("Mutation-testing threshold", `What the gate rejects at each threshold: ${sweep}. It catches weak tests, and it also rejects clean changes whose tests skip an edge. It can't catch a bug the tests themselves encode.`);
+  if (R.pass1) {
+    const flagged = R.pass1.reviewers.map(r => `${r.name} ${r.clean_stopped}/${r.clean}`).join(", ");
+    card("The reviewers corrected the corpus", `In the first pass the frontier reviewers flagged "clean" changes, and they were right. I05-clean accepted codes like "US1" (isupper() ignores digits) and didn't test its migration. I02-, I03- and I04-clean left stated rejection criteria untested. Those four were fixed and re-reviewed. First-pass flags on clean changes: ${flagged}. The tables above use the corrected corpus.`);
+  }
+
+  const vt = document.getElementById("rev-changes");
+  const vh = el("tr", {}, el("thead", {}, vt));
+  ["Change", "Ground truth", "Mutation", "Seal"].concat(R.reviewers).forEach(h => el("th", { text: h, scope: "col" }, vh));
+  const vb = el("tbody", {}, vt);
+  for (const c of S.changes) {
+    const tr = el("tr", {}, vb);
+    el("td", { cls: "mono", text: c.id }, tr);
+    const g = el("td", {}, tr);
+    g.appendChild(document.createTextNode(c.label === "clean" ? "Clean" : (CLASS_NAMES[c.label] || c.label)));
+    if (c.label !== "clean") el("span", { cls: "sub", text: c.note }, g);
+    el("td", { cls: "num", text: c.mutation_score == null ? "–" : c.mutation_score.toFixed(2) }, tr);
+    el("td", { text: c.seal ? "yes" : "" }, tr);
+    for (const r of R.reviewers) {
+      const v = c.verdicts[r];
+      el("td", { cls: "verdict " + (v === "approve" ? "approve" : "stop"), text: v.replace("_", " ") }, tr);
+    }
+  }
+}
+
+renderMeta();
+renderTiles();
+renderCorrectness();
+renderMetricControls();
+renderPanels();
+renderSeqPanels();
+renderRuns();
+renderReview();
+window.addEventListener("resize", () => document.querySelectorAll(".tip").forEach(t => t.hidden = true));
+</script>

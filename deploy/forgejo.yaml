@@ -1,0 +1,74 @@
+# Throwaway Forgejo for the nerudo benchmark. Not managed by ArgoCD.
+# Data lives on node-local emptyDir on purpose: the benchmark measures the forge as a
+# coordination point, and keeps Longhorn (no backup target, history of wedging) out of it.
+# Remove with: kubectl --context admin@turingpi delete namespace nerudo-bench
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nerudo-bench
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo
+  namespace: nerudo-bench
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: {app: forgejo}
+  template:
+    metadata:
+      labels: {app: forgejo}
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: forgejo
+          image: codeberg.org/forgejo/forgejo:16.0.5-rootless
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities: {drop: [ALL]}
+          ports:
+            - containerPort: 3000
+          env:
+            - {name: FORGEJO__security__INSTALL_LOCK, value: "true"}
+            - {name: FORGEJO__security__PASSWORD_COMPLEXITY, value: "off"}
+            - {name: FORGEJO__server__HTTP_PORT, value: "3000"}
+            - {name: FORGEJO__server__ROOT_URL, value: "http://192.168.150.15:30300/"}
+            - {name: FORGEJO__server__DISABLE_SSH, value: "true"}
+            - {name: FORGEJO__database__DB_TYPE, value: "sqlite3"}
+            - {name: FORGEJO__service__DISABLE_REGISTRATION, value: "true"}
+            - {name: FORGEJO__repository__DEFAULT_BRANCH, value: "main"}
+            - {name: FORGEJO__log__LEVEL, value: "Warn"}
+            - {name: FORGEJO__api__MAX_RESPONSE_ITEMS, value: "100"}
+          readinessProbe:
+            httpGet: {path: /api/healthz, port: 3000}
+            periodSeconds: 5
+          resources:
+            requests: {cpu: 500m, memory: 512Mi}
+            limits: {memory: 2Gi}
+          volumeMounts:
+            - {name: data, mountPath: /var/lib/gitea}
+            - {name: config, mountPath: /etc/gitea}
+      volumes:
+        - {name: data, emptyDir: {}}
+        - {name: config, emptyDir: {}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forgejo
+  namespace: nerudo-bench
+spec:
+  type: NodePort
+  selector: {app: forgejo}
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30300

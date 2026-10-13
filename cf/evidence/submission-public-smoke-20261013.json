@@ -1,0 +1,117 @@
+{
+  "kind": "anonymous_cold_browser_smoke",
+  "recorded_at": "2026-10-13T15:32:33.759Z",
+  "browser": "Chromium",
+  "viewport": {
+    "width": 1600,
+    "height": 1000
+  },
+  "backend_version": "a1cbe028-4447-41e2-9bc8-377bdca25415",
+  "frontend_version": "ff8d53e4-35f4-47ac-a1bc-7bcaffdd38a5",
+  "scope": "One new anonymous browser context per page; load and visible error check. This is not a load test or SLA.",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "dom_ms": 817,
+      "page_errors": [],
+      "has_read_only": false,
+      "visible_error": false
+    },
+    {
+      "path": "/nerudo/nerudo",
+      "status": 200,
+      "dom_ms": 1118,
+      "page_errors": [],
+      "has_read_only": true,
+      "visible_error": false
+    },
+    {
+      "path": "/nerudo/demo/tasks/T-5",
+      "status": 200,
+      "dom_ms": 791,
+      "page_errors": [],
+      "has_read_only": true,
+      "visible_error": false
+    },
+    {
+      "path": "/nerudo/demo/pulls/10",
+      "status": 200,
+      "dom_ms": 863,
+      "page_errors": [],
+      "has_read_only": true,
+      "visible_error": false
+    },
+    {
+      "path": "/nerudo/demo/pulls/16",
+      "status": 200,
+      "dom_ms": 907,
+      "page_errors": [],
+      "has_read_only": true,
+      "visible_error": false
+    },
+    {
+      "path": "/cloudflare/agents",
+      "status": 200,
+      "dom_ms": 5533,
+      "page_errors": [],
+      "has_read_only": true,
+      "visible_error": false
+    }
+  ],
+  "prior_run": {
+    "recorded_at": "2026-10-13T15:23:52.397Z",
+    "backend_version": "7cc33268-8a4b-45c1-ac5a-149d776afd3a",
+    "frontend_version": "5402ff18-b432-48d5-b1f0-1ad55aa0f732",
+    "routes": [
+      {
+        "path": "/",
+        "status": 200,
+        "dom_ms": 636,
+        "page_errors": [],
+        "has_read_only": false,
+        "visible_error": false
+      },
+      {
+        "path": "/nerudo/nerudo",
+        "status": 200,
+        "dom_ms": 932,
+        "page_errors": [],
+        "has_read_only": true,
+        "visible_error": false
+      },
+      {
+        "path": "/nerudo/demo/tasks/T-5",
+        "status": 200,
+        "dom_ms": 1172,
+        "page_errors": [],
+        "has_read_only": true,
+        "visible_error": false
+      },
+      {
+        "path": "/nerudo/demo/pulls/10",
+        "status": 200,
+        "dom_ms": 465,
+        "page_errors": [],
+        "has_read_only": true,
+        "visible_error": false
+      },
+      {
+        "path": "/nerudo/demo/pulls/16",
+        "status": 200,
+        "dom_ms": 810,
+        "page_errors": [],
+        "has_read_only": true,
+        "visible_error": false
+      },
+      {
+        "path": "/cloudflare/agents",
+        "status": 200,
+        "dom_ms": 5270,
+        "page_errors": [],
+        "has_read_only": true,
+        "visible_error": false
+      }
+    ]
+  }
+}

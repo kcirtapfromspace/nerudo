@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.92,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_accounts.py",
+   "explanation": "The test `test_rejects_negative_opening_balance` has been deleted. This test is unrelated to the daily limit feature and its removal is not mentioned or justified in the Intent. This deletion requires human review to determine if it was intentional or accidental."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.014932,
+ "seconds": 23.76,
+ "reviewer": "claude-haiku"
+}

@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_limits.py",
+   "explanation": "The test suite does not verify that ValueError is raised when limit < 0. This is an explicit acceptance criterion ('limit must be >= 0, otherwise ValueError') that the implementation correctly handles but the tests do not verify. A test case should be added to validate this behavior, such as asserting that within_daily_limit(0, 100, -1) raises ValueError."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.017421,
+ "seconds": 28.94,
+ "reviewer": "claude-haiku"
+}

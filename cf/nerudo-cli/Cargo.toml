@@ -1,0 +1,19 @@
+[package]
+name = "nerudo-cli"
+version = "0.1.0"
+edition = "2021"
+description = "The human side of nerudo: sign allowances and seals with an Ed25519 key."
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "nerudo"
+path = "src/main.rs"
+
+[dependencies]
+nerudo-core = { path = "../nerudo-core" }
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+rand_core = { version = "0.6", features = ["getrandom"] }
+serde_json = "1"
+ureq = "2"
+nerudo-git = { path = "../nerudo-git" }
+futures = { version = "0.3", default-features = false, features = ["executor"] }

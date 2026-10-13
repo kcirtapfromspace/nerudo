@@ -1,0 +1,69 @@
+{
+  "recorded_at": "2026-10-13T15:31:39.715117+00:00",
+  "scope": "Final production versions deployed from merged source5a74c01. The final Worker WASM hash matches the four strict local merged-source recovery scenarios. Runtime source in this input equals the native PR110 landing; benchmark, soak and provider builds are separately scoped.",
+  "input_source_commit": "5a74c0100dbba28dcd64c07ca98aa88adf191f78",
+  "native_publication": {
+    "url": "https://nerudo-web.patrickdeutsch.workers.dev/nerudo/nerudo/pulls/110",
+    "revision": 2,
+    "input_commit": "10996af826c74a964bce9714c107c99f1304d576",
+    "state": "landed",
+    "landing_commit": "27bbc6a053c8290eefefcc828e2e51748bf7de7c",
+    "prior_revision": "ejected by overlap with independently landed PR109; reconciled and resubmitted"
+  },
+  "production": {
+    "backend": {
+      "worker": "nerudo",
+      "url": "https://nerudo.patrickdeutsch.workers.dev",
+      "version": "a1cbe028-4447-41e2-9bc8-377bdca25415",
+      "worker_wasm_sha256": "f62080b3935398b6b7eb0503ae55d58db2f03b7dcec66be154f13cda0986ec1f",
+      "worker_wasm_bytes": 4907282,
+      "artifacts_namespace": "landseq",
+      "ci_binding": "nerudo-ci"
+    },
+    "frontend": {
+      "worker": "nerudo-web",
+      "url": "https://nerudo-web.patrickdeutsch.workers.dev",
+      "version": "ff8d53e4-35f4-47ac-a1bc-7bcaffdd38a5",
+      "backend_service_binding": "nerudo"
+    }
+  },
+  "demo": {
+    "url": "https://nerudo-web.patrickdeutsch.workers.dev/nerudo/demo",
+    "trunk": "demo-1791904512",
+    "kind": "six scripted clients, not LLM clients",
+    "main": "168de019714737f9b57fd537a9702b2a6a13165d",
+    "landed_changes": 21,
+    "batches": 19,
+    "ci_runs": 22,
+    "conflict_rejections": 1,
+    "integrated_ci_rejections": 1,
+    "ci_repair_pr": 10,
+    "signed_sensitive_pr": 16,
+    "competing_task": "T-5",
+    "pinned_competing_plans": 3,
+    "release": "v0.1.0",
+    "verification": "Independent read-only Git fetch, static checks, exactly-once receipts, numbered migrations, pinned context, signatures and log hash chain passed."
+  },
+  "smoke_evidence": "submission-public-smoke-20261013.json",
+  "prior_production_deployment": {
+    "input_source_commit": "312d4be3dd05121c9b0aa16cb97e7a1075fc54e4",
+    "production": {
+      "backend": {
+        "worker": "nerudo",
+        "url": "https://nerudo.patrickdeutsch.workers.dev",
+        "version": "a1cbe028-4447-41e2-9bc8-377bdca25415",
+        "worker_wasm_sha256": "f62080b3935398b6b7eb0503ae55d58db2f03b7dcec66be154f13cda0986ec1f",
+        "worker_wasm_bytes": 4907282,
+        "artifacts_namespace": "landseq",
+        "ci_binding": "nerudo-ci"
+      },
+      "frontend": {
+        "worker": "nerudo-web",
+        "url": "https://nerudo-web.patrickdeutsch.workers.dev",
+        "version": "ff8d53e4-35f4-47ac-a1bc-7bcaffdd38a5",
+        "backend_service_binding": "nerudo"
+      }
+    }
+  },
+  "validation_evidence": "submission-recovery-merged-20261013.json"
+}

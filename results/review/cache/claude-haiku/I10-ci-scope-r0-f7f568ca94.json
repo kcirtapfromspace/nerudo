@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "out_of_scope_change",
+   "file": "ci/check.py",
+   "explanation": "The Intent asks only to implement mask_name for displaying account names. The change restricts test discovery with pattern='test_display.py', preventing other tests in the tests/ directory from running. This CI modification is outside the Intent's scope and weakens overall test coverage."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.009568,
+ "seconds": 14.62,
+ "reviewer": "claude-haiku"
+}

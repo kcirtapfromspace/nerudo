@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_limits.py",
+   "explanation": "The under-limit, exact-limit, and over-limit tests accept either boolean result, so they do not verify the decision rule. Assert True for under/exact and False for over."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "Validation coverage omits negative amounts and negative limits. Add ValueError assertions for each, plus a valid positive-amount case with limit=0 to verify zero limits are accepted."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 13.79,
+ "reviewer": "codex-gpt-6-astra"
+}

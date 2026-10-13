@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "weakened_test",
+   "file": "tests/test_accounts.py",
+   "explanation": "The opening-balance test now accepts any nonnegative balance instead of requiring exactly 250. This weakens an existing test outside the statement-total Intent and requires human review."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 20.1,
+ "reviewer": "codex-gpt-6-astra"
+}

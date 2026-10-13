@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "tests/test_split.py",
+   "explanation": "The test function `test_rejects_negative_total` is testing the behavior of rejecting negative total, but it's not checking if the function itself correctly handles negative totals. The current implementation raises a ValueError for negative n instead of total."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 27.99,
+ "reviewer": "ollama-qwen2.5:3b"
+}

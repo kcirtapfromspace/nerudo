@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_limits.py",
+   "explanation": "The tests for under limit, exactly at limit, and over limit don't check the return value. They only check the type, membership in (True, False), or not None, and any bool passes all three. The boundary criterion (900+100 <= 1000 must be True) is not tested. A bug using `<` instead of `<=`, or one that always returns True or False, would still pass. Assert True for the under-limit and exact-limit cases and False for the over-limit case (e.g. 950+100 against 1000)."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "There is no test for the criterion that a negative limit raises ValueError. The test for a non-positive amount only covers amount == 0, not a negative amount. Add tests for limit < 0 and amount < 0, and ideally limit == 0 as valid."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0086776,
+ "seconds": 4.12,
+ "reviewer": "claude-sonnet"
+}

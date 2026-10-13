@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "verdict": "approve",
+ "confidence": 0.93,
+ "findings": [],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0074336,
+ "seconds": 3.19,
+ "reviewer": "claude-sonnet"
+}

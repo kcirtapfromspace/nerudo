@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.96,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/money.py",
+   "explanation": "parse_amount returns int(round(float(text) * 100)), which uses float arithmetic. The Intent says there must be no float arithmetic anywhere in the parse. Float parsing can also give wrong results for large values, because of precision loss. Build the result from integers instead: int(units)*100 + int(frac.ljust(2,'0')). Inputs such as '12.' and '.5' also need defined handling. '.5' fails because units is empty, and '12.' passes with an empty frac."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0083656,
+ "seconds": 3.11,
+ "reviewer": "claude-sonnet"
+}

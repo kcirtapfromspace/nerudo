@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "transfer() subtracts from src.balance before checking funds. When InsufficientFunds is raised, src.balance has already been reduced and is left negative. This violates the criterion that on any error neither balance changes. The fix is to check src.balance < cents before mutating anything."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_transfer.py",
+   "explanation": "test_insufficient_funds_changes_nothing only asserts that InsufficientFunds is raised. It never checks that the balances are unchanged (a=50, b=7), so it would pass even with the bug above. The ValueError tests also don't check that balances are unchanged."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0091436,
+ "seconds": 3.75,
+ "reviewer": "claude-sonnet"
+}

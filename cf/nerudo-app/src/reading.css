@@ -1,0 +1,159 @@
+/* NERUDO / discovery, documentation, and code are everyday reading surfaces. */
+.brand-hero.compact { grid-template-columns: minmax(0, 1fr) 136px; gap: 24px; padding: 22px 0 24px; }
+.front .brand-hero.compact h1 { font-size: 32px; line-height: 1.12; text-wrap: balance; }
+.brand-hero.compact .brand-hero-art .hero-art-grid { border: 0; background: none; }
+.brand-hero.compact .brand-hero-art .mark { width: 100px; height: 100px; }
+.brand-hero.compact .art-caption, .brand-hero.compact .hero-process { display: none; }
+.repo-directory { margin: 26px 0; scroll-margin-top: 24px; }
+.directory-search > label { display: block; font-weight: 600; margin-bottom: 10px; }
+.directory-search-line { display: flex; align-items: center; gap: 12px; }
+.directory-search-line input { min-width: 0; flex: 1; min-height: 34px; }
+.directory-search-line .btn { min-height: 34px; }
+.directory-search-line kbd { padding: 4px 7px; color: var(--dim); }
+.directory-filters { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 18px; padding: 14px 0 20px; }
+.directory-filters > label { display: flex; flex-direction: column; gap: 5px; font-size: 11px; color: var(--dim); }
+.directory-filters select { min-width: 140px; max-width: 260px; min-height: 28px; }
+.directory-clear { margin-bottom: 5px; }
+.directory-results-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin: 0 0 12px; }
+.directory-results-heading h2 { font: 600 14px var(--brand-sans); margin: 0; }
+.directory-results-heading > span, .directory-access-note { color: var(--dim); font-size: 11px; }
+.directory-pagination { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.directory-pagination > span { font-size: 11px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.directory-empty { padding: 24px 16px; border: 1px solid var(--grid); background: var(--white); }
+.directory-empty h3 { margin: 0 0 8px; font-size: 14px; }
+.directory-empty p { color: var(--dim); line-height: 1.7; }
+.directory-access-note { line-height: 1.7; margin-top: 16px; }
+.directory-people { border-top: 1px solid var(--grid); padding-top: 14px; margin: 24px 0; }
+.directory-people summary { cursor: pointer; color: var(--dim); }
+.directory-people .hub-list { margin-top: 16px; }
+.code-block { border: 1px solid var(--grid); background: var(--white); color: var(--ink); min-width: 0; margin: 14px 0; }
+.code-caption { display: flex; align-items: center; gap: 12px; padding: 6px 10px; border-bottom: 1px solid var(--grid); background: var(--well); font: 10px/1.6 var(--brand-mono); }
+.code-caption > span:first-child { overflow-wrap: anywhere; }
+.code-feedback { margin-left: auto; color: var(--dim); font: 10px var(--brand-sans); }
+.code-caption button { padding: 3px 8px; border: 1px solid var(--grid); background: var(--white); color: var(--ink); cursor: pointer; font: 11px var(--brand-sans); }
+.code-scroll { overflow-x: auto; margin: 0; padding: 14px 0; max-width: 100%; font: 12.5px/1.75 var(--brand-mono); tab-size: 4; font-variant-ligatures: none; font-feature-settings: "zero" 1; white-space: pre; }
+.code-block code, .md .code-block code { font: inherit; color: inherit; background: none; padding: 0; }
+.code-line { display: grid; grid-template-columns: minmax(max-content, 1fr); min-width: 100%; padding-inline: 14px; }
+.code-line.numbered { grid-template-columns: 3.5em minmax(max-content, 1fr); padding-left: 0; }
+.code-number { color: var(--dim); background: var(--well); border-right: 1px solid var(--grid); text-align: right; padding-right: 12px; user-select: none; }
+.numbered .code-text { padding-left: 14px; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal { color: #284a3b; font-weight: 600; }
+.hljs-string, .hljs-regexp, .hljs-attr, .hljs-template-variable { color: #276475; }
+.hljs-title, .hljs-section, .hljs-name, .hljs-selector-class { color: #7a3d64; }
+.hljs-number, .hljs-type, .hljs-built_in, .hljs-meta { color: #855221; }
+.hljs-comment, .hljs-quote { color: #60665d; }
+.dlines { font-size: 12.5px; line-height: 1.7; font-variant-ligatures: none; }
+.md { line-height: 1.75; min-width: 0; }
+.md .md-h { color: var(--ink); font-family: var(--brand-sans); line-height: 1.3; margin: 24px 0 12px; font-weight: 600; scroll-margin-top: 24px; }
+.md .md-h1 { font-size: 24px; }
+.md .md-h2 { font-size: 20px; border-bottom: 1px solid var(--grid); padding-bottom: 8px; }
+.md .md-h3 { font-size: 16px; }
+.md .md-h4, .md .md-h5, .md .md-h6 { font-size: 13px; }
+.md p, .md ul, .md ol { margin-block: 12px; }
+.md > :first-child { margin-top: 0; }
+.md li { margin: 5px 0; }
+.md li > p { margin-block: 5px; }
+.md img { max-width: 100%; height: auto; vertical-align: middle; }
+.md > pre { overflow-x: auto; }
+.md hr { border: 0; border-top: 1px solid var(--grid); margin: 28px 0; }
+.md-table-scroll { max-width: 100%; overflow-x: auto; margin: 18px 0; }
+.md-table-scroll table { border-collapse: collapse; width: 100%; }
+.md-table-scroll th, .md-table-scroll td { border: 1px solid var(--grid); padding: 7px 12px; text-align: left; }
+.md-table-scroll th { background: var(--well); font-weight: 600; }
+.md .contains-task-list { list-style: none; padding-left: 0; }
+.md .task-list-item input { margin-right: 7px; accent-color: var(--nerudo-kombu); }
+.md-image-link { font-size: 12px; }
+.md-diagram { margin: 18px 0; padding: 14px; border: 1px solid var(--grid); background: var(--white); overflow-x: auto; }
+.md-diagram img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.md-diagram details { margin-top: 10px; font-size: 12px; }
+.md-diagram summary { cursor: pointer; color: var(--dim); }
+.md-diagram .code-block { margin-bottom: 0; }
+.md-diagram-note { margin: 18px 0 -8px; font-size: 12px; color: var(--dim); }
+.repository-files { min-width: 0; overflow: hidden; }
+.repository-files > .repo-files-heading, .repository-files > .file-breadcrumbs, .repository-files > input, .repository-files > .file-count { flex-shrink: 0; }
+.repo-browser-scroll { flex: 1; min-height: 0; min-width: 0; overflow: auto; overscroll-behavior: contain; }
+.repo-browser-scroll .file-rows { flex: none; min-height: 0; overflow: visible; }
+.repo-files-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.repo-files-heading h2 { font: 600 13px var(--brand-sans); margin: 0; }
+.repo-files-heading > span { font-size: 10px; overflow-wrap: anywhere; }
+.file-breadcrumbs { font: 11px/1.6 var(--brand-mono); overflow-wrap: anywhere; }
+.file-breadcrumbs button { border: 0; padding: 0; background: none; color: var(--link); cursor: pointer; font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.repository-files > input { width: 100%; min-width: 0; }
+.file-rows { min-height: 100px; }
+.file-row { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: center; gap: 9px; width: 100%; text-align: left; color: var(--ink); border: 0; border-bottom: 1px solid var(--sep); background: var(--white); padding: 7px 8px; cursor: pointer; font: 12px/1.5 var(--brand-sans); }
+.file-row > span:nth-child(2) { overflow-wrap: anywhere; }
+.file-row:hover { background: var(--well); }
+.file-row.selected { background: var(--sel); color: var(--ink); box-shadow: inset 3px 0 var(--nerudo-toast); }
+.file-state { padding: 20px 12px; font-size: 12px; color: var(--dim); display: flex; flex-direction: column; align-items: start; gap: 10px; }
+.file-count { font-size: 10px; margin: 0; line-height: 1.6; }
+.repo-branches { font-size: 11px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--grid); }
+.repo-branches summary { cursor: pointer; }
+.repo-fork { margin-top: 14px; overflow-wrap: anywhere; }
+.repo-fork > button { font-weight: 600; }
+.repo-fork > div { margin: 6px 0 0 10px; }
+.repo-fork .mono { font-size: 10px; }
+.repo-fork .link { max-width: 100%; text-align: left; white-space: normal; overflow-wrap: anywhere; }
+.repo-readme { min-width: 0; }
+.readme-heading { display: flex; align-items: baseline; gap: 12px; justify-content: space-between; padding: 8px 0 14px; }
+.readme-heading h2 { font: 600 13px var(--brand-mono); margin: 0; }
+.readme-heading > span { font-size: 10px; }
+.repo-readme .md { border: 0; padding: 14px 4px; }
+.readme-state { max-width: 60ch; padding: 24px 4px; font-size: 12px; line-height: 1.75; color: var(--dim); }
+.readme-state h3 { color: var(--ink); font: 600 16px var(--brand-sans); margin: 0 0 12px; }
+.readme-state details { margin-top: 24px; }
+.readme-state details p { overflow-wrap: anywhere; }
+html[data-experience="modern"] .brand-hero.compact { grid-template-columns: minmax(0, 1fr) 160px; gap: 36px; padding: 22px 0 28px; }
+html[data-experience="modern"] .front .brand-hero.compact h1 { font-size: clamp(32px, 3.4vw, 48px); line-height: 1.14; margin: 16px 0 14px; text-wrap: balance; }
+html[data-experience="modern"] .brand-hero.compact .brand-lede { font-size: 14px; max-width: 64ch; }
+html[data-experience="modern"] .brand-hero.compact .hero-material { min-height: 0; padding: 6px; }
+html[data-experience="modern"] .brand-hero.compact .hero-material .forming-strand { margin: 0; transform: none; }
+html[data-experience="modern"] .brand-hero.compact .hero-material-label, html[data-experience="modern"] .brand-hero.compact .hero-material-foot, html[data-experience="modern"] .brand-hero.compact .strand-guides, html[data-experience="modern"] .brand-hero.compact .hero-process { display: none; }
+html[data-experience="modern"] .directory-search > label { font-size: 14px; font-weight: 500; }
+html[data-experience="modern"] .directory-search-line input { border-radius: 12px; min-height: 46px; font-size: 15px; padding: 10px 14px; background: var(--nerudo-paper); }
+html[data-experience="modern"] .directory-search-line .btn { min-height: 46px; padding-inline: 18px; }
+html[data-experience="modern"] .directory-filters { gap: 16px 20px; padding-block: 18px 26px; }
+html[data-experience="modern"] .directory-filters > label { font-size: 11px; }
+html[data-experience="modern"] .directory-filters select { min-height: 38px; min-width: 170px; font-size: 12px; }
+html[data-experience="modern"] .directory-results-heading h2 { font: 450 26px var(--brand-display); }
+html[data-experience="modern"] .directory-results-heading > span, html[data-experience="modern"] .directory-access-note { font-size: 12px; }
+html[data-experience="modern"] .directory-empty { padding: 28px 0; background: transparent; border: 0; border-top: 1px solid var(--grid); }
+html[data-experience="modern"] .directory-pagination > span { font-size: 12px; }
+html[data-experience="modern"] .code-block { border-radius: 10px; overflow: hidden; }
+html[data-experience="modern"] .code-caption { padding: 9px 14px; font-size: 11px; }
+html[data-experience="modern"] .code-caption button { border-radius: 5px; min-height: 28px; }
+html[data-experience="modern"] .code-scroll, html[data-experience="modern"] .dlines { font-size: 14px; }
+html[data-experience="modern"] .md { font-size: 14px; }
+html[data-experience="modern"] .md code { font-size: 13px; padding-inline: 4px; }
+html[data-experience="modern"] .md .code-block code { font: inherit; padding: 0; }
+html[data-experience="modern"] .repo-readme .md-h1 { font: 450 36px/1.2 var(--brand-display); letter-spacing: -.025em; }
+html[data-experience="modern"] .readme-heading { padding: 4px 0 16px; }
+html[data-experience="modern"] .repo-files-heading h2 { font-size: 14px; }
+html[data-experience="modern"] .repo-branches { font-size: 12px; }
+html[data-experience="modern"] .repo-fork .mono { font-size: 12px; line-height: 1.6; }
+html[data-experience="modern"] .file-row { background: transparent; padding: 11px 8px; font-size: 13px; }
+html[data-experience="modern"] .file-row:hover { background: var(--nerudo-paper); border-radius: 8px; }
+html[data-experience="modern"] .file-rows { padding-top: 6px; }
+html[data-experience="modern"] .repo-readme .tab-body { padding-top: 20px; }
+html[data-experience="modern"] .readme-state { font-size: 14px; }
+@media (max-width: 760px) {
+  .brand-hero.compact, html[data-experience="modern"] .brand-hero.compact { grid-template-columns: minmax(0, 1fr) 96px; gap: 12px; }
+  .brand-hero.compact .brand-hero-art, html[data-experience="modern"] .brand-hero.compact .brand-hero-art { display: block; width: 96px; margin: 0; }
+  .front .brand-hero.compact h1, html[data-experience="modern"] .front .brand-hero.compact h1 { font-size: 30px; }
+  .brand-hero.compact .eyebrow { font-size: 9px; }
+  .brand-hero.compact .brand-lede { display: none; }
+  .panes.repo-home, html[data-experience="modern"] .panes.repo-home { display: block; overflow-y: auto; }
+  .panes.repo-home .repository-files, .app .panes.repo-home .detail-pane { display: block; width: 100%; height: auto; }
+  .panes.repo-home .repository-files { display: flex; max-height: 360px; overflow: hidden; margin-bottom: 16px; }
+  .panes.repo-home .repo-browser-scroll { overscroll-behavior: auto; }
+  .panes.repo-home .file-rows { max-height: none; }
+  .panes.repo-home .detail-pane { padding: 16px; }
+  .directory-filters { gap: 12px; }
+  .directory-filters > label { flex: 1; min-width: 110px; }
+  .directory-filters select, html[data-experience="modern"] .directory-filters select { width: 100%; min-width: 0; max-width: none; }
+  .directory-search-line kbd { display: none; }
+  .directory-pagination { justify-content: center; }
+  .directory-pagination > span { order: -1; width: 100%; text-align: center; }
+  html[data-experience="modern"] .directory-search-line input { font-size: 16px; }
+  html[data-experience="modern"] .repo-readme .md-h1 { font-size: 30px; }
+}
+@media (pointer: coarse) { .directory-filters select, .directory-search-line input, .file-row, .code-caption button, html[data-experience="modern"] .directory-filters select, html[data-experience="modern"] .code-caption button { min-height: 44px; } }

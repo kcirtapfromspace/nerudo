@@ -1,0 +1,51 @@
+# Fresh installations only. For the existing hosted forge, use wrangler.production.toml
+# after its compatibility upgrade; creating these namespaces first blocks the transfer.
+name = "nerudo"
+main = "build/index.js"
+compatibility_date = "2026-10-01"
+
+[build]
+command = "worker-build --release"
+
+[[durable_objects.bindings]]
+name = "TRUNK"
+class_name = "Trunk"
+
+# One object that names trunks: {org}/{repo} -> trunk id (src/hub.rs).
+[[durable_objects.bindings]]
+name = "HUB"
+class_name = "Hub"
+
+# The code uses only the Durable Object key-value API (get/put/list), never SQL. Cloudflare
+# no longer creates key-value-backed classes (API code 10099), so the class is declared
+# SQLite-backed; the key-value API runs unchanged on top of it.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Trunk"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["Hub"]
+
+# Agent forks and the trunk repo (Workers Paid). Artifacts has no local simulator, so
+# `wrangler dev` reaches the real namespace; Forgejo trunks there don't touch it.
+[[artifacts]]
+binding = "ARTIFACTS"
+namespace = "nerudo"
+remote = true
+
+# The type check that `[ci] typecheck` in a trunk's nerudo.toml asks for runs in the
+# nerudo-ci Worker (../nerudo-ci). Deploy that Worker first.
+[[services]]
+binding = "CI"
+service = "nerudo-ci"
+
+# Workers AI, for `[decide] provider = "workers-ai"` only. Nothing calls it unless a trunk's
+# nerudo.toml asks; `wrangler dev` reaches the real service, which bills per use.
+[ai]
+binding = "AI"
+
+# The web app (cf/nerudo-app, Worker nerudo-web). `share` and `invite` return a link to it
+# as `app`. For `wrangler dev`, set NERUDO_WEB=http://localhost:5173 in .dev.vars.
+[vars]
+NERUDO_WEB = "https://nerudo-web.patrickdeutsch.workers.dev"

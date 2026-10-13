@@ -1,0 +1,8 @@
+[workspace]
+members = ["nerudo-git", "nerudo-core", "nerudo-worker", "nerudo-cli"]
+exclude = ["spike", "frozen"]
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+lto = true

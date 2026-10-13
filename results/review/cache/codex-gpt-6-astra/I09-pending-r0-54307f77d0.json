@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/statements.py",
+   "explanation": "statement_total includes only posted entries, excluding pending amounts. Sum all entries whose status is not 'void'."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_statements.py",
+   "explanation": "test_includes_pending expects 100, validating exclusion of the pending 25 cents. It must expect 125 to verify the acceptance criterion."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 13.69,
+ "reviewer": "codex-gpt-6-astra"
+}

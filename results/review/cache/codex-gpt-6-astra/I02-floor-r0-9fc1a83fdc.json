@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/money.py",
+   "explanation": "apply_fee uses floor division instead of round_half_up. Return round_half_up(cents * bps, 10000) so fractional fees round half up as required."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "test_rounds_half_up incorrectly expects 0 for a 0.5-cent fee. It must expect 1; the current assertion validates truncation instead of the required rounding."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 18.68,
+ "reviewer": "codex-gpt-6-astra"
+}

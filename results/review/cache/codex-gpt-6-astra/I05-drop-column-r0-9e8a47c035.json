@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.99,
+ "findings": [
+  {
+   "kind": "irreversible_change",
+   "file": "migrations/0002_currency.sql",
+   "explanation": "Dropping nickname permanently deletes existing account data, violating the additive-only migration and preservation requirements. This undeclared irreversible change requires human review; the migration test checks only balances and misses the data loss."
+  },
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "The validation accepts arbitrary uppercase alphabetic triples, including 'ZZZ' and non-ASCII letters, rather than valid ISO currency codes. Validate against supported ISO codes and add tests rejecting unassigned and non-ASCII codes."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 24.52,
+ "reviewer": "codex-gpt-6-astra"
+}

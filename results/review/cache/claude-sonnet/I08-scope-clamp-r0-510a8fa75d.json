@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "out_of_scope_change",
+   "file": "ledger/money.py",
+   "explanation": "The Intent covers only pagination, but this diff changes the validation in the money function. Before, cents > 99 raised ValueError. Now cents above 99 are silently clamped to 99, so bad input yields a wrong amount without any error. This is an unrequested behavior change in a money path, and nothing tests it. Revert it."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0079016,
+ "seconds": 2.78,
+ "reviewer": "claude-sonnet"
+}

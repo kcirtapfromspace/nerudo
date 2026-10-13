@@ -1,0 +1,27 @@
+[package]
+name = "driver-10k"
+version = "0.1.0"
+edition = "2021"
+description = "Open-loop load on 1,000 to 10,000 nerudo trunks, sent from inside Cloudflare (cf/scale/10k.md)."
+license = "MIT OR Apache-2.0"
+publish = false
+
+# Its own workspace: a test tool, not part of the cf/ build.
+[workspace]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+nerudo-git = { path = "../../nerudo-git" }
+worker = "0.8.7"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+futures = { version = "0.3", default-features = false, features = ["std", "async-await"] }
+
+[profile.release]
+opt-level = "s"
+lto = true

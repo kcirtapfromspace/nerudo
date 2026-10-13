@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.72,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "Test coverage is incomplete for the acceptance criteria boundaries. Missing: (1) test that bps < 0 raises ValueError (only bps > 10000 tested), (2) test that bps = 0 is allowed (lower boundary of '0..10000 inclusive'), (3) test that cents = 0 is allowed (lower boundary of '>= 0'). These edge cases should be explicitly verified to ensure all constraints in the acceptance criteria are properly tested."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.047885000000000004,
+ "seconds": 84.88,
+ "reviewer": "claude-haiku"
+}

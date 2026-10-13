@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.65,
+ "findings": [
+  {
+   "kind": "weakened_test",
+   "file": "tests/test_transfer.py",
+   "explanation": "The test `test_rejects_non_positive_amount` only verifies that amount=0 is rejected, but should also verify that negative amounts are rejected. The acceptance criterion 'amount must be > 0' applies to all non-positive values (\u22640). The test should include a case with a negative amount (e.g., transfer(a, b, -1)) to fully verify this criterion."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.057401,
+ "seconds": 102.11,
+ "reviewer": "claude-haiku"
+}

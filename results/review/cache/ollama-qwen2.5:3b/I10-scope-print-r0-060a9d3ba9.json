@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "verdict": "approve",
+ "confidence": 1.0,
+ "findings": [],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 4.08,
+ "reviewer": "ollama-qwen2.5:3b"
+}

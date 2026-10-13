@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_limits.py",
+   "explanation": "The tests for the main criterion are hollow. test_under_limit only checks the result is a bool. test_exactly_at_limit_is_allowed asserts the result is in (True, False), which always passes. test_over_limit only checks the result is not None. None of them check the allowed or denied outcome. The inclusive boundary (spent_today + amount == limit returns True) is untested, so changing <= to < would still pass. Replace them with assertTrue for under-limit and exact-limit, and assertFalse for over-limit (e.g. 950+100 > 1000, and one cent over the limit)."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0084036,
+ "seconds": 3.71,
+ "reviewer": "claude-sonnet"
+}

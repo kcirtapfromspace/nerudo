@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.9,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_format.py",
+   "explanation": "The test cases do not cover the case where cents is a negative number, which is required by the Intent."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 25.52,
+ "reviewer": "ollama-qwen2.5:3b"
+}

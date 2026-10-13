@@ -1,0 +1,2927 @@
+{
+  "schema": "nerudo.submission-video-plan.v3",
+  "version": 3,
+  "edition": "semantic_attention_luna",
+  "status": "complete_local_artifact",
+  "selected_for_submission": true,
+  "eligible_for_submission": true,
+  "publicOrigin": "https://nerudo-web.patrickdeutsch.workers.dev",
+  "allowedPublicOrigins": [
+    "https://nerudo-web.patrickdeutsch.workers.dev",
+    "https://nerudo-submission-web.patrickdeutsch.workers.dev"
+  ],
+  "disclosure": "Actual public app interactions and recorded outcomes. Scripted product demo and actual coding-provider evidence are separately labeled. Tutorial highlights, arrows and explanatory cards guide attention. Existing Deepgram Aura-2 Luna neural narration is unchanged.",
+  "planned_duration_seconds": 510.68,
+  "choreography": {
+    "clock": "audio",
+    "maxActionLatenessSeconds": 0.5,
+    "cutViewPreparation": true,
+    "warmRoutes": true
+  },
+  "experience": "modern",
+  "browserChannel": "chrome",
+  "capture_scope": {
+    "fresh_capture_planned": false,
+    "anonymous": true,
+    "methods_allowed": [
+      "GET",
+      "HEAD",
+      "OPTIONS"
+    ],
+    "setup_and_view_preparation_excluded_from_audio_clock": true,
+    "caption_and_attention_targets_are_recording_annotations": true,
+    "interaction_latency_or_capacity_claim": false,
+    "provider_receipt_scope": "Preserved Oct13 initial receipts on isolated backend79c259ad; the current repository sidebar/head includes the later separate Hermes landing.",
+    "fresh_capture_completed": true,
+    "recorded_at": "2026-10-13T20:47:09.522Z",
+    "final_export_verified": true,
+    "edited_ready_segments": 69,
+    "excluded_cue_preparations": 78,
+    "isolated_provider_fixture_observed": {
+      "head_prefix": "981d878",
+      "backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+      "public_origin": "https://nerudo-submission-web.patrickdeutsch.workers.dev",
+      "scope": "Current isolated fixture includes the later separate Hermes landing. Preserved original Claude/Codex receipts are shown; this head is not the initial two-landing outcome or a production source head."
+    }
+  },
+  "narration": {
+    "provider": {
+      "name": "Deepgram via Cloudflare Workers AI",
+      "model": "@cf/deepgram/aura-2-en",
+      "voice": "luna",
+      "kind": "neural",
+      "gender": "female",
+      "style": "natural conversational",
+      "quality": "high"
+    },
+    "manifest_sha256": "ceaf0bfdd98c35047ee3358a0b5481d2ad63a539865e575a6083ca7c3a8d854a",
+    "source_script_sha256": "8e95b67daa78b95e75d858d76e5fe7719cfb7df86d2d6836387c6de6e424d7d3",
+    "prepared_audio_sha256": "6fa0c01f5d8239796237fec432baf67c3a415dc1a5101ce7671a9ebee10d5041",
+    "tempo": 1,
+    "added_transition_seconds": 0,
+    "caption_timing": "Known script aligned to ASR word timestamps (Deepgram Nova-3); approved display spelling, not raw ASR text.",
+    "speech_validation_scope": "ASR spelling substitutions are not evidence that the generated speech changed a fact. This validates sequence coverage and source timing, not pronunciation."
+  },
+  "candidate_local_plan_sha256": "295362f12ad4407291ac6293e09e05713b0420cc4e92cdfa706241e04ed85e85",
+  "candidate_plan_hash_scope": "Exact local plan used for the eight-scene preflight and fresh capture. Completed export and visual QA bind the selected video; this portable plan preserves the executed scene actions and setup.",
+  "scenes": [
+    {
+      "id": "purpose",
+      "title": "01 / A Git platform for concurrent coding agents",
+      "label": "Public product · scripted six-client demo",
+      "seconds": 56.56,
+      "path": "/nerudo/demo/agents",
+      "expect": "Agents",
+      "actions": [
+        {
+          "type": "highlight",
+          "at": 12.24,
+          "target": {
+            "selector": ".list-box .row:has(.row-title:text-is(\"a01\"))"
+          },
+          "label": "Six scripted clients · a01–a06",
+          "duration": 11.8,
+          "readyBy": 12.74,
+          "expected_product_text": "a01",
+          "narrativeCue": "This demo uses six scripted clients"
+        },
+        {
+          "type": "goto",
+          "at": 24.435,
+          "path": "/nerudo/demo/graph",
+          "expect": "Merged batch 19",
+          "readyBy": 24.435
+        },
+        {
+          "type": "highlight",
+          "at": 24.435,
+          "target": {
+            "selector": ".list-box.graph .row.head:has-text(\"Merged batch 19\")"
+          },
+          "label": "Main · latest merged batch",
+          "duration": 3.2,
+          "readyBy": 24.935,
+          "expected_product_text": "168de01",
+          "narrativeCue": "In the graph"
+        },
+        {
+          "type": "explain",
+          "at": 27.795,
+          "label": "Explanation · architecture illustration",
+          "title": "Isolated work, one integration authority",
+          "cards": [
+            {
+              "title": "Agent forks",
+              "code": "a01  a02  a03\na04  a05  a06"
+            },
+            {
+              "title": "Repository sequencer",
+              "code": "compatible changes\n→ integrated checks\n→ main"
+            }
+          ],
+          "result": "Six scripted clients; one authoritative integration path.",
+          "duration": 6.1,
+          "readyBy": 28.295,
+          "narrativeCue": "Each agent has an isolated Artifacts fork"
+        },
+        {
+          "type": "explain",
+          "at": 34.06,
+          "label": "Explanation · architecture illustration",
+          "title": "Check the combined result before publishing",
+          "cards": [
+            {
+              "title": "Compatible changes",
+              "code": "candidate A + B\n→ integrated tree"
+            },
+            {
+              "title": "Checked publication",
+              "code": "C I passes\n→ publish batch"
+            }
+          ],
+          "result": "An illustration of the gate; this is not a new live landing.",
+          "duration": 5.0,
+          "readyBy": 34.56,
+          "narrativeCue": "It groups compatible changes"
+        },
+        {
+          "type": "explain",
+          "at": 39.18,
+          "label": "Explanation · recorded demo contract",
+          "title": "Work remains attached to its evidence",
+          "cards": [
+            {
+              "title": "Task and attempt",
+              "code": "task T-5\nattempt a04fmt"
+            },
+            {
+              "title": "Context and receipt",
+              "code": "context v1 / revision 1\nlanding: batch 19"
+            }
+          ],
+          "result": "These are recorded identifiers from the scripted demo.",
+          "duration": 8.0,
+          "readyBy": 39.68,
+          "narrativeCue": "The important contract"
+        },
+        {
+          "type": "highlight",
+          "at": 47.435,
+          "target": {
+            "selector": "fieldset.box.clone .cmd code"
+          },
+          "label": "Ordinary Git clone URL",
+          "duration": 8.6,
+          "readyBy": 47.935,
+          "expected_product_text": "/nerudo/demo.git",
+          "narrativeCue": "You can still clone the repositories and use ordinary Git"
+        }
+      ],
+      "narration": "When coding agents share a repository, writing code is only part of the job. Their changes also have to fit together. That's the problem NERUDO is built to handle.\n\nThis is the public application. This demo uses six scripted clients, using Git forks, submissions, checks, and receipts. They're scripted clients, rather than six live language models; we'll look at the model evidence later.\n\nIn the graph, you can follow work as it reaches main. Each agent has an isolated Artifacts fork, while one sequencer coordinates integration for the repository. It groups compatible changes, checks the resulting tree, and publishes a batch.\n\nThat gives agents something concrete to work with: a task, an attempt, preserved context, and a receipt that explains the outcome. You can still clone the repository with ordinary Git. Collaboration happens around that familiar repository, with a clear path from isolated work to shared main.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "4ab033d7604d312bcf3eda16e0dbf2c1167c682c0644d9faebd5bbe1128acf45",
+        "transcriptSha256": "0dc18adaa10d69f826fc2ff6e0d51c241e05a5d4e08b59ee320438a82053c984",
+        "inputSeconds": 56.56,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 56.56,
+        "tempo": 1,
+        "spokenSeconds": 56.56,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [],
+      "historical_original_chapter_seconds": 55
+    },
+    {
+      "id": "integration",
+      "title": "02 / The integrated check catches a stale caller",
+      "label": "Scripted six-client demo · actual integrated CI and revision receipts",
+      "seconds": 54.48,
+      "path": "/nerudo/demo/pulls/10",
+      "expect": "price() takes a currency; update its callers",
+      "actions": [
+        {
+          "at": 3.52,
+          "type": "explain",
+          "cue": {
+            "text": "One agent changes a shared API while another is still building against the old version.",
+            "exact": true,
+            "edge": "start"
+          },
+          "duration": 10.15,
+          "label": "Explanation · derived from the scripted demo code",
+          "title": "Two isolated changes do not fit together",
+          "cards": [
+            {
+              "title": "PR #10 · API change",
+              "code": "price(cents: number,\n      currency: string)"
+            },
+            {
+              "title": "PR #9 · caller landed first",
+              "code": "price(n * 100)"
+            }
+          ],
+          "result": "The caller supplies one argument; the changed API requires two. Integrated CI rejects PR #10 revision 1.",
+          "evidence": {
+            "api_path": "src/price.ts",
+            "caller_path": "src/cart.ts",
+            "api_snapshot": "demo-rev1-files",
+            "caller_source": "Anonymous API change/a03ts?rev=1, verified October 13",
+            "derived_annotation": true
+          },
+          "semantic_cues": [
+            {
+              "at": 3.52,
+              "meaning": "One agent changes the shared API."
+            },
+            {
+              "at": 8.56,
+              "meaning": "Their individually valid bases expose a broken caller when combined."
+            }
+          ]
+        },
+        {
+          "at": 13.7,
+          "type": "clear_visuals",
+          "cue": {
+            "text": "Both changes may pass on their own bases, but putting them together can expose a broken caller.",
+            "exact": true,
+            "edge": "start",
+            "offset": 5.14
+          },
+          "purpose": "Remove the explanatory cards before revealing the actual Checks tab."
+        },
+        {
+          "at": 13.85,
+          "type": "tab",
+          "name": "Checks",
+          "cue": {
+            "text": "The Checks tab keeps that failure visible.",
+            "exact": true,
+            "edge": "start"
+          },
+          "readyBy": 14.35,
+          "expected_visible_text": "Checks: 1 failed, 2 passed, 1 skipped"
+        },
+        {
+          "at": 16.49,
+          "type": "highlight",
+          "cue": {
+            "text": "We can select the first revision and inspect the diagnostic from the integrated TypeScript check.",
+            "exact": true,
+            "edge": "start",
+            "offset": 0.01
+          },
+          "target": {
+            "selector": "article.detail .check.ck-fail .diag"
+          },
+          "duration": 8.6,
+          "label": "Revision 1 · rejected by integrated CI",
+          "expected_product_text": "TS2554 src/cart.ts:2 Expected 2 arguments, but got 1.",
+          "observed_snapshot": "demo-rev1-checks",
+          "semantic_cues": [
+            {
+              "at": 16.49,
+              "meaning": "Inspect the first revision and its diagnostic."
+            },
+            {
+              "at": 21.28,
+              "meaning": "The rejection reason remains attached to PR #10."
+            }
+          ]
+        },
+        {
+          "at": 25.28,
+          "type": "revision",
+          "value": "2",
+          "cue": {
+            "text": "The client can then fetch the new main, understand what changed, repair its caller, and submit another revision.",
+            "exact": true,
+            "edge": "start",
+            "offset": -0.01
+          },
+          "readyBy": 26.3,
+          "expected_header_state": "Merged"
+        },
+        {
+          "at": 26.4,
+          "type": "tab",
+          "name": "Files changed",
+          "cue": {
+            "text": "The client can then fetch the new main, understand what changed, repair its caller, and submit another revision.",
+            "exact": true,
+            "edge": "start",
+            "offset": 1.11
+          },
+          "readyBy": 27.0,
+          "expected_visible_text": "export const line = (n: number) => price(n * 100, 'EUR');"
+        },
+        {
+          "at": 27.1,
+          "type": "highlight",
+          "cue": {
+            "text": "The client can then fetch the new main, understand what changed, repair its caller, and submit another revision.",
+            "exact": true,
+            "edge": "start",
+            "offset": 1.81
+          },
+          "target": {
+            "selector": "article.detail .dfile:has(.dpath:text-is(\"src/cart.ts\"))"
+          },
+          "duration": 4.48,
+          "label": "a01 repairs a03's landed caller",
+          "expected_product_text": [
+            "export const line = (n: number) => price(n * 100);",
+            "export const line = (n: number) => price(n * 100, 'EUR');"
+          ],
+          "observed_snapshot": "demo-rev2-files"
+        },
+        {
+          "at": 31.82,
+          "type": "tab",
+          "name": "Commits",
+          "cue": {
+            "text": "A retry becomes a traceable step in the work, rather than an unexplained replacement of the previous attempt.",
+            "exact": true,
+            "edge": "start"
+          },
+          "readyBy": 32.35,
+          "expected_visible_text": [
+            "rev 1",
+            "Checks failed",
+            "rev 2",
+            "Merged"
+          ],
+          "purpose": "Show the same logical PR with rejected and repaired revisions, rather than an unrelated latest-code view."
+        },
+        {
+          "at": 37.58,
+          "type": "tab",
+          "name": "Context",
+          "cue": {
+            "text": "The Context tab preserves the plan that accompanied that exact revision, including an immutable copy.",
+            "exact": true,
+            "edge": "start"
+          },
+          "readyBy": 38.5,
+          "expected_visible_text": "Context, revision 2, v1 (pinned)"
+        },
+        {
+          "at": 38.6,
+          "type": "highlight",
+          "cue": {
+            "text": "The Context tab preserves the plan that accompanied that exact revision, including an immutable copy.",
+            "exact": true,
+            "edge": "start",
+            "offset": 1.02
+          },
+          "target": {
+            "selector": "article.detail fieldset.box:has(> legend:text-is(\"Immutable copy\"))"
+          },
+          "duration": 4.5,
+          "label": "Immutable copy · pinned to revision 2",
+          "expected_product_text": [
+            "changes/a01ts/rev-2/v1.md",
+            "efffab634b05"
+          ],
+          "observed_snapshot": "demo-rev2-context"
+        },
+        {
+          "at": 43.25,
+          "type": "highlight",
+          "cue": {
+            "text": "That helps the next agent understand the decision behind the code.",
+            "exact": true,
+            "edge": "start",
+            "offset": -0.01
+          },
+          "target": {
+            "text": "Call price() as it is declared on my checkout.",
+            "exact": false
+          },
+          "duration": 3.5,
+          "label": "Repair preserves the earlier caller's plan",
+          "expected_product_text": "Call price() as it is declared on my checkout.",
+          "observed_snapshot": "demo-rev2-context"
+        },
+        {
+          "at": 46.85,
+          "type": "tab",
+          "name": "Checks",
+          "cue": {
+            "text": "The guarantee here is a checked integrated batch tip;",
+            "exact": true,
+            "edge": "start"
+          },
+          "readyBy": 47.4,
+          "expected_visible_text": "passed on main; 1 CI run in its batch"
+        },
+        {
+          "at": 47.65,
+          "type": "highlight",
+          "cue": {
+            "text": "The guarantee here is a checked integrated batch tip;",
+            "exact": true,
+            "edge": "start",
+            "offset": 0.8
+          },
+          "target": {
+            "selector": "article.detail .check.ck-pass:has(> b:text-is(\"Type check (ts-rust)\"))"
+          },
+          "duration": 6.73,
+          "label": "CI checks the integrated batch tip",
+          "expected_product_text": "passed on main; 1 CI run in its batch",
+          "semantic_cues": [
+            {
+              "at": 46.85,
+              "meaning": "The integrated batch tip passed."
+            },
+            {
+              "at": 50.45,
+              "meaning": "Checking every intermediate commit would require its own proof."
+            }
+          ],
+          "avoid_highlight": "Trunk checks: its every-commit wording is stronger than the demonstrated batch-tip guarantee."
+        }
+      ],
+      "narration": "Here's the situation that makes that integration check useful. One agent changes a shared API while another is still building against the old version. Both changes may pass on their own bases, but putting them together can expose a broken caller.\n\nThe Checks tab keeps that failure visible. We can select the first revision and inspect the diagnostic from the integrated TypeScript check. The rejected code and its reason stay attached to the same logical change.\n\nThe client can then fetch the new main, understand what changed, repair its caller, and submit another revision. A retry becomes a traceable step in the work, rather than an unexplained replacement of the previous attempt.\n\nThe Context tab preserves the plan that accompanied that exact revision, including an immutable copy. That helps the next agent understand the decision behind the code. The guarantee here is a checked integrated batch tip; every intermediate commit would need its own check to claim the same guarantee.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "1a9a91b2153731dfc6c135cad470dc1831f40634c9232cb9f301e0e45320e672",
+        "transcriptSha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76",
+        "inputSeconds": 54.48,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 54.48,
+        "tempo": 1,
+        "spokenSeconds": 54.48,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "revision",
+          "value": "1",
+          "expected_header_state": "Checks failed"
+        },
+        {
+          "type": "tab",
+          "name": "Files changed",
+          "expected_visible_text": "src/price.ts"
+        },
+        {
+          "type": "focus",
+          "target": {
+            "selector": "article.detail .dfile:has(.dpath:text-is(\"src/price.ts\"))"
+          },
+          "expected_product_text": "export function price(cents: number, currency: string): string {"
+        }
+      ],
+      "historical_original_chapter_seconds": 60
+    },
+    {
+      "id": "attempts",
+      "title": "03 / Compare competing attempts and their plans",
+      "label": "Scripted demo · trials do not publish a winner",
+      "seconds": 52.04,
+      "path": "/nerudo/demo/tasks/T-5",
+      "expect": "Compare",
+      "actions": [
+        {
+          "type": "highlight",
+          "at": 6.8,
+          "target": {
+            "selector": ".compare > fieldset.box:first-child legend"
+          },
+          "label": "Three recorded attempts for T-5",
+          "duration": 5.1,
+          "readyBy": 7.3,
+          "expected_product_text": "3 of 3 attempts",
+          "narrativeCue": "Here, three attempts"
+        },
+        {
+          "type": "highlight",
+          "at": 12.285,
+          "target": {
+            "selector": ".cmp-col.won .props-table tr:has(th:text-is(\"Checks\"))"
+          },
+          "label": "Trial verdict · integrated main",
+          "duration": 3.6,
+          "readyBy": 12.785,
+          "expected_product_text": "Passed",
+          "narrativeCue": "Each trial is applied to the current main"
+        },
+        {
+          "type": "focus",
+          "target": {
+            "selector": ".cmp-file .cmp-path:has-text(\"src/format.ts\")"
+          },
+          "at": 16.205,
+          "readyBy": 16.205
+        },
+        {
+          "type": "highlight",
+          "at": 16.205,
+          "target": {
+            "selector": ".cmp-file .cmp-path:has-text(\"src/format.ts\")"
+          },
+          "label": "One path · three implementations",
+          "duration": 6.6,
+          "readyBy": 16.705,
+          "expected_product_text": "src/format.ts",
+          "narrativeCue": "The comparison shows the verdict, changed paths, and diff"
+        },
+        {
+          "type": "highlight",
+          "at": 23.005,
+          "target": {
+            "selector": ".cmp-col.won .cmp-plan blockquote:first-of-type"
+          },
+          "label": "Submitted implementation plan",
+          "duration": 1.8,
+          "readyBy": 23.505,
+          "narrativeCue": "The plans are right alongside the code"
+        },
+        {
+          "type": "highlight",
+          "at": 24.95,
+          "target": {
+            "selector": ".cmp-col.won .cmp-plan > .mute.small"
+          },
+          "label": "Pinned context · revision 1",
+          "duration": 6.7,
+          "readyBy": 25.45,
+          "expected_product_text": [
+            "Context v1",
+            "revision 1",
+            "sequencer's copy"
+          ],
+          "narrativeCue": "These plans are pinned to the submitted revision"
+        },
+        {
+          "type": "highlight",
+          "at": 36.63,
+          "target": {
+            "selector": ".compare > fieldset.box:first-child .mute.small"
+          },
+          "label": "A passing trial informs the human pick",
+          "duration": 3.1,
+          "readyBy": 37.13,
+          "expected_product_text": "Who picks",
+          "narrativeCue": "A passing trial informs the choice"
+        },
+        {
+          "type": "highlight",
+          "at": 39.915,
+          "target": {
+            "selector": ".compare > fieldset.box:first-child > p:first-of-type"
+          },
+          "label": "Recorded pick · a04fmt shipped",
+          "duration": 11.8,
+          "readyBy": 40.415,
+          "expected_product_text": [
+            "a04fmt",
+            "picked",
+            "not picked"
+          ],
+          "narrativeCue": "Only the selected attempt lands"
+        }
+      ],
+      "narration": "Repairing a dependency is one kind of coordination. Another is deciding between different answers to the same task. Here, three attempts are competing to solve one problem.\n\nThe Compare view brings those attempts together. Each is applied to current main and trial checked, without publishing it. You can compare the verdict, the paths it changes, and the diff, rather than judging only from the agent's description.\n\nThe plans sit alongside the code. They're pinned to the submitted revision, so a later edit to an agent's notes doesn't silently change what the reviewer is evaluating. That makes it possible to compare both the implementation and the reasoning that produced it.\n\nA passing trial gives the person useful evidence for a choice. The selected attempt still goes through its own landing check, and the others close as not picked. This page is part of the scripted demo. Its purpose is to make alternatives reviewable before one of them becomes the shared result.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "03c86bbd3f2005cfc76ca3530bd182aca274178dcf7f7ab3e18c98f2e10c41f8",
+        "transcriptSha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1",
+        "inputSeconds": 52.04,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 52.04,
+        "tempo": 1,
+        "spokenSeconds": 52.04,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "tab",
+          "name": "Compare"
+        },
+        {
+          "type": "focus",
+          "target": {
+            "selector": ".compare > fieldset.box:first-child legend"
+          }
+        }
+      ],
+      "historical_original_chapter_seconds": 60
+    },
+    {
+      "id": "authority",
+      "title": "04 / Human authority stays bound to exact commits",
+      "label": "Recorded approval and release · anonymous read-only view",
+      "seconds": 60,
+      "path": "/nerudo/demo/pulls/16",
+      "expect": "Approved",
+      "actions": [
+        {
+          "type": "highlight",
+          "at": 4.64,
+          "target": {
+            "selector": ".props-table tr:has(th:text-is(\"Needed approval\"))"
+          },
+          "label": "Irreversible migration · approval required",
+          "duration": 6.7,
+          "readyBy": 5.14,
+          "expected_product_text": "Needed approval",
+          "narrativeCue": "The rules require a person to sign"
+        },
+        {
+          "type": "highlight",
+          "at": 11.84,
+          "target": {
+            "selector": ".props-table tr:has(th:text-is(\"Approved by\"))"
+          },
+          "label": "Recorded human signature",
+          "duration": 6.0,
+          "readyBy": 12.34,
+          "expected_product_text": [
+            "kcirtapfromspace",
+            "signed"
+          ],
+          "narrativeCue": "The approval is recorded"
+        },
+        {
+          "type": "highlight",
+          "at": 18.085,
+          "target": {
+            "selector": ".props-table tr:has(th:text-is(\"Agent's commit\"))"
+          },
+          "label": "Signature bound to the submitted commit",
+          "duration": 6.3,
+          "readyBy": 18.585,
+          "expected_product_text": "03363c6",
+          "narrativeCue": "It binds to this exact submitted commit"
+        },
+        {
+          "type": "goto",
+          "at": 24.725,
+          "path": "/nerudo/demo/releases/release%3Av0.1.0",
+          "expect": "v0.1.0",
+          "readyBy": 24.725
+        },
+        {
+          "type": "highlight",
+          "at": 24.725,
+          "target": {
+            "selector": "article.detail h1.d-title"
+          },
+          "label": "Recorded signed release · v0.1.0",
+          "duration": 9.2,
+          "readyBy": 25.225,
+          "expected_product_text": "v0.1.0",
+          "narrativeCue": "Next, the release page"
+        },
+        {
+          "type": "tab",
+          "at": 34.49,
+          "name": "Signature",
+          "readyBy": 34.49
+        },
+        {
+          "type": "highlight",
+          "at": 34.49,
+          "target": {
+            "selector": ".tab-body table.grid tbody tr"
+          },
+          "label": "Approver, public key, release signature",
+          "duration": 7.8,
+          "readyBy": 34.99,
+          "expected_product_text": "kcirtapfromspace",
+          "narrativeCue": "The Signature tab shows the approver and public verification material"
+        },
+        {
+          "type": "explain",
+          "at": 42.645,
+          "label": "Explanation · recovery contract",
+          "title": "Recovery rechecks the governing rules",
+          "cards": [
+            {
+              "title": "Recorded operation",
+              "code": "exact commit\n+ signed statement"
+            },
+            {
+              "title": "Recovery check",
+              "code": "current rule names\n+ authorized approver"
+            }
+          ],
+          "result": "An illustration of the recovery contract; not a live crash.",
+          "duration": 6.1,
+          "readyBy": 43.145,
+          "narrativeCue": "Recovery also rechecks authorization"
+        },
+        {
+          "type": "highlight",
+          "at": 48.975,
+          "target": {
+            "selector": ".tab-body fieldset.box p"
+          },
+          "label": "Independent verification against released rules",
+          "duration": 10.6,
+          "readyBy": 49.475,
+          "expected_product_text": [
+            "nerudo verify",
+            "nerudo.toml"
+          ],
+          "narrativeCue": "Independent verification checks the signed statements"
+        }
+      ],
+      "narration": "Choosing an implementation is also where human authority needs to stay clear. Repository rules decide which changes need a signature, including sensitive paths and changes to the rules themselves.\n\nThis approval is already recorded. We're viewing it anonymously, without performing a signing action. It applies to the exact submitted change and its governing rules, so it can't be carried over to a changed commit.\n\nThe release page shows the same principle at another boundary. The sequencer creates the annotated release tag only after the release statement has been signed. In the Signature tab, a reviewer can inspect who signed and which commit was released.\n\nThose records also matter during recovery. If new rules have landed, they must become active before the next change is admitted, even after a crash. Independent verification can check the authority trail against the Git repository. That connects the approval you see here to the actual code, rather than leaving it as an interface status alone.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "614f3474b9279a3b884ddd7a233b29ad6cd3aed584cdc17aba53ba0cf2c89a22",
+        "transcriptSha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc",
+        "inputSeconds": 60,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 60,
+        "tempo": 1,
+        "spokenSeconds": 60,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "tab",
+          "name": "Conversation"
+        }
+      ],
+      "historical_original_chapter_seconds": 60
+    },
+    {
+      "id": "models",
+      "title": "05 / Real coding models, including unfinished outcomes",
+      "label": "Actual coding clients · preserved Oct 13 initial receipts · isolated build 79c259ad · recovery separate",
+      "seconds": 66.6,
+      "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json",
+      "expect": "completed_providers",
+      "actions": [
+        {
+          "at": 3.36,
+          "type": "explain",
+          "duration": 15.0,
+          "label": "Explanation · recorded Oct 13 evidence",
+          "title": "Three coding clients overlapped",
+          "cards": [
+            {
+              "title": "Claude + Codex",
+              "code": "Completed and landed\n2 native workflows"
+            },
+            {
+              "title": "Hermes",
+              "code": "900-second timeout\nNo change submitted"
+            }
+          ],
+          "result": "Initial concurrent attempt: 2 of 3 completed. Isolated backend 79c259ad."
+        },
+        {
+          "at": 18.57,
+          "type": "goto",
+          "path": "https://nerudo-submission-web.patrickdeutsch.workers.dev/nerudo/concurrency-20261013-151647/pulls/2",
+          "expect": "cart"
+        },
+        {
+          "at": 18.57,
+          "type": "revision",
+          "value": "1",
+          "expected_header_state": "Checks failed"
+        },
+        {
+          "at": 18.57,
+          "type": "tab",
+          "name": "Checks",
+          "expected_visible_text": "Expected 2 arguments, but got 1."
+        },
+        {
+          "at": 18.57,
+          "type": "highlight",
+          "target": {
+            "selector": "article.detail .check.ck-fail"
+          },
+          "label": "Claude changed the API → Codex revision 1 rejected",
+          "duration": 8.3,
+          "expected_product_text": [
+            "TS2554",
+            "src/cart.ts:22",
+            "Expected 2 arguments, but got 1."
+          ]
+        },
+        {
+          "at": 27.08,
+          "type": "revision",
+          "value": "2",
+          "expected_header_state": "Merged"
+        },
+        {
+          "at": 27.08,
+          "type": "tab",
+          "name": "Context",
+          "expected_product_text": "Recover from rev 1 ejection"
+        },
+        {
+          "at": 27.08,
+          "type": "highlight",
+          "target": {
+            "selector": "article.detail .md p:has-text(\"Recover from rev 1 ejection\")"
+          },
+          "label": "Codex reads Claude’s pinned context and repairs its caller",
+          "duration": 5.0,
+          "expected_product_text": [
+            "Recover from rev 1 ejection",
+            "claude-feature context"
+          ]
+        },
+        {
+          "at": 32.44,
+          "type": "goto",
+          "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json",
+          "expect": "observed_completed_children"
+        },
+        {
+          "at": 32.44,
+          "type": "highlight",
+          "target": {
+            "selector": "article.detail .code-text:has-text(\"evidence-reviewer\")"
+          },
+          "label": "Claude completed planner + reviewer children",
+          "duration": 3.5,
+          "expected_product_text": "evidence-reviewer"
+        },
+        {
+          "at": 36.04,
+          "type": "explain",
+          "duration": 11.2,
+          "label": "Explanation · immutable initial-attempt audit",
+          "title": "Verification passed; the initial fixture was incomplete",
+          "cards": [
+            {
+              "title": "External checks",
+              "code": "11 runtime tests passed\nGit / receipt audit passed"
+            },
+            {
+              "title": "Full fixture acceptance",
+              "code": "FAILED\nMissing src/receipt.ts"
+            }
+          ],
+          "result": "The first overlapping attempt remains 2/3 completed. These are external runtime checks, not deployed Worker runtime CI."
+        },
+        {
+          "at": 47.51,
+          "type": "goto",
+          "path": "/nerudo/nerudo/repo/file%3Acf/LLM_WORKFLOWS.md",
+          "expect": "20261012-054654"
+        },
+        {
+          "at": 47.51,
+          "type": "highlight",
+          "target": {
+            "selector": ".md table:has-text(\"20261012-054654\")"
+          },
+          "label": "Historical Oct 12 runs · 3/3 · separate evidence",
+          "duration": 4.4,
+          "expected_product_text": "3 / 3"
+        },
+        {
+          "at": 52.16,
+          "type": "highlight",
+          "target": {
+            "selector": ".md p:has-text(\"The change landed,\")"
+          },
+          "label": "Separate Hermes recovery · change landed, parent timed out",
+          "duration": 8.0,
+          "expected_product_text": [
+            "600-second",
+            "parent timed out again"
+          ]
+        },
+        {
+          "at": 60.32,
+          "type": "highlight",
+          "target": {
+            "selector": ".md p:has-text(\"The change landed,\")"
+          },
+          "label": "3 eventual landings · 2 completed native workflows",
+          "duration": 6.1,
+          "expected_product_text": [
+            "three changes landed",
+            "two completed native workflows"
+          ]
+        }
+      ],
+      "narration": "So far, we've been looking at scripted product behavior. Here are the records from actual coding clients. On October thirteenth, Claude, Codex, and Hermes overlapped on an isolated Worker build. Claude and Codex completed and landed. Hermes timed out after nine hundred seconds, before submitting its change.\n\nThe coordination trace shows a useful detail: Claude changed the currency API, and Codex's first revision failed integrated CI. Codex read Claude's pinned context, repaired its caller, and landed revision two. Claude also completed native planner and reviewer children.\n\nVerification and eleven external runtime tests passed, but full fixture acceptance failed because the receipt feature was missing. That's the initial two-of-three result preserved in this record.\n\nThe workflow document also preserves earlier successful three-client runs. A later, separate Hermes recovery landed the missing feature and passed external acceptance, but its parent client still timed out. There are three eventual landings, while the original concurrent attempt still has only two completed workflows.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "0c6a423e660865f0ceb9996ef673d7dd9600013f339c4e03d6c94cad59aa6471",
+        "transcriptSha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970",
+        "inputSeconds": 66.6,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 66.6,
+        "tempo": 1,
+        "spokenSeconds": 66.6,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "focus",
+          "target": {
+            "selector": "article.detail .code-text:has-text(\"completed_providers\")"
+          },
+          "expected_product_text": "completed_providers"
+        }
+      ],
+      "historical_original_chapter_seconds": 60
+    },
+    {
+      "id": "scale",
+      "title": "06 / Scale measurements with the conditions visible",
+      "label": "Recorded synthetic benchmarks · scope and failures included",
+      "seconds": 80.08,
+      "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md",
+      "expect": "1,000",
+      "actions": [
+        {
+          "type": "highlight",
+          "at": 12.685,
+          "target": {
+            "selector": ".md tr:has(td:first-child:text-is(\"1,000\"))"
+          },
+          "label": "1,000 repositories · measured 994.3/s",
+          "duration": 7.2,
+          "readyBy": 13.185,
+          "expected_product_text": [
+            "1,000",
+            "994.3"
+          ],
+          "narrativeCue": "A thousand repositories averaged about nine hundred ninety-four landings per second"
+        },
+        {
+          "type": "explain",
+          "at": 20.285,
+          "label": "Explanation · recorded benchmark totals",
+          "title": "Recorded five-minute synthetic run",
+          "cards": [
+            {
+              "title": "Attempted changes",
+              "code": "300,000"
+            },
+            {
+              "title": "Landed changes",
+              "code": "299,988\n12 push failures"
+            }
+          ],
+          "result": "Synthetic, disjoint changes. One recorded run.",
+          "duration": 6.4,
+          "readyBy": 20.785,
+          "narrativeCue": "Two hundred ninety-nine thousand, nine hundred eighty-eight"
+        },
+        {
+          "type": "highlight",
+          "at": 26.925,
+          "target": {
+            "selector": ".md li:has-text(\"The changes did not overlap\")"
+          },
+          "label": "Scope · disjoint commits, no C I",
+          "duration": 6.1,
+          "readyBy": 27.425,
+          "expected_product_text": [
+            "did not overlap",
+            "no CI"
+          ],
+          "narrativeCue": "The changes were synthetic and disjoint, with no C I"
+        },
+        {
+          "type": "highlight",
+          "at": 33.32,
+          "target": {
+            "selector": ".md tr:has(td:first-child:text-is(\"10,000\"))"
+          },
+          "label": "10,000 quiet repos · about 500/s aggregate",
+          "duration": 19.3,
+          "readyBy": 33.82,
+          "expected_product_text": [
+            "10,000",
+            "0.05 each second",
+            "501.9"
+          ],
+          "narrativeCue": "The ten-thousand-repository run was much quieter"
+        },
+        {
+          "type": "highlight",
+          "at": 52.905,
+          "target": {
+            "selector": ".md tr:has(td:first-child:text-is(\"2,000\"))"
+          },
+          "label": "Healthy window · measured 1,977.9/s",
+          "duration": 10.5,
+          "readyBy": 53.405,
+          "expected_product_text": [
+            "2,000",
+            "1,977.9"
+          ],
+          "narrativeCue": "The two-thousand-repository run peaked near"
+        },
+        {
+          "type": "highlight",
+          "at": 63.71,
+          "target": {
+            "selector": ".md li:has-text(\"The 2,000-repo run stopped after 131 s\")"
+          },
+          "label": "Stopped at 131 s · Artifacts failures included",
+          "duration": 16.0,
+          "readyBy": 64.21,
+          "expected_product_text": [
+            "131 s",
+            "Artifacts",
+            "30 s to 120 s"
+          ],
+          "narrativeCue": "It stopped after a hundred thirty-one seconds"
+        }
+      ],
+      "narration": "These benchmarks ask a different question: how quickly can the integration service land prepared changes across many repositories? They measure integration, separately from the time a model spends producing code.\n\nOn one thousand repositories, the five-minute run measured about nine hundred ninety-four landings per second in its measured window. Two hundred ninety-nine thousand nine hundred eighty-eight of three hundred thousand changes landed; twelve pushes failed. The workload used synthetic, disjoint changes with no CI, so that rate describes those conditions.\n\nThe breadth experiment spread work across ten thousand quiet repositories, at about five hundred aggregate landings per second. Each synthetic agent submitted one change every twenty seconds. That's useful evidence about repository breadth, but it isn't ten thousand language models coding simultaneously.\n\nThe highest measured rate was one thousand nine hundred seventy-eight landings per second across two thousand repositories, during a healthy ninety-second window. That run stopped during Artifacts failures at one hundred thirty-one seconds. The failure stays in the report, alongside the peak. It's a short measured window, not sustained capacity or a promise about a conflicting workload with checks enabled.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "d7a043e368e0cecc7f8a00d7e3f69daf4dc1b401fa2affac91e73320d946481a",
+        "transcriptSha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04",
+        "inputSeconds": 80.08,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 80.08,
+        "tempo": 1,
+        "spokenSeconds": 80.08,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "tab",
+          "name": "Preview"
+        },
+        {
+          "type": "focus",
+          "target": {
+            "selector": ".md h3.md-h:text-is(\"Many repos at once\")"
+          }
+        }
+      ],
+      "historical_original_chapter_seconds": 70
+    },
+    {
+      "id": "architecture",
+      "title": "07 / Cloudflare architecture and verification bounds",
+      "label": "Workers · Durable Objects · Artifacts · isolated CI Worker",
+      "seconds": 69.24,
+      "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md",
+      "expect": "WASM",
+      "actions": [
+        {
+          "type": "highlight",
+          "at": 4.8,
+          "target": {
+            "selector": ".md tr:has(td:first-child:text-is(\"m700\"))"
+          },
+          "label": "728 MB repository tip · recorded landing",
+          "duration": 9.0,
+          "readyBy": 5.3,
+          "expected_product_text": [
+            "728 MB",
+            "14 MB"
+          ],
+          "narrativeCue": "A seven-hundred-twenty-eight-megabyte repository tip"
+        },
+        {
+          "type": "highlight",
+          "at": 14.095,
+          "target": {
+            "selector": ".md tr:has(td:first-child:text-is(\"m700\")) td:nth-child(5)"
+          },
+          "label": "14 MB · WASM linear-memory peak",
+          "duration": 9.6,
+          "readyBy": 14.595,
+          "expected_product_text": "14 MB",
+          "narrativeCue": "Its reported peak WebAssembly linear memory was fourteen megabytes"
+        },
+        {
+          "type": "goto",
+          "at": 24.015,
+          "path": "/nerudo/nerudo/repo/file%3Acf/README.md",
+          "expect": "Components",
+          "readyBy": 24.015
+        },
+        {
+          "type": "tab",
+          "at": 24.015,
+          "name": "Preview",
+          "readyBy": 24.015
+        },
+        {
+          "type": "highlight",
+          "at": 24.015,
+          "target": {
+            "selector": ".md h2.md-h:text-is(\"Components\")"
+          },
+          "label": "Components · actual source architecture",
+          "duration": 2.9,
+          "readyBy": 24.515,
+          "expected_product_text": "Components",
+          "narrativeCue": "The Components section explains the deployment"
+        },
+        {
+          "type": "explain",
+          "at": 27.15,
+          "label": "Explanation · architecture illustration",
+          "title": "The repository integration path",
+          "cards": [
+            {
+              "title": "Application and sequencer",
+              "code": "Workers web app\nRust → WebAssembly"
+            },
+            {
+              "title": "Repository authority",
+              "code": "Trunk Durable Object\nArtifacts Git forks\nC I service binding"
+            }
+          ],
+          "result": "Architecture illustration sourced from the Components table.",
+          "duration": 14.9,
+          "readyBy": 27.65,
+          "narrativeCue": "Workers serves the application and runs the Rust sequencer"
+        },
+        {
+          "type": "highlight",
+          "at": 42.805,
+          "target": {
+            "selector": ".md tr:has(td:first-child:has-text(\"nerudo-worker\"))"
+          },
+          "label": "One Trunk authority per repository",
+          "duration": 8.9,
+          "readyBy": 43.305,
+          "expected_product_text": [
+            "Trunk",
+            "CI"
+          ],
+          "narrativeCue": "There is one sequencing authority per repository"
+        },
+        {
+          "type": "explain",
+          "at": 52.005,
+          "label": "Explanation · architecture illustration",
+          "title": "Compatible changes share integrated checks",
+          "cards": [
+            {
+              "title": "Prepared changes",
+              "code": "A + B"
+            },
+            {
+              "title": "Published result",
+              "code": "checked batch\n→ main"
+            }
+          ],
+          "result": "Batching does not prove every intermediate commit builds.",
+          "duration": 2.7,
+          "readyBy": 52.505,
+          "narrativeCue": "Compatible changes can share a check"
+        },
+        {
+          "type": "goto",
+          "at": 54.9,
+          "path": "/nerudo/nerudo/repo/file%3ASUBMISSION.md",
+          "expect": "Merged-source recovery",
+          "readyBy": 54.9
+        },
+        {
+          "type": "tab",
+          "at": 54.9,
+          "name": "Preview",
+          "readyBy": 54.9
+        },
+        {
+          "type": "highlight",
+          "at": 54.9,
+          "target": {
+            "selector": ".md tr:has(td:first-child:has-text(\"Merged-source recovery\"))"
+          },
+          "label": "Local targeted recovery tests · production binary",
+          "duration": 14.0,
+          "readyBy": 55.4,
+          "expected_product_text": [
+            "4/4",
+            "locally",
+            "not as a full"
+          ],
+          "narrativeCue": "The local fault regression exercises"
+        }
+      ],
+      "narration": "Repository count is one dimension; repository size is another. The large-repository experiment here landed a seven hundred twenty-eight megabyte tip, then passed read-back and Git object verification. The reported fourteen megabyte peak is WASM linear memory. It doesn't measure all isolate memory or demonstrate arbitrary monorepo CI.\n\nThe component view explains how the pieces fit. Workers host the application and the Rust WASM sequencer. A Durable Object coordinates each repository, while Artifacts supplies Git storage and isolated agent forks. A service binding connects integration to a separate CI Worker.\n\nThat arrangement spreads independent repositories across the platform, while keeping one serialized integration authority inside each repository. Batching makes compatible work share a check. Local fault regressions then exercise what happens when a process crashes, approval rules change, or allowance accounting is replayed. The source makes those recovery contracts inspectable, alongside the measurements you've just seen.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "bcac8f14ae8728e8c829c9cbb110d2e9e225f4954ef5e983f3cd3f0c9c441e86",
+        "transcriptSha256": "3c4456801017d5760dd0e0eba60779d61e44f1106f17d0f8ed378514aecb3b47",
+        "inputSeconds": 69.24,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 69.24,
+        "tempo": 1,
+        "spokenSeconds": 69.24,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "tab",
+          "name": "Preview"
+        },
+        {
+          "type": "focus",
+          "target": {
+            "selector": ".md h3.md-h:text-is(\"Big repos\")"
+          }
+        }
+      ],
+      "historical_original_chapter_seconds": 55
+    },
+    {
+      "id": "reproduce",
+      "title": "08 / Reproduce the work and see what remains",
+      "label": "Public source · MIT OR Apache-2.0 · reproducible evidence",
+      "seconds": 71.68,
+      "path": "/nerudo/nerudo/repo/file%3ASUBMISSION.md",
+      "expect": "Reproduce",
+      "actions": [
+        {
+          "type": "highlight",
+          "at": 10.48,
+          "target": {
+            "selector": ".md h2.md-h:text-is(\"Reproduce\")"
+          },
+          "label": "Reproduce · public commands and scope",
+          "duration": 4.3,
+          "readyBy": 10.98,
+          "expected_product_text": "Reproduce",
+          "narrativeCue": "Start with the Reproduce section"
+        },
+        {
+          "type": "highlight",
+          "at": 15.125,
+          "target": {
+            "selector": ".md pre:has-text(\"cargo test --manifest-path cf/Cargo.toml --workspace --locked\")"
+          },
+          "label": "Workspace tests · commands to reproduce",
+          "duration": 3.4,
+          "readyBy": 15.625,
+          "expected_product_text": "cargo test --manifest-path cf/Cargo.toml --workspace --locked",
+          "narrativeCue": "The workspace tests and local fault harness"
+        },
+        {
+          "type": "highlight",
+          "at": 18.965,
+          "target": {
+            "selector": ".md p:has-text(\"Use new credentials and an isolated\")"
+          },
+          "label": "Live reproduction · your own isolated namespace",
+          "duration": 9.5,
+          "readyBy": 19.465,
+          "expected_product_text": [
+            "three-Worker",
+            "Workers Paid",
+            "isolated"
+          ],
+          "narrativeCue": "For live reproduction, deploy the three Workers"
+        },
+        {
+          "type": "highlight",
+          "at": 28.82,
+          "target": {
+            "selector": ".md p:has-text(\"Artifacts billing begins\")"
+          },
+          "label": "Cost scope · billing starts October 14, 2026",
+          "duration": 19.8,
+          "readyBy": 29.32,
+          "expected_product_text": [
+            "October 14, 2026",
+            "$19–20",
+            "$135–225"
+          ],
+          "narrativeCue": "Costs need the same distinction"
+        },
+        {
+          "type": "highlight",
+          "at": 49.065,
+          "target": {
+            "selector": ".md p:has-text(\"NERUDO has not demonstrated\")"
+          },
+          "label": "Unproven · sustained conflicts, runtime C I, S L A",
+          "duration": 6.7,
+          "readyBy": 49.565,
+          "expected_product_text": [
+            "sustained conflicts",
+            "general runtime CI",
+            "service-level agreement"
+          ],
+          "narrativeCue": "The next work is sustained conflicts"
+        },
+        {
+          "type": "explain",
+          "at": 56.15,
+          "label": "Explanation · demonstrated contract summary",
+          "title": "The demonstrated coordination contract",
+          "cards": [
+            {
+              "title": "Concurrent work",
+              "code": "forks → task attempts\n+ preserved context"
+            },
+            {
+              "title": "Auditable integration",
+              "code": "integrated checks\n+ receipts and seals"
+            }
+          ],
+          "result": "A summary of the demonstrated contract, with its recorded bounds.",
+          "duration": 11.1,
+          "readyBy": 56.65,
+          "narrativeCue": "But the core contract is already visible"
+        },
+        {
+          "type": "goto",
+          "at": 67.67,
+          "path": "/nerudo/nerudo/repo/file%3ALICENSE",
+          "expect": "MIT OR Apache-2.0",
+          "readyBy": 67.67
+        },
+        {
+          "type": "tab",
+          "at": 67.67,
+          "name": "Source",
+          "readyBy": 67.67
+        },
+        {
+          "type": "highlight",
+          "at": 67.67,
+          "target": {
+            "selector": ".code-line:has-text(\"SPDX-License-Identifier: MIT OR Apache-2.0\")"
+          },
+          "label": "Open source · MIT or Apache 2.0",
+          "duration": 3.8,
+          "readyBy": 68.17,
+          "expected_product_text": "MIT OR Apache-2.0",
+          "narrativeCue": "The source is available under M I T or Apache two point zero"
+        }
+      ],
+      "narration": "Everything we've looked at has a place in the public source: the command line client, fixtures, deployment instructions, benchmark drivers, and recorded evidence. The reproduction section gives you a way to follow the claims back to runnable checks.\n\nStart with the workspace tests and the local fault harness. For a live deployment, use your own credentials and an isolated namespace, following the three-Worker instructions. That keeps reproduction separate from the public demo.\n\nThe cost section makes another distinction. Artifacts billing begins on October fourteenth. Historical campaign spending excluded the then-free Artifacts service; paid projections also need repository storage, retries, checks, and model inference. They are estimates, not observed production invoices.\n\nThere's still work ahead on sustained conflicting workloads, broader runtime CI, and production service guarantees. What you can inspect today is a working collaboration contract: isolated attempts, integrated checks, useful receipts, preserved intent, and signatures tied to exact code. NERUDO is open source under MIT or Apache two point zero.",
+      "audio": {
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "07f9e257df928e24ced3558386321532637e0f1ecc4486f2b43d2cd95bba4dbd",
+        "transcriptSha256": "70488e0c72fd52e6ebe9811d19ceb6058b91caf8f5bb89a98592463ae14a22b4",
+        "inputSeconds": 71.68,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 71.68,
+        "tempo": 1,
+        "spokenSeconds": 71.68,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "nova3_word_timestamps_canonical_sequence_alignment"
+      },
+      "setup": [
+        {
+          "type": "tab",
+          "name": "Preview"
+        },
+        {
+          "type": "focus",
+          "target": {
+            "selector": ".md h1.md-h"
+          }
+        }
+      ],
+      "historical_original_chapter_seconds": 60
+    }
+  ],
+  "provider_evidence": {
+    "first_attempt_path": "cf/evidence/submission-provider-attempt-20261013.json",
+    "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+    "isolated_backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+    "outcome": "3 overlapping attempts; 2 completed/landed; Hermes timeout900s; verify/11runtime tests pass; full acceptance fails absent receipt.ts. Recovery is separate.",
+    "coordination_path": "cf/evidence/submission-coordination-20261013.json",
+    "coordination_sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d"
+  },
+  "historical_editions": [
+    {
+      "edition": "natural_luna_retimed_capture",
+      "eligible_for_submission": false,
+      "status": "superseded_do_not_submit",
+      "historical_public_plan_sha256": "eee31e9c5cb45a167fdbe35f0329bf46fb1e7f7dc8a7be76cedbb712d6d7961c",
+      "recorded_plan": {
+        "schema": "nerudo.submission-video-plan.v2",
+        "version": 2,
+        "edition": "natural_luna",
+        "status": "complete_local_artifact",
+        "selected_for_submission": true,
+        "publicOrigin": "https://nerudo-web.patrickdeutsch.workers.dev",
+        "disclosure": "Actual public-site interactions. Product demo is scripted. Historical model and scale evidence is dated and scoped. Narration: Deepgram via Cloudflare Workers AI, @cf/deepgram/aura-2-en, voice luna; approved natural female narration.",
+        "duration_seconds": 510.68,
+        "capture_scope": {
+          "reused": true,
+          "fresh_browsing": false,
+          "source_plan_duration_seconds": 480,
+          "source_video_duration_seconds": 479.88,
+          "recorded_at": "2026-10-13T15:52:19.146Z",
+          "successful_original_actions": 36,
+          "action_timing_basis": "Original source chapter seconds; the render retimes each chapter to its unaltered narration."
+        },
+        "narration": {
+          "provider": {
+            "name": "Deepgram via Cloudflare Workers AI",
+            "model": "@cf/deepgram/aura-2-en",
+            "voice": "luna",
+            "kind": "neural",
+            "gender": "female",
+            "style": "natural conversational",
+            "quality": "high"
+          },
+          "manifest_sha256": "ceaf0bfdd98c35047ee3358a0b5481d2ad63a539865e575a6083ca7c3a8d854a",
+          "source_script_sha256": "8e95b67daa78b95e75d858d76e5fe7719cfb7df86d2d6836387c6de6e424d7d3",
+          "tempo": 1,
+          "added_transition_seconds": 0,
+          "caption_timing": "Known script aligned to ASR word timestamps (Deepgram Nova-3); approved display spelling, not raw ASR text.",
+          "speech_validation_scope": "ASR spelling substitutions are not evidence that the generated speech changed a fact. This validates sequence coverage and source timing, not pronunciation."
+        },
+        "scenes": [
+          {
+            "id": "purpose",
+            "title": "01 / A Git platform for concurrent coding agents",
+            "label": "Public product · scripted six-client demo",
+            "seconds": 56.56,
+            "path": "/",
+            "expect": "Repositories",
+            "actions": [
+              {
+                "at": 12,
+                "type": "goto",
+                "path": "/nerudo/demo/graph",
+                "expect": "Graph"
+              },
+              {
+                "at": 31,
+                "type": "scroll",
+                "amount": 330
+              }
+            ],
+            "narration": "When coding agents share a repository, writing code is only part of the job. Their changes also have to fit together. That's the problem NERUDO is built to handle.\n\nThis is the public application. This demo uses six scripted clients, using Git forks, submissions, checks, and receipts. They're scripted clients, rather than six live language models; we'll look at the model evidence later.\n\nIn the graph, you can follow work as it reaches main. Each agent has an isolated Artifacts fork, while one sequencer coordinates integration for the repository. It groups compatible changes, checks the resulting tree, and publishes a batch.\n\nThat gives agents something concrete to work with: a task, an attempt, preserved context, and a receipt that explains the outcome. You can still clone the repository with ordinary Git. Collaboration happens around that familiar repository, with a clear path from isolated work to shared main.",
+            "source_scene_seconds": 55,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "4ab033d7604d312bcf3eda16e0dbf2c1167c682c0644d9faebd5bbe1128acf45",
+              "inputSeconds": 56.56,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 56.56,
+              "tempo": 1,
+              "spokenSeconds": 56.56,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "0dc18adaa10d69f826fc2ff6e0d51c241e05a5d4e08b59ee320438a82053c984",
+              "input_spoken_text_sha256": "d7b6471acabaa489c826afbb8a3b4b8b6262e57c9da5efd22e0deb935f0b9a47"
+            },
+            "start_seconds": 0,
+            "end_seconds": 56.56,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.16,
+                "end": 5.2,
+                "text": "When coding agents share a repository, writing code is only part of the job."
+              },
+              {
+                "start": 5.28,
+                "end": 7.52,
+                "text": "Their changes also have to fit together."
+              },
+              {
+                "start": 7.68,
+                "end": 10.16,
+                "text": "That's the problem NERUDO is built to handle."
+              },
+              {
+                "start": 10.24,
+                "end": 11.92,
+                "text": "This is the public application."
+              },
+              {
+                "start": 12.24,
+                "end": 18.595,
+                "text": "This demo uses six scripted clients, using Git forks, submissions, checks, and receipts."
+              },
+              {
+                "start": 18.835,
+                "end": 24.275,
+                "text": "They're scripted clients, rather than six live language models; we'll look at the model evidence later."
+              },
+              {
+                "start": 24.435,
+                "end": 27.475,
+                "text": "In the graph, you can follow work as it reaches main."
+              },
+              {
+                "start": 27.795,
+                "end": 33.82,
+                "text": "Each agent has an isolated Artifacts fork, while one sequencer coordinates integration for the repository."
+              },
+              {
+                "start": 34.06,
+                "end": 39.02,
+                "text": "It groups compatible changes, checks the resulting tree, and publishes a batch."
+              },
+              {
+                "start": 39.18,
+                "end": 44.62,
+                "text": "That gives agents something concrete to work with: a task, an attempt, preserved context,"
+              },
+              {
+                "start": 44.875,
+                "end": 47.195,
+                "text": "and a receipt that explains the outcome."
+              },
+              {
+                "start": 47.435,
+                "end": 50.555,
+                "text": "You can still clone the repository with ordinary Git."
+              },
+              {
+                "start": 50.715,
+                "end": 56.475,
+                "text": "Collaboration happens around that familiar repository, with a clear path from isolated work to shared main."
+              }
+            ]
+          },
+          {
+            "id": "integration",
+            "title": "02 / The integrated check catches a stale caller",
+            "label": "Recorded demo outcome · actual CI receipt",
+            "seconds": 54.48,
+            "path": "/nerudo/demo/pulls/10",
+            "expect": "Checks",
+            "actions": [
+              {
+                "at": 12,
+                "type": "tab",
+                "name": "Checks"
+              },
+              {
+                "at": 28,
+                "type": "revision",
+                "value": "1"
+              },
+              {
+                "at": 42,
+                "type": "tab",
+                "name": "Context"
+              },
+              {
+                "at": 46,
+                "type": "text",
+                "text": "Immutable copy"
+              }
+            ],
+            "narration": "Here's the situation that makes that integration check useful. One agent changes a shared API while another is still building against the old version. Both changes may pass on their own bases, but putting them together can expose a broken caller.\n\nThe Checks tab keeps that failure visible. We can select the first revision and inspect the diagnostic from the integrated TypeScript check. The rejected code and its reason stay attached to the same logical change.\n\nThe client can then fetch the new main, understand what changed, repair its caller, and submit another revision. A retry becomes a traceable step in the work, rather than an unexplained replacement of the previous attempt.\n\nThe Context tab preserves the plan that accompanied that exact revision, including an immutable copy. That helps the next agent understand the decision behind the code. The guarantee here is a checked integrated batch tip; every intermediate commit would need its own check to claim the same guarantee.",
+            "source_scene_seconds": 60,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "1a9a91b2153731dfc6c135cad470dc1831f40634c9232cb9f301e0e45320e672",
+              "inputSeconds": 54.48,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 54.48,
+              "tempo": 1,
+              "spokenSeconds": 54.48,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76",
+              "input_spoken_text_sha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76"
+            },
+            "start_seconds": 56.56,
+            "end_seconds": 111.04,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.0,
+                "end": 3.36,
+                "text": "Here's the situation that makes that integration check useful."
+              },
+              {
+                "start": 3.52,
+                "end": 8.48,
+                "text": "One agent changes a shared API while another is still building against the old version."
+              },
+              {
+                "start": 8.56,
+                "end": 13.52,
+                "text": "Both changes may pass on their own bases, but putting them together can expose a broken caller."
+              },
+              {
+                "start": 13.845,
+                "end": 16.325,
+                "text": "The Checks tab keeps that failure visible."
+              },
+              {
+                "start": 16.485,
+                "end": 21.125,
+                "text": "We can select the first revision and inspect the diagnostic from the integrated TypeScript check."
+              },
+              {
+                "start": 21.285,
+                "end": 25.045,
+                "text": "The rejected code and its reason stay attached to the same logical change."
+              },
+              {
+                "start": 25.285,
+                "end": 31.58,
+                "text": "The client can then fetch the new main, understand what changed, repair its caller, and submit another revision."
+              },
+              {
+                "start": 31.82,
+                "end": 37.34,
+                "text": "A retry becomes a traceable step in the work, rather than an unexplained replacement of the previous attempt."
+              },
+              {
+                "start": 37.58,
+                "end": 42.78,
+                "text": "The Context tab preserves the plan that accompanied that exact revision, including an immutable copy."
+              },
+              {
+                "start": 43.255,
+                "end": 46.615,
+                "text": "That helps the next agent understand the decision behind the code."
+              },
+              {
+                "start": 46.855,
+                "end": 50.295,
+                "text": "The guarantee here is a checked integrated batch tip;"
+              },
+              {
+                "start": 50.455,
+                "end": 54.375,
+                "text": "every intermediate commit would need its own check to claim the same guarantee."
+              }
+            ]
+          },
+          {
+            "id": "attempts",
+            "title": "03 / Compare competing attempts and their plans",
+            "label": "Scripted demo · trials do not publish a winner",
+            "seconds": 52.04,
+            "path": "/nerudo/demo/tasks/T-5",
+            "expect": "Compare",
+            "actions": [
+              {
+                "at": 8,
+                "type": "tab",
+                "name": "Compare"
+              },
+              {
+                "at": 12,
+                "type": "text",
+                "text": "3 of 3 attempts"
+              },
+              {
+                "at": 16,
+                "type": "text",
+                "text": "Context v"
+              },
+              {
+                "at": 27,
+                "type": "scroll",
+                "amount": 360
+              },
+              {
+                "at": 43,
+                "type": "scroll",
+                "amount": 350
+              }
+            ],
+            "narration": "Repairing a dependency is one kind of coordination. Another is deciding between different answers to the same task. Here, three attempts are competing to solve one problem.\n\nThe Compare view brings those attempts together. Each is applied to current main and trial checked, without publishing it. You can compare the verdict, the paths it changes, and the diff, rather than judging only from the agent's description.\n\nThe plans sit alongside the code. They're pinned to the submitted revision, so a later edit to an agent's notes doesn't silently change what the reviewer is evaluating. That makes it possible to compare both the implementation and the reasoning that produced it.\n\nA passing trial gives the person useful evidence for a choice. The selected attempt still goes through its own landing check, and the others close as not picked. This page is part of the scripted demo. Its purpose is to make alternatives reviewable before one of them becomes the shared result.",
+            "source_scene_seconds": 60,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "03c86bbd3f2005cfc76ca3530bd182aca274178dcf7f7ab3e18c98f2e10c41f8",
+              "inputSeconds": 52.04,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 52.04,
+              "tempo": 1,
+              "spokenSeconds": 52.04,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1",
+              "input_spoken_text_sha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1"
+            },
+            "start_seconds": 111.04,
+            "end_seconds": 163.08,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.24,
+                "end": 3.04,
+                "text": "Repairing a dependency is one kind of coordination."
+              },
+              {
+                "start": 3.44,
+                "end": 6.64,
+                "text": "Another is deciding between different answers to the same task."
+              },
+              {
+                "start": 6.8,
+                "end": 9.68,
+                "text": "Here, three attempts are competing to solve one problem."
+              },
+              {
+                "start": 9.92,
+                "end": 11.92,
+                "text": "The Compare view brings those attempts together."
+              },
+              {
+                "start": 12.285,
+                "end": 16.045,
+                "text": "Each is applied to current main and trial checked, without publishing it."
+              },
+              {
+                "start": 16.205,
+                "end": 22.605,
+                "text": "You can compare the verdict, the paths it changes, and the diff, rather than judging only from the agent's description."
+              },
+              {
+                "start": 23.005,
+                "end": 24.685,
+                "text": "The plans sit alongside the code."
+              },
+              {
+                "start": 24.95,
+                "end": 26.87,
+                "text": "They're pinned to the submitted revision,"
+              },
+              {
+                "start": 26.95,
+                "end": 31.75,
+                "text": "so a later edit to an agent's notes doesn't silently change what the reviewer is evaluating."
+              },
+              {
+                "start": 31.99,
+                "end": 36.47,
+                "text": "That makes it possible to compare both the implementation and the reasoning that produced it."
+              },
+              {
+                "start": 36.63,
+                "end": 39.59,
+                "text": "A passing trial gives the person useful evidence for a choice."
+              },
+              {
+                "start": 39.915,
+                "end": 44.955,
+                "text": "The selected attempt still goes through its own landing check, and the others close as not picked."
+              },
+              {
+                "start": 45.115,
+                "end": 47.275,
+                "text": "This page is part of the scripted demo."
+              },
+              {
+                "start": 47.275,
+                "end": 51.835,
+                "text": "Its purpose is to make alternatives reviewable before one of them becomes the shared result."
+              }
+            ]
+          },
+          {
+            "id": "authority",
+            "title": "04 / Human authority stays bound to exact commits",
+            "label": "Recorded approval and release · anonymous read-only view",
+            "seconds": 60,
+            "path": "/nerudo/demo/pulls/16",
+            "expect": "Approved",
+            "actions": [
+              {
+                "at": 24,
+                "type": "goto",
+                "path": "/nerudo/demo/releases/release%3Av0.1.0",
+                "expect": "signed by"
+              },
+              {
+                "at": 38,
+                "type": "tab",
+                "name": "Signature"
+              }
+            ],
+            "narration": "Choosing an implementation is also where human authority needs to stay clear. Repository rules decide which changes need a signature, including sensitive paths and changes to the rules themselves.\n\nThis approval is already recorded. We're viewing it anonymously, without performing a signing action. It applies to the exact submitted change and its governing rules, so it can't be carried over to a changed commit.\n\nThe release page shows the same principle at another boundary. The sequencer creates the annotated release tag only after the release statement has been signed. In the Signature tab, a reviewer can inspect who signed and which commit was released.\n\nThose records also matter during recovery. If new rules have landed, they must become active before the next change is admitted, even after a crash. Independent verification can check the authority trail against the Git repository. That connects the approval you see here to the actual code, rather than leaving it as an interface status alone.",
+            "source_scene_seconds": 60,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "614f3474b9279a3b884ddd7a233b29ad6cd3aed584cdc17aba53ba0cf2c89a22",
+              "inputSeconds": 60,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 60,
+              "tempo": 1,
+              "spokenSeconds": 60,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc",
+              "input_spoken_text_sha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc"
+            },
+            "start_seconds": 163.08,
+            "end_seconds": 223.08,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.16,
+                "end": 4.4,
+                "text": "Choosing an implementation is also where human authority needs to stay clear."
+              },
+              {
+                "start": 4.64,
+                "end": 11.6,
+                "text": "Repository rules decide which changes need a signature, including sensitive paths and changes to the rules themselves."
+              },
+              {
+                "start": 11.84,
+                "end": 13.76,
+                "text": "This approval is already recorded."
+              },
+              {
+                "start": 13.76,
+                "end": 17.765,
+                "text": "We're viewing it anonymously, without performing a signing action."
+              },
+              {
+                "start": 18.085,
+                "end": 21.925,
+                "text": "It applies to the exact submitted change and its governing rules,"
+              },
+              {
+                "start": 21.925,
+                "end": 24.405,
+                "text": "so it can't be carried over to a changed commit."
+              },
+              {
+                "start": 24.725,
+                "end": 28.165,
+                "text": "The release page shows the same principle at another boundary."
+              },
+              {
+                "start": 28.65,
+                "end": 34.17,
+                "text": "The sequencer creates the annotated release tag only after the release statement has been signed."
+              },
+              {
+                "start": 34.49,
+                "end": 39.69,
+                "text": "In the Signature tab, a reviewer can inspect who signed and which commit was released."
+              },
+              {
+                "start": 39.93,
+                "end": 42.09,
+                "text": "Those records also matter during recovery."
+              },
+              {
+                "start": 42.645,
+                "end": 48.565,
+                "text": "If new rules have landed, they must become active before the next change is admitted, even after a crash."
+              },
+              {
+                "start": 48.9749,
+                "end": 53.7749,
+                "text": "Independent verification can check the authority trail against the Git repository."
+              },
+              {
+                "start": 53.9349,
+                "end": 59.9349,
+                "text": "That connects the approval you see here to the actual code, rather than leaving it as an interface status alone."
+              }
+            ]
+          },
+          {
+            "id": "models",
+            "title": "05 / Real coding models, including unfinished outcomes",
+            "label": "Fresh isolated run · pinned build 79c259ad · 2/3 complete · acceptance incomplete",
+            "seconds": 66.6,
+            "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json",
+            "expect": "immutable_attempt",
+            "actions": [
+              {
+                "at": 12,
+                "type": "text",
+                "text": "hermes"
+              },
+              {
+                "at": 23,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-coordination-20261013.json",
+                "expect": "TS2554"
+              },
+              {
+                "at": 32,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json",
+                "expect": "full_fixture_acceptance"
+              },
+              {
+                "at": 35,
+                "type": "text",
+                "text": "full_fixture_acceptance"
+              },
+              {
+                "at": 44,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/LLM_WORKFLOWS.md",
+                "expect": "workflow"
+              },
+              {
+                "at": 49,
+                "type": "text",
+                "text": "20261012-054654"
+              }
+            ],
+            "narration": "So far, we've been looking at scripted product behavior. Here are the records from actual coding clients. On October thirteenth, Claude, Codex, and Hermes overlapped on an isolated Worker build. Claude and Codex completed and landed. Hermes timed out after nine hundred seconds, before submitting its change.\n\nThe coordination trace shows a useful detail: Claude changed the currency API, and Codex's first revision failed integrated CI. Codex read Claude's pinned context, repaired its caller, and landed revision two. Claude also completed native planner and reviewer children.\n\nVerification and eleven external runtime tests passed, but full fixture acceptance failed because the receipt feature was missing. That's the initial two-of-three result preserved in this record.\n\nThe workflow document also preserves earlier successful three-client runs. A later, separate Hermes recovery landed the missing feature and passed external acceptance, but its parent client still timed out. There are three eventual landings, while the original concurrent attempt still has only two completed workflows.",
+            "source_scene_seconds": 60,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "0c6a423e660865f0ceb9996ef673d7dd9600013f339c4e03d6c94cad59aa6471",
+              "inputSeconds": 66.6,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 66.6,
+              "tempo": 1,
+              "spokenSeconds": 66.6,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970",
+              "input_spoken_text_sha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970"
+            },
+            "start_seconds": 223.08,
+            "end_seconds": 289.68,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.16,
+                "end": 3.2,
+                "text": "So far, we've been looking at scripted product behavior."
+              },
+              {
+                "start": 3.36,
+                "end": 5.92,
+                "text": "Here are the records from actual coding clients."
+              },
+              {
+                "start": 6.0,
+                "end": 11.6,
+                "text": "On October thirteenth, Claude, Codex, and Hermes overlapped on an isolated Worker build."
+              },
+              {
+                "start": 12.015,
+                "end": 14.335,
+                "text": "Claude and Codex completed and landed."
+              },
+              {
+                "start": 14.335,
+                "end": 18.255,
+                "text": "Hermes timed out after nine hundred seconds, before submitting its change."
+              },
+              {
+                "start": 18.575,
+                "end": 26.575,
+                "text": "The coordination trace shows a useful detail: Claude changed the currency API, and Codex's first revision failed integrated CI."
+              },
+              {
+                "start": 27.08,
+                "end": 32.28,
+                "text": "Codex read Claude's pinned context, repaired its caller, and landed revision two."
+              },
+              {
+                "start": 32.44,
+                "end": 35.8,
+                "text": "Claude also completed native planner and reviewer children."
+              },
+              {
+                "start": 36.04,
+                "end": 43.905,
+                "text": "Verification and eleven external runtime tests passed, but full fixture acceptance failed because the receipt feature was missing."
+              },
+              {
+                "start": 44.145,
+                "end": 47.265,
+                "text": "That's the initial two-of-three result preserved in this record."
+              },
+              {
+                "start": 47.505,
+                "end": 51.665,
+                "text": "The workflow document also preserves earlier successful three-client runs."
+              },
+              {
+                "start": 52.16,
+                "end": 60.24,
+                "text": "A later, separate Hermes recovery landed the missing feature and passed external acceptance, but its parent client still timed out."
+              },
+              {
+                "start": 60.32,
+                "end": 66.4,
+                "text": "There are three eventual landings, while the original concurrent attempt still has only two completed workflows."
+              }
+            ]
+          },
+          {
+            "id": "scale",
+            "title": "06 / Scale measurements with the conditions visible",
+            "label": "Recorded synthetic benchmarks · scope and failures included",
+            "seconds": 80.08,
+            "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md",
+            "expect": "1,000",
+            "actions": [
+              {
+                "at": 8,
+                "type": "heading",
+                "text": "Many repos at once"
+              },
+              {
+                "at": 30,
+                "type": "scroll",
+                "amount": 230
+              },
+              {
+                "at": 52,
+                "type": "text",
+                "text": "The 2,000-repo run stopped after 131"
+              }
+            ],
+            "narration": "These benchmarks ask a different question: how quickly can the integration service land prepared changes across many repositories? They measure integration, separately from the time a model spends producing code.\n\nOn one thousand repositories, the five-minute run measured about nine hundred ninety-four landings per second in its measured window. Two hundred ninety-nine thousand nine hundred eighty-eight of three hundred thousand changes landed; twelve pushes failed. The workload used synthetic, disjoint changes with no CI, so that rate describes those conditions.\n\nThe breadth experiment spread work across ten thousand quiet repositories, at about five hundred aggregate landings per second. Each synthetic agent submitted one change every twenty seconds. That's useful evidence about repository breadth, but it isn't ten thousand language models coding simultaneously.\n\nThe highest measured rate was one thousand nine hundred seventy-eight landings per second across two thousand repositories, during a healthy ninety-second window. That run stopped during Artifacts failures at one hundred thirty-one seconds. The failure stays in the report, alongside the peak. It's a short measured window, not sustained capacity or a promise about a conflicting workload with checks enabled.",
+            "source_scene_seconds": 70,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "d7a043e368e0cecc7f8a00d7e3f69daf4dc1b401fa2affac91e73320d946481a",
+              "inputSeconds": 80.08,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 80.08,
+              "tempo": 1,
+              "spokenSeconds": 80.08,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04",
+              "input_spoken_text_sha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04"
+            },
+            "start_seconds": 289.68,
+            "end_seconds": 369.76,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.08,
+                "end": 7.84,
+                "text": "These benchmarks ask a different question: how quickly can the integration service land prepared changes across many repositories?"
+              },
+              {
+                "start": 8.08,
+                "end": 12.24,
+                "text": "They measure integration, separately from the time a model spends producing code."
+              },
+              {
+                "start": 12.685,
+                "end": 20.125,
+                "text": "On one thousand repositories, the five-minute run measured about nine hundred ninety-four landings per second in its measured window."
+              },
+              {
+                "start": 20.285,
+                "end": 26.765,
+                "text": "Two hundred ninety-nine thousand nine hundred eighty-eight of three hundred thousand changes landed; twelve pushes failed."
+              },
+              {
+                "start": 26.925,
+                "end": 33.0,
+                "text": "The workload used synthetic, disjoint changes with no CI, so that rate describes those conditions."
+              },
+              {
+                "start": 33.32,
+                "end": 40.68,
+                "text": "The breadth experiment spread work across ten thousand quiet repositories, at about five hundred aggregate landings per second."
+              },
+              {
+                "start": 41.225,
+                "end": 45.225,
+                "text": "Each synthetic agent submitted one change every twenty seconds."
+              },
+              {
+                "start": 45.545,
+                "end": 52.665,
+                "text": "That's useful evidence about repository breadth, but it isn't ten thousand language models coding simultaneously."
+              },
+              {
+                "start": 52.905,
+                "end": 54.99,
+                "text": "The highest measured rate was one"
+              },
+              {
+                "start": 54.99,
+                "end": 63.31,
+                "text": "thousand nine hundred seventy-eight landings per second across two thousand repositories, during a healthy ninety-second window."
+              },
+              {
+                "start": 63.71,
+                "end": 68.59,
+                "text": "That run stopped during Artifacts failures at one hundred thirty-one seconds."
+              },
+              {
+                "start": 69.155,
+                "end": 72.595,
+                "text": "The failure stays in the report, alongside the peak."
+              },
+              {
+                "start": 72.755,
+                "end": 79.875,
+                "text": "It's a short measured window, not sustained capacity or a promise about a conflicting workload with checks enabled."
+              }
+            ]
+          },
+          {
+            "id": "architecture",
+            "title": "07 / Cloudflare architecture and verification bounds",
+            "label": "Workers · Durable Objects · Artifacts · isolated CI Worker",
+            "seconds": 69.24,
+            "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md",
+            "expect": "WASM",
+            "actions": [
+              {
+                "at": 9,
+                "type": "heading",
+                "text": "Big repos"
+              },
+              {
+                "at": 28,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/README.md",
+                "expect": "Worker"
+              },
+              {
+                "at": 36,
+                "type": "heading",
+                "text": "Components"
+              }
+            ],
+            "narration": "Repository count is one dimension; repository size is another. The large-repository experiment here landed a seven hundred twenty-eight megabyte tip, then passed read-back and Git object verification. The reported fourteen megabyte peak is WASM linear memory. It doesn't measure all isolate memory or demonstrate arbitrary monorepo CI.\n\nThe component view explains how the pieces fit. Workers host the application and the Rust WASM sequencer. A Durable Object coordinates each repository, while Artifacts supplies Git storage and isolated agent forks. A service binding connects integration to a separate CI Worker.\n\nThat arrangement spreads independent repositories across the platform, while keeping one serialized integration authority inside each repository. Batching makes compatible work share a check. Local fault regressions then exercise what happens when a process crashes, approval rules change, or allowance accounting is replayed. The source makes those recovery contracts inspectable, alongside the measurements you've just seen.",
+            "source_scene_seconds": 55,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "bcac8f14ae8728e8c829c9cbb110d2e9e225f4954ef5e983f3cd3f0c9c441e86",
+              "inputSeconds": 69.24,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 69.24,
+              "tempo": 1,
+              "spokenSeconds": 69.24,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "3c4456801017d5760dd0e0eba60779d61e44f1106f17d0f8ed378514aecb3b47",
+              "input_spoken_text_sha256": "204d10fabd26646eb59d4382cf2629d07f4ba1ff621bfe2e0be138c7d7b53998"
+            },
+            "start_seconds": 369.76,
+            "end_seconds": 439.0,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.24,
+                "end": 4.56,
+                "text": "Repository count is one dimension; repository size is another."
+              },
+              {
+                "start": 4.8,
+                "end": 13.44,
+                "text": "The large-repository experiment here landed a seven hundred twenty-eight megabyte tip, then passed read-back and Git object verification."
+              },
+              {
+                "start": 14.095,
+                "end": 18.575,
+                "text": "The reported fourteen megabyte peak is WASM linear memory."
+              },
+              {
+                "start": 18.895,
+                "end": 23.855,
+                "text": "It doesn't measure all isolate memory or demonstrate arbitrary monorepo CI."
+              },
+              {
+                "start": 24.015,
+                "end": 26.575,
+                "text": "The component view explains how the pieces fit."
+              },
+              {
+                "start": 27.15,
+                "end": 31.15,
+                "text": "Workers host the application and the Rust WASM sequencer."
+              },
+              {
+                "start": 31.31,
+                "end": 38.35,
+                "text": "A Durable Object coordinates each repository, while Artifacts supplies Git storage and isolated agent forks."
+              },
+              {
+                "start": 38.59,
+                "end": 42.35,
+                "text": "A service binding connects integration to a separate CI Worker."
+              },
+              {
+                "start": 42.805,
+                "end": 51.605,
+                "text": "That arrangement spreads independent repositories across the platform, while keeping one serialized integration authority inside each repository."
+              },
+              {
+                "start": 52.005,
+                "end": 54.565,
+                "text": "Batching makes compatible work share a check."
+              },
+              {
+                "start": 54.9,
+                "end": 63.38,
+                "text": "Local fault regressions then exercise what happens when a process crashes, approval rules change, or allowance accounting is replayed."
+              },
+              {
+                "start": 63.46,
+                "end": 69.14,
+                "text": "The source makes those recovery contracts inspectable, alongside the measurements you've just seen."
+              }
+            ]
+          },
+          {
+            "id": "reproduce",
+            "title": "08 / Reproduce the work and see what remains",
+            "label": "Public source · MIT OR Apache-2.0 · reproducible evidence",
+            "seconds": 71.68,
+            "path": "/nerudo/nerudo/repo/file%3ASUBMISSION.md",
+            "expect": "Reproduce",
+            "actions": [
+              {
+                "at": 8,
+                "type": "heading",
+                "text": "Reproduce"
+              },
+              {
+                "at": 26,
+                "type": "text",
+                "text": "Artifacts billing"
+              },
+              {
+                "at": 46,
+                "type": "goto",
+                "path": "/nerudo/nerudo",
+                "expect": "NERUDO"
+              }
+            ],
+            "narration": "Everything we've looked at has a place in the public source: the command line client, fixtures, deployment instructions, benchmark drivers, and recorded evidence. The reproduction section gives you a way to follow the claims back to runnable checks.\n\nStart with the workspace tests and the local fault harness. For a live deployment, use your own credentials and an isolated namespace, following the three-Worker instructions. That keeps reproduction separate from the public demo.\n\nThe cost section makes another distinction. Artifacts billing begins on October fourteenth. Historical campaign spending excluded the then-free Artifacts service; paid projections also need repository storage, retries, checks, and model inference. They are estimates, not observed production invoices.\n\nThere's still work ahead on sustained conflicting workloads, broader runtime CI, and production service guarantees. What you can inspect today is a working collaboration contract: isolated attempts, integrated checks, useful receipts, preserved intent, and signatures tied to exact code. NERUDO is open source under MIT or Apache two point zero.",
+            "source_scene_seconds": 60,
+            "audio": {
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "07f9e257df928e24ced3558386321532637e0f1ecc4486f2b43d2cd95bba4dbd",
+              "inputSeconds": 71.68,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 71.68,
+              "tempo": 1,
+              "spokenSeconds": 71.68,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "approved_display_text_sha256": "70488e0c72fd52e6ebe9811d19ceb6058b91caf8f5bb89a98592463ae14a22b4",
+              "input_spoken_text_sha256": "09464f6e4d002b717dede82a58479c4052abaf0ce2fdf5e445b0c8aeec8d6dd9"
+            },
+            "start_seconds": 439.0,
+            "end_seconds": 510.68,
+            "action_timing_basis": "Original source chapter seconds, before render retiming; these actions were not rerun.",
+            "captions": [
+              {
+                "start": 0.08,
+                "end": 5.28,
+                "text": "Everything we've looked at has a place in the public source: the command line client,"
+              },
+              {
+                "start": 5.28,
+                "end": 10.24,
+                "text": "fixtures, deployment instructions, benchmark drivers, and recorded evidence."
+              },
+              {
+                "start": 10.48,
+                "end": 14.72,
+                "text": "The reproduction section gives you a way to follow the claims back to runnable checks."
+              },
+              {
+                "start": 15.125,
+                "end": 18.645,
+                "text": "Start with the workspace tests and the local fault harness."
+              },
+              {
+                "start": 18.965,
+                "end": 25.605,
+                "text": "For a live deployment, use your own credentials and an isolated namespace, following the three-Worker instructions."
+              },
+              {
+                "start": 25.925,
+                "end": 28.485,
+                "text": "That keeps reproduction separate from the public demo."
+              },
+              {
+                "start": 28.82,
+                "end": 31.14,
+                "text": "The cost section makes another distinction."
+              },
+              {
+                "start": 31.3,
+                "end": 34.1,
+                "text": "Artifacts billing begins on October fourteenth."
+              },
+              {
+                "start": 34.42,
+                "end": 38.82,
+                "text": "Historical campaign spending excluded the then-free Artifacts service;"
+              },
+              {
+                "start": 38.98,
+                "end": 45.305,
+                "text": "paid projections also need repository storage, retries, checks, and model inference."
+              },
+              {
+                "start": 45.545,
+                "end": 48.745,
+                "text": "They are estimates, not observed production invoices."
+              },
+              {
+                "start": 49.065,
+                "end": 55.625,
+                "text": "There's still work ahead on sustained conflicting workloads, broader runtime CI, and production service guarantees."
+              },
+              {
+                "start": 56.15,
+                "end": 65.03,
+                "text": "What you can inspect today is a working collaboration contract: isolated attempts, integrated checks, useful receipts, preserved intent,"
+              },
+              {
+                "start": 65.11,
+                "end": 67.35,
+                "text": "and signatures tied to exact code."
+              },
+              {
+                "start": 67.67,
+                "end": 71.51,
+                "text": "NERUDO is open source under MIT or Apache two point zero."
+              }
+            ]
+          }
+        ],
+        "provider_evidence": {
+          "first_attempt_path": "cf/evidence/submission-provider-attempt-20261013.json",
+          "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+          "isolated_backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+          "outcome": "3 overlapping attempts; 2 completed/landed; Hermes timeout900s; verify/11runtime tests pass; full acceptance fails absent receipt.ts. Recovery is separate.",
+          "coordination_path": "cf/evidence/submission-coordination-20261013.json",
+          "coordination_sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d"
+        },
+        "eligible_for_submission": true
+      }
+    },
+    {
+      "edition": "original_system_voice",
+      "eligible_for_submission": false,
+      "status": "superseded_do_not_submit",
+      "recorded_plan": {
+        "version": 1,
+        "publicOrigin": "https://nerudo-web.patrickdeutsch.workers.dev",
+        "disclosure": "Actual public-site interactions. Product demo is scripted. Historical model and scale evidence is dated and scoped. Narration: macOS Samantha system voice.",
+        "scenes": [
+          {
+            "id": "purpose",
+            "title": "01 / A Git platform for concurrent coding agents",
+            "label": "Public product · scripted six-client demo",
+            "seconds": 55,
+            "path": "/",
+            "expect": "Repositories",
+            "actions": [
+              {
+                "at": 12,
+                "type": "goto",
+                "path": "/nerudo/demo/graph",
+                "expect": "Graph"
+              },
+              {
+                "at": 31,
+                "type": "scroll",
+                "amount": 330
+              }
+            ],
+            "narration": "NERUDO is a Git platform built around concurrent coding agents. This is the public application, and this repository is a scripted six-client product demonstration. The clients exercise real Git forks, submissions, checks, and receipts; they are not six live language models. Each agent works in an isolated Artifacts fork. A Durable Object provides one authoritative integration path for this repository. Instead of every agent racing to update main, the sequencer groups compatible changes, checks the integrated tree, and publishes a batch. The graph records what landed and how. Tasks, attempts, preserved context, and actionable receipts form the collaboration contract. The familiar Git repository remains available to ordinary clones and tools.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 46.481315,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "integration",
+            "title": "02 / The integrated check catches a stale caller",
+            "label": "Recorded demo outcome · actual CI receipt",
+            "seconds": 60,
+            "path": "/nerudo/demo/pulls/10",
+            "expect": "Checks",
+            "actions": [
+              {
+                "at": 12,
+                "type": "tab",
+                "name": "Checks"
+              },
+              {
+                "at": 28,
+                "type": "revision",
+                "value": "1"
+              },
+              {
+                "at": 42,
+                "type": "tab",
+                "name": "Context"
+              },
+              {
+                "at": 46,
+                "type": "text",
+                "text": "Immutable copy"
+              }
+            ],
+            "narration": "The hard case is a shared API changing while another agent is still using its old shape. A change can pass on its own base and fail after integration. Here the receipt preserves the rejected revision and the diagnostic from the integrated TypeScript check. The agent can fetch the new main, read the relevant context, repair its caller, and resubmit the same logical change as a new revision. This is real checking of the integrated batch tip. It is important to state the guarantee precisely: a passing batch tip does not prove that every intermediate commit in that batch is independently buildable. The revision history lets a reviewer inspect the rejection and subsequent repair, rather than losing the reason for the retry.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 39.938776,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "attempts",
+            "title": "03 / Compare competing attempts and their plans",
+            "label": "Scripted demo · trials do not publish a winner",
+            "seconds": 60,
+            "path": "/nerudo/demo/tasks/T-5",
+            "expect": "Compare",
+            "actions": [
+              {
+                "at": 8,
+                "type": "tab",
+                "name": "Compare"
+              },
+              {
+                "at": 12,
+                "type": "text",
+                "text": "3 of 3 attempts"
+              },
+              {
+                "at": 16,
+                "type": "text",
+                "text": "Context v"
+              },
+              {
+                "at": 27,
+                "type": "scroll",
+                "amount": 360
+              },
+              {
+                "at": 43,
+                "type": "scroll",
+                "amount": 350
+              }
+            ],
+            "narration": "An agent-first platform also needs a way to compare alternative solutions. This task has competing attempts. Each attempt is applied to current main and trial checked without publishing it. The view puts verdicts, changed paths, plans, and diffs side by side. A passing trial is evidence for a choice, not permission to merge every competing implementation. The person can pick an attempt; that attempt still gets its own landing check, and the others close as not picked. The plan is preserved with the exact submitted revision, so the reviewer can understand the intent behind the code. These plans came from the scripted demonstration. The next evidence chapter separately identifies work performed by actual coding-model clients.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 42.152472,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "authority",
+            "title": "04 / Human authority stays bound to exact commits",
+            "label": "Recorded approval and release · anonymous read-only view",
+            "seconds": 60,
+            "path": "/nerudo/demo/pulls/16",
+            "expect": "Approved",
+            "actions": [
+              {
+                "at": 24,
+                "type": "goto",
+                "path": "/nerudo/demo/releases/release%3Av0.1.0",
+                "expect": "signed by"
+              },
+              {
+                "at": 38,
+                "type": "tab",
+                "name": "Signature"
+              }
+            ],
+            "narration": "Autonomy needs clear governance boundaries. Repository rules determine which changes need a human signature, including sensitive paths and changes to the rules themselves. The approval shown here was already recorded; this anonymous walkthrough performs no signing action. The signature is tied to the exact change and governing rules. Recovery must activate newly landed rules before admitting the next change, including after a crash. A release is another explicit boundary. The sequencer creates the annotated tag only after the release statement is signed. The signature view exposes who signed and what commit was released. Verification can run from outside the service against the released repository, so the authority record is not confined to a screenshot of the interface.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 44.63229,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "models",
+            "title": "05 / Real coding models, including unfinished outcomes",
+            "label": "Fresh isolated run · pinned build 79c259ad · 2/3 complete · acceptance incomplete",
+            "seconds": 60,
+            "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json",
+            "expect": "immutable_attempt",
+            "actions": [
+              {
+                "at": 12,
+                "type": "text",
+                "text": "hermes"
+              },
+              {
+                "at": 23,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-coordination-20261013.json",
+                "expect": "TS2554"
+              },
+              {
+                "at": 32,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json",
+                "expect": "full_fixture_acceptance"
+              },
+              {
+                "at": 35,
+                "type": "text",
+                "text": "full_fixture_acceptance"
+              },
+              {
+                "at": 44,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/LLM_WORKFLOWS.md",
+                "expect": "workflow"
+              },
+              {
+                "at": 49,
+                "type": "text",
+                "text": "20261012-054654"
+              }
+            ],
+            "narration": "This evidence records real native coding-model workflows. The fresh October thirteenth attempt ran Claude, Codex, and Hermes concurrently on an earlier isolated Worker build. Claude and Codex landed; Hermes reached the nine-hundred-second timeout. Two of three workflows completed. Codex’s first revision failed after Claude changed the currency API. It read Claude’s pinned context and landed a repaired second revision. External verification and eleven runtime tests passed, but full acceptance failed because the receipt feature was missing. Claude’s native planner and reviewer children completed. The first attempt is immutable; any Hermes recovery is separate. Dated October twelfth records also show successful three-client workflows, with three verified landings in three batches. These small experiments demonstrate interoperability, not large-scale model concurrency.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 51.186757,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "scale",
+            "title": "06 / Scale measurements with the conditions visible",
+            "label": "Recorded synthetic benchmarks · scope and failures included",
+            "seconds": 70,
+            "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md",
+            "expect": "1,000",
+            "actions": [
+              {
+                "at": 8,
+                "type": "heading",
+                "text": "Many repos at once"
+              },
+              {
+                "at": 30,
+                "type": "scroll",
+                "amount": 230
+              },
+              {
+                "at": 52,
+                "type": "text",
+                "text": "The 2,000-repo run stopped after 131"
+              }
+            ],
+            "narration": "The scale evidence measures integration, separately from model generation. On one thousand repositories, a five-minute run recorded about nine hundred ninety-four landings per second in the measured window. Two hundred ninety-nine thousand nine hundred eighty-eight of three hundred thousand changes landed, with twelve push failures. The changes were synthetic and disjoint, with no CI. A separate breadth run exercised ten thousand quiet repositories at about five hundred aggregate landings per second. Each synthetic agent submitted one change every twenty seconds. The peak result was one thousand nine hundred seventy-eight per second across two thousand repositories during a healthy ninety-second window. That run stopped during Artifacts failures at one hundred thirty-one seconds. The peak is not a five-minute capacity claim. These conditions and failures are part of the result.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 49.760816,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "architecture",
+            "title": "07 / Cloudflare architecture and verification bounds",
+            "label": "Workers · Durable Objects · Artifacts · isolated CI Worker",
+            "seconds": 55,
+            "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md",
+            "expect": "WASM",
+            "actions": [
+              {
+                "at": 9,
+                "type": "heading",
+                "text": "Big repos"
+              },
+              {
+                "at": 28,
+                "type": "goto",
+                "path": "/nerudo/nerudo/repo/file%3Acf/README.md",
+                "expect": "Worker"
+              },
+              {
+                "at": 36,
+                "type": "heading",
+                "text": "Components"
+              }
+            ],
+            "narration": "The implementation uses Workers for the app and Rust W A S M sequencer, Durable Objects for repository coordination, Artifacts for Git storage and isolated forks, and a service-bound CI Worker. Scale comes from independent repositories and batching within each repository; one repository still has a serialized integration authority. A large-repository experiment landed a seven hundred twenty-eight megabyte tip and passed read-back and Git object verification. Its reported fourteen megabyte peak measures W A S M linear memory, not total isolate RAM or arbitrary monorepo CI. Local fault regressions exercise crash recovery, approval rules, and allowance accounting. The source and run instructions let a reviewer reproduce those checks in an isolated environment and inspect the contracts behind the product.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 49.027483,
+              "leadSeconds": 3
+            }
+          },
+          {
+            "id": "reproduce",
+            "title": "08 / Reproduce the work and see what remains",
+            "label": "Public source · MIT OR Apache-2.0 · reproducible evidence",
+            "seconds": 60,
+            "path": "/nerudo/nerudo/repo/file%3ASUBMISSION.md",
+            "expect": "Reproduce",
+            "actions": [
+              {
+                "at": 8,
+                "type": "heading",
+                "text": "Reproduce"
+              },
+              {
+                "at": 26,
+                "type": "text",
+                "text": "Artifacts billing"
+              },
+              {
+                "at": 46,
+                "type": "goto",
+                "path": "/nerudo/nerudo",
+                "expect": "NERUDO"
+              }
+            ],
+            "narration": "The repository includes the CLI, fixtures, deployment instructions, fault harness, benchmark drivers, and recorded evidence. Clone the public source, run the workspace tests and W A S M check, then use an isolated namespace for live reproduction. The cost discussion separates historical campaign spending from paid Artifacts operations and storage, CI, and model inference. This submission has not demonstrated one hundred thousand simultaneous coding agents on one repository, sustained conflicting workloads with general runtime CI, or a production service-level agreement. Its contribution is a working agent collaboration contract: isolated work, integrated checks, useful receipts, preserved intent, competing attempts, and exact human authority. The public application and source make that design concrete and reviewable.",
+            "audio": {
+              "voice": "Samantha",
+              "rate": 155,
+              "spokenSeconds": 51.490703,
+              "leadSeconds": 3
+            }
+          }
+        ],
+        "provider_evidence": {
+          "first_attempt_path": "cf/evidence/submission-provider-attempt-20261013.json",
+          "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+          "isolated_backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+          "outcome": "3 overlapping attempts; 2 completed/landed; Hermes timeout900s; verify/11runtime tests pass; full acceptance fails absent receipt.ts. Recovery is separate.",
+          "coordination_path": "cf/evidence/submission-coordination-20261013.json",
+          "coordination_sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d"
+        },
+        "schema": "nerudo.submission-video-plan.v1"
+      }
+    }
+  ],
+  "updated_at": "2026-10-13T21:21:57.262826+00:00",
+  "ready_for_manual_upload": true,
+  "filename": "nerudo-submission-visuals.mp4",
+  "duration_seconds": 510.68,
+  "sha256": "9bd70ee26aa9cc15aa178ac1d2024c9d96e893c9b7235bb736d8c274b7abd0c5",
+  "public_video_url": null,
+  "execution": {
+    "raw_video_sha256": "a7526b43801e01d10bd6cc1e2188b040c49e33183ef4cb606ef32ae5f277b037",
+    "journal_sha256": "ff5b71015b2fb06faa8026cdca67e8fe746d30e6af8634b18b8e0cd482408f50",
+    "chapter_segments_sha256": "7f23501b32ed4310389f0d5eb7df9da98062713b9cb4e18c79e00cfbc806ddca",
+    "ready_cut_video_sha256": "dc66fdd29049840c788be657620bbc3a2856fea196d5e3334117dd4bd7b7807f",
+    "timed_actions": 78,
+    "setup_actions": 13,
+    "journal_entries": 107,
+    "browser_page_errors": [],
+    "provenance": {
+      "recording_source_script_path": "cf/scripts/record_submission.mjs",
+      "recording_source_script_sha256": "3b56fa1ad6fa8bca8d19c2d841985ec36bc9dbfd557ff65b0d3961f473068b86",
+      "actual_exporter_source_sha256": "607b94e83731815243f91880f6af338ffc6c135c5198d753ac64254dbf984b87",
+      "caption_helper_path": "cf/scripts/render_submission_captions.py",
+      "caption_helper_sha256": "a69b40c4f2f920be3d8cf91a309b0db7936bdd3bb61181c8b99a3605fc7ca41b",
+      "scope": "Actual recording and repaired export used the preserved hashes above. The current reusable recorder adds input-binding guards; it did not create or re-render this artifact.",
+      "current_reusable_recorder_sha256": "50a436bc8cedebcc46dd344b4526536a154fa696acb6d5fa00a42dbf184f9a25"
+    },
+    "timing": {
+      "status": "passed",
+      "ready_segments": 69,
+      "cue_preparations_removed": 78,
+      "fps": 25,
+      "frame_count": 12767,
+      "duration_seconds": 510.68,
+      "cue_frame_rounding_bound_seconds": 0.02,
+      "maximum_encoded_frame_step_error_seconds": 3.63806207381856e-14,
+      "source_preparation_overlaps_above_one_frame": [],
+      "audio_timeline_gap_free": true,
+      "semantic_assertions": 56,
+      "scope": "Numerical frame/ready-cut audit combined with separate first-ready and annotation-frame visual checks. Preparation intervals are edited out; no interaction-latency claim."
+    },
+    "calibration": {
+      "status": "passed",
+      "method": "Constant raw-video origin measured from eleven actual explanation-border onsets; no end-duration alignment or duration scaling.",
+      "report_sha256": "980b64c0b50f66becfdbcb9a91d2ce911f5b51781254bf660dd87f81b59e707f",
+      "raw_video_sha256": "a7526b43801e01d10bd6cc1e2188b040c49e33183ef4cb606ef32ae5f277b037",
+      "journal_sha256": "ff5b71015b2fb06faa8026cdca67e8fe746d30e6af8634b18b8e0cd482408f50",
+      "visual_anchor_count": 11,
+      "raw_origin_offset_seconds": -0.27,
+      "frame_aware_common_offset_interval_seconds": {
+        "lowerSeconds": -0.28136033299995233,
+        "upperSeconds": -0.24223720799999882,
+        "nonempty": true,
+        "widthSeconds": 0.03912312499995352,
+        "gapSeconds": 0
+      },
+      "frame_carry_allowance_seconds": 0.04,
+      "scope": "Frame-aware compatible offset interval with one-frame carry allowance; not a sub-frame capture-clock accuracy claim."
+    },
+    "caption_footer": {
+      "status": "passed",
+      "source_issue": "Chromium native screencast gray padding clipped the lower caption band.",
+      "replacement_bounds": {
+        "left": 0,
+        "top": 885,
+        "width": 1600,
+        "height": 115
+      },
+      "canonical_caption_renderer_count": 1,
+      "overlapping_old_and_new_caption_layers": false,
+      "product_content_above_y": 885,
+      "preservation_scope": "Overlay geometry leaves product pixels above y=885 transparent; final image encoding applies.",
+      "validation": "Six focused helper checks include pre-encoding product pixel preservation and complete opaque footer. Final semantic frames show one readable footer with no native gray padding or old caption overlap.",
+      "helper_check_report_sha256": "2d3bc1daa5b8a7b054759423916e9f8b9c74f520b3ef27738256f4056c920f31"
+    },
+    "visual_qa": {
+      "status": "passed",
+      "annotation_frames_reviewed": 54,
+      "critical_first_ready_frames_reviewed": 8,
+      "scene_count": 8,
+      "root_reviewed_scenes": [
+        "integration",
+        "models"
+      ],
+      "independently_reviewed_scenes": [
+        "purpose",
+        "attempts",
+        "authority",
+        "scale",
+        "architecture",
+        "reproduce"
+      ],
+      "scope": "Every annotation cue and eight critical ready-cut first frames were inspected for target/narration alignment and readable captions; not exhaustive viewing of all 12,767 frames."
+    },
+    "local_report_sha256": {
+      "independent-calibration.json": "980b64c0b50f66becfdbcb9a91d2ce911f5b51781254bf660dd87f81b59e707f",
+      "independent-sync-qa.json": "a83ed41a47d2c5987975e610559bd18acae89eb25fb4ea00e8b69b21c2a75f1c",
+      "independent-first-ready-visual-qa.json": "44485325d64026d0a37485066fe72757270bc06fad83fe9b24edf87d7a352f36",
+      "independent-final-visual-qa.json": "93101bc4c3307fee5498cd36a73c49a1c33f0a9ea7e04e071a6e3791a5a0a4ee",
+      "fixed-band-renderer-checks.json": "2d3bc1daa5b8a7b054759423916e9f8b9c74f520b3ef27738256f4056c920f31",
+      "visual-qa-frame-index.json": "f6ad63dcd4216fbe49a0e89ea28a32a9d3a879e175c28f91d87b787f83cb4746",
+      "visual-recording-metadata.json": "e8436ba2e57bd1c7862deba3c7f7537c2ce4109356db99409e2ad724393f3eda",
+      "visual-qa.json": "0a8c4f90e191fb1597b1767bd9cdc088e7ecc63f1fc8c46c7cac8d0c43aa36d4",
+      "recorder-final-binding-checks.json": "9131fea44a26d17fbbf90b9b7936f5f7b0b51c78da384cbb8346c30be1aac851"
+    }
+  }
+}

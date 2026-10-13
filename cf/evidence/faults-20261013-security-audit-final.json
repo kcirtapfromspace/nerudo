@@ -1,0 +1,452 @@
+{
+  "started": "2026-10-13T01:26:42-0600",
+  "versions": {
+    "commit": "0db937d+dirty",
+    "wrangler": "4.148.0",
+    "gitea": "gitea version 28.1.0 built with go1.27.1 : sqlite, sqlite_unlock_notify",
+    "toxiproxy": "toxiproxy-server version 2.12.0",
+    "git": "git version 2.55.0",
+    "python": "3.14.7"
+  },
+  "args": {
+    "cases": "parity,ci_down,ci_hang",
+    "scenarios": "approvals,ci,recovery,ci_red,social,branches",
+    "ci_down_k": "1,8",
+    "ci_down_seconds": 20,
+    "ci_hang_seconds": 45,
+    "flaky_changes": 12,
+    "flaky_outage": 3,
+    "flaky_toxicity": 0.4,
+    "flaky_seconds": 45,
+    "hang_changes": 6,
+    "hang_seconds": 40,
+    "kill_reps": 3,
+    "growth": "32,64,128",
+    "seed": 1,
+    "strict": false,
+    "no_build": false,
+    "evidence": "/tmp/scratch/faults-audit-final.json",
+    "keep": false
+  },
+  "known_gaps": {},
+  "cases": {
+    "ci_down": [
+      {
+        "k": 1,
+        "outage_s": 20.0,
+        "ci_requests": 5,
+        "per_trunk": 5.0,
+        "per_trunk_per_min": 15.0,
+        "landing_loop_errors_logged": 5,
+        "recovery_s": 17.9
+      },
+      {
+        "k": 8,
+        "outage_s": 20.0,
+        "ci_requests": 40,
+        "per_trunk": 5.0,
+        "per_trunk_per_min": 15.0,
+        "landing_loop_errors_logged": 40,
+        "recovery_s": 17.1
+      }
+    ],
+    "ci_hang": {
+      "hang_s": 45,
+      "requests_during_hang": 2,
+      "seconds_between_requests": [
+        26.2
+      ],
+      "recovery_s": 4.1
+    }
+  },
+  "checks": [
+    {
+      "case": "parity",
+      "check": "scenario approvals",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario ci",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario ci_red",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario social",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario branches",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: 5 CI requests per trunk in 20 s (5 in all; budget 8 per trunk)",
+      "status": "pass",
+      "gap": null,
+      "per_trunk": 5.0,
+      "budget": 7.666835077603658
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: the queue or the change says that CI is unreachable",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-012753: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-012753: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-012753: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-012753: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: no queue shows a stall after CI came back",
+      "status": "pass",
+      "gap": null,
+      "stalls": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: all landed 17.9 s after CI came back (budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: 5 CI requests per trunk in 20 s (40 in all; budget 8 per trunk)",
+      "status": "pass",
+      "gap": null,
+      "per_trunk": 5.0,
+      "budget": 7.666834799448649
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: the queue or the change says that CI is unreachable",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-012836: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-012836: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-012836: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-012836: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-012840: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-012840: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-012840: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-012840: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-012843: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-012843: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-012843: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-012843: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-012847: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-012847: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-012847: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-012847: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-012850: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-012850: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-012850: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-012850: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-012854: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-012854: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-012854: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-012854: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-012858: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-012858: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-012858: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-012858: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-012901: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-012901: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-012901: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-012901: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: no queue shows a stall after CI came back",
+      "status": "pass",
+      "gap": null,
+      "stalls": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: all landed 17.1 s after CI came back (budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-012942: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-012942: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-012942: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-012942: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_hang",
+      "check": "the Worker gave up on a hung CI request after its deadline of 25 s (next request after 26 s, budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "during the hang, the queue says that CI is unavailable and that it gave no answer",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "landed 4.1 s after CI came back (budget 75 s)",
+      "status": "pass",
+      "gap": null
+    }
+  ]
+}

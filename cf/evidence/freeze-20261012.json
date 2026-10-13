@@ -1,0 +1,598 @@
+{
+ "date": "2026-10-12",
+ "branch": "freeze",
+ "base": "58991e2 (the live code, mono-next step 1)",
+ "candidate": "freeze 73ad913 plus deployed-6019cf7b-uncommitted.patch (hub.rs, trunk/app.rs), applied in a scratch copy, not committed",
+ "worker": {
+  "name": "landseq-scale-resil",
+  "artifacts_namespace": "landseq-freeze",
+  "ci": "landseq-ci-scale",
+  "versions": {
+   "candidate 1 (0730147 + patch)": "6a9fef3a-8c71-4630-9497-31329bf2c099",
+   "candidate 2 (73ad913 + patch), the scenarios": "4385d273-4e81-4785-a813-172cf5bda514",
+   "live build (58991e2 + patch), timing": [
+    "e5d6d90b-899a-4fac-8444-e35b822edd6d",
+    "aab90fda-c8f4-4686-8021-caabe96ed247"
+   ],
+   "candidate 2 again, timing": "d399a105-b019-4a4e-8479-b506dbaf878a",
+   "candidate 2, deployed now": "3c71811d-de9b-4c66-bb33-d1e77fd56f24"
+  }
+ },
+ "faults_local": {
+  "run1": {
+   "commit": "0730147",
+   "checks": {
+    "pass": 100
+   },
+   "ci_down": [
+    {
+     "k": 1,
+     "ci_requests_per_trunk": 5.0,
+     "recovery_s": 14.8
+    },
+    {
+     "k": 8,
+     "ci_requests_per_trunk": 5.0,
+     "recovery_s": 17.8
+    }
+   ],
+   "ci_hang_seconds_between_requests": [
+    26.2
+   ],
+   "git_hang_next_landing_s": {
+    "replies": 3.1,
+    "requests": 10.0
+   },
+   "growth_drain_s": {
+    "32": 1.38,
+    "64": 2.4,
+    "128": 4.78
+   }
+  },
+  "run2": {
+   "commit": "73ad913",
+   "checks": {
+    "pass": 100
+   },
+   "ci_down": [
+    {
+     "k": 1,
+     "ci_requests_per_trunk": 5.0,
+     "recovery_s": 14.7
+    },
+    {
+     "k": 8,
+     "ci_requests_per_trunk": 5.0,
+     "recovery_s": 17.8
+    }
+   ],
+   "ci_hang_seconds_between_requests": [
+    26.1
+   ],
+   "git_hang_next_landing_s": {
+    "replies": 2.8,
+    "requests": 10.2
+   },
+   "growth_drain_s": {
+    "32": 1.36,
+    "64": 2.6,
+    "128": 5.04
+   }
+  }
+ },
+ "scenarios_artifacts": {
+  "candidate 1": {
+   "approvals": "pass (18 s)",
+   "quorum": "pass (28 s)",
+   "recovery": "pass (12 s)",
+   "ci": "pass (27 s)",
+   "ci_red": "pass (42 s)",
+   "social": "FAIL: AssertionError: (403, None)",
+   "branches": "FAIL: AssertionError: 200",
+   "context": "pass (28 s)",
+   "compare": "pass (34 s)",
+   "release": "pass (16 s)",
+   "hub": "pass (21 s)",
+   "git": "pass (17 s)",
+   "users": "pass (26 s)",
+   "aliases": "pass (15 s)",
+   "ide_approval": "pass (17 s)",
+   "beaten": "pass (20 s)",
+   "identity": "pass (36 s)"
+  },
+  "candidate 2": {
+   "approvals": "pass (16 s)",
+   "quorum": "pass (30 s)",
+   "recovery": "pass (13 s)",
+   "ci": "pass (26 s)",
+   "ci_red": "pass (47 s)",
+   "social": "pass (14 s)",
+   "branches": "pass (19 s)",
+   "context": "pass (34 s)",
+   "compare": "pass (37 s)",
+   "release": "pass (18 s)",
+   "hub": "pass (22 s)",
+   "git": "pass (24 s)",
+   "users": "pass (31 s)",
+   "aliases": "pass (13 s)",
+   "ide_approval": "pass (19 s)",
+   "beaten": "pass (22 s)",
+   "identity": "pass (36 s)"
+  },
+  "cause of the 2 failures on candidate 1": "to_trunk (ops da946c6) made a new Request with redirect follow, so the stub followed the 303 of a web form post; fixed in 73ad913"
+ },
+ "timing": {
+  "tiny": {
+   "repo": "tiny (46 files, 23 KB; mono-repos/repos/tiny), mono_bench.py --singles 6, server time from the land request to the landing record",
+   "runs": {
+    "tiny-freeze-1": {
+     "trunk": "mono-resil-tiny-f1",
+     "median_s": 0.547,
+     "min_s": 0.501,
+     "max_s": 0.789,
+     "server_s": [
+      0.789,
+      0.544,
+      0.501,
+      0.577,
+      0.547,
+      0.53
+     ]
+    },
+    "tiny-freeze-2": {
+     "trunk": "mono-resil-tiny-f2",
+     "median_s": 0.735,
+     "min_s": 0.633,
+     "max_s": 0.904,
+     "server_s": [
+      0.904,
+      0.675,
+      0.667,
+      0.633,
+      0.756,
+      0.735
+     ]
+    },
+    "tiny-live-1": {
+     "trunk": "mono-resil-tiny-l1",
+     "median_s": 0.77,
+     "min_s": 0.661,
+     "max_s": 1.054,
+     "server_s": [
+      1.054,
+      0.766,
+      0.661,
+      0.805,
+      0.754,
+      0.77
+     ]
+    },
+    "tiny-live-2": {
+     "trunk": "mono-resil-tiny-l2",
+     "median_s": 0.749,
+     "min_s": 0.68,
+     "max_s": 1.004,
+     "server_s": [
+      1.004,
+      0.749,
+      0.933,
+      0.68,
+      0.715,
+      0.688
+     ]
+    }
+   },
+   "freeze_12_samples_median_s": 0.65,
+   "live_12_samples_median_s": 0.76,
+   "reference": "mono-next step 1 on landseq-scale-mono: 0.70 s (cf/scale/mono.md)"
+  },
+  "burst128": {
+   "tool": "stages.py --sizes 128, 4 agents, batch cap 16, no readers",
+   "runs": {
+    "burst-freeze-1": {
+     "trunk": "stages-resilf0-194755",
+     "n": 128,
+     "batch_cap": 16,
+     "agents": 4,
+     "landed": 128,
+     "ejected": 0,
+     "batches": 8,
+     "server_drain_s": 5.58,
+     "server_first_landing_s": 1.28,
+     "client_drain_s": 6.27,
+     "git_requests": 20,
+     "push_ms_by_round": [
+      789.0,
+      593.0,
+      685.0,
+      549.0,
+      555.0,
+      567.0,
+      622.0,
+      733.0
+     ]
+    },
+    "burst-freeze-2": {
+     "trunk": "stages-resilf0-195130",
+     "n": 128,
+     "batch_cap": 16,
+     "agents": 4,
+     "landed": 128,
+     "ejected": 0,
+     "batches": 8,
+     "server_drain_s": 2.74,
+     "server_first_landing_s": 0.71,
+     "client_drain_s": 3.81,
+     "git_requests": 20,
+     "push_ms_by_round": [
+      323.0,
+      280.0,
+      289.0,
+      269.0,
+      290.0,
+      282.0,
+      296.0,
+      331.0
+     ]
+    },
+    "burst-freeze-3": {
+     "trunk": "stages-resilf0-195155",
+     "n": 128,
+     "batch_cap": 16,
+     "agents": 4,
+     "landed": 128,
+     "ejected": 0,
+     "batches": 8,
+     "server_drain_s": 3.8,
+     "server_first_landing_s": 0.94,
+     "client_drain_s": 4.07,
+     "git_requests": 20,
+     "push_ms_by_round": [
+      459.0,
+      395.0,
+      412.0,
+      395.0,
+      397.0,
+      411.0,
+      448.0,
+      411.0
+     ]
+    },
+    "burst-live-1": {
+     "trunk": "stages-resill0-194924",
+     "n": 128,
+     "batch_cap": 16,
+     "agents": 4,
+     "landed": 128,
+     "ejected": 0,
+     "batches": 8,
+     "server_drain_s": 4.14,
+     "server_first_landing_s": 0.99,
+     "client_drain_s": 5.01,
+     "git_requests": 20,
+     "push_ms_by_round": [
+      479.0,
+      448.0,
+      435.0,
+      479.0,
+      441.0,
+      446.0,
+      462.0,
+      437.0
+     ]
+    },
+    "burst-live-2": {
+     "trunk": "stages-resill0-195016",
+     "n": 128,
+     "batch_cap": 16,
+     "agents": 4,
+     "landed": 128,
+     "ejected": 0,
+     "batches": 8,
+     "server_drain_s": 4.67,
+     "server_first_landing_s": 1.1,
+     "client_drain_s": 5.02,
+     "git_requests": 20,
+     "push_ms_by_round": [
+      652.0,
+      497.0,
+      461.0,
+      530.0,
+      518.0,
+      521.0,
+      519.0,
+      524.0
+     ]
+    },
+    "burst-live-3": {
+     "trunk": "stages-resill0-195322",
+     "n": 128,
+     "batch_cap": 16,
+     "agents": 4,
+     "landed": 128,
+     "ejected": 0,
+     "batches": 8,
+     "server_drain_s": 5.42,
+     "server_first_landing_s": 1.39,
+     "client_drain_s": 6.63,
+     "git_requests": 20,
+     "push_ms_by_round": [
+      583.0,
+      654.0,
+      452.0,
+      984.0,
+      472.0,
+      494.0,
+      489.0,
+      488.0
+     ]
+    }
+   },
+   "freeze_median_drain_s": 3.8,
+   "live_median_drain_s": 4.67
+  },
+  "order": "freeze f1 (tiny, burst), live l1 (tiny, burst), live burst 2, freeze f2 (tiny, burst 2, burst 3), live l2 (tiny, burst 3); the same Worker and namespace, 19:47 to 19:54 MDT"
+ },
+ "mono_next_merge": {
+  "commit": "7958202 (merge of mono-next 4d70529 on top of bc7fb75)",
+  "candidate": "7958202 plus the live patch, scratch copy",
+  "faults_local": {
+   "commit": "7958202",
+   "checks": {
+    "pass": 100
+   },
+   "ci_down": [
+    {
+     "k": 1,
+     "ci_requests_per_trunk": 5.0,
+     "recovery_s": 15.8
+    },
+    {
+     "k": 8,
+     "ci_requests_per_trunk": 5.0,
+     "recovery_s": 17.3
+    }
+   ],
+   "ci_hang_seconds_between_requests": [
+    26.2
+   ],
+   "git_hang_next_landing_s": {
+    "replies": 2.9,
+    "requests": 9.2
+   },
+   "growth_drain_s": {
+    "32": 1.43,
+    "64": 2.67,
+    "128": 5.72
+   },
+   "note": "a first run was stopped by hand; this is the second run"
+  },
+  "scenarios_artifacts": {
+   "version": "edbab265-00f0-4d7f-8f64-7f854caf0f5a",
+   "results": {
+    "approvals": "pass (16 s)",
+    "quorum": "pass (39 s)",
+    "recovery": "pass (11 s)",
+    "ci": "pass (25 s)",
+    "ci_red": "pass (41 s)",
+    "social": "pass (13 s)",
+    "branches": "pass (20 s)",
+    "context": "pass (29 s)",
+    "compare": "pass (33 s)",
+    "release": "pass (17 s)",
+    "hub": "pass (21 s)",
+    "git": "pass (18 s)",
+    "users": "pass (23 s)",
+    "aliases": "pass (14 s)",
+    "ide_approval": "pass (19 s)",
+    "beaten": "pass (22 s)",
+    "identity": "pass (37 s)"
+   },
+   "note": "a first run was stopped by hand after 6 passes; this is the second run"
+  },
+  "timing": {
+   "tiny_separate_trunks": {
+    "runs": {
+     "f3": {
+      "median_s": 0.6154999999999999,
+      "fetch_ms": 248.0,
+      "push_ms": 288.0,
+      "outside_round_ms": 59
+     },
+     "f4": {
+      "median_s": 0.736,
+      "fetch_ms": 262.0,
+      "push_ms": 427.0,
+      "outside_round_ms": 52
+     },
+     "f5": {
+      "median_s": 0.5145,
+      "fetch_ms": 232.0,
+      "push_ms": 236.0,
+      "outside_round_ms": 27
+     },
+     "f6": {
+      "median_s": 0.7525,
+      "fetch_ms": 297.0,
+      "push_ms": 371.0,
+      "outside_round_ms": 40
+     },
+     "f7": {
+      "median_s": 0.5205,
+      "fetch_ms": 266.0,
+      "push_ms": 203.0,
+      "outside_round_ms": 25
+     },
+     "l3": {
+      "median_s": 0.425,
+      "fetch_ms": 165.0,
+      "push_ms": 205.0,
+      "outside_round_ms": 39
+     },
+     "l4": {
+      "median_s": 0.5525,
+      "fetch_ms": 295.0,
+      "push_ms": 197.0,
+      "outside_round_ms": 31
+     },
+     "l5": {
+      "median_s": 0.5325,
+      "fetch_ms": 240.0,
+      "push_ms": 202.0,
+      "outside_round_ms": 38
+     },
+     "l6": {
+      "median_s": 0.4395,
+      "fetch_ms": 168.0,
+      "push_ms": 183.0,
+      "outside_round_ms": 70
+     },
+     "l7": {
+      "median_s": 0.603,
+      "fetch_ms": 223.0,
+      "push_ms": 327.0,
+      "outside_round_ms": 26
+     }
+    },
+    "pooled": {
+     "cand3": 0.652,
+     "live": 0.483
+    }
+   },
+   "tiny_same_trunk": {
+    "trunk": "scn-resil-ab-202544",
+    "blocks": [
+     {
+      "build": "live",
+      "version": "5dfefd3d-8ca1-4475-9918-56331eecf3c3",
+      "server_s": [
+       0.553,
+       0.523,
+       0.528,
+       0.578,
+       0.611
+      ],
+      "median_s": 0.553,
+      "fetch_ms_median": 259.0,
+      "push_ms_median": 268.0
+     },
+     {
+      "build": "freeze",
+      "version": "ec69223a-6208-48da-a210-3cdf31965e69",
+      "server_s": [
+       0.553,
+       0.559,
+       0.535,
+       0.581,
+       0.693
+      ],
+      "median_s": 0.559,
+      "fetch_ms_median": 277.0,
+      "push_ms_median": 261.0
+     },
+     {
+      "build": "live",
+      "version": "c5ca46b0-7add-4be1-909b-d2ea2ec20a39",
+      "server_s": [
+       0.603,
+       0.57,
+       0.568,
+       0.586,
+       0.613
+      ],
+      "median_s": 0.586,
+      "fetch_ms_median": 273.0,
+      "push_ms_median": 278.0
+     },
+     {
+      "build": "freeze",
+      "version": "2f32436b-7021-4e26-894c-bf120577c41e",
+      "server_s": [
+       0.559,
+       0.586,
+       0.64,
+       0.582,
+       0.577
+      ],
+      "median_s": 0.582,
+      "fetch_ms_median": 277.0,
+      "push_ms_median": 274.0
+     },
+     {
+      "build": "live",
+      "version": "3b226865-07a2-4a1d-996e-29cec15ef3e6",
+      "server_s": [
+       0.738,
+       0.638,
+       0.566,
+       0.565,
+       0.636
+      ],
+      "median_s": 0.636,
+      "fetch_ms_median": 280.0,
+      "push_ms_median": 276.0
+     },
+     {
+      "build": "freeze",
+      "version": "bb010785-2ef9-42b3-926b-96c51f5347b1",
+      "server_s": [
+       0.573,
+       1.322,
+       0.617,
+       0.588,
+       0.709
+      ],
+      "median_s": 0.617,
+      "fetch_ms_median": 295.0,
+      "push_ms_median": 285.0
+     }
+    ],
+    "summary_without_first_of_block": {
+     "freeze": {
+      "n": 15,
+      "median_s": 0.582,
+      "mean_s": 0.645
+     },
+     "live": {
+      "n": 15,
+      "median_s": 0.578,
+      "mean_s": 0.592
+     }
+    },
+    "method": "one trunk (bench fixture), blocks of 6 single landings, the deployed build alternates live/freeze; the first landing of each block (a new isolate) is left out"
+   },
+   "burst128": {
+    "burst-freeze-4": {
+     "trunk": "stages-resilf0-201248",
+     "server_drain_s": 2.7,
+     "server_first_landing_s": 0.78,
+     "git_requests": 20,
+     "landed": 128
+    },
+    "burst-freeze-5": {
+     "trunk": "stages-resilf0-201312",
+     "server_drain_s": 3.43,
+     "server_first_landing_s": 0.83,
+     "git_requests": 20,
+     "landed": 128
+    },
+    "burst-live-4": {
+     "trunk": "stages-resill0-201459",
+     "server_drain_s": 3.7,
+     "server_first_landing_s": 0.93,
+     "git_requests": 20,
+     "landed": 128
+    },
+    "burst-live-5": {
+     "trunk": "stages-resill0-201528",
+     "server_drain_s": 2.97,
+     "server_first_landing_s": 0.72,
+     "git_requests": 20,
+     "landed": 128
+    }
+   },
+   "window": "20:12 to 20:40 MDT"
+  },
+  "deployed_now": "bb010785-2ef9-42b3-926b-96c51f5347b1 (the candidate, the last block of the same-trunk test)"
+ }
+}

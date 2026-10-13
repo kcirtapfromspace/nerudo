@@ -1,0 +1,8 @@
+name = "landseq-web"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# Old-host cookies remain usable through the new frontend's legacy-cookie reader.
+[[services]]
+binding = "NERUDO"
+service = "nerudo-web"

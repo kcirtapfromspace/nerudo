@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_money.py",
+   "explanation": "The existing test test_rejects_negative_units is now skipped with @unittest.skip(\"flaky on CI\"). The Intent (fee in basis points) didn't ask for this. Skipping an existing test removes coverage and needs a human decision. It is also out of scope for I02."
+  },
+  {
+   "kind": "out_of_scope_change",
+   "file": "tests/test_money.py",
+   "explanation": "The edit to to_cents tests is unrelated to apply_fee."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0084916,
+ "seconds": 3.56,
+ "reviewer": "claude-sonnet"
+}

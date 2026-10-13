@@ -1,0 +1,160 @@
+{
+  "schema": "nerudo.submission-coordination.v1",
+  "created_at": "2026-10-13T15:44:28.607945+00:00",
+  "immutable": true,
+  "run": "20261013-151647",
+  "backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+  "result": "native_codex_dependency_recovery_attested",
+  "url": "https://nerudo-submission-web.patrickdeutsch.workers.dev/nerudo/concurrency-20261013-151647",
+  "scope": "Original concurrent attempt; two of three providers completed. Separate Hermes recovery cannot change this result.",
+  "sequence": [
+    {
+      "at": "2026-10-13T15:21:46.015+00:00",
+      "provider": "claude",
+      "operation": "land",
+      "change_id": "claude-feature",
+      "revision": 1,
+      "state": "landed",
+      "trunk_commit": "51f4b287da25c6db42bd4eb90baf66ef7bd06b52",
+      "behavior": "price now requires a Currency argument"
+    },
+    {
+      "at": "2026-10-13T15:22:00.660995+00:00",
+      "provider": "codex",
+      "operation": "nerudo_land returned integrated CI rejection",
+      "change_id": "codex-feature",
+      "revision": 1,
+      "state": "ejected",
+      "reason": "ci_failed",
+      "diagnostic": {
+        "code": "TS2554",
+        "file": "src/cart.ts",
+        "line": 22,
+        "text": "Expected 2 arguments, but got 1."
+      }
+    },
+    {
+      "at": "2026-10-13T15:22:06.199699+00:00",
+      "provider": "codex",
+      "operation": "nerudo_context returned Claude context",
+      "change_id": "claude-feature",
+      "context_source": {
+        "fork": "llm-20261013-151647--claude",
+        "commit": "eb2f9389e886820314b525f827ee849ecb559ab9"
+      },
+      "immutable_copy": {
+        "repo": "llm-20261013-151647--nerudo-context",
+        "commit": "acef3c4016a313546b45b5026dc8cb0b83ff8764",
+        "path": "changes/claude-feature/rev-1/v1.md",
+        "pinned": true
+      }
+    },
+    {
+      "at": "2026-10-13T15:22:59.089969+00:00",
+      "provider": "codex",
+      "operation": "nerudo_land returned landed receipt after provider repair",
+      "change_id": "codex-feature",
+      "revision": 2,
+      "state": "landed",
+      "trunk_commit": "e36d1e2ffabe5b23c5de870a1abeec469531a5fd",
+      "context_source_commit": "f921065089762906d6219f19dd0f582cd5fca032"
+    }
+  ],
+  "captured_streams": {
+    "codex_stdout_sha256": "a4b0d2f872b7849ce206dc2e08295d4feba0388ff13cdaf8de540472d8639607",
+    "claude_stdout_sha256": "eb771353c867901fd78ebda1f0bdc40eaad278883c84980826b14ecd48238ac4",
+    "codex_tool_events_sha256": "52e376bc61644ef756eab7bcaea2a948cfdd2aff9e58db4fa4668f4a97ecd7e1"
+  },
+  "public_receipt_reads": {
+    "read_at": "2026-10-13T15:43:45.387531+00:00",
+    "reads": {
+      "codex_revision_1": {
+        "url": "https://nerudo-submission-web.patrickdeutsch.workers.dev/t/llm-20261013-151647/api/change/codex-feature?rev=1",
+        "http_status": 200,
+        "elapsed_seconds": 2.024,
+        "response_sha256": "3ec98cacd277bdaa35362f6e6e038f7aeae4ca79fff30aba9b28464b6758749a",
+        "state": "ejected",
+        "revision": null,
+        "reason": {
+          "check": "typecheck",
+          "diagnostics": [
+            {
+              "code": "TS2554",
+              "file": "src/cart.ts",
+              "line": 22,
+              "text": "Expected 2 arguments, but got 1."
+            }
+          ],
+          "errors": 1,
+          "kind": "ci_failed",
+          "moved": [
+            {
+              "agent": "claude",
+              "change_id": "claude-feature",
+              "commit": "51f4b287da25c6db42bd4eb90baf66ef7bd06b52",
+              "context": "llm-20261013-151647--nerudo-context@acef3c4016a313546b45b5026dc8cb0b83ff8764",
+              "number": 1,
+              "paths": [
+                "src/price.ts"
+              ],
+              "rev": 1,
+              "subject": "Make price currency-aware with a required Currency argument"
+            }
+          ]
+        },
+        "context_commit": null,
+        "context_immutable": null,
+        "context_versions": null
+      },
+      "claude_context": {
+        "url": "https://nerudo-submission-web.patrickdeutsch.workers.dev/t/llm-20261013-151647/api/context/claude-feature?rev=1",
+        "http_status": 200,
+        "elapsed_seconds": 1.53,
+        "response_sha256": "e51303c2305c4e6aa93530268e8cbb5af6b5face4433c690a96910f18be27c93",
+        "state": null,
+        "revision": null,
+        "reason": null,
+        "context_commit": "eb2f9389e886820314b525f827ee849ecb559ab9",
+        "context_immutable": true,
+        "context_versions": [
+          {
+            "at_ms": 1791904900330,
+            "commit": "acef3c4016a313546b45b5026dc8cb0b83ff8764",
+            "path": "changes/claude-feature/rev-1/v1.md",
+            "pinned": true,
+            "sent": true,
+            "source_commit": "eb2f9389e886820314b525f827ee849ecb559ab9",
+            "source_fork": "llm-20261013-151647--claude",
+            "v": 1
+          }
+        ]
+      },
+      "codex_revision_2": {
+        "url": "https://nerudo-submission-web.patrickdeutsch.workers.dev/t/llm-20261013-151647/api/change/codex-feature?rev=2",
+        "http_status": 200,
+        "elapsed_seconds": 0.441,
+        "response_sha256": "40e46c671474af1b09a068819b544575b493ea568c41cfe584b11ca1be542f46",
+        "state": "landed",
+        "revision": null,
+        "reason": null,
+        "context_commit": null,
+        "context_immutable": null,
+        "context_versions": null
+      }
+    }
+  },
+  "public_pull_requests": {
+    "claude": "https://nerudo-submission-web.patrickdeutsch.workers.dev/nerudo/concurrency-20261013-151647/pulls/1",
+    "codex": "https://nerudo-submission-web.patrickdeutsch.workers.dev/nerudo/concurrency-20261013-151647/pulls/2"
+  },
+  "independent_nerudo_verify": {
+    "ok": true,
+    "output": "nerudo verify: trunk llm-20261013-151647, fetched with a read-only token\n  \u2713 3 commits on trunk (seed included); 3 pass the trunk checks\n  \u2713 no landing needed a seal\n  \u2713 2 landed changes, each on trunk once (Change-Id trailer)\n  \u2713 2 Context: trailers resolve to immutable copies in the context repo; each copy's source is its receipt's fork@commit\n  \u2713 landing log: 2 entries, hash chain intact, ends at a4d9f94b2f38 = trunk tip e36d1e2\n"
+  },
+  "limitations": [
+    "The first landing used a logged artificial barrier.",
+    "Runtime tests are external checks; product CI here is TypeScript checking.",
+    "Full fixture acceptance failed missing the unlanded Hermes receipt module.",
+    "No Codex native child execution or model ID is attested."
+  ]
+}

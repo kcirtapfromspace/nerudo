@@ -1,0 +1,26 @@
+# Landing rules for a replay of honojs/hono. The sequencer reads them from trunk, never
+# from the change being landed.
+
+# One unit per middleware, helper, adapter and router, and one for JSX: changes to
+# different ones share a batch. Every other path (a core file, package.json) is its own unit.
+[footprint]
+units = ["src/middleware/*", "src/helper/*", "src/adapter/*", "src/router/*", "src/jsx/**", "runtime-tests/*", "benchmarks/*"]
+
+# Changes to the repo's CI and to these rules wait for a person's signed seal.
+[seals]
+governance = [".github/**", "landseq.toml"]
+
+[seals.require]
+governance = { roles = ["maintainer"], count = 1 }
+
+# No [ci]: the type check needs hono's npm dependencies, which a Worker doesn't have.
+
+[[approvers]]
+name = "<your name>"
+key = "<your landseq pubkey>"
+roles = ["maintainer"]
+
+[[approvers]]
+name = "dana"
+key = "fad067074eaa94d168ab42e4cf67770c354ac5d03663c8bd5465ac9b7fe348c9"
+roles = ["dba"]

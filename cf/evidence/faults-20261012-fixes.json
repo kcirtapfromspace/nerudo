@@ -1,0 +1,800 @@
+{
+  "started": "2026-10-12T12:18:42-0600",
+  "versions": {
+    "commit": "1a885ad+dirty",
+    "wrangler": "4.148.0",
+    "gitea": "gitea version 28.1.0 built with go1.27.1 : sqlite, sqlite_unlock_notify",
+    "toxiproxy": "toxiproxy-server version 2.12.0",
+    "git": "git version 2.55.0",
+    "python": "3.14.7"
+  },
+  "args": {
+    "cases": "parity,ci_down,ci_hang,git_flaky,kill9,growth",
+    "scenarios": "approvals,ci,recovery,ci_red",
+    "ci_down_k": "1,8",
+    "ci_down_seconds": 20,
+    "ci_hang_seconds": 45,
+    "flaky_changes": 12,
+    "flaky_outage": 3,
+    "flaky_toxicity": 0.4,
+    "flaky_seconds": 45,
+    "kill_reps": 3,
+    "growth": "32,64,128,256,512",
+    "seed": 1,
+    "strict": false,
+    "no_build": false,
+    "evidence": "evidence/faults-20261012-fixes.json",
+    "keep": false
+  },
+  "known_gaps": {
+    "ci_down.requests": "the landing loop retries each second, with no backoff (trunk.rs alarm); the budget is backoff_budget()",
+    "ci_down.visible": "nothing in the queue, the change or the summary says that CI is unreachable (the check looks for one of CI_DOWN_WORDS)",
+    "ci_hang.timeout": "the CI call has no timeout (ci.rs typecheck)"
+  },
+  "cases": {
+    "ci_down": [
+      {
+        "k": 1,
+        "outage_s": 20.0,
+        "ci_requests": 20,
+        "per_trunk": 20.0,
+        "per_trunk_per_min": 60.0,
+        "landing_loop_errors_logged": 20,
+        "recovery_s": 0.7
+      },
+      {
+        "k": 8,
+        "outage_s": 20.0,
+        "ci_requests": 160,
+        "per_trunk": 20.0,
+        "per_trunk_per_min": 60.0,
+        "landing_loop_errors_logged": 160,
+        "recovery_s": 1.2
+      }
+    ],
+    "ci_hang": {
+      "hang_s": 45,
+      "requests_during_hang": 2,
+      "seconds_between_requests": [
+        46.0
+      ],
+      "recovery_s": 42.6
+    },
+    "git_flaky": {
+      "changes": 12,
+      "fault_s": 17.8,
+      "landed_under_fault": 12,
+      "landing_loop_errors_logged": 0,
+      "error_kinds": [],
+      "fetch_failed_ejections": 0,
+      "fetch_retries_logged": 14,
+      "fetch_retries": 14,
+      "external_moves": 0,
+      "recovered_attempts": 0,
+      "batches": 12
+    },
+    "kill9": [
+      {
+        "rep": 1,
+        "landed_before_kill": 1,
+        "stalled_after_restart": 0,
+        "nudged": false,
+        "recovered_attempts": 0
+      },
+      {
+        "rep": 2,
+        "landed_before_kill": 3,
+        "stalled_after_restart": 0,
+        "nudged": false,
+        "recovered_attempts": 1
+      },
+      {
+        "rep": 3,
+        "landed_before_kill": 5,
+        "stalled_after_restart": 0,
+        "nudged": false,
+        "recovered_attempts": 1
+      }
+    ],
+    "growth": [
+      {
+        "n": 32,
+        "drain_s": 1.89,
+        "batches": 2
+      },
+      {
+        "n": 64,
+        "drain_s": 3.75,
+        "batches": 4
+      },
+      {
+        "n": 128,
+        "drain_s": 7.45,
+        "batches": 8
+      },
+      {
+        "n": 256,
+        "drain_s": 15.25,
+        "batches": 16
+      },
+      {
+        "n": 512,
+        "drain_s": 32.73,
+        "batches": 32
+      }
+    ]
+  },
+  "checks": [
+    {
+      "case": "parity",
+      "check": "scenario approvals",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario ci",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario ci_red",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: 20 CI requests per trunk in 20 s (20 in all; budget 8 per trunk)",
+      "status": "gap",
+      "gap": "ci_down.requests",
+      "per_trunk": 20.0,
+      "budget": 7.666833972930908
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: the queue or the change says that CI is unreachable",
+      "status": "gap",
+      "gap": "ci_down.visible"
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-121942: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-121942: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-121942: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-121942: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: all landed 0.7 s after CI came back (budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: 20 CI requests per trunk in 20 s (160 in all; budget 8 per trunk)",
+      "status": "gap",
+      "gap": "ci_down.requests",
+      "per_trunk": 20.0,
+      "budget": 7.6670007308324175
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: the queue or the change says that CI is unreachable",
+      "status": "gap",
+      "gap": "ci_down.visible"
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-122006: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-122006: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-122006: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-122006: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-122009: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-122009: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-122009: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-122009: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-122013: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-122013: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-122013: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-122013: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-122016: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-122016: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-122016: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-122016: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-122019: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-122019: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-122019: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-122019: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-122023: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-122023: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-122023: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-122023: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-122026: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-122026: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-122026: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-122026: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-122029: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-122029: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-122029: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-122029: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: all landed 1.2 s after CI came back (budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-122056: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-122056: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-122056: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-122056: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_hang",
+      "check": "the Worker gave up on a hung CI request within 30 s (next request after 46 s)",
+      "status": "gap",
+      "gap": "ci_hang.timeout"
+    },
+    {
+      "case": "ci_hang",
+      "check": "landed 42.6 s after CI came back (budget 75 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-122232: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-122232: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-122232: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-122232: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "git_flaky",
+      "check": "the faults had an effect: 12/12 landed in 18 s; 0 landing-loop errors, 14 fetches tried again, 0 fetch_failed ejections, 0 attempts recovered",
+      "status": "pass",
+      "gap": null,
+      "note": "with no effect, the case tests nothing: raise --flaky-outage or --flaky-toxicity"
+    },
+    {
+      "case": "git_flaky",
+      "check": "no lost reply was taken for someone else's move of main (external_moves = 0)",
+      "status": "pass",
+      "gap": null,
+      "external_moves": 0
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1: the queue drained after the restart with no help",
+      "status": "pass",
+      "gap": null,
+      "stalled": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-122258: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-122258: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-122258: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-122258: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2: the queue drained after the restart with no help",
+      "status": "pass",
+      "gap": null,
+      "stalled": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-122315: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-122315: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-122315: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-122315: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3: the queue drained after the restart with no help",
+      "status": "pass",
+      "gap": null,
+      "stalled": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-122333: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-122333: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-122333: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-122333: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-122352: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-122352: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-122352: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-122352: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-122406: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-122406: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-122406: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-122406: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-122428: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-122428: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-122428: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-122428: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth4-122506: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth4-122506: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth4-122506: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth4-122506: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth5-122618: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth5-122618: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth5-122618: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth5-122618: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N 32\u219264: drain time \u00d72.0 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 1.98
+    },
+    {
+      "case": "growth",
+      "check": "N 64\u2192128: drain time \u00d72.0 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 1.99
+    },
+    {
+      "case": "growth",
+      "check": "N 128\u2192256: drain time \u00d72.0 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 2.05
+    },
+    {
+      "case": "growth",
+      "check": "N 256\u2192512: drain time \u00d72.1 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 2.15
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.7,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "The criterion 'limit must be >= 0, otherwise ValueError' has no test. The implementation looks correct, but a regression in the limit check would go unnoticed. Add a test with a negative limit that expects ValueError. A test with limit=0 would also check the boundary, since 0 is valid. The amount test only covers 0, so a negative amount would be worth adding as well."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.011802400000000001,
+ "seconds": 5.82,
+ "reviewer": "claude-sonnet"
+}

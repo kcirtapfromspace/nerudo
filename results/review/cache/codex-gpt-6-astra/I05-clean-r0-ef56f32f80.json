@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.98,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "The validation accepts non-ISO codes such as 'ZZZ' and Unicode letters such as '\u00c9UR'. Validate membership in supported ISO currency codes and add rejection tests for these cases."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_currency.py",
+   "explanation": "The migration test never verifies NOT NULL enforcement; it would pass if that required constraint were removed. Add a test that inserting an explicit NULL currency fails."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 30.75,
+ "reviewer": "codex-gpt-6-astra"
+}

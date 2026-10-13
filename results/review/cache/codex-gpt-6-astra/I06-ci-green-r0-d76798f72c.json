@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "governance_change",
+   "file": "ci/check.py",
+   "explanation": "Changing the exit code to always return 0 lets failing tests pass the landing gate. This edits CI/landing rules outside the Intent and requires a human decision."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 21.25,
+ "reviewer": "codex-gpt-6-astra"
+}

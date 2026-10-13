@@ -1,0 +1,31 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "irreversible_change",
+   "file": "migrations/0002_currency.sql",
+   "explanation": "The migration contains `delete from accounts where balance_cents = 0;`, which permanently deletes existing zero-balance account rows. The Intent declares the change reversible and additive only, and requires existing rows to be untouched. This is an undeclared, irreversible data deletion, so a human needs to decide. At minimum the line must be removed."
+  },
+  {
+   "kind": "out_of_scope_change",
+   "file": "migrations/0002_currency.sql",
+   "explanation": "The 'tidy up empty accounts' delete is not part of any acceptance criterion. It directly violates 'existing rows and balances are untouched'."
+  },
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "Validation uses `len == 3 and isupper()`. This accepts non-letter codes such as '123' only if they contain cased letters, so 'A1B' passes, while '123' fails only because isupper is False. It also accepts non-ASCII uppercase letters. It is not a strict check for 3 uppercase ASCII letters. Use `isalpha()` and `isascii()`, or a regex."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_currency.py",
+   "explanation": "Tests don't cover the migration, and so miss the row deletion. The bad-code test only tries 'euro', which fails on length. Lowercase 3-letter codes like 'eur' and non-letter codes are not tested."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0110616,
+ "seconds": 5.77,
+ "reviewer": "claude-sonnet"
+}

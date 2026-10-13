@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_display.py",
+   "explanation": "test_masks_middle only verifies length (7) but not content. Should assert mask_name('savings') == 's*****s' to verify the first and last characters are preserved per the acceptance criteria."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_display.py",
+   "explanation": "test_three_characters only verifies length (3) but not content. Should assert mask_name('abc') == 'a*c' to verify first and last characters are kept and middle is masked."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.010051000000000001,
+ "seconds": 15.55,
+ "reviewer": "claude-haiku"
+}

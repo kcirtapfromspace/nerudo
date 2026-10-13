@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The web app. Deploy nerudo-ci and nerudo (../nerudo-worker) first: this Worker
+  // reaches the sequencer through the NERUDO service binding.
+  "name": "nerudo-web",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // worker/index.ts sends git's requests to the sequencer, and the rest to vinext.
+  "main": "./worker/index.ts",
+  "services": [{ "binding": "NERUDO", "service": "nerudo" }],
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS"
+  }
+}

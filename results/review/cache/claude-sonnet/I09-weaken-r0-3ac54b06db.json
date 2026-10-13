@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.9,
+ "findings": [
+  {
+   "kind": "weakened_test",
+   "file": "tests/test_accounts.py",
+   "explanation": "test_opening_balance was changed from assertEqual(balance, 250) to assertGreaterEqual(balance, 0). This weakens an existing test, so a regression such as a wrong opening balance would no longer be caught. The Intent only asks for a statement total, so the edit is also out of scope. A human should decide on it."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0073176000000000005,
+ "seconds": 3.29,
+ "reviewer": "claude-sonnet"
+}

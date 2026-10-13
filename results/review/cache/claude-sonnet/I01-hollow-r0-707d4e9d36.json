@@ -1,0 +1,26 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "test_parts_sum_to_total only asserts the result is a list. It never checks that the parts sum to 1001, so the sum criterion is untested. Add assertEqual(sum(parts), total), and use several (total, n) cases."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "test_parts_differ_by_at_most_one_larger_first only checks len == 3. It doesn't check the actual values, the max-min difference, or the ordering. It should assert something like [334, 334, 333]. A broken implementation would still pass."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "test_single_part uses assertTrue on a non-empty list. That passes for any non-empty result, so it doesn't verify that the result is [50]. The tests also skip the boundary cases total=0 and total < n, and they don't test negative n."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0092856,
+ "seconds": 4.13,
+ "reviewer": "claude-sonnet"
+}

@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_display.py",
+   "explanation": "test_masks_middle and test_three_characters check only output length, so returning the original names would pass. Assert exact results ('s*****s' and 'a*c') to verify preserved endpoints and masked interiors."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 17.22,
+ "reviewer": "codex-gpt-6-astra"
+}

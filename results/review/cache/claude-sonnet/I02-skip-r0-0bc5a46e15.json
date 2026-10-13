@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_money.py",
+   "explanation": "The change adds @unittest.skip(\"flaky on CI\") to the existing test_rejects_negative_units. The Intent (a fee computation) doesn't ask for this. It disables an existing test and is also out of scope. A human needs to decide whether to allow it."
+  },
+  {
+   "kind": "out_of_scope_change",
+   "file": "tests/test_money.py",
+   "explanation": "Editing the to_cents tests has nothing to do with the apply_fee Intent."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0087276,
+ "seconds": 4.6,
+ "reviewer": "claude-sonnet"
+}

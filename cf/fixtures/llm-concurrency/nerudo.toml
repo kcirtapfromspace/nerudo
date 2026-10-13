@@ -1,0 +1,15 @@
+# Preparation and final checks can run in parallel; only NERUDO advances main.
+[footprint]
+units = ["src/*", "tests/*"]
+
+# The orchestrator inserts its real public approver key before initializing the repo.
+[seals]
+governance = ["nerudo.toml", "tsconfig.json", "package.json", "AGENTS.md", "TASKS.json", "checks/**"]
+
+[seals.require]
+governance = { roles = ["maintainer"], count = 1 }
+
+# The deployed Worker enforces the integrated tree's TypeScript check. Runtime test
+# execution is local evidence and is recorded separately by the orchestrator.
+[ci]
+typecheck = { tsconfig = "tsconfig.json" }

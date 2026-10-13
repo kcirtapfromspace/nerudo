@@ -1,0 +1,20 @@
+deploy/.forgejo-*
+results/raw/
+runs/
+target/
+target-dev/
+__pycache__/
+.dev.vars
+.wrangler/
+cf/frozen/
+cf/spike/build/
+results/smoke*/
+.prod.vars
+.playwright-mcp/
+.claude/worktrees/
+# Secrets a local run can leave behind (wrangler vars, env files, scale drivers' *.vars)
+.env
+.env.*
+.dev.vars.*
+.prod.vars.*
+*.vars

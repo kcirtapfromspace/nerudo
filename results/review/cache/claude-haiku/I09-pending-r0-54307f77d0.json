@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.98,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/statements.py",
+   "explanation": "The implementation filters for status == \"posted\" only, but the acceptance criterion requires that entries with status 'pending' are included. The current code excludes pending entries, violating this requirement."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_statements.py",
+   "explanation": "The test_includes_pending test is named to suggest it verifies that pending entries are included, but the assertion expects a total of 100 (only the posted entry of 100), not 125 (100 + 25 pending). This proves the test doesn't actually validate the stated requirement that pending entries should be included."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.012908,
+ "seconds": 21.67,
+ "reviewer": "claude-haiku"
+}

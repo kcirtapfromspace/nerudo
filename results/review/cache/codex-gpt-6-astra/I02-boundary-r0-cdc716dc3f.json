@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The check `bps >= 10000` rejects the explicitly allowed 100% fee. Change it to `bps > 10000`."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_fee.py",
+   "explanation": "Tests omit the inclusive bps boundaries and negative bps validation. Add assertions that 0 bps returns 0, 10000 bps returns cents, and negative bps raises ValueError; the 10000 case would catch the implementation defect."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 18.61,
+ "reviewer": "codex-gpt-6-astra"
+}

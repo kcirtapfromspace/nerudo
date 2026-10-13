@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/money.py",
+   "explanation": "format_cents always sets sign to an empty string, so -123456 returns \"1,234.56\" instead of \"-1,234.56\". Set sign to '-' for negative amounts."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_format.py",
+   "explanation": "The tests omit the negative-amount criterion. Add an assertion that format_cents(-123456) equals \"-1,234.56\"."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 11.63,
+ "reviewer": "codex-gpt-6-astra"
+}

@@ -1,0 +1,35 @@
+# Landing rules for the nerudo bench repo, in the format the Cloudflare sequencer reads.
+[footprint]
+units = ["targets/*"]
+
+[[commutative]]
+path = "CHANGELOG.md"
+rule = "append"
+
+[[derived]]
+path = "deps.lock"
+generator = "digest-index"
+source = "deps"
+
+[[allocate]]
+dir = "migrations"
+pending_prefix = "NEXT_"
+width = 4
+
+[seals]
+governance = ["ci/**", "nerudo.toml", ".github/**"]
+tests = ["tests/*.py"]
+test_style = "python-unittest"
+migrations = ["migrations/*.sql"]
+
+[[checks]]
+kind = "unique-numbering"
+dir = "migrations"
+
+[[checks]]
+kind = "no-pending"
+dir = "migrations"
+prefix = "NEXT_"
+
+[[checks]]
+kind = "derived-consistent"

@@ -1,0 +1,39 @@
+{
+  "claude": {
+    "title": "Make the price API explicitly currency-aware",
+    "acceptance": [
+      "Export a Currency TypeScript type whose supported values are USD and EUR.",
+      "Make price accept cents and a required Currency second argument. USD converts cents to dollars; EUR applies a fixed 0.9 multiplier to that dollar amount. Return the numeric result without display rounding.",
+      "Preserve rejection of cents that are negative, fractional, or not finite. At runtime reject missing or unsupported currencies.",
+      "Update known callers and relevant tests to use the new API while preserving the other tasks' behavior. Read the live API and NERUDO receipts when concurrent work changes those callers."
+    ]
+  },
+  "codex": {
+    "title": "Calculate cart subtotals using the shared price API",
+    "acceptance": [
+      "Add src/cart.ts exporting subtotal(items, currency), where items contain numeric unitCents and quantity properties. Currency defaults to USD and supports USD and EUR.",
+      "Use the shared price API to calculate the total. An empty cart totals zero. Preserve the inputs.",
+      "Reject quantities that are not positive integers, and reject invalid unitCents using the price API's validation. Reject unsupported currencies even for an empty cart.",
+      "Add meaningful runtime tests. Implement against the current price API and repair the integration if another agent introduces its required currency argument."
+    ]
+  },
+  "ollama": {
+    "title": "Format receipts using the shared price API",
+    "acceptance": [
+      "Add src/receipt.ts exporting receipt(cents, currency). Currency defaults to USD and supports USD and EUR.",
+      "Use the shared price API and return the currency code followed by one space and the amount with exactly two decimal places: receipt(1234) is USD 12.34, and receipt(1234, EUR) is EUR 11.11.",
+      "Preserve the price API's validation of cents and reject unsupported currencies.",
+      "Use real subagent work if supported by the configured workflow, record those contributions, and add meaningful runtime tests. Inspect current source and repair after concurrent API changes."
+    ]
+  },
+  "gemini": {
+    "title": "Calculate discounts in integral cents",
+    "optional": true,
+    "acceptance": [
+      "Add src/discount.ts exporting discountedCents(cents, percent). Return cents after applying the percentage discount, rounded to the nearest cent.",
+      "Reject cents that are negative, fractional, or not finite. Reject a percent that is not finite or is outside the inclusive range zero through one hundred.",
+      "A zero-percent discount leaves cents unchanged; a hundred-percent discount returns zero. discountedCents(101, 50) returns 51.",
+      "Add meaningful runtime tests and preserve other providers' changes."
+    ]
+  }
+}

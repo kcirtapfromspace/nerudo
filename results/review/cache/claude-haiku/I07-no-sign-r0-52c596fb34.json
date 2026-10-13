@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_format.py",
+   "explanation": "The test suite is missing a test case for negative amounts. The acceptance criteria explicitly require that negative amounts be formatted with a leading '-' (e.g., -123456 -> \"-1,234.56\"), but this behavior is not tested."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/money.py",
+   "explanation": "The implementation does not correctly handle negative amounts. The sign variable is initialized to an empty string but is never set to '-' when the input is negative. For negative inputs, the function returns the absolute value formatted correctly but without the required leading minus sign (e.g., -123456 returns \"1,234.56\" instead of \"-1,234.56\")."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.040864000000000004,
+ "seconds": 73.94,
+ "reviewer": "claude-haiku"
+}

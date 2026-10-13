@@ -1,0 +1,15 @@
+[package]
+name = "nerudo-git"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal pure-Rust git engine for the nerudo sequencer: objects, trees, packs, smart HTTP (v2 fetch, v1 receive-pack). Runs native and in wasm."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+sha1 = "0.10"
+miniz_oxide = "0.8"
+serde = "1"
+
+[dev-dependencies]
+futures = { version = "0.3", default-features = false, features = ["executor"] }
+ureq = "2"

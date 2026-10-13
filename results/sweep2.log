@@ -1,0 +1,64 @@
+seq-forgejo-mirror {'n': 1, 'landed': 3, 'expected': 3, 'wall_s': 14.113, 'throughput_per_min': 12.75, 'rejects_per_landing': 0.0, 'ci_runs_per_landing': 2.0, 'lat_p50': 2.322983980178833, 'lost_changes': 0, 'dup_migrations': 0, 'broken_commits': 0, 'fetch_errors': 0, 'error_count': 0}
+seq-forgejo-mirror {'n': 2, 'landed': 6, 'expected': 6, 'wall_s': 16.452, 'throughput_per_min': 21.88, 'rejects_per_landing': 0.0, 'ci_runs_per_landing': 1.833, 'lat_p50': 2.428385019302368, 'lost_changes': 0, 'dup_migrations': 0, 'broken_commits': 0, 'fetch_errors': 1, 'error_count': 0}
+seq-forgejo-mirror {'n': 4, 'landed': 12, 'expected': 12, 'wall_s': 21.017, 'throughput_per_min': 34.26, 'rejects_per_landing': 0.0, 'ci_runs_per_landing': 1.667, 'lat_p50': 4.520406007766724, 'lost_changes': 0, 'dup_migrations': 0, 'broken_commits': 0, 'fetch_errors': 3, 'error_count': 0}
+seq-forgejo-mirror {'n': 8, 'landed': 24, 'expected': 24, 'wall_s': 27.12, 'throughput_per_min': 53.1, 'rejects_per_landing': 0.0, 'ci_runs_per_landing': 1.458, 'lat_p50': 4.937840938568115, 'lost_changes': 0, 'dup_migrations': 0, 'broken_commits': 0, 'fetch_errors': 9, 'error_count': 0}
+seq-forgejo-mirror {'n': 16, 'landed': 48, 'expected': 48, 'wall_s': 39.945, 'throughput_per_min': 72.1, 'rejects_per_landing': 0.0, 'ci_runs_per_landing': 1.417, 'lat_p50': 6.010132074356079, 'lost_changes': 0, 'dup_migrations': 0, 'broken_commits': 0, 'fetch_errors': 21, 'error_count': 0}
+seq-forgejo-mirror {'n': 32, 'landed': 96, 'expected': 96, 'wall_s': 92.416, 'throughput_per_min': 62.33, 'rejects_per_landing': 0.0, 'ci_runs_per_landing': 1.625, 'lat_p50': 7.214171886444092, 'lost_changes': 0, 'dup_migrations': 0, 'broken_commits': 0, 'fetch_errors': 30, 'error_count': 0}
+Traceback (most recent call last):
+  File "~/landseq/bench/run.py", line 291, in main
+    rec = run.execute()
+          ^^^^^^^^^^^^^
+  File "~/landseq/bench/run.py", line 183, in execute
+    self.setup_remote()
+  File "~/landseq/bench/run.py", line 108, in setup_remote
+    self.setup_mirror()
+  File "~/landseq/bench/run.py", line 128, in setup_mirror
+    sh("git", "push", "-q", self.mirror_url, f"HEAD:refs/heads/{self.mirror_trunk}", cwd=seed)
+  File "~/landseq/bench/run.py", line 42, in sh
+    raise RuntimeError(f"{' '.join(cmd)}: {p.stderr.strip()[:400]}")
+RuntimeError: git push -q git@github.com:kcirtapfromspace/landseq-bench.git HEAD:refs/heads/run/seq-github-mirror-n1-r0-105534: remote: Internal Server Error        
+remote: Request ID E808:2575E:211740:2C1ED4:6AC67987        
+remote: Time 2026-10-07T16:55:36Z
+To github.com:kcirtapfromspace/landseq-bench.git
+ ! [remote rejected] HEAD -> run/seq-github-mirror-n1-r0-105534 (Internal Server Error)
+error: failed to push some refs to 'github.com:kcirtapfromspace/landseq-bench.git'
+seq-github-mirror {'n': 1, 'landed': None, 'expected': None, 'wall_s': None, 'throughput_per_min': None, 'rejects_per_landing': None, 'ci_runs_per_landing': None, 'lat_p50': None, 'lost_changes': None, 'dup_migrations': None, 'broken_commits': None, 'fetch_errors': None, 'error_count': None}
+Traceback (most recent call last):
+  File "~/landseq/bench/run.py", line 291, in main
+    rec = run.execute()
+          ^^^^^^^^^^^^^
+  File "~/landseq/bench/run.py", line 183, in execute
+    self.setup_remote()
+  File "~/landseq/bench/run.py", line 108, in setup_remote
+    self.setup_mirror()
+  File "~/landseq/bench/run.py", line 128, in setup_mirror
+    sh("git", "push", "-q", self.mirror_url, f"HEAD:refs/heads/{self.mirror_trunk}", cwd=seed)
+  File "~/landseq/bench/run.py", line 42, in sh
+    raise RuntimeError(f"{' '.join(cmd)}: {p.stderr.strip()[:400]}")
+RuntimeError: git push -q git@github.com:kcirtapfromspace/landseq-bench.git HEAD:refs/heads/run/seq-github-mirror-n4-r0-105536: remote: Internal Server Error        
+remote: Request ID E80E:1E3FA7:1FA851:2AAE84:6AC67988        
+remote: Time 2026-10-07T16:55:38Z
+To github.com:kcirtapfromspace/landseq-bench.git
+ ! [remote rejected] HEAD -> run/seq-github-mirror-n4-r0-105536 (Internal Server Error)
+error: failed to push some refs to 'github.com:kcirtapfromspace/landseq-bench.git'
+seq-github-mirror {'n': 4, 'landed': None, 'expected': None, 'wall_s': None, 'throughput_per_min': None, 'rejects_per_landing': None, 'ci_runs_per_landing': None, 'lat_p50': None, 'lost_changes': None, 'dup_migrations': None, 'broken_commits': None, 'fetch_errors': None, 'error_count': None}
+Traceback (most recent call last):
+  File "~/landseq/bench/run.py", line 291, in main
+    rec = run.execute()
+          ^^^^^^^^^^^^^
+  File "~/landseq/bench/run.py", line 183, in execute
+    self.setup_remote()
+  File "~/landseq/bench/run.py", line 108, in setup_remote
+    self.setup_mirror()
+  File "~/landseq/bench/run.py", line 128, in setup_mirror
+    sh("git", "push", "-q", self.mirror_url, f"HEAD:refs/heads/{self.mirror_trunk}", cwd=seed)
+  File "~/landseq/bench/run.py", line 42, in sh
+    raise RuntimeError(f"{' '.join(cmd)}: {p.stderr.strip()[:400]}")
+RuntimeError: git push -q git@github.com:kcirtapfromspace/landseq-bench.git HEAD:refs/heads/run/seq-github-mirror-n16-r0-105538: remote: Internal Server Error        
+remote: Request ID E813:2F144F:1CADC4:27B381:6AC6798A        
+remote: Time 2026-10-07T16:55:39Z
+To github.com:kcirtapfromspace/landseq-bench.git
+ ! [remote rejected] HEAD -> run/seq-github-mirror-n16-r0-105538 (Internal Server Error)
+error: failed to push some refs to 'github.com:kcirtapfromspace/landseq-bench.git'
+seq-github-mirror {'n': 16, 'landed': None, 'expected': None, 'wall_s': None, 'throughput_per_min': None, 'rejects_per_landing': None, 'ci_runs_per_landing': None, 'lat_p50': None, 'lost_changes': None, 'dup_migrations': None, 'broken_commits': None, 'fetch_errors': None, 'error_count': None}
+sweep2 done

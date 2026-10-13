@@ -1,0 +1,3553 @@
+{
+ "date": "2026-10-12",
+ "what": "landseq on a big trunk: synthetic monorepos on Artifacts, a throwaway Worker, one landing and a batch",
+ "worker": "landseq-scale-mono (throwaway, workers.dev); no CI or AI binding",
+ "artifacts_namespace": "landseq-scale",
+ "generator": "cf/scale/gen_monorepo.py",
+ "bench": "cf/scale/mono_bench.py",
+ "repos": {
+  "m25": {
+   "out": "m25",
+   "files": 5026,
+   "dirs": 192,
+   "packages": 12,
+   "depth": 4,
+   "commits": 21,
+   "tip_bytes": 25898975,
+   "pack_bytes": 10809409
+  },
+  "m50": {
+   "out": "m50",
+   "files": 10026,
+   "dirs": 400,
+   "packages": 25,
+   "depth": 4,
+   "commits": 21,
+   "tip_bytes": 51933647,
+   "pack_bytes": 20839867
+  },
+  "m100": {
+   "out": "m100",
+   "files": 10026,
+   "dirs": 400,
+   "packages": 25,
+   "depth": 4,
+   "commits": 21,
+   "tip_bytes": 104371342,
+   "pack_bytes": 38808947
+  },
+  "h1000": {
+   "out": "h1000",
+   "files": 2026,
+   "dirs": 80,
+   "packages": 5,
+   "depth": 4,
+   "commits": 1001,
+   "tip_bytes": 10317844,
+   "pack_bytes": 25408655
+  },
+  "m300": {
+   "out": "m300",
+   "files": 50026,
+   "dirs": 2000,
+   "packages": 125,
+   "depth": 4,
+   "commits": 21,
+   "tip_bytes": 310908999,
+   "pack_bytes": 117800191
+  },
+  "m1g": {
+   "out": "m1g",
+   "files": 120026,
+   "dirs": 19200,
+   "packages": 300,
+   "depth": 5,
+   "commits": 21,
+   "tip_bytes": 1065349538,
+   "pack_bytes": 388253470
+  },
+  "f1m": {
+   "out": "f1m",
+   "files": 1000026,
+   "dirs": 40000,
+   "packages": 2500,
+   "depth": 4,
+   "commits": 21,
+   "tip_bytes": 132464356,
+   "pack_bytes": 151418384
+  },
+  "m700": {
+   "out": "m700",
+   "files": 70026,
+   "dirs": 2800,
+   "packages": 175,
+   "depth": 4,
+   "commits": 21,
+   "tip_bytes": 727769199,
+   "pack_bytes": 261348651
+  },
+  "d120k": {
+   "out": "d120k",
+   "files": 120026,
+   "dirs": 19200,
+   "packages": 300,
+   "depth": 5,
+   "commits": 21,
+   "tip_bytes": 57009737,
+   "pack_bytes": 40541351
+  },
+  "t1": {
+   "out": "t1",
+   "files": 2026,
+   "dirs": 80,
+   "packages": 5,
+   "depth": 4,
+   "commits": 6,
+   "tip_bytes": 10303232,
+   "pack_bytes": 4172169
+  }
+ },
+ "artifacts_probe": {
+  "script": "cf/scale/probe_artifacts.py",
+  "repo": "mono-probe (3 commits, 10 files)",
+  "capabilities": {
+   "status": 200,
+   "lines": [
+    "version 2",
+    "agent=gitty/1.0",
+    "ls-refs=unborn",
+    "fetch=shallow filter sideband-all",
+    "object-format=sha1"
+   ]
+  },
+  "full": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 3,
+    "tree": 13,
+    "blob": 10,
+    "ref_delta": 2
+   },
+   "pack_bytes": 3550,
+   "status": 200
+  },
+  "ids_note": "parent = main~1; subtree = a top-level directory of main; blob = a file in it",
+  "deepen_1": {
+   "sections": [
+    "shallow-info",
+    "shallow",
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 1,
+    "tree": 7,
+    "blob": 10
+   },
+   "pack_bytes": 2706,
+   "status": 200
+  },
+  "filter_blob_none": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 3,
+    "tree": 13
+   },
+   "pack_bytes": 1477,
+   "status": 200
+  },
+  "deepen_1_filter_blob_none": {
+   "sections": [
+    "shallow-info",
+    "shallow",
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 1,
+    "tree": 7
+   },
+   "pack_bytes": 705,
+   "status": 200
+  },
+  "deepen_1_filter_tree_0": {
+   "status": 400,
+   "error": "Unsupported Git fetch filter; only blob:none is supported.",
+   "objects": null,
+   "body": "Unsupported Git fetch filter; only blob:none is supported.\n"
+  },
+  "deepen_1_have_parent": {
+   "sections": [
+    "shallow-info",
+    "shallow",
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 1,
+    "tree": 3,
+    "blob": 1
+   },
+   "pack_bytes": 649,
+   "status": 200
+  },
+  "deepen_1_filter_blob_none_have_parent": {
+   "sections": [
+    "shallow-info",
+    "shallow",
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 1,
+    "tree": 3
+   },
+   "pack_bytes": 431,
+   "status": 200
+  },
+  "want_parent_commit_deepen_1": {
+   "sections": [
+    "shallow-info",
+    "shallow",
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "commit": 1,
+    "tree": 7,
+    "blob": 10
+   },
+   "pack_bytes": 2702,
+   "status": 200
+  },
+  "want_tree": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "tree": 2,
+    "blob": 3
+   },
+   "pack_bytes": 835,
+   "status": 200
+  },
+  "want_tree_filter_blob_none": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "tree": 2
+   },
+   "pack_bytes": 169,
+   "status": 200
+  },
+  "want_tree_filter_tree_0": {
+   "status": 400,
+   "error": "Unsupported Git fetch filter; only blob:none is supported.",
+   "objects": null,
+   "body": "Unsupported Git fetch filter; only blob:none is supported.\n"
+  },
+  "want_tree_filter_tree_1": {
+   "status": 400,
+   "error": "Unsupported Git fetch filter; only blob:none is supported.",
+   "objects": null,
+   "body": "Unsupported Git fetch filter; only blob:none is supported.\n"
+  },
+  "want_blob": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "blob": 1
+   },
+   "pack_bytes": 165,
+   "status": 200
+  },
+  "want_two_blobs": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {
+    "blob": 2
+   },
+   "pack_bytes": 486,
+   "status": 200
+  },
+  "want_root_tree_have_head": {
+   "sections": [
+    "packfile"
+   ],
+   "error": null,
+   "objects": {},
+   "pack_bytes": 32,
+   "status": 200
+  }
+ },
+ "runs": {
+  "base": {
+   "h1000": {
+    "name": "mono-h1000-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 34.9
+     },
+     {
+      "step": "deploy",
+      "version": "8aabb926-0a6c-47c9-8355-29485c527113"
+     },
+     {
+      "step": "init",
+      "status": 0,
+      "s": 150.1,
+      "objects": null,
+      "error": "TimeoutError: The read operation timed out",
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 0,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "8aabb926-0a6c-47c9-8355-29485c527113",
+    "tail": []
+   },
+   "m100": {
+    "name": "mono-m100-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 13.2
+     },
+     {
+      "step": "deploy",
+      "version": "efcf17e5-3d68-40ac-9dca-d5d0647f0dd3"
+     },
+     {
+      "step": "init",
+      "status": 500,
+      "s": 11.5,
+      "objects": null,
+      "error": "INTERNAL SERVER ERROR",
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 0,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "tail",
+      "events": 1,
+      "outcomes": [
+       "exceededMemory"
+      ]
+     }
+    ],
+    "version": "efcf17e5-3d68-40ac-9dca-d5d0647f0dd3",
+    "tail": [
+     {
+      "outcome": "exceededMemory",
+      "ms": 1791835250768,
+      "url": "https://landseq-scale-mono.patrickdeutsch.workers.dev/v1/trunks/mono-m100-b/init",
+      "exceptions": [
+       "Error: Durable Object's isolate exceeded its memory limit and was reset."
+      ],
+      "logs": [
+       "An RPC stub was not disposed properly. You must call dispose() on all stubs in order to let the other side know that you are no longer using them. You cannot rely on the garbage collector for this bec",
+       "An RPC result was not disposed properly. One of the RPC calls you made expects you to call dispose() on the return value, but you didn't do so. You cannot rely on the garbage collector for this becaus"
+      ],
+      "kind": "fetch"
+     }
+    ]
+   },
+   "m25": {
+    "name": "mono-m25-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 9.3
+     },
+     {
+      "step": "deploy",
+      "version": "b38b8933-c165-4054-bdf8-3c8e77b71a07"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 6.9,
+      "objects": 6648,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 75694080,
+       "objects_cached": 6648,
+       "ui_objects_cached": 6648,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m25-b--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 1.5,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791834655799,
+       "landed_ms": 1791834657040,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 75694080,
+       "objects_cached": 6657,
+       "ui_objects_cached": 6657,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 3,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 4.8,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834660013,
+        "landed_ms": 1791834661174,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834660242,
+        "landed_ms": 1791834664021,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834660492,
+        "landed_ms": 1791834664021,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834660675,
+        "landed_ms": 1791834664021,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834660847,
+        "landed_ms": 1791834664021,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 75694080,
+       "objects_cached": 6717,
+       "ui_objects_cached": 6717,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 12,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "b38b8933-c165-4054-bdf8-3c8e77b71a07",
+    "tail": []
+   },
+   "m50": {
+    "name": "mono-m50-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.2
+     },
+     {
+      "step": "deploy",
+      "version": "5757f454-823b-4156-b426-8dde4243de2c"
+     },
+     {
+      "step": "init",
+      "status": 0,
+      "s": 150.1,
+      "objects": null,
+      "error": "TimeoutError: The read operation timed out",
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 0,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "tail",
+      "events": 1,
+      "outcomes": [
+       "canceled"
+      ]
+     }
+    ],
+    "version": "5757f454-823b-4156-b426-8dde4243de2c",
+    "tail": [
+     {
+      "outcome": "canceled",
+      "ms": 1791835066386,
+      "url": "https://landseq-scale-mono.patrickdeutsch.workers.dev/v1/trunks/mono-m50-b/init",
+      "exceptions": [],
+      "logs": [],
+      "kind": "fetch"
+     }
+    ]
+   },
+   "t10m": {
+    "name": "mono-t10m-3",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 2.4
+     },
+     {
+      "step": "deploy",
+      "version": "f7d0d977-77ab-485e-a440-df2273de1a22"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 3.1,
+      "objects": 2420,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 31916032,
+       "objects_cached": 2420,
+       "ui_objects_cached": 2420,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-t10m-3--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 1.1,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791834577240,
+       "landed_ms": 1791834578122,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 31916032,
+       "objects_cached": 2429,
+       "ui_objects_cached": 2429,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 3,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 4,
+      "s": 2.6,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834580729,
+        "landed_ms": 1791834581429,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834580974,
+        "landed_ms": 1791834582796,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834581147,
+        "landed_ms": 1791834582796,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791834581339,
+        "landed_ms": 1791834582796,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 31916032,
+       "objects_cached": 2477,
+       "ui_objects_cached": 2477,
+       "landed": 5,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        3
+       ],
+       "git_requests": 11,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 5
+      }
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "f7d0d977-77ab-485e-a440-df2273de1a22",
+    "tail": []
+   },
+   "m25cpu": {
+    "name": "mono-m25-c",
+    "repo": "mono-m25-c",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 6.1
+     },
+     {
+      "step": "deploy",
+      "version": "cde68fc6-d7f1-4613-89e5-a6be40debe53"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 5.9,
+      "objects": 6648,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 75694080,
+       "objects_cached": 6648,
+       "store_bytes": null,
+       "ui_objects_cached": 6648,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m25-c--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 1.5,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791838494364,
+       "landed_ms": 1791838495590,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 75694080,
+       "objects_cached": 6657,
+       "store_bytes": null,
+       "ui_objects_cached": 6657,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 3,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 5.5,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838498869,
+        "landed_ms": 1791838499923,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838499056,
+        "landed_ms": 1791838503355,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838499221,
+        "landed_ms": 1791838503355,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838499401,
+        "landed_ms": 1791838503355,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838499493,
+        "landed_ms": 1791838503355,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 75694080,
+       "objects_cached": 6717,
+       "store_bytes": null,
+       "ui_objects_cached": 6717,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 12,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b4",
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "cde68fc6-d7f1-4613-89e5-a6be40debe53",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 10,
+      "wall_ms": 5743,
+      "path": "mono-m25-c/init"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 31,
+      "path": "mono-m25-c/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 10,
+      "wall_ms": 220,
+      "path": "mono-m25-c/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 5,
+      "wall_ms": 4955,
+      "path": "mono-m25-c/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 10,
+      "wall_ms": 76,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 90,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 8,
+      "wall_ms": 1146,
+      "path": "mono-m25-c/changes/one?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 17,
+      "wall_ms": 1311,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 214,
+      "wall_ms": 1325,
+      "path": "mono-m25-c/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 16,
+      "wall_ms": 33,
+      "path": "mono-m25-c/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 2864,
+      "path": "mono-m25-c/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 70,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 89,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 40,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 165,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 48,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 181,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 52,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 133,
+      "wall_ms": 223,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 100,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 4,
+      "wall_ms": 167,
+      "path": "mono-m25-c/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 314,
+      "path": "mono-m25-c/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 20,
+      "wall_ms": 485,
+      "path": "mono-m25-c/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 3564,
+      "path": "mono-m25-c/changes/b1?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 4880,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 787,
+      "wall_ms": 3516,
+      "path": "mono-m25-c/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 24,
+      "path": "mono-m25-c/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 150,
+      "path": "mono-m25-c/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 31,
+      "path": "mono-m25-c/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 29,
+      "path": "mono-m25-c/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 19,
+      "path": "mono-m25-c/stats"
+     }
+    ],
+    "tail": []
+   }
+  },
+  "after": {
+   "h1000": {
+    "name": "mono-h1000-a",
+    "repo": "mono-h1000-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.2
+     },
+     {
+      "step": "deploy",
+      "version": "3191e320-5638-4545-864b-6a8e6eeebbee"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 1.8,
+      "objects": 112,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1507328,
+       "objects_cached": 112,
+       "store_bytes": 82067,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-h1000-b--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 9.7,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791836751886,
+       "landed_ms": 1791836761435,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 1769472,
+       "objects_cached": 144,
+       "store_bytes": 91890,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 35.7,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836763909,
+        "landed_ms": 1791836773091,
+        "batch": 2
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836764282,
+        "landed_ms": 1791836798990,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836764445,
+        "landed_ms": 1791836798990,
+        "batch": 3
+       },
+       "b4": {
+        "state": "ejected",
+        "reason": {
+         "beaten_by": [
+          {
+           "agent": "mono-h1000-b--a00",
+           "change_id": "one",
+           "commit": "6aa1ec01080ec4b62141776e502b40290ed9d46d",
+           "context": null,
+           "number": 1,
+           "paths": [
+            "svc/pkg000/d00/m00/f000000.ts"
+           ],
+           "rev": 1,
+           "subject": "one: edit svc/pkg000/d00/m00/f000000.ts"
+          }
+         ],
+         "hunks": {
+          "svc/pkg000/d00/m00/f000000.ts": "// svc/pkg000/d00/m00/f000000.ts v2\n<<<<<<< main\nexport const changed_by_one = 1;\n||||||| base\n        state null_const819(while) { 49816 };\n=======\nexport const changed_by_b4 = 1;\n>>>>>>> this change\n  null Map_context156(change, state, response) { 37615 };\n      Map fork_response568(string, object, tree, from, fork, false) { 41617 };\n"
+         },
+         "kind": "conflict",
+         "paths": [
+          "svc/pkg000/d00/m00/f000000.ts"
+         ]
+        },
+        "submitted_ms": 1791836764619,
+        "landed_ms": null,
+        "batch": null
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836764112,
+        "landed_ms": 1791836798990,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 1900544,
+       "objects_cached": 204,
+       "store_bytes": 147990,
+       "ui_objects_cached": 0,
+       "landed": 5,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        3
+       ],
+       "git_requests": 19,
+       "queued": 0,
+       "ejected_conflict": 1,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 5
+      }
+     },
+     {
+      "step": "verify",
+      "ok": false,
+      "landed": [
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [
+       "b4"
+      ],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "3191e320-5638-4545-864b-6a8e6eeebbee",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 1653,
+      "path": "mono-h1000-a/init"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 18,
+      "wall_ms": 40,
+      "path": "mono-h1000-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 4,
+      "wall_ms": 189,
+      "path": "mono-h1000-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 17,
+      "wall_ms": 15944,
+      "path": "mono-h1000-a/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 79,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 109,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 15,
+      "wall_ms": 5003,
+      "path": "mono-h1000-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 5110,
+      "path": "mono-h1000-a/changes/one?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 10,
+      "wall_ms": 9528,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 4247,
+      "path": "mono-h1000-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 19,
+      "wall_ms": 4369,
+      "path": "mono-h1000-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 26,
+      "path": "mono-h1000-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 2279,
+      "path": "mono-h1000-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 73,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 91,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 55,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 171,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 56,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 164,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 54,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 174,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 56,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 183,
+      "path": "mono-h1000-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 8,
+      "wall_ms": 5017,
+      "path": "mono-h1000-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5118,
+      "path": "mono-h1000-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5018,
+      "path": "mono-h1000-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 5141,
+      "path": "mono-h1000-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5022,
+      "path": "mono-h1000-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5022,
+      "path": "mono-h1000-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 5129,
+      "path": "mono-h1000-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 5,
+      "wall_ms": 5137,
+      "path": "mono-h1000-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5023,
+      "path": "mono-h1000-a/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 25,
+      "path": "mono-h1000-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 123,
+      "path": "mono-h1000-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 4,
+      "wall_ms": 5136,
+      "path": "mono-h1000-a/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 5018,
+      "path": "mono-h1000-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 4,
+      "wall_ms": 5129,
+      "path": "mono-h1000-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 35087,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 3334,
+      "path": "mono-h1000-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 14,
+      "wall_ms": 3313,
+      "path": "mono-h1000-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 142,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 24,
+      "path": "mono-h1000-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 17,
+      "path": "mono-h1000-a/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 134,
+      "path": "mono-h1000-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 128,
+      "path": "mono-h1000-a/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 18,
+      "path": "mono-h1000-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 127,
+      "path": "mono-h1000-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 19,
+      "path": "mono-h1000-a/stats"
+     }
+    ],
+    "tail": []
+   },
+   "m100": {
+    "name": "mono-m100-a",
+    "repo": "mono-m100-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.4
+     },
+     {
+      "step": "deploy",
+      "version": "d2753ad6-903f-49d2-8c4a-7055dcb67426"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 4.1,
+      "objects": 532,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 2949120,
+       "objects_cached": 532,
+       "store_bytes": 402725,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m100-b--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 2.7,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791836701436,
+       "landed_ms": 1791836703909,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 2949120,
+       "objects_cached": 564,
+       "store_bytes": 427597,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 7.5,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836707480,
+        "landed_ms": 1791836709408,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836707645,
+        "landed_ms": 1791836714363,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836707800,
+        "landed_ms": 1791836714363,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836707961,
+        "landed_ms": 1791836714363,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836708107,
+        "landed_ms": 1791836714363,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 2949120,
+       "objects_cached": 629,
+       "store_bytes": 523731,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 19,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b4",
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "d2753ad6-903f-49d2-8c4a-7055dcb67426",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 10,
+      "wall_ms": 3939,
+      "path": "mono-m100-a/init"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 17,
+      "wall_ms": 45,
+      "path": "mono-m100-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 11,
+      "wall_ms": 232,
+      "path": "mono-m100-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 21,
+      "wall_ms": 12941,
+      "path": "mono-m100-a/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 62,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 128,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 19,
+      "wall_ms": 2431,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 17,
+      "wall_ms": 2252,
+      "path": "mono-m100-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 53,
+      "wall_ms": 2366,
+      "path": "mono-m100-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 26,
+      "path": "mono-m100-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 3365,
+      "path": "mono-m100-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 35,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 12,
+      "wall_ms": 64,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 26,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 156,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 40,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 163,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 35,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 148,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 33,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 153,
+      "path": "mono-m100-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 1182,
+      "path": "mono-m100-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 6885,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 4836,
+      "path": "mono-m100-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 38,
+      "wall_ms": 4821,
+      "path": "mono-m100-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 13,
+      "path": "mono-m100-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 132,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 135,
+      "path": "mono-m100-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 8,
+      "path": "mono-m100-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 15,
+      "path": "mono-m100-a/changes/b4?wait=5"
+     }
+    ],
+    "tail": []
+   },
+   "m1g": {
+    "name": "mono-m1g",
+    "repo": "mono-m1g",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 281.5
+     },
+     {
+      "step": "deploy",
+      "version": "90e9d20b-7dcd-4eee-b3dd-45d995664b36"
+     },
+     {
+      "step": "init",
+      "status": 500,
+      "s": 4.2,
+      "objects": null,
+      "error": "INTERNAL SERVER ERROR",
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 0,
+       "store_bytes": 0,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "90e9d20b-7dcd-4eee-b3dd-45d995664b36",
+    "tail": []
+   },
+   "m25": {
+    "name": "mono-m25-a",
+    "repo": "mono-m25-a",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 5.0
+     },
+     {
+      "step": "deploy",
+      "version": "d728b6be-8ff4-4a19-a748-aba9a44ab9ae"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 2.4,
+      "objects": 259,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 259,
+       "store_bytes": 201996,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m25-a--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 2.3,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791836559560,
+       "landed_ms": 1791836561714,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 291,
+       "store_bytes": 215075,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 7.4,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836564999,
+        "landed_ms": 1791836566905,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836565170,
+        "landed_ms": 1791836571761,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836565350,
+        "landed_ms": 1791836571761,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836565549,
+        "landed_ms": 1791836571761,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836565708,
+        "landed_ms": 1791836571761,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 356,
+       "store_bytes": 269015,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 19,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "d728b6be-8ff4-4a19-a748-aba9a44ab9ae",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 16,
+      "wall_ms": 2189,
+      "path": "mono-m25-a/init"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 8,
+      "wall_ms": 33,
+      "path": "mono-m25-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 11,
+      "wall_ms": 165,
+      "path": "mono-m25-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 6622,
+      "path": "mono-m25-a/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 11,
+      "wall_ms": 99,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 111,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 1886,
+      "path": "mono-m25-a/changes/one?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 22,
+      "wall_ms": 2081,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 22,
+      "path": "mono-m25-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 53,
+      "wall_ms": 2012,
+      "path": "mono-m25-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 3078,
+      "path": "mono-m25-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 4,
+      "wall_ms": 37,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 57,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 37,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 182,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 27,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 200,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 13,
+      "wall_ms": 44,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 4,
+      "wall_ms": 161,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 32,
+      "path": "mono-m25-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 1078,
+      "path": "mono-m25-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 6764,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 42,
+      "wall_ms": 4701,
+      "path": "mono-m25-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 4710,
+      "path": "mono-m25-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 13,
+      "path": "mono-m25-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 129,
+      "path": "mono-m25-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 16,
+      "path": "mono-m25-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 16,
+      "path": "mono-m25-a/changes/b4?wait=5"
+     }
+    ],
+    "tail": []
+   },
+   "m300": {
+    "name": "mono-m300",
+    "repo": "mono-m300",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 83.7
+     },
+     {
+      "step": "deploy",
+      "version": "f43a3a16-6ad4-4780-baff-14d82d34c794"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 6.2,
+      "objects": 2632,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 7536640,
+       "objects_cached": 2632,
+       "store_bytes": 2006025,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m300--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 5.1,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791836977732,
+       "landed_ms": 1791836982655,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 7536640,
+       "objects_cached": 2664,
+       "store_bytes": 2025101,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 15.1,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836989383,
+        "landed_ms": 1791836993844,
+        "batch": 2
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836989884,
+        "landed_ms": 1791837003895,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836990055,
+        "landed_ms": 1791837003895,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836990221,
+        "landed_ms": 1791837003895,
+        "batch": 3
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836989708,
+        "landed_ms": 1791837003895,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 7536640,
+       "objects_cached": 2729,
+       "store_bytes": 2124279,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 19,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b4",
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "f43a3a16-6ad4-4780-baff-14d82d34c794",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 8,
+      "wall_ms": 34,
+      "path": "mono-m300/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 7,
+      "wall_ms": 142,
+      "path": "mono-m300/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 58045,
+      "path": "mono-m300/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 12,
+      "wall_ms": 88,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 108,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 27,
+      "wall_ms": 4910,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 4750,
+      "path": "mono-m300/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 39,
+      "wall_ms": 4856,
+      "path": "mono-m300/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 23,
+      "path": "mono-m300/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 6543,
+      "path": "mono-m300/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 148,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 167,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 8,
+      "wall_ms": 62,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 176,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 54,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 172,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 54,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 166,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 57,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 166,
+      "path": "mono-m300/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 3511,
+      "path": "mono-m300/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 13,
+      "wall_ms": 3617,
+      "path": "mono-m300/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5016,
+      "path": "mono-m300/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 12,
+      "wall_ms": 5152,
+      "path": "mono-m300/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 4793,
+      "path": "mono-m300/changes/b2?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 14514,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 28,
+      "wall_ms": 4775,
+      "path": "mono-m300/changes/b2?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 180,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 13,
+      "wall_ms": 33,
+      "path": "mono-m300/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 144,
+      "path": "mono-m300/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 23,
+      "path": "mono-m300/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 134,
+      "path": "mono-m300/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 23,
+      "path": "mono-m300/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 18,
+      "path": "mono-m300/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 138,
+      "path": "mono-m300/changes/b1?wait=5"
+     }
+    ],
+    "tail": []
+   },
+   "m50": {
+    "name": "mono-m50-a",
+    "repo": "mono-m50-b",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.2
+     },
+     {
+      "step": "deploy",
+      "version": "80eda8c6-745c-4b08-b9af-375e94bbf118"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 3.9,
+      "objects": 532,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 2949120,
+       "objects_cached": 532,
+       "store_bytes": 402725,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m50-b--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 3.5,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791836642877,
+       "landed_ms": 1791836646245,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 2949120,
+       "objects_cached": 564,
+       "store_bytes": 416173,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 8.9,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836649735,
+        "landed_ms": 1791836652256,
+        "batch": 2
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836650048,
+        "landed_ms": 1791836658071,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836650191,
+        "landed_ms": 1791836658071,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836650369,
+        "landed_ms": 1791836658071,
+        "batch": 3
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791836649893,
+        "landed_ms": 1791836658071,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 2949120,
+       "objects_cached": 629,
+       "store_bytes": 474193,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 19,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b4",
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "80eda8c6-745c-4b08-b9af-375e94bbf118",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 8,
+      "wall_ms": 3770,
+      "path": "mono-m50-a/init"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 53,
+      "path": "mono-m50-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 18,
+      "wall_ms": 215,
+      "path": "mono-m50-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 16,
+      "wall_ms": 13491,
+      "path": "mono-m50-a/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 11,
+      "wall_ms": 69,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 14,
+      "wall_ms": 108,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 3157,
+      "path": "mono-m50-a/changes/one?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 26,
+      "wall_ms": 3329,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 22,
+      "path": "mono-m50-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 57,
+      "wall_ms": 3273,
+      "path": "mono-m50-a/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 3300,
+      "path": "mono-m50-a/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 0,
+      "wall_ms": 49,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 38,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 28,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 156,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 30,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 145,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 24,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 179,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 10,
+      "wall_ms": 49,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 5,
+      "wall_ms": 157,
+      "path": "mono-m50-a/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 1764,
+      "path": "mono-m50-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 19,
+      "wall_ms": 1891,
+      "path": "mono-m50-a/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5006,
+      "path": "mono-m50-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 37,
+      "wall_ms": 5135,
+      "path": "mono-m50-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "alarm",
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 8336,
+      "path": ""
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 7,
+      "wall_ms": 536,
+      "path": "mono-m50-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 552,
+      "path": "mono-m50-a/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 12,
+      "path": "mono-m50-a/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 9,
+      "path": "mono-m50-a/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 18,
+      "path": "mono-m50-a/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 21,
+      "path": "mono-m50-a/stats"
+     }
+    ],
+    "tail": []
+   },
+   "m700": {
+    "name": "mono-m700",
+    "repo": "mono-m700",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 138.4
+     },
+     {
+      "step": "deploy",
+      "version": "55143b30-8eb0-4549-8ef4-35933c04601e"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 8.3,
+      "objects": 3682,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3682,
+       "store_bytes": 2807675,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m700--a00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 6.6,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791838362184,
+       "landed_ms": 1791838368529,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3714,
+       "store_bytes": 2837497,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 19.3,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838377977,
+        "landed_ms": 1791838383538,
+        "batch": 2
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838378561,
+        "landed_ms": 1791838396681,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838378730,
+        "landed_ms": 1791838396681,
+        "batch": 3
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838378242,
+        "landed_ms": 1791838396681,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791838378405,
+        "landed_ms": 1791838396681,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3779,
+       "store_bytes": 2983131,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 19,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b4",
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "tail",
+      "events": 0,
+      "outcomes": []
+     }
+    ],
+    "version": "55143b30-8eb0-4549-8ef4-35933c04601e",
+    "invocations": [
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 16,
+      "wall_ms": 39,
+      "path": "mono-m700/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 15,
+      "wall_ms": 94430,
+      "path": "mono-m700/forks"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 105,
+      "path": "mono-m700/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 16,
+      "wall_ms": 5019,
+      "path": "mono-m700/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 1010,
+      "path": "mono-m700/changes/one?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 9,
+      "wall_ms": 27,
+      "path": "mono-m700/stats"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 86,
+      "path": "mono-m700/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 17,
+      "wall_ms": 65,
+      "path": "mono-m700/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 46,
+      "path": "mono-m700/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 49,
+      "path": "mono-m700/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 50,
+      "path": "mono-m700/land"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 4685,
+      "path": "mono-m700/changes/b0?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 5024,
+      "path": "mono-m700/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 5015,
+      "path": "mono-m700/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 2,
+      "wall_ms": 2742,
+      "path": "mono-m700/changes/b3?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 16,
+      "path": "mono-m700/changes/b4?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 13,
+      "path": "mono-m700/changes/b1?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 13,
+      "path": "mono-m700/changes/b2?wait=5"
+     },
+     {
+      "kind": "fetch",
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 18,
+      "path": "mono-m700/stats"
+     }
+    ],
+    "tail": []
+   }
+  }
+ },
+ "artifacts_limits": {
+  "documented": {
+   "source": "https://developers.cloudflare.com/artifacts/platform/limits/ (read 2026-10-12)",
+   "max_storage_per_repo": "1 GB",
+   "max_blob": "32 MB",
+   "git_requests": "2,000 per 10 seconds per artifact",
+   "control_plane_requests": "2,000 per 10 seconds per namespace",
+   "binding_reads": "readTree(hash) gives one tree's immediate children; readBlob(hash), readCommit(hash), readFile({ref, path}) (https://developers.cloudflare.com/artifacts/api/workers-binding/)"
+  },
+  "measured": [
+   {
+    "repo": "m1g",
+    "files": 120026,
+    "tree_dirs": 19200,
+    "tip_bytes": 1065349538,
+    "pack_bytes": 388253470,
+    "push": "accepted (281.5 s)",
+    "fetch": {
+     "want head": "HTTP 500",
+     "want head, deepen 1": "HTTP 500",
+     "want head, deepen 1, filter blob:none": "HTTP 500",
+     "want head, filter blob:none": "HTTP 500",
+     "want root tree, filter blob:none": "HTTP 500",
+     "want svc/ tree, filter blob:none": "HTTP 500",
+     "want head, have head~1, deepen 1, filter blob:none": "HTTP 500",
+     "want svc/pkg000 tree, filter blob:none": "200: 85 trees",
+     "want one leaf tree": "200: 1 tree, 7 blobs"
+    }
+   },
+   {
+    "repo": "d120k",
+    "files": 120026,
+    "tree_dirs": 19200,
+    "tip_bytes": 57009737,
+    "pack_bytes": 40541351,
+    "push": "accepted (152 s)",
+    "fetch": {
+     "want head, deepen 1, filter blob:none": "HTTP 500",
+     "want head, deepen 1": "HTTP 500"
+    },
+    "note": "same tree shape as m1g, 5% of its size: the failure follows the tree, not the 1 GB storage limit"
+   },
+   {
+    "repo": "f1m",
+    "files": 1000026,
+    "tree_dirs": 40000,
+    "tip_bytes": 132464356,
+    "pack_bytes": 151418384,
+    "push": "refused: HTTP 500 (RPC failed; send-pack: unexpected disconnect)"
+   },
+   {
+    "repo": "m700",
+    "files": 70026,
+    "tree_dirs": 2800,
+    "tip_bytes": 727769199,
+    "pack_bytes": 261348651,
+    "push": "accepted (138.4 s)",
+    "fetch": "deepen 1, filter blob:none: 200 (3,682 objects)"
+   }
+  ]
+ },
+ "tests": {
+  "cargo_test": "landseq-core, landseq-git, landseq-cli: all pass (new: landseq-git/tests/trees.rs 6 tests, landseq-core/tests/partial.rs 2 tests)",
+  "cargo_check_wasm": "cargo check -p landseq-worker --target wasm32-unknown-unknown: pass",
+  "faults_parity": [
+   {
+    "code": "7a1c3dd (before the store bound)",
+    "result": "4 passed (approvals, ci, recovery, ci_red)"
+   },
+   {
+    "code": "1c197e7",
+    "result": "3 passed, 1 failed: approvals; wrangler dev's proxy lost the connection on POST changes/c1/close ('Network connection lost'), a request that reads no git objects"
+   },
+   {
+    "code": "1c197e7",
+    "result": "4 passed"
+   },
+   {
+    "code": "1c197e7",
+    "scenarios": "approvals,ci,recovery,ci_red,quorum,beaten,compare,release,git,context,aliases,ide_approval,identity,hub",
+    "result": "10 passed; beaten, git, context, identity failed",
+    "baseline": "3b28852 with the same harness: beaten, git, context, identity fail with the same errors (they need the Artifacts host)"
+   }
+  ],
+  "artifacts_scenarios": {
+   "worker": "landseq-scale-mono, version ef2ad7f5-c286-4790-903c-d0b84a9f31a8 (1c197e7)",
+   "trunk_prefix": "mono-scn-",
+   "result": "approvals, beaten, git, context, release: ok. compare: fails because the throwaway Worker has no CI binding ([ci] typecheck cannot run), by the scale rules; compare passed on the local harness with CI"
+  }
+ },
+ "code": {
+  "before": "3b28852",
+  "after": "7a1c3dd + 1c197e7"
+ },
+ "artifacts_repos": {
+  "namespace": "landseq-scale",
+  "note": "Repos this work made. None deleted. Sizes are the packs pushed; forks are copies that Artifacts made, with no size reported. wrangler artifacts repos list shows at most 50.",
+  "pushed": {
+   "mono-probe": "3 commits, 10 files",
+   "mono-t10m": "4.2 MB",
+   "mono-t10m-2": "4.2 MB",
+   "mono-t10m-3": "4.2 MB",
+   "mono-m25-b": "10.8 MB",
+   "mono-m25-a": "10.8 MB",
+   "mono-m25-c": "10.8 MB",
+   "mono-m50-b": "20.8 MB",
+   "mono-m100-b": "38.8 MB",
+   "mono-h1000-b": "25.4 MB",
+   "mono-m300": "117.8 MB",
+   "mono-m700": "261.3 MB",
+   "mono-m1g": "388.3 MB",
+   "mono-d120k": "40.5 MB",
+   "mono-f1m": "push of 151.4 MB refused (HTTP 500)"
+  },
+  "forks": [
+   "mono-t10m--a00",
+   "mono-t10m-2--a00",
+   "mono-t10m-3--a00",
+   "mono-m25-b--a00",
+   "mono-m25-a--a00",
+   "mono-m25-c--a00",
+   "mono-m50-b--a00",
+   "mono-m100-b--a00",
+   "mono-h1000-b--a00",
+   "mono-m300--a00",
+   "mono-m700--a00"
+  ],
+  "scenario_trunks": [
+   "mono-scn-approvals-150100",
+   "mono-scn-beaten-150117",
+   "mono-scn-git-150142",
+   "mono-scn-context-150204",
+   "mono-scn-release-150240",
+   "mono-scn-compare-150300 (paused)"
+  ],
+  "scenario_forks_and_context": [
+   "mono-scn-approvals-150100--a00",
+   "mono-scn-beaten-150117--l1",
+   "mono-scn-beaten-150117--w1",
+   "mono-scn-beaten-150117--landseq-context",
+   "mono-scn-compare-150300--a00",
+   "mono-scn-compare-150300--a01",
+   "mono-scn-compare-150300--a02",
+   "mono-scn-compare-150300--a03",
+   "mono-scn-compare-150300--landseq-context",
+   "mono-scn-context-150204--c1",
+   "mono-scn-context-150204--landseq-context",
+   "mono-scn-git-150142--a07",
+   "mono-scn-git-150142--you",
+   "mono-scn-release-150240--a00"
+  ]
+ }
+}

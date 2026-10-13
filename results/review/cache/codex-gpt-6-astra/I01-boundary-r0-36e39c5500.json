@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The n < 0 guard permits n == 0, so split_evenly(100, 0) raises ZeroDivisionError instead of the required ValueError. Change the guard to n < 1."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_split.py",
+   "explanation": "No test verifies rejection of n < 1. Add ValueError assertions for zero and negative n; the zero case would catch the boundary bug."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 25.8,
+ "reviewer": "codex-gpt-6-astra"
+}

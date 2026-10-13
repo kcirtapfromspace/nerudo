@@ -1,0 +1,27 @@
+.global-search .directory-search { margin-bottom: 26px; }
+.global-search .directory-results-heading { margin-bottom: 10px; }
+.global-result { padding: 18px 0; border-bottom: 1px solid var(--grid); min-width: 0; }
+.global-result-context { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 10px; color: var(--dim); margin-bottom: 5px; }
+.global-result-context a { color: var(--dim); text-decoration: none; overflow-wrap: anywhere; }
+.global-result-title { display: block; width: fit-content; max-width: 100%; color: var(--link); font: 600 14px/1.6 var(--brand-sans); text-decoration: none; overflow-wrap: anywhere; }
+.global-result-title.mono { font-family: var(--brand-mono); font-size: 12px; }
+.global-result-title:hover, .global-result-context a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.global-result p { margin: 5px 0 0; font-size: 12px; line-height: 1.7; color: var(--dim); }
+.global-result mark { background: #e9d5a7; color: inherit; padding: 0; }
+.global-result-line { display: grid; grid-template-columns: 3em minmax(0, 1fr); gap: 10px; padding-block: 5px; color: var(--ink); font: 11px/1.7 var(--brand-mono); text-decoration: none; }
+.global-result-line:hover { background: var(--well); }
+.global-result-line > span:last-child { white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
+.global-line-number { text-align: right; color: var(--dim); }
+.global-result-more { display: inline-block; margin-top: 5px; color: var(--dim); font-size: 10px; }
+.global-search-more { display: flex; justify-content: center; margin-top: 24px; }
+.global-search-error { padding-block: 12px; font-size: 12px; color: var(--red); }
+.global-loading { padding: 20px 0; color: var(--dim); font-size: 12px; }
+.global-loading .loading-lines { margin-top: 20px; }
+html[data-experience="modern"] .global-result { padding-block: 22px; }
+html[data-experience="modern"] .global-result-title { font-size: 17px; font-weight: 500; }
+html[data-experience="modern"] .global-result-title.mono { font-size: 14px; }
+html[data-experience="modern"] .global-result-context { font-size: 11px; }
+html[data-experience="modern"] .global-result p { font-size: 13px; }
+html[data-experience="modern"] .global-result-line { font-size: 12px; }
+@media (max-width: 760px) { .global-result-context { flex-wrap: wrap; } .global-result-line { grid-template-columns: 2em minmax(0, 1fr); gap: 8px; } }
+@media (pointer: coarse) { .global-hit, .global-search-more .btn { min-height: 44px; } }

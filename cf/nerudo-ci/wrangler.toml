@@ -1,0 +1,7 @@
+name = "nerudo-ci"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Only the nerudo Worker calls this Worker, through its CI service binding. It has no
+# workers.dev route, so nobody else can run checks on it.
+workers_dev = false

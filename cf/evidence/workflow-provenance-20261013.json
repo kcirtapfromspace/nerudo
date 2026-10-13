@@ -1,0 +1,53 @@
+{
+  "description": "Historical real coding-agent recordings from 2026-10-12, before the public NERUDO rename. Measurements, model IDs, commit hashes, repository names, and dates are preserved. Original fixture URLs may require authorization; they are not the current public demo. No credentials or transcripts are published here.",
+  "evidence": [
+    {
+      "file": "llm-concurrency-20261012.json",
+      "sha256": "79b8d4fe7dda4dfc2cdecee99a66afdee9c4e7158672a597370ce1a7142978bf"
+    },
+    {
+      "file": "hermes-concurrency-20261012.json",
+      "sha256": "dc2615a107261ec03485a51d3ae4b3e04bf611a372fd3f60b9700913e7782ce6"
+    },
+    {
+      "file": "ollama-attempts-20261012.json",
+      "sha256": "34acc9e0b07cf00bed7210254e7994067d61719b49823d9a8d7c4feef5a228c5"
+    }
+  ],
+  "ci_drivers": [
+    {
+      "file": "../scale/ci.py",
+      "source_commit": "660b17c1d0d476ec72e26f7d2018de2e25adfca9",
+      "original_sha256": "ebe4b135e0f699bd7ad9b9e4e2a4bbf875abc62a98cd1ecb160a9a107cc5800f",
+      "adaptation": "Brand, CLI/config paths, and environment names changed to NERUDO; generator, repetition counts, and accounting methods preserved.",
+      "matches_committed_original": true,
+      "adapted_sha256": "f821eea8bbd057b4bd8afc5a139323958fc209deaeabab5c55d5cb8c6550f550"
+    },
+    {
+      "file": "../scale/ci_report.py",
+      "source_commit": "660b17c1d0d476ec72e26f7d2018de2e25adfca9",
+      "original_sha256": "d55d511289fec9a324cb753df57486884250e7bf44c9bdd9276be116f7beb342",
+      "adaptation": "Brand, CLI/config paths, and environment names changed to NERUDO; generator, repetition counts, and accounting methods preserved.",
+      "matches_committed_original": true,
+      "adapted_sha256": "d55d511289fec9a324cb753df57486884250e7bf44c9bdd9276be116f7beb342"
+    },
+    {
+      "file": "../scale/ci_driver.js",
+      "source_commit": "660b17c1d0d476ec72e26f7d2018de2e25adfca9",
+      "original_sha256": "abfe2b3c253f3bdb9b6f634da270e6aa926f757b5a0b257b0abaac11ec7fdde8",
+      "adaptation": "Brand, CLI/config paths, and environment names changed to NERUDO; generator, repetition counts, and accounting methods preserved.",
+      "matches_committed_original": true,
+      "adapted_sha256": "7efba9caae4085b29e0db904d344f8f5cf5c6ad9c7fef28dbe4f69288b3c3034"
+    },
+    {
+      "file": "../scale/ci_latency.py",
+      "source_commit": "660b17c1d0d476ec72e26f7d2018de2e25adfca9",
+      "original_sha256": "5313bd3e6f3ca1266cb4ddde8332b4d3ab7a5cfb3a47890978689083f22ea4d0",
+      "adaptation": "Brand, CLI/config paths, and environment names changed to NERUDO; generator, repetition counts, and accounting methods preserved. Target URL guard now checks the HTTPS hostname before reading the private token file.",
+      "matches_committed_original": true,
+      "adapted_sha256": "7904e9d5fcf047032bd5f440e68cf36eae5022f03493e84eb26318d537e95a82"
+    }
+  ],
+  "workflow_helper_adaptation": "Existing October 12 harness/fixture/tests adapted to NERUDO environment, CLI and config names. New runs require a dedicated nerudo-evidence-* or nerudo-scale-* Worker and explicit evidence vars; historical recordings were not rerun.",
+  "historical_build_attestation": "Provider recordings retain their original commit/context hashes and timestamps. They do not identify a complete sequencer deployment SHA; no claim is made that the present source or deployment ran those historical sessions."
+}

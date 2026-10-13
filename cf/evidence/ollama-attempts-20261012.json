@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-10-12T06:14:02.207252+00:00",
+  "run_id": "20261012-050952",
+  "counted_in_verified_concurrency_run": false,
+  "attempts": [
+    {
+      "provider": "ollama",
+      "model": "qwen3:1.7b",
+      "status": "limit_reached",
+      "landed": false,
+      "error": "Ollama main exhausted 60 inference turns",
+      "elapsed_seconds": 192.606,
+      "started_s": 1791784381.487186,
+      "ended_s": 1791784574.2519,
+      "counters": {
+        "inference_calls": 62,
+        "main_inference_calls": 60,
+        "subagent_inference_calls": 2,
+        "tool_calls": 64,
+        "external_tool_calls": 62,
+        "tool_errors": 1,
+        "subagent_calls": 1,
+        "planner_calls": 1,
+        "reviewer_calls": 0,
+        "prompt_eval_count": 150908,
+        "eval_count": 1760,
+        "total_duration_ns": 190124457599,
+        "truncated_outputs": 0
+      }
+    },
+    {
+      "provider": "ollama",
+      "model": "qwen2.5:3b",
+      "status": "limit_reached",
+      "landed": false,
+      "error": "Ollama inference output token limit reached",
+      "elapsed_seconds": 283.743,
+      "started_s": 1791785059.226215,
+      "ended_s": 1791785343.058131,
+      "counters": {
+        "inference_calls": 5,
+        "main_inference_calls": 2,
+        "subagent_inference_calls": 3,
+        "tool_calls": 4,
+        "external_tool_calls": 3,
+        "tool_errors": 1,
+        "subagent_calls": 1,
+        "planner_calls": 1,
+        "reviewer_calls": 0,
+        "prompt_eval_count": 6369,
+        "eval_count": 1728,
+        "total_duration_ns": 283442418676,
+        "truncated_outputs": 0
+      }
+    }
+  ],
+  "node_recovery": {
+    "reboot_performed": false,
+    "pod_restart_performed": false,
+    "task_models_unloaded": [
+      "qwen3:4b",
+      "qwen3:1.7b",
+      "qwen2.5:3b"
+    ]
+  },
+  "notes": [
+    "Qwen3:1.7b planner completed, but its primary repeated branch creation and reached60turns.",
+    "Qwen2.5:3b used4096context, completed its planner, then hit the1024output-token limit before writing or landing.",
+    "No successful Ollama receipt is claimed. Native Claude, Codex and Antigravity evidence is recorded separately."
+  ]
+}

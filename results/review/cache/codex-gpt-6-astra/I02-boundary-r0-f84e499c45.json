@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "apply_fee rejects bps == 10000, but the inclusive range explicitly allows it. Change `bps >= 10000` to `bps > 10000`."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_fee.py",
+   "explanation": "Tests omit the allowed upper boundary of 10000 bps, leaving the defect undetected. Add an assertion such as apply_fee(1234, 10000) == 1234."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 26.24,
+ "reviewer": "codex-gpt-6-astra"
+}

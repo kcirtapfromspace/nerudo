@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "verdict": "approve",
+ "confidence": 0.98,
+ "findings": [],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 16.85,
+ "reviewer": "codex-gpt-6-astra"
+}

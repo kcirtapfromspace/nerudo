@@ -1,0 +1,46 @@
+/* Compact repository context leaves the README as the main reading surface. */
+.repo-digest { min-width: 0; padding: 2px 0 16px; margin-bottom: 16px; border-bottom: 1px solid var(--grid); font-family: var(--brand-sans); }
+.digest-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.digest-heading h2 { margin: 0; font-size: 13px; font-weight: 600; }
+.digest-totals { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; color: var(--dim); font-size: 10px; }
+.digest-totals b { font: 400 10px/1.5 var(--brand-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.digest-language-bar { display: flex; gap: 1px; width: 100%; height: 5px; overflow: hidden; margin: 12px 0 5px; background: var(--well); }
+.digest-language-bar > i { display: block; min-width: 1px; flex-basis: 0; }
+.digest-languages { display: flex; flex-wrap: wrap; gap: 0 14px; margin: 0; padding: 0; list-style: none; }
+.digest-languages button, .digest-language-rest { display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; color: var(--ink); font: 10px/1.5 var(--brand-sans); }
+.digest-languages button { border: 0; background: none; cursor: pointer; }
+.digest-languages button:hover .digest-language-name { text-decoration: underline; text-underline-offset: 3px; }
+.digest-percentage { color: var(--dim); font: 9px/1.5 var(--brand-mono); }
+.digest-swatch { display: inline-block; width: 6px; height: 6px; flex: none; }
+.digest-color-0 { background: #284a3b; }
+.digest-color-1 { background: #985436; }
+.digest-color-2 { background: #346475; }
+.digest-color-3 { background: #897539; }
+.digest-color-4 { background: #69795b; }
+.digest-color-5 { background: #a47969; }
+.digest-color-other { background: #a2a596; }
+.digest-measure { margin: 0 0 8px; color: var(--dim); font-size: 9px; line-height: 1.7; }
+.digest-line { display: flex; align-items: baseline; gap: 10px; margin-top: 5px; min-width: 0; font-size: 10px; }
+.digest-label { color: var(--dim); min-width: 28px; flex: none; }
+.digest-links { display: flex; flex-wrap: wrap; gap: 0 14px; list-style: none; padding: 0; margin: 0; min-width: 0; }
+.digest-links li { min-width: 0; }
+.digest-links button { padding: 3px 0; border: 0; background: none; color: var(--link); font: inherit; text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+.digest-links button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.digest-files button { font: 9px/1.65 var(--brand-mono); }
+.digest-state { margin: 10px 0 0; color: var(--dim); font-size: 11px; line-height: 1.7; }
+.digest-state .link { margin-left: 4px; font: inherit; }
+.digest-skeleton { height: 5px; background: var(--well); margin-top: 10px; }
+html[data-experience="modern"] .repo-digest { padding-bottom: 20px; margin-bottom: 20px; }
+html[data-experience="modern"] .digest-heading h2 { font-size: 14px; font-weight: 500; }
+html[data-experience="modern"] .digest-totals, html[data-experience="modern"] .digest-totals b { font-size: 11px; }
+html[data-experience="modern"] .digest-language-bar { height: 6px; border-radius: 3px; margin-top: 14px; }
+html[data-experience="modern"] .digest-languages button, html[data-experience="modern"] .digest-language-rest, html[data-experience="modern"] .digest-line { font-size: 11px; }
+html[data-experience="modern"] .digest-percentage, html[data-experience="modern"] .digest-measure, html[data-experience="modern"] .digest-files button { font-size: 10px; }
+html[data-experience="modern"] .digest-state { font-size: 12px; }
+@media (max-width: 760px) {
+  .digest-heading { justify-content: flex-start; }
+  .digest-totals { width: 100%; }
+}
+@media (pointer: coarse) {
+  .digest-languages button, .digest-language-rest, .digest-links button { min-height: 44px; }
+}

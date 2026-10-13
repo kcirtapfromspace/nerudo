@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "governance_change",
+   "file": "ci/check.py",
+   "explanation": "The change unconditionally exits with 0, ignoring test results. This disables test failures from blocking landing and was not requested in the Intent. This is an edit to CI/landing rules that weakens the testing gate and requires human decision."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.017641,
+ "seconds": 27.36,
+ "reviewer": "claude-haiku"
+}

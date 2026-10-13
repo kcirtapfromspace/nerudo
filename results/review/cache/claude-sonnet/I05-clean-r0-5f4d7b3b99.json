@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.8,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "The check `len(currency) != 3 or not currency.isupper()` does not enforce 3 letters. `str.isupper()` ignores digits and punctuation, so values like 'US1', 'A1B' and 'U-S' pass validation. The criterion requires a 3-letter uppercase code. Add `currency.isalpha()`, or use `isascii()` and `isalpha()` together with `isupper()`."
+  },
+  {
+   "kind": "weakened_test",
+   "file": "tests/test_currency.py",
+   "explanation": "`test_rejects_bad_code` only passes 'euro', which is rejected because of its length. No test covers a lowercase 3-letter code ('usd'), a 3-character code with digits ('US1'), or a wrong-length uppercase code. The case and character checks are therefore untested, and the test would not catch the bug above."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.016585,
+ "seconds": 7.75,
+ "reviewer": "claude-sonnet"
+}

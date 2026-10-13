@@ -1,0 +1,26 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.97,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "`frac = frac[:2]` silently truncates input with more than two decimal places (e.g. \"12.345\" -> 1234) instead of raising ValueError. This breaks the acceptance criterion that more than two decimals be rejected. The code needs an explicit check such as `len(frac) > 2`."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_parse.py",
+   "explanation": "No test covers rejection of more than two decimal places, so the bug above goes undetected. Add a test such as parse_amount(\"12.345\") raising ValueError."
+  },
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "`str.isdigit()` accepts non-ASCII digits such as \"\u00b2\" or Arabic-Indic digits. `int()` then raises ValueError for some of these, but others are accepted. Also, an input like \"12.\" or \".5\" is only partly validated: \".5\" fails because the units part is empty, but \"12.\" is accepted. Consider stricter validation, for example with `isascii()` or a regex."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0100756,
+ "seconds": 4.66,
+ "reviewer": "claude-sonnet"
+}

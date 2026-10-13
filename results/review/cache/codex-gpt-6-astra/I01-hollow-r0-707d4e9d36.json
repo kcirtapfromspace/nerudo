@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "The valid-input tests check only list type, length, and truthiness. They never verify integer parts, exact sum, a maximum one-cent difference, larger parts first, or the single-part value. Assert actual results (for example, [334, 334, 333] and [50]) and the required invariants."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 12.68,
+ "reviewer": "codex-gpt-6-astra"
+}

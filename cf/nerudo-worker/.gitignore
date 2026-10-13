@@ -1,0 +1,4 @@
+.dev.vars
+.prod.vars
+build/
+.wrangler/

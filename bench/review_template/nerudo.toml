@@ -1,0 +1,5 @@
+[footprint]
+units = ["ledger/*", "tests/*"]
+
+[ci]
+command = ["python3", "ci/check.py"]

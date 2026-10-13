@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.97,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/statements.py",
+   "explanation": "The filter keeps only entries with status == 'posted', so pending entries are excluded. The Intent says pending entries must be included and only void entries ignored. The filter should be `e[\"status\"] != \"void\"`. This also drops any other status, such as one added later."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_statements.py",
+   "explanation": "test_includes_pending expects 100 when a 25-cent pending entry is present. That asserts the buggy behavior, where pending is excluded, and contradicts the criterion. The correct expected total is 125. The test needs fixing, and it should also check pending entries without relying on a posted one."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0076656,
+ "seconds": 4.0,
+ "reviewer": "claude-sonnet"
+}

@@ -1,0 +1,179 @@
+{
+  "started": "2026-10-12T10:40:23-0600",
+  "versions": {
+    "commit": "9924c36+dirty",
+    "wrangler": "4.148.0",
+    "gitea": "gitea version 28.1.0 built with go1.27.1 : sqlite, sqlite_unlock_notify",
+    "toxiproxy": "toxiproxy-server version 2.12.0",
+    "git": "git version 2.55.0",
+    "python": "3.14.7"
+  },
+  "args": {
+    "cases": "git_flaky,growth",
+    "scenarios": "approvals,ci,recovery,ci_red",
+    "ci_down_k": "1,8",
+    "ci_down_seconds": 20,
+    "ci_hang_seconds": 45,
+    "flaky_changes": 12,
+    "flaky_toxicity": 0.4,
+    "flaky_seconds": 45,
+    "kill_reps": 3,
+    "growth": "256,512",
+    "seed": 1,
+    "strict": false,
+    "no_build": false,
+    "evidence": "/tmp/scratch/faults-recheck.json"
+  },
+  "known_gaps": {
+    "ci_down.requests": "the landing loop retries each second, with no backoff (trunk.rs alarm)",
+    "ci_down.visible": "nothing in the queue or the change says that CI is unreachable",
+    "ci_hang.timeout": "the CI call has no timeout (ci.rs typecheck)",
+    "verify.log_page": "landseq verify reads only the first 500 entries of the landing log (landseq-cli demo.rs check_log), so it fails on a trunk with more than 500 landings",
+    "git_flaky.fetch_failed": "a transient error while the gate fetches a fork closes the change as fetch_failed (trunk.rs gate); the agent must send it again"
+  },
+  "cases": {
+    "git_flaky": {
+      "changes": 12,
+      "fault_s": 11.2,
+      "landed_under_fault": 9,
+      "landing_loop_errors_logged": 0,
+      "error_kinds": [],
+      "fetch_failed_ejections": 3,
+      "external_moves": 0,
+      "recovered_attempts": 0,
+      "batches": 9
+    },
+    "growth": [
+      {
+        "n": 256,
+        "drain_s": 15.17,
+        "batches": 16
+      },
+      {
+        "n": 512,
+        "drain_s": 32.79,
+        "batches": 32
+      }
+    ]
+  },
+  "checks": [
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-104026: no change ejected for the fault (3 ejected: fetch_failed)",
+      "status": "gap",
+      "gap": "git_flaky.fetch_failed",
+      "blamed": {
+        "f0": {
+          "kind": "fetch_failed",
+          "detail": "transport: Error: Network connection lost."
+        },
+        "f1": {
+          "kind": "fetch_failed",
+          "detail": "transport: Error: Network connection lost."
+        },
+        "f2": {
+          "kind": "fetch_failed",
+          "detail": "transport: Error: Network connection lost."
+        }
+      }
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-104026: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-104026: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-104026: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "git_flaky",
+      "check": "the faults had an effect: 9/12 landed in 11 s; 0 landing-loop errors, 3 fetch_failed ejections, 0 attempts recovered",
+      "status": "pass",
+      "gap": null,
+      "note": "with no effect, the case tests nothing: raise --flaky-toxicity"
+    },
+    {
+      "case": "git_flaky",
+      "check": "no lost reply was taken for someone else's move of main (external_moves = 0)",
+      "status": "pass",
+      "gap": null,
+      "external_moves": 0
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth1-104045: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth1-104045: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth1-104045: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=256 scn-growth1-104045: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth2-104157: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth2-104157: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth2-104157: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=512 scn-growth2-104157: landseq verify passes",
+      "status": "gap",
+      "gap": "verify.log_page",
+      "error": "ad-only token\n  \u2713 513 commits on trunk (seed included); 513 pass the trunk checks\n  \u2713 no landing needed a seal\n  \u2713 512 landed changes, each on trunk once (Change-Id trailer)\n  \u2713 no landing carries agent context\n  \u2717 landing log: 500 entries, hash chain intact, ends at 5e9670d584ae = trunk tip 70d12df"
+    },
+    {
+      "case": "growth",
+      "check": "N 256\u2192512: drain time \u00d72.2 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 2.16
+    }
+  ]
+}

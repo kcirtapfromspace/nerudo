@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.97,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/limits.py",
+   "explanation": "The function returns `spent_today + amount < limit`, which is strict. The acceptance criterion says reaching the limit exactly is allowed, so this must be `<=`. The docstring also says inclusive, which contradicts the code."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_limits.py",
+   "explanation": "test_exactly_at_limit asserts False for 900+100 against a limit of 1000. This is the opposite of the required behavior: it locks in the bug instead of checking the inclusive boundary. It should assert True. test_zero_limit_allows_nothing is fine, since 0+1 > 0 is False under either operator."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0085076,
+ "seconds": 3.7,
+ "reviewer": "claude-sonnet"
+}

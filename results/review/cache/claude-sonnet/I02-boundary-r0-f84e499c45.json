@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.96,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The check `bps >= 10000` rejects 10000 bps, but the Intent says 10000 (100%) is allowed. It should be `bps > 10000`. As written, apply_fee(100, 10000) raises ValueError."
+  },
+  {
+   "kind": "weakened_test",
+   "file": "tests/test_fee.py",
+   "explanation": "No test covers the upper boundary of 10000 bps. The range test only checks -1 and 10001, so the bug above goes undetected. Add a test that apply_fee(cents, 10000) returns cents. Also add a test for cents == 0 and for a case just below the half-way point, to check the rounding boundary."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0085356,
+ "seconds": 4.16,
+ "reviewer": "claude-sonnet"
+}

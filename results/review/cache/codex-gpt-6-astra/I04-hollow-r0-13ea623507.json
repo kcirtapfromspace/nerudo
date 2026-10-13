@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_limits.py",
+   "explanation": "The under-limit, exact-limit, and over-limit tests check only type, Boolean membership, or non-None status, so incorrect Boolean results pass. Assert True for under and exactly at the limit, and False for over the limit."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 27.9,
+ "reviewer": "codex-gpt-6-astra"
+}

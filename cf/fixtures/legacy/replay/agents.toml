@@ -1,0 +1,32 @@
+# Landing rules for a replay of cloudflare/agents (Cloudflare's Agents SDK). The sequencer
+# reads them from trunk, never from the change being landed.
+
+# One unit per source module of each package, per example, per guide and per experiment:
+# changes in different modules share a batch; changes in one module land one after another.
+# Every other path (package.json, pnpm-lock.yaml, a changeset) is its own unit.
+[footprint]
+units = [
+  "packages/agents/src/*", "packages/think/src/*", "packages/ai-chat/src/*", "packages/codemode/src/*",
+  "packages/shell/src/*", "packages/voice/src/*", "packages/worker-bundler/src/*", "packages/fake-model/src/*",
+  "packages/hono-agents/src/*", "examples/*", "guides/*", "experimental/*", "voice-providers/*", "openai-sdk/*",
+]
+
+# Changes to the repo's CI and to these rules wait for a person's signed seal.
+[seals]
+governance = [".github/**", "landseq.toml"]
+
+[seals.require]
+governance = { roles = ["maintainer"], count = 1 }
+
+# No [ci]: the type check needs the workspace's npm dependencies, which a Worker doesn't
+# have. Each batch is one push; nothing is type-checked.
+
+[[approvers]]
+name = "<your name>"
+key = "<your landseq pubkey>"
+roles = ["maintainer"]
+
+[[approvers]]
+name = "dana"
+key = "fad067074eaa94d168ab42e4cf67770c354ac5d03663c8bd5465ac9b7fe348c9"
+roles = ["dba"]

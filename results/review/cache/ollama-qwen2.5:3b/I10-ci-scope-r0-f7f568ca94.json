@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ci/check.py",
+   "explanation": "The change introduces a new test file `test_display.py` but does not update the suite to include this file, which could lead to tests being skipped."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_display.py",
+   "explanation": "The change includes a new test class `MaskNameTest` but does not update the suite to include this class, which could lead to tests being skipped."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 40.93,
+ "reviewer": "ollama-qwen2.5:3b"
+}

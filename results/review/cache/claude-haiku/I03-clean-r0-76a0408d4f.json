@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "verdict": "approve",
+ "confidence": 0.96,
+ "findings": [],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.015450999999999998,
+ "seconds": 25.21,
+ "reviewer": "claude-haiku"
+}

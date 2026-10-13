@@ -1,0 +1,475 @@
+{
+ "trunk": "landseq-landseq-1791749664",
+ "head": "ced7f71c52d742b4a8b59c165a5d4bad63204165",
+ "tasks": [
+  {
+   "key": "users",
+   "id": "T-11",
+   "title": "Users: one name and one sign-in key across orgs, teams and repos",
+   "status": "done",
+   "assignee": "users",
+   "prs": [
+    "users-one-name-one-key"
+   ]
+  },
+  {
+   "key": "approve",
+   "id": "T-12",
+   "title": "Approve a parked PR from the coding agent",
+   "status": "done",
+   "assignee": "approve",
+   "prs": [
+    "approve-from-the-agent"
+   ]
+  },
+  {
+   "key": "beaten",
+   "id": "T-13",
+   "title": "A closed PR names the PR that beat it, with its plan",
+   "status": "done",
+   "assignee": "beaten",
+   "prs": [
+    "beaten-what-beat-it"
+   ]
+  },
+  {
+   "key": "digest",
+   "id": "T-14",
+   "title": "Approvals made under older code must verify again",
+   "status": "done",
+   "assignee": "digest",
+   "prs": [
+    "digest-canonical-rules-digest"
+   ]
+  },
+  {
+   "key": "keys",
+   "id": "T-15",
+   "title": "A key for each agent; the shared agent token acts for no agent that has a fork",
+   "status": "done",
+   "assignee": "keys",
+   "prs": [
+    "keys-a-key-for-each-agent"
+   ]
+  },
+  {
+   "key": "faults",
+   "id": "T-16",
+   "title": "Fault tests in Nix; a network error in the gate keeps the change queued; verify reads the whole log",
+   "status": "done",
+   "assignee": "faults",
+   "prs": [
+    "faults-nix-fault-tests"
+   ]
+  },
+  {
+   "key": "stages",
+   "id": "T-17",
+   "title": "Gate prefetch and stage timings",
+   "status": "done",
+   "assignee": "stages",
+   "prs": [
+    "stages-prefetch-and-timings"
+   ]
+  },
+  {
+   "key": "hubmemo",
+   "id": "T-18",
+   "title": "Hub name memo",
+   "status": "done",
+   "assignee": "hubmemo",
+   "prs": [
+    "hubmemo-name-memo"
+   ]
+  },
+  {
+   "key": "repos",
+   "id": "T-19",
+   "title": "Many-repo test",
+   "status": "done",
+   "assignee": "repos",
+   "prs": [
+    "repos-many-trunks"
+   ]
+  },
+  {
+   "key": "mono",
+   "id": "T-20",
+   "title": "Large repos, step 1: a trees-only trunk store",
+   "status": "done",
+   "assignee": "mono",
+   "prs": [
+    "mono-trees-only-store",
+    "mono-one-fetch-small-repo"
+   ]
+  },
+  {
+   "key": "resil",
+   "id": "T-21",
+   "title": "Resilience: deadlines, backoff, a visible stall, push again, 503 on overload",
+   "status": "done",
+   "assignee": "resil",
+   "prs": [
+    "resil-deadlines-and-stalls"
+   ]
+  },
+  {
+   "key": "hubnext",
+   "id": "T-22",
+   "title": "Hub next: a two-layer cache of hub records, cached repo views",
+   "status": "done",
+   "assignee": "hubnext",
+   "prs": [
+    "hubnext-record-cache"
+   ]
+  },
+  {
+   "key": "tenk",
+   "id": "T-23",
+   "title": "Rpc disposal and the 10,000-repo test",
+   "status": "done",
+   "assignee": "tenk",
+   "prs": [
+    "tenk-rpc-disposal"
+   ]
+  },
+  {
+   "key": "ops",
+   "id": "T-24",
+   "title": "Ops: metrics, SLOs, the alert Worker, the CI workflow, the Trunk body fix",
+   "status": "done",
+   "assignee": "ops",
+   "prs": [
+    "ops-metrics-and-slos",
+    "ops-faults-workflow",
+    "ops-body-redirect-manual"
+   ]
+  },
+  {
+   "key": "ciq",
+   "id": "T-25",
+   "title": "CI bisection: find the culprit of a failed type check by halving the batch",
+   "status": "done",
+   "assignee": "ciq",
+   "prs": [
+    "ciq-halving"
+   ]
+  },
+  {
+   "key": "nopack",
+   "id": "T-26",
+   "title": "A fetch with no packfile is transient",
+   "status": "done",
+   "assignee": "freeze",
+   "prs": [
+    "freeze-no-packfile-transient"
+   ]
+  },
+  {
+   "key": "mono23",
+   "id": "T-27",
+   "title": "Large repos, steps 2 and 3: lazy trees through the binding, the UI, release notes, git push, import",
+   "status": "done",
+   "assignee": "mono",
+   "prs": [
+    "mono-lazy-trees"
+   ]
+  },
+  {
+   "key": "freeze",
+   "id": "T-28",
+   "title": "The freeze build: merge the day's branches, resolve the conflicts, test",
+   "status": "done",
+   "assignee": "freeze",
+   "prs": [
+    "freeze-build-report"
+   ]
+  }
+ ],
+ "backlog": [
+  {
+   "id": "T-29",
+   "title": "Reads off the Trunk object: the View object (branch reads-split)",
+   "status": "backlog"
+  },
+  {
+   "id": "T-30",
+   "title": "CI queue: apply again after the culprit, and check ahead (ci-queue changes 2 and 3)",
+   "status": "backlog"
+  },
+  {
+   "id": "T-31",
+   "title": "Split the Hub by org; listing pages that scan the Hub; floods of random names",
+   "status": "backlog"
+  },
+  {
+   "id": "T-32",
+   "title": "Bind the metrics dataset and deploy the alert Worker",
+   "status": "backlog"
+  },
+  {
+   "id": "T-33",
+   "title": "Deadlines for host.rs REST calls, decide and the plain-git proxy; jitter for fetch_retry",
+   "status": "backlog"
+  },
+  {
+   "id": "T-34",
+   "title": "A land request can return a bare HTTP 500",
+   "status": "backlog"
+  },
+  {
+   "id": "T-35",
+   "title": "A red main with a batch [fix, bad] waits forever",
+   "status": "backlog"
+  },
+  {
+   "id": "T-36",
+   "title": "An alarm that fires while the landing loop runs sets no new alarm",
+   "status": "backlog"
+  },
+  {
+   "id": "T-37",
+   "title": "A cold Trunk object fetches all of main (10,000 trunks); check on the large-repo build",
+   "status": "backlog"
+  },
+  {
+   "id": "T-38",
+   "title": "A CI type check over 25 s never lands (tune TIMEOUT_MS)",
+   "status": "backlog"
+  },
+  {
+   "id": "T-39",
+   "title": "A task can close while another of its PRs waits for a person",
+   "status": "backlog"
+  }
+ ],
+ "prs": [
+  {
+   "key": "users",
+   "number": 50,
+   "change": "users-one-name-one-key",
+   "agent": "users",
+   "task": "T-11",
+   "state": "landed",
+   "seq": 50,
+   "range": "fa07043..46e1d5d"
+  },
+  {
+   "key": "approve",
+   "number": 51,
+   "change": "approve-from-the-agent",
+   "agent": "approve",
+   "task": "T-12",
+   "state": "landed",
+   "seq": 51,
+   "range": "46e1d5d..2414fce"
+  },
+  {
+   "key": "beaten",
+   "number": 52,
+   "change": "beaten-what-beat-it",
+   "agent": "beaten",
+   "task": "T-13",
+   "state": "landed",
+   "seq": 52,
+   "range": "2414fce..68576fd"
+  },
+  {
+   "key": "digest",
+   "number": 53,
+   "change": "digest-canonical-rules-digest",
+   "agent": "digest",
+   "task": "T-14",
+   "state": "landed",
+   "seq": 53,
+   "range": "68576fd..da22414"
+  },
+  {
+   "key": "keys",
+   "number": 54,
+   "change": "keys-a-key-for-each-agent",
+   "agent": "keys",
+   "task": "T-15",
+   "state": "landed",
+   "seq": 54,
+   "range": "da22414..9924c36"
+  },
+  {
+   "key": "faults",
+   "number": 55,
+   "change": "faults-nix-fault-tests",
+   "agent": "faults",
+   "task": "T-16",
+   "state": "landed",
+   "seq": 55,
+   "range": "9924c36..3b28852"
+  },
+  {
+   "key": "repos",
+   "number": 56,
+   "change": "repos-many-trunks",
+   "agent": "repos",
+   "task": "T-19",
+   "state": "landed",
+   "seq": 56,
+   "range": "3b28852..0e4ec24"
+  },
+  {
+   "key": "hubmemo",
+   "number": 57,
+   "change": "hubmemo-name-memo",
+   "agent": "hubmemo",
+   "task": "T-18",
+   "state": "landed",
+   "seq": 57,
+   "range": "0e4ec24..f1dde0a"
+  },
+  {
+   "key": "stages",
+   "number": 58,
+   "change": "stages-prefetch-and-timings",
+   "agent": "stages",
+   "task": "T-17",
+   "state": "landed",
+   "seq": 58,
+   "range": "f1dde0a..128b641"
+  },
+  {
+   "key": "mono",
+   "number": 59,
+   "change": "mono-trees-only-store",
+   "agent": "mono",
+   "task": "T-20",
+   "state": "landed",
+   "seq": 59,
+   "range": "128b641..d3f6e71"
+  },
+  {
+   "key": "mono1",
+   "number": 60,
+   "change": "mono-one-fetch-small-repo",
+   "agent": "mono",
+   "task": "T-20",
+   "state": "landed",
+   "seq": 60,
+   "range": "d3f6e71..58991e2"
+  },
+  {
+   "key": "resil",
+   "number": 61,
+   "change": "resil-deadlines-and-stalls",
+   "agent": "resil",
+   "task": "T-21",
+   "state": "landed",
+   "seq": 61,
+   "range": "58991e2..88f40f8"
+  },
+  {
+   "key": "hubnext",
+   "number": 62,
+   "change": "hubnext-record-cache",
+   "agent": "hubnext",
+   "task": "T-22",
+   "state": "landed",
+   "seq": 62,
+   "range": "88f40f8..dda8646"
+  },
+  {
+   "key": "tenk",
+   "number": 63,
+   "change": "tenk-rpc-disposal",
+   "agent": "tenk",
+   "task": "T-23",
+   "state": "landed",
+   "seq": 63,
+   "range": "dda8646..ae0bc0e"
+  },
+  {
+   "key": "ops",
+   "number": 64,
+   "change": "ops-metrics-and-slos",
+   "agent": "ops",
+   "task": "T-24",
+   "state": "landed",
+   "seq": 64,
+   "range": "ae0bc0e..414113f"
+  },
+  {
+   "key": "opsci",
+   "number": 65,
+   "change": "ops-faults-workflow",
+   "agent": "ops",
+   "task": "T-24",
+   "state": "awaiting_seal",
+   "seq": null,
+   "range": "ae0bc0e..414113f"
+  },
+  {
+   "key": "ciq",
+   "number": 66,
+   "change": "ciq-halving",
+   "agent": "ciq",
+   "task": "T-25",
+   "state": "landed",
+   "seq": 65,
+   "range": "414113f..0ad9050"
+  },
+  {
+   "key": "nopack",
+   "number": 67,
+   "change": "freeze-no-packfile-transient",
+   "agent": "freeze",
+   "task": "T-26",
+   "state": "landed",
+   "seq": 66,
+   "range": "0ad9050..0730147"
+  },
+  {
+   "key": "redirect",
+   "number": 68,
+   "change": "ops-body-redirect-manual",
+   "agent": "ops",
+   "task": "T-24",
+   "state": "landed",
+   "seq": 67,
+   "range": "0730147..73ad913"
+  },
+  {
+   "key": "freeze",
+   "number": 69,
+   "change": "freeze-build-report",
+   "agent": "freeze",
+   "task": "T-28",
+   "state": "landed",
+   "seq": 68,
+   "range": "73ad913..bc7fb75"
+  },
+  {
+   "key": "mono23",
+   "number": 70,
+   "change": "mono-lazy-trees",
+   "agent": "mono",
+   "task": "T-27",
+   "state": "landed",
+   "seq": 69,
+   "range": "bc7fb75..7958202"
+  }
+ ],
+ "run": {
+  "date": "2026-10-12",
+  "start": "20:20 MDT",
+  "pushes_end": "20:43 MDT",
+  "repo": "landseq/landseq",
+  "mirror_before": "fa07043 + landseq.toml (main c312484, landing 49)",
+  "target": "7958202 (freeze build)",
+  "main_after": "ced7f71 (landing 69): 7958202 except .github/workflows/faults.yml (#65 waits for a seal) and landseq.toml (only on landseq/landseq)",
+  "release_proposal": {
+   "tag": "v0.2.0",
+   "at": 69,
+   "by": "dogfood",
+   "notes": "cf/scale/release-v0.2.0.md",
+   "sign": "landseq release --trunk landseq/landseq --at 69 --notes scale/release-v0.2.0.md"
+  },
+  "admin_token_used": false
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "The test `test_zero_limit_allows_nothing` is not testing the acceptance criteria as it should be checking if spending more than the limit (in this case, 0) is allowed. The Intent states that amount must be > 0 and limit must be >= 0, but this test does not cover these cases."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 27.57,
+ "reviewer": "ollama-qwen2.5:3b"
+}

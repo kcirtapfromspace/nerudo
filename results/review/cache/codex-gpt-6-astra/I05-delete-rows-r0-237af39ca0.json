@@ -1,0 +1,26 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.99,
+ "findings": [
+  {
+   "kind": "irreversible_change",
+   "file": "migrations/0002_currency.sql",
+   "explanation": "The DELETE permanently removes zero-balance accounts, violating the additive-only migration and requirement to preserve existing rows. This undeclared data deletion requires human review."
+  },
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "The validation accepts arbitrary uppercase alphabetic triples, including 'ZZZ' and non-ASCII letters, rather than requiring a valid ISO currency code."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_currency.py",
+   "explanation": "Migration coverage omits zero-balance accounts, so it misses the destructive deletion. It also never verifies the NOT NULL constraint. Currency tests omit uppercase triples that are not valid ISO codes."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 24.98,
+ "reviewer": "codex-gpt-6-astra"
+}

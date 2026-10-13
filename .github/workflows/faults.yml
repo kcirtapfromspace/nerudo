@@ -1,0 +1,87 @@
+# Tests for each change to cf/: cargo test, the wasm check of the Worker, the alert rules, and
+# the local fault harness (cf/faults/README.md: wrangler dev, Gitea and toxiproxy from the Nix
+# flake). Nothing here deploys. No step needs a Cloudflare credential or any other secret.
+name: faults
+
+on:
+  push:
+    branches: [main]
+    paths: ["cf/**", ".github/workflows/faults.yml"]
+  pull_request:
+    paths: ["cf/**", ".github/workflows/faults.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: faults-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    # The flake also supports aarch64-linux (runs-on: ubuntu-24.04-arm). There, at the locked
+    # nixpkgs, toxiproxy is not in the binary cache: Nix builds it and runs its timing tests,
+    # which can fail on a busy machine.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: cf
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cf
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: cargo test
+        run: cargo test --workspace --locked
+
+      - name: wasm check of the Worker
+        run: cargo check -p nerudo-worker --target wasm32-unknown-unknown --locked
+
+      - name: alert rules (cf/nerudo-slo)
+        run: node --test nerudo-slo/test/slo.test.mjs
+
+      - uses: DeterminateSystems/nix-installer-action@v22
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v14
+        with:
+          use-flakehub: false
+
+      # The harness builds the Worker with worker-build and the CLI with cargo (version 1 is
+      # not hermetic), from this checkout. worker-build links OpenSSL.
+      - name: install worker-build
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends libssl-dev pkg-config
+          cargo install worker-build --version 0.8.7 --locked
+
+      - name: fault harness (all cases)
+        env:
+          # The harness makes its run directory here, so a failed run can be uploaded.
+          TMPDIR: ${{ runner.temp }}
+        run: nix run .#faults -- --evidence "$RUNNER_TEMP/faults.json"
+
+      - name: keep the report and, if a check failed, the logs
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: faults
+          path: |
+            ${{ runner.temp }}/faults.json
+            ${{ runner.temp }}/nerudo-faults-*/*.log
+            ${{ runner.temp }}/nerudo-faults-*/wrangler-logs/
+          if-no-files-found: ignore
+          retention-days: 14

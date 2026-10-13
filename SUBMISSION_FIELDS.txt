@@ -1,0 +1,15 @@
+Project vision
+
+NERUDO rethinks the Git forge for people working with many coding agents. Each agent works in an isolated Git fork and submits an attempt with code, a task, preserved reasoning and an actionable receipt. A repository sequencer batches compatible changes and checks their integrated tree, catching dependency failures that an agent's own checkout can miss.
+
+People can compare competing plans, choose an approach, inspect rejected revisions and require signatures for sensitive changes and releases. Agents can read another agent's pinned context and repair their work without losing the original intent. Ordinary Git, a CLI, MCP and a browser connect this collaboration to existing workflows.
+
+Our vision is a platform where more parallel effort produces useful, auditable progress. The working forge develops its own source. Its six-client scripted demo illustrates the product, while recorded Claude/Codex workflows demonstrate real dependency repair. We publish measurements with their workload conditions, failures and reproduction steps.
+
+How you used Cloudflare
+
+Cloudflare provides NERUDO's execution, coordination and Git storage. Workers host the browser application, API and Rust sequencer compiled to WebAssembly. A Durable Object per repository is the authoritative integration coordinator: it serializes submissions, batches compatible changes and persists queues, receipts, rules and crash-recovery intent. A separate Durable Object maintains the forge's directory.
+
+Artifacts stores the Git repositories and isolated agent forks. Compare-and-swap pushes let the sequencer advance main against an exact expected head. Service bindings connect the web application to the backend and the sequencer to a dedicated CI Worker, which runs the ts-rust TypeScript checker in WebAssembly against the integrated batch tip.
+
+The application supports optional Workers AI decision providers, including Clef, to request review or approval within repository rules. We also used Workers AI to generate the demo narration with Deepgram Aura-2 Luna. Benchmarks and coding-provider experiments use separate Workers and Artifacts namespaces, keeping their workloads isolated from the public forge.

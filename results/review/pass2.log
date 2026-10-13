@@ -1,0 +1,17 @@
+gates done in 10s
+claude-sonnet: 35 reviews, 0 errors, 26s
+claude-haiku: 35 reviews, 0 errors, 118s
+codex-gpt-6-astra: 35 reviews, 2 errors, 168s
+ollama-qwen2.5:3b: 35 reviews, 0 errors, 305s
+Tests only                                                 escaped 25/25  clean landed 10/10  human/100 10.0
+Deterministic gates                                        escaped 12/25  clean landed  9/10  human/100 26.0
+Gates without mutation testing                             escaped 17/25  clean landed 10/10  human/100 30.6
+Gates + claude-haiku                                       escaped  0/25  clean landed  9/10  human/100 22.6
+Gates + claude-sonnet                                      escaped  0/25  clean landed  9/10  human/100 22.6
+Gates + codex-gpt-6-astra                                  escaped  0/25  clean landed  8/10  human/100 25.1
+Gates + ollama-qwen2.5:3b                                  escaped  5/25  clean landed  4/10  human/100 22.6
+Gates + claude-haiku + claude-sonnet                       escaped  0/25  clean landed  9/10  human/100 22.6
+Gates + claude-sonnet + codex-gpt-6-astra                  escaped  0/25  clean landed  8/10  human/100 22.3
+Gates + all reviewers                                      escaped  0/25  clean landed  3/10  human/100 20.9
+claude-sonnet + codex-gpt-6-astra, no gates                escaped  0/25  clean landed  9/10  human/100 25.4
+Gates without mutation + claude-sonnet + codex-gpt-6-astra escaped  0/25  clean landed  9/10  human/100 25.4

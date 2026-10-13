@@ -1,0 +1,26 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "irreversible_change",
+   "file": "migrations/0002_currency.sql",
+   "explanation": "Deletes existing zero-balance accounts, violating the requirement to preserve existing rows and introducing an undeclared irreversible data change."
+  },
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "Length and isupper() checks accept values such as 'U1D' and unassigned codes such as 'ZZZ'. Validate three uppercase letters and membership in ISO currency codes."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_currency.py",
+   "explanation": "Tests do not verify migration defaults, NOT NULL enforcement, or preservation of existing rows and balances. Invalid-code coverage also misses three-character nonletters and non-ISO codes."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 14.55,
+ "reviewer": "codex-gpt-6-astra"
+}

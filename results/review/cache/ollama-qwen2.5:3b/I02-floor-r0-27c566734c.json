@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "tests/test_fee.py",
+   "explanation": "The test function `test_rejects_bps_above_10000` is testing for a condition that the implementation does not check. The implementation only checks if bps < 0 or bps > 10000, but it should also handle cases where bps == 10000."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "money.py",
+   "explanation": "The implementation does not check if cents is exactly zero. The Intent requires that the function raises a ValueError for cents < 0, but it should also raise an error for cents == 0."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 44.78,
+ "reviewer": "ollama-qwen2.5:3b"
+}

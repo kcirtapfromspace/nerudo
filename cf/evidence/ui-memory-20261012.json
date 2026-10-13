@@ -1,0 +1,727 @@
+{
+ "what": "The branches fix (branches-fix eb30765) and the UI-store memory problem, on a non-lazy replay of cloudflare/agents",
+ "date": "2026-10-12",
+ "worker": "landseq-scale-t7 (throwaway), namespace landseq-freeze, CI landseq-ci-scale",
+ "trunk": {
+  "id": "t7-agents3-1791867575",
+  "forks": 17,
+  "landings": 55,
+  "lazy": false,
+  "objects": {
+   "commits": [
+    56,
+    "0.1 MB"
+   ],
+   "trees": [
+    1107,
+    "0.7 MB"
+   ],
+   "blobs": [
+    3355,
+    "42.9 MB"
+   ],
+   "pack": "13.9 MB"
+  }
+ },
+ "tabs": "3 tabs, 240 s: state every 2 s after the last answer; branches every 10 s without waiting; state + tree?path= every 15 s. cold: tabs 12 s after the deploy; warm: one state, tree and branches after the deploy, then 30 s, then tabs. Memory: /stats wasm_memory_bytes every 10 s.",
+ "prototype_D": "app_state reads no trunk (subjects from the UI copy only if it has them); one request at a time has the UI copy, the others wait for it (at most 10 s) instead of fetching all of trunk again. Patch: scratch ab/D-ui-store.patch (not in a branch).",
+ "phases": [
+  {
+   "phase": "R3-A-cold",
+   "build": "A: 5ed344d + live patch (live now)",
+   "requests": 195,
+   "errors": 53,
+   "memory_mb_every_10s": [
+    1.3,
+    45.6,
+    1.6,
+    74.5,
+    1.6,
+    134.8,
+    1.3,
+    1.5,
+    1.5,
+    32.4,
+    1.5,
+    1.5,
+    1.5,
+    47.4,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9
+   ],
+   "isolate_resets_seen": 4,
+   "error_kinds": [
+    [
+     "500",
+     "INTERNAL SERVER ERROR"
+    ],
+    [
+     "503",
+     "{\"error\":\"busy, try again in 1 s: Error: Durable Object's isolate exceeded its memory limit and was reset.\",\"r"
+    ]
+   ],
+   "latency": {
+    "state_first_30s": {
+     "n": 6,
+     "p50": 17.905,
+     "p95": 18.804,
+     "max": 18.804,
+     "errors": 6
+    },
+    "state_after_30s": {
+     "n": 75,
+     "p50": 0.068,
+     "p95": 47.357,
+     "max": 88.135,
+     "errors": 9
+    },
+    "page_state_first_30s": {
+     "n": 6,
+     "p50": 17.283,
+     "p95": 19.111,
+     "max": 19.111,
+     "errors": 6
+    },
+    "page_state_after_30s": {
+     "n": 15,
+     "p50": 18.907,
+     "p95": 88.135,
+     "max": 88.135,
+     "errors": 9
+    },
+    "page_tree_first_30s": {
+     "n": 6,
+     "p50": 17.281,
+     "p95": 19.033,
+     "max": 19.033,
+     "errors": 4
+    },
+    "page_tree_after_30s": {
+     "n": 15,
+     "p50": 47.006,
+     "p95": 88.134,
+     "max": 88.134,
+     "errors": 9
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 3.024,
+     "p95": 4.858,
+     "max": 4.858,
+     "errors": 0
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 1.731,
+     "p95": 33.148,
+     "max": 78.596,
+     "errors": 10
+    }
+   }
+  },
+  {
+   "phase": "R3-C-cold",
+   "build": "C: branches-fix eb30765 + live patch",
+   "requests": 118,
+   "errors": 47,
+   "memory_mb_every_10s": [
+    1.3,
+    41.6,
+    1.4,
+    72.2,
+    148.5,
+    1.3,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.6,
+    83.7,
+    1.3,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.6,
+    94.2,
+    1.3,
+    1.5,
+    1.5,
+    1.5
+   ],
+   "isolate_resets_seen": 4,
+   "error_kinds": [
+    [
+     "500",
+     "INTERNAL SERVER ERROR"
+    ],
+    [
+     "503",
+     "{\"error\":\"busy, try again in 1 s: Error: Durable Object's isolate exceeded its memory limit and was reset.\",\"r"
+    ],
+    [
+     "TimeoutError",
+     "The read operation timed out"
+    ]
+   ],
+   "latency": {
+    "state_first_30s": {
+     "n": 5,
+     "p50": 16.841,
+     "p95": 29.179,
+     "max": 29.179,
+     "errors": 4
+    },
+    "state_after_30s": {
+     "n": 11,
+     "p50": 90.025,
+     "p95": 90.032,
+     "max": 90.032,
+     "errors": 11
+    },
+    "page_state_first_30s": {
+     "n": 5,
+     "p50": 25.043,
+     "p95": 26.867,
+     "max": 26.867,
+     "errors": 4
+    },
+    "page_state_after_30s": {
+     "n": 10,
+     "p50": 75.652,
+     "p95": 90.032,
+     "max": 90.032,
+     "errors": 10
+    },
+    "page_tree_first_30s": {
+     "n": 5,
+     "p50": 25.043,
+     "p95": 29.484,
+     "max": 29.484,
+     "errors": 3
+    },
+    "page_tree_after_30s": {
+     "n": 10,
+     "p50": 90.027,
+     "p95": 90.032,
+     "max": 90.032,
+     "errors": 10
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 0.974,
+     "p95": 10.033,
+     "max": 10.033,
+     "errors": 2
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 0.077,
+     "p95": 3.095,
+     "max": 67.803,
+     "errors": 3
+    }
+   }
+  },
+  {
+   "phase": "R3-A-warm",
+   "build": "A",
+   "requests": 404,
+   "errors": 8,
+   "memory_mb_every_10s": [
+    1.3,
+    69.8,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9
+   ],
+   "isolate_resets_seen": 0,
+   "error_kinds": [
+    [
+     "503",
+     "{\"error\":\"busy, try again in 1 s: Error: Durable Object's isolate exceeded its memory limit and was reset.\",\"r"
+    ],
+    [
+     "TimeoutError",
+     "The read operation timed out"
+    ]
+   ],
+   "latency": {
+    "state_first_30s": {
+     "n": 12,
+     "p50": 0.704,
+     "p95": 90.023,
+     "max": 90.023,
+     "errors": 3
+    },
+    "state_after_30s": {
+     "n": 254,
+     "p50": 0.06,
+     "p95": 0.08,
+     "max": 0.175,
+     "errors": 0
+    },
+    "page_state_first_30s": {
+     "n": 3,
+     "p50": 90.021,
+     "p95": 90.022,
+     "max": 90.022,
+     "errors": 3
+    },
+    "page_state_after_30s": {
+     "n": 30,
+     "p50": 0.06,
+     "p95": 0.072,
+     "max": 0.074,
+     "errors": 0
+    },
+    "page_tree_first_30s": {
+     "n": 3,
+     "p50": 90.019,
+     "p95": 90.02,
+     "max": 90.02,
+     "errors": 2
+    },
+    "page_tree_after_30s": {
+     "n": 30,
+     "p50": 0.055,
+     "p95": 0.068,
+     "max": 0.07,
+     "errors": 0
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 2.691,
+     "p95": 4.327,
+     "max": 4.327,
+     "errors": 0
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 1.583,
+     "p95": 1.69,
+     "max": 1.744,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "phase": "R3-C-warm",
+   "build": "C",
+   "requests": 405,
+   "errors": 8,
+   "memory_mb_every_10s": [
+    61.9,
+    77.1,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9
+   ],
+   "isolate_resets_seen": 1,
+   "error_kinds": [
+    [
+     "TimeoutError",
+     "The read operation timed out"
+    ]
+   ],
+   "latency": {
+    "state_first_30s": {
+     "n": 13,
+     "p50": 0.086,
+     "p95": 90.021,
+     "max": 90.021,
+     "errors": 2
+    },
+    "state_after_30s": {
+     "n": 254,
+     "p50": 0.057,
+     "p95": 0.073,
+     "max": 0.109,
+     "errors": 0
+    },
+    "page_state_first_30s": {
+     "n": 3,
+     "p50": 90.021,
+     "p95": 90.022,
+     "max": 90.022,
+     "errors": 3
+    },
+    "page_state_after_30s": {
+     "n": 30,
+     "p50": 0.059,
+     "p95": 0.07,
+     "max": 0.072,
+     "errors": 0
+    },
+    "page_tree_first_30s": {
+     "n": 3,
+     "p50": 90.023,
+     "p95": 90.024,
+     "max": 90.024,
+     "errors": 3
+    },
+    "page_tree_after_30s": {
+     "n": 30,
+     "p50": 0.053,
+     "p95": 0.065,
+     "max": 0.073,
+     "errors": 0
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 0.065,
+     "p95": 1.602,
+     "max": 1.602,
+     "errors": 0
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 0.056,
+     "p95": 0.589,
+     "max": 0.656,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "phase": "R3-D-cold",
+   "build": "D: C + UI-store prototype (scratch only)",
+   "requests": 527,
+   "errors": 0,
+   "memory_mb_every_10s": [
+    1.7,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9
+   ],
+   "isolate_resets_seen": 0,
+   "error_kinds": [],
+   "latency": {
+    "state_first_30s": {
+     "n": 45,
+     "p50": 0.06,
+     "p95": 0.474,
+     "max": 1.564,
+     "errors": 0
+    },
+    "state_after_30s": {
+     "n": 314,
+     "p50": 0.057,
+     "p95": 0.078,
+     "max": 0.134,
+     "errors": 0
+    },
+    "page_state_first_30s": {
+     "n": 6,
+     "p50": 0.081,
+     "p95": 2.038,
+     "max": 2.038,
+     "errors": 0
+    },
+    "page_state_after_30s": {
+     "n": 42,
+     "p50": 0.057,
+     "p95": 0.081,
+     "max": 0.086,
+     "errors": 0
+    },
+    "page_tree_first_30s": {
+     "n": 6,
+     "p50": 1.979,
+     "p95": 3.806,
+     "max": 3.806,
+     "errors": 0
+    },
+    "page_tree_after_30s": {
+     "n": 42,
+     "p50": 0.052,
+     "p95": 0.073,
+     "max": 0.085,
+     "errors": 0
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 0.055,
+     "p95": 1.453,
+     "max": 1.453,
+     "errors": 0
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 0.057,
+     "p95": 0.618,
+     "max": 0.689,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "phase": "R3-D-warm",
+   "build": "D",
+   "requests": 527,
+   "errors": 0,
+   "memory_mb_every_10s": [
+    61.8,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9,
+    77.9
+   ],
+   "isolate_resets_seen": 0,
+   "error_kinds": [],
+   "latency": {
+    "state_first_30s": {
+     "n": 45,
+     "p50": 0.059,
+     "p95": 0.095,
+     "max": 0.676,
+     "errors": 0
+    },
+    "state_after_30s": {
+     "n": 314,
+     "p50": 0.058,
+     "p95": 0.073,
+     "max": 0.129,
+     "errors": 0
+    },
+    "page_state_first_30s": {
+     "n": 6,
+     "p50": 0.06,
+     "p95": 0.065,
+     "max": 0.065,
+     "errors": 0
+    },
+    "page_state_after_30s": {
+     "n": 42,
+     "p50": 0.058,
+     "p95": 0.068,
+     "max": 0.07,
+     "errors": 0
+    },
+    "page_tree_first_30s": {
+     "n": 6,
+     "p50": 2.044,
+     "p95": 3.866,
+     "max": 3.866,
+     "errors": 0
+    },
+    "page_tree_after_30s": {
+     "n": 42,
+     "p50": 0.053,
+     "p95": 0.066,
+     "max": 0.209,
+     "errors": 0
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 0.059,
+     "p95": 0.858,
+     "max": 0.858,
+     "errors": 0
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 0.056,
+     "p95": 0.636,
+     "max": 0.753,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "phase": "R3-D-cold2",
+   "build": "D",
+   "requests": 527,
+   "errors": 0,
+   "memory_mb_every_10s": [
+    1.7,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9,
+    61.9
+   ],
+   "isolate_resets_seen": 0,
+   "error_kinds": [],
+   "latency": {
+    "state_first_30s": {
+     "n": 45,
+     "p50": 0.059,
+     "p95": 0.198,
+     "max": 0.992,
+     "errors": 0
+    },
+    "state_after_30s": {
+     "n": 314,
+     "p50": 0.06,
+     "p95": 0.079,
+     "max": 0.133,
+     "errors": 0
+    },
+    "page_state_first_30s": {
+     "n": 6,
+     "p50": 0.068,
+     "p95": 0.109,
+     "max": 0.109,
+     "errors": 0
+    },
+    "page_state_after_30s": {
+     "n": 42,
+     "p50": 0.061,
+     "p95": 0.084,
+     "max": 0.097,
+     "errors": 0
+    },
+    "page_tree_first_30s": {
+     "n": 6,
+     "p50": 2.365,
+     "p95": 4.177,
+     "max": 4.177,
+     "errors": 0
+    },
+    "page_tree_after_30s": {
+     "n": 42,
+     "p50": 0.051,
+     "p95": 0.071,
+     "max": 0.105,
+     "errors": 0
+    },
+    "branches_first_30s": {
+     "n": 9,
+     "p50": 0.06,
+     "p95": 1.372,
+     "max": 1.372,
+     "errors": 0
+    },
+    "branches_after_30s": {
+     "n": 63,
+     "p50": 0.057,
+     "p95": 0.751,
+     "max": 1.649,
+     "errors": 0
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+name = "nerudo-spike"
+main = "build/index.js"
+compatibility_date = "2026-10-01"
+
+[build]
+command = "worker-build --release"
+
+[[durable_objects.bindings]]
+name = "TRUNK"
+class_name = "Trunk"
+
+# Key-value storage backend on purpose (new_classes, not new_sqlite_classes).
+[[migrations]]
+tag = "v1"
+new_classes = ["Trunk"]
+
+[[artifacts]]
+binding = "ARTIFACTS"
+namespace = "nerudo"

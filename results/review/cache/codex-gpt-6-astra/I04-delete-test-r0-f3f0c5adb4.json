@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_accounts.py",
+   "explanation": "Deletes the existing negative-opening-balance test, outside the Intent. Removing existing coverage requires human review."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "Tests omit negative amounts and negative limits. Add assertions that each raises ValueError to verify the required validation."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 15.41,
+ "reviewer": "codex-gpt-6-astra"
+}

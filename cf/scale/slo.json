@@ -1,0 +1,51 @@
+{
+  "about": "Service levels of the landing loop, from the METRICS dataset (cf/scale/slo.md). slo_report.py and the alert Worker (cf/nerudo-slo) read this file. Each SLO is good events / all events; `good` and `total` are SQL expressions on the dataset.",
+  "dataset": "landseq_metrics",
+  "slos": [
+    {
+      "name": "queue_age",
+      "objective": 0.99,
+      "text": "At the start of a round, the oldest queued change joined the queue at most 30 s ago.",
+      "good": "sumIf(_sample_interval, blob1 = 'round' AND double2 <= 30000)",
+      "total": "sumIf(_sample_interval, blob1 = 'round')"
+    },
+    {
+      "name": "landing_latency",
+      "objective": 0.99,
+      "text": "A change lands at most 10 s after it joined the queue.",
+      "good": "sumIf(_sample_interval * double8, blob1 = 'round')",
+      "total": "sumIf(_sample_interval * double4, blob1 = 'round')"
+    },
+    {
+      "name": "loop_errors",
+      "objective": 0.999,
+      "text": "A round of the landing loop ends without an error. A CI error counts in ci_availability.",
+      "good": "sumIf(_sample_interval, blob1 = 'round')",
+      "total": "sumIf(_sample_interval, blob1 = 'round' OR (blob1 = 'alarm_error' AND blob2 != 'ci'))"
+    },
+    {
+      "name": "ci_availability",
+      "objective": 0.995,
+      "text": "A round that calls the CI Worker gets a verdict from it. A round that waits for CI (ci = 'unavailable') or an alarm error of cause ci is a bad event.",
+      "good": "sumIf(_sample_interval, blob1 = 'round' AND blob2 IN ('passed', 'failed', 'trunk_red'))",
+      "total": "sumIf(_sample_interval, (blob1 = 'round' AND blob2 IN ('passed', 'failed', 'trunk_red', 'unavailable')) OR (blob1 = 'alarm_error' AND blob2 = 'ci'))"
+    }
+  ],
+  "alerts": [
+    {
+      "name": "page",
+      "text": "Fast burn: at this rate, 1 hour uses about 2% of the 28-day error budget",
+      "long_minutes": 60,
+      "short_minutes": 5,
+      "burn": 14.4
+    },
+    {
+      "name": "ticket",
+      "text": "Slow burn: at this rate, 6 hours use about 5% of the 28-day error budget",
+      "long_minutes": 360,
+      "short_minutes": 30,
+      "burn": 6
+    }
+  ],
+  "min_events": 20
+}

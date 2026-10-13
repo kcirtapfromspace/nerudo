@@ -1,0 +1,26 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.92,
+ "findings": [
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "test_parts_sum_to_total only checks if the result is a list (assertIsInstance), not that the parts actually sum to the total. Should verify sum(result) == total."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "test_parts_differ_by_at_most_one_larger_first only checks the length (len == 3), not that parts differ by at most one cent or that larger parts come first. Should verify max(result) - min(result) <= 1 and result[0] >= result[1]."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "test_single_part only checks truthiness, not the actual behavior. Should verify that split_evenly(50, 1) returns [50]."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.011127999999999999,
+ "seconds": 16.05,
+ "reviewer": "claude-haiku"
+}

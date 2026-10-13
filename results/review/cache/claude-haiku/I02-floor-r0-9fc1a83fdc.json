@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "other",
+   "file": "ledger/money.py",
+   "explanation": "The implementation uses floor division (`cents * bps // 10000`) instead of the explicitly required half-up rounding via the `round_half_up` function. The Intent states 'fee = cents * bps / 10000, rounded half up (use round_half_up)'. For example, apply_fee(50, 100) should return 1 (0.5 rounded half up), not 0. The correct implementation should be: `return round_half_up(cents * bps, 10000)`"
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "The test `test_rounds_half_up` doesn't verify half-up rounding behavior. It asserts `apply_fee(50, 100) == 0`, which is consistent with floor division but not half-up rounding. With proper rounding, 50 * 100 / 10000 = 0.5 should round to 1, not 0. This test passes with the incorrect floor-division implementation but would fail with correct half-up rounding."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.041967000000000004,
+ "seconds": 68.98,
+ "reviewer": "claude-haiku"
+}

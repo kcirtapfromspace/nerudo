@@ -1,0 +1,19 @@
+[package]
+name = "repos-load"
+version = "0.1.0"
+edition = "2021"
+description = "Open-loop load on many nerudo trunks at once (cf/scale/repos.md)."
+license = "MIT OR Apache-2.0"
+publish = false
+
+# Its own workspace: a test tool, not part of the cf/ build.
+[workspace]
+
+[dependencies]
+nerudo-git = { path = "../../nerudo-git" }
+serde_json = "1"
+ureq = "2"
+futures = { version = "0.3", default-features = false, features = ["executor"] }
+
+[profile.release]
+opt-level = 3

@@ -1,0 +1,8 @@
+.env
+.env.*
+.nerudo/
+.claude/
+.codex/
+.gemini/
+node_modules/
+*.log

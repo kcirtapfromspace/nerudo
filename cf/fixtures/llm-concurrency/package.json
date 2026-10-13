@@ -1,0 +1,10 @@
+{
+  "name": "nerudo-llm-concurrency-evidence",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "run_checks": "node checks/run_checks.mjs",
+    "acceptance": "node --experimental-strip-types checks/acceptance.mjs"
+  }
+}

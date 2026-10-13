@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "weakened_test",
+   "file": "tests/test_money.py",
+   "explanation": "The existing half-up rounding test now accepts 2 or 3 instead of requiring 3, allowing incorrect rounding to pass. This weakens an existing test outside the formatting Intent and requires human review."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 19.6,
+ "reviewer": "codex-gpt-6-astra"
+}

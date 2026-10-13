@@ -1,0 +1,267 @@
+{
+  "schema": "nerudo.submission-providers.v2",
+  "created_at": "2026-10-13T15:10:47.390696+00:00",
+  "updated_at": "2026-10-13T15:51:48.856676+00:00",
+  "status": "finished_with_partial_workflow_completion",
+  "worker": "https://nerudo-scale-submission-20261013.patrickdeutsch.workers.dev",
+  "backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+  "repo": "nerudo/concurrency-20261013-151647",
+  "url": "https://nerudo-submission-web.patrickdeutsch.workers.dev/nerudo/concurrency-20261013-151647",
+  "run": "20261013-151647",
+  "original_attempt": {
+    "record": "submission-provider-attempt-20261013.json",
+    "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+    "attempted_providers": 3,
+    "completed_providers": 2,
+    "landed_providers": 2,
+    "max_overlapping_workflows": 3,
+    "full_fixture_acceptance_ok": false,
+    "timeout_seconds": 900
+  },
+  "coordination_audit": {
+    "record": "submission-coordination-20261013.json",
+    "sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d",
+    "result": "Codex read pinned Claude context after a real integrated CI rejection and landed repaired revision 2."
+  },
+  "recovery": {
+    "provider": "hermes",
+    "attempt": 2,
+    "timeout_seconds": 600,
+    "separate_from_initial_concurrent_attempt": true,
+    "completed": false,
+    "status": "timeout",
+    "landed": true,
+    "no_more_retries": true,
+    "outcome": {
+      "provider": "hermes",
+      "status": "timeout",
+      "exit_code": 130,
+      "model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "requested_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "observed_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "runtime_seconds": 601.959,
+      "started_s": 1791905815.391686,
+      "ended_s": 1791906434.868014,
+      "landed": true,
+      "attempt": 2,
+      "attempted": true,
+      "completed": false,
+      "context_commit": "fdea1708d5945e4c2855b96a2220a8c6936e0610",
+      "receipt_state": "landed",
+      "receipt_revision": 1,
+      "trunk_commit": "981d878484aa8d5363624603b2e9300713159234",
+      "landed_ms": 1791906405261,
+      "stdout_sha256": "bcf0c0cbd433a92548e78fd3000a20b84b8f9d41fc3b2d038649267bd19f8b3e",
+      "auth_blocked": false,
+      "runtime_unavailable": false,
+      "error": "native workflow exceeded 600 seconds",
+      "timeout_seconds": 600
+    }
+  },
+  "actual_provider_outcomes": [
+    {
+      "provider": "claude",
+      "status": "completed",
+      "exit_code": 0,
+      "model": "claude-opus-5-5",
+      "requested_model": null,
+      "observed_model": "claude-opus-5-5",
+      "runtime_seconds": 280.833,
+      "started_s": 1791904637.209847,
+      "ended_s": 1791904920.198716,
+      "landed": true,
+      "attempt": 1,
+      "attempted": true,
+      "completed": true,
+      "context_commit": "eb2f9389e886820314b525f827ee849ecb559ab9",
+      "receipt_state": "landed",
+      "receipt_revision": 1,
+      "trunk_commit": "51f4b287da25c6db42bd4eb90baf66ef7bd06b52",
+      "landed_ms": 1791904906015,
+      "stdout_sha256": "eb771353c867901fd78ebda1f0bdc40eaad278883c84980826b14ecd48238ac4",
+      "auth_blocked": false,
+      "runtime_unavailable": false
+    },
+    {
+      "provider": "codex",
+      "status": "completed",
+      "exit_code": 0,
+      "model": null,
+      "requested_model": null,
+      "observed_model": null,
+      "runtime_seconds": 354.711,
+      "started_s": 1791904637.167766,
+      "ended_s": 1791904992.2895732,
+      "landed": true,
+      "attempt": 1,
+      "attempted": true,
+      "completed": true,
+      "context_commit": "f921065089762906d6219f19dd0f582cd5fca032",
+      "receipt_state": "landed",
+      "receipt_revision": 2,
+      "trunk_commit": "e36d1e2ffabe5b23c5de870a1abeec469531a5fd",
+      "landed_ms": 1791904978373,
+      "stdout_sha256": "a4b0d2f872b7849ce206dc2e08295d4feba0388ff13cdaf8de540472d8639607",
+      "auth_blocked": false,
+      "runtime_unavailable": false
+    },
+    {
+      "provider": "hermes",
+      "status": "timeout",
+      "exit_code": 130,
+      "model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "requested_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "observed_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "runtime_seconds": 601.959,
+      "started_s": 1791905815.391686,
+      "ended_s": 1791906434.868014,
+      "landed": true,
+      "attempt": 2,
+      "attempted": true,
+      "completed": false,
+      "context_commit": "fdea1708d5945e4c2855b96a2220a8c6936e0610",
+      "receipt_state": "landed",
+      "receipt_revision": 1,
+      "trunk_commit": "981d878484aa8d5363624603b2e9300713159234",
+      "landed_ms": 1791906405261,
+      "stdout_sha256": "bcf0c0cbd433a92548e78fd3000a20b84b8f9d41fc3b2d038649267bd19f8b3e",
+      "auth_blocked": false,
+      "runtime_unavailable": false,
+      "error": "native workflow exceeded 600 seconds",
+      "timeout_seconds": 600
+    }
+  ],
+  "final_completion_counts": {
+    "attempted_providers": 3,
+    "completed_native_workflows": 2,
+    "landed_changes": 3
+  },
+  "final_independent_audit": {
+    "final_head": "981d878484aa8d5363624603b2e9300713159234",
+    "live_head_matches": true,
+    "nerudo_verify": {
+      "ok": true,
+      "output": "nerudo verify: trunk llm-20261013-151647, fetched with a read-only token\n  \u2713 4 commits on trunk (seed included); 4 pass the trunk checks\n  \u2713 no landing needed a seal\n  \u2713 3 landed changes, each on trunk once (Change-Id trailer)\n  \u2713 3 Context: trailers resolve to immutable copies in the context repo; each copy's source is its receipt's fork@commit\n  \u2713 landing log: 3 entries, hash chain intact, ends at ab05196e582b = trunk tip 981d878\n"
+    },
+    "runtime_tests": {
+      "ok": true,
+      "exit_code": 0,
+      "output": "\u2714 subtotal sums multiple quantities in default USD, USD and EUR (0.56325ms)\n\u2714 empty and zero-priced carts total zero (0.08725ms)\n\u2714 subtotal preserves frozen items and arrays (0.439125ms)\n\u2714 subtotal rejects nonpositive and nonintegral quantities (0.269208ms)\n\u2714 subtotal validates each unit price before multiplying by quantity (0.172084ms)\n\u2714 subtotal rejects unsupported currencies including for empty carts (0.124708ms)\n\u2714 price converts USD cents to dollars (0.502917ms)\n\u2714 price applies the fixed 0.9 multiplier for EUR without rounding (0.130208ms)\n\u2714 price rejects invalid cents (0.24875ms)\n\u2714 price rejects missing or unsupported currencies (0.106ms)\n\u2714 isCurrency recognizes only USD and EUR (0.064333ms)\n\u2714 receipt defaults to USD with exactly two decimals (0.466875ms)\n\u2714 receipt formats EUR amounts rounded for display (0.067375ms)\n\u2714 receipt always renders currency code, one space, two decimals (0.188708ms)\n\u2714 receipt preserves the price API's cents validation (0.233792ms)\n\u2714 receipt rejects unsupported currencies (0.099625ms)\n\u2139 tests 16\n\u2139 suites 0\n\u2139 pass 16\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 95.056583\n"
+    },
+    "full_fixture_acceptance": {
+      "ok": true,
+      "output": "PASS: final runtime acceptance for price, cart, receipt\n"
+    },
+    "stats": {
+      "submitted": 4,
+      "landed": 3,
+      "ci_runs": 5,
+      "batches": 3,
+      "ejected_ci": 1,
+      "ejected_conflict": 0,
+      "queued": 0
+    },
+    "latest_result_interval_overlap": 2,
+    "strict_concurrent_workflow_success": false
+  },
+  "native_child_agent_provenance": {
+    "claude": {
+      "observed_completed_children": [
+        "evidence-planner",
+        "evidence-reviewer"
+      ],
+      "successful_tool_results": 2,
+      "observed_model": "claude-opus-5-5",
+      "stdout_sha256": "eb771353c867901fd78ebda1f0bdc40eaad278883c84980826b14ecd48238ac4"
+    },
+    "codex": {
+      "observed_completed_children": [],
+      "native_child_execution_attested": false,
+      "observed_model": null,
+      "stdout_sha256": "a4b0d2f872b7849ce206dc2e08295d4feba0388ff13cdaf8de540472d8639607",
+      "note": "Captured native stream has no collaboration tool/subprocess or emitted model ID."
+    },
+    "hermes_attempt_1": {
+      "attempted_delegations": 1,
+      "observed_completed_children": [],
+      "native_child_completion_attested": false,
+      "observed_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "stdout_sha256": "0a3a949f550c8e9f9e840ae9f5b5efed0fd922eeca69547b27b02b506a476dab",
+      "note": "One delegate_task call was captured; no corresponding successful result or completed child was captured before timeout."
+    },
+    "hermes_attempt_2": {
+      "attempted_delegations": 2,
+      "observed_completed_children": [
+        "inspect_and_plan",
+        "inspect_and_review_correctness"
+      ],
+      "completed_child_results": 2,
+      "native_child_completion_attested": true,
+      "call_and_result_lines": [
+        [
+          120,
+          121
+        ],
+        [
+          130,
+          131
+        ]
+      ],
+      "observed_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "stdout_sha256": "bcf0c0cbd433a92548e78fd3000a20b84b8f9d41fc3b2d038649267bd19f8b3e",
+      "summary_truncation_chars": 5003,
+      "note": "Both native tool results declare results[0].status completed and is_error=false; their summaries are truncated, so the full strings are not valid JSON."
+    }
+  },
+  "initial_dependency_recovery": {
+    "provider": "codex",
+    "initial_revision": 1,
+    "initial_state": "ejected_ci",
+    "diagnostic": "TS2554 src/cart.ts:22 Expected 2 arguments, but got 1.",
+    "context_read_at": "2026-10-13T15:22:06.199699+00:00",
+    "context_change": "claude-feature",
+    "landed_revision": 2,
+    "landed_at": "2026-10-13T15:22:59.089969+00:00",
+    "events_sha256": "52e376bc61644ef756eab7bcaea2a948cfdd2aff9e58db4fa4668f4a97ecd7e1",
+    "repair_performed_by_native_provider": true
+  },
+  "tested_scope": {
+    "allowances_required": false,
+    "deployed_worker_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+    "allowance_replay_key_correction_included": false
+  },
+  "provider_readiness": {
+    "claude": {
+      "authenticated": true,
+      "attempted": true
+    },
+    "codex": {
+      "authenticated": true,
+      "attempted": true
+    },
+    "gemini": {
+      "authenticated": false,
+      "attempted": false,
+      "blocked_reason": "Existing client unauthenticated; no auth configuration changed."
+    },
+    "hermes": {
+      "attempted": true,
+      "existing_managed_runtime_reused": true,
+      "model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "inference_endpoint": "http://127.0.0.1:18434/v1",
+      "model_downloads": false,
+      "global_config_changes": false,
+      "temporary_runtime_stopped_after_proof": true
+    }
+  },
+  "limitations": [
+    "The initial landing barrier is artificial and logged separately.",
+    "Local runtime tests and final acceptance are external checks, not deployed Worker runtime CI.",
+    "Workflow overlap establishes real agent concurrency; it does not establish server capacity.",
+    "The original concurrent attempt completed only two of three workflows. Hermes had no submission before its 900-second timeout.",
+    "A separate 600-second Hermes recovery landed its real change but the native client still timed out; a landing is not a completed workflow.",
+    "Initial three-client overlap and later recovery are separate measurements.",
+    "The verifier success flag remains false because the strict all-clients-completed-and-concurrent condition was not achieved.",
+    "Codex emitted no model identity or native child execution evidence."
+  ]
+}

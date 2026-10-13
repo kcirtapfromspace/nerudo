@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "apply_fee uses floor division (cents * bps // 10000) instead of round_half_up as the criterion requires. For example, apply_fee(50, 100) is exactly 0.5 and should round to 1, but this code returns 0. Call round_half_up(cents * bps, 10000) instead."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "test_rounds_half_up asserts apply_fee(50, 100) == 0. That is the floor result, and it contradicts half-up rounding, which gives 1. The test locks in the bug. No test checks a rounding case that rounds up, such as an exact half or a value above one half. Fix the expected value to 1 and add more rounding cases."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.008967600000000001,
+ "seconds": 4.08,
+ "reviewer": "claude-sonnet"
+}

@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "frac[:2] silently truncates excess decimal places: \"12.345\" returns 1234 instead of raising ValueError. Reject fractional parts longer than two digits."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_parse.py",
+   "explanation": "No test verifies rejection of more than two decimal places. Add an assertRaises(ValueError) case for \"12.345\"."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 18.13,
+ "reviewer": "codex-gpt-6-astra"
+}

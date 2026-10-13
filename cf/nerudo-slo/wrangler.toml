@@ -1,0 +1,17 @@
+name = "nerudo-slo"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Alerts on the SLOs in ../scale/slo.json (../scale/slo.md). It has no route: only the cron
+# trigger runs it. Before a deploy, set the secrets:
+#   wrangler secret put ACCOUNT_ID       the account of the METRICS dataset
+#   wrangler secret put SLO_API_TOKEN    an API token with Account Analytics Read only
+#   wrangler secret put WEBHOOK_URL      where the alerts go (for example a Slack webhook)
+workers_dev = false
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+# The existing dataset keeps the measured history. A label is not a storage migration.
+DATASET = "landseq_metrics"

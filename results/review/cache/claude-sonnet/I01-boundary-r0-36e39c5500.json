@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.96,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The guard is `n < 0`, but the criterion requires n >= 1. With n == 0 the check passes and `divmod(total, 0)` raises ZeroDivisionError instead of ValueError. It should be `n < 1`."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_split.py",
+   "explanation": "No test covers the n validation (n=0 or negative n should raise ValueError). That is why the n == 0 bug is not caught. Tests also lack a total=0 boundary case."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0078516,
+ "seconds": 3.57,
+ "reviewer": "claude-sonnet"
+}

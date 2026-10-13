@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The validation check `if n < 0:` is incomplete and violates the acceptance criterion 'n must be >= 1, otherwise ValueError'. The code should check `if n < 1:` instead. When n = 0, the current code will raise ZeroDivisionError at divmod(total, 0) instead of ValueError as required."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_split.py",
+   "explanation": "The test suite does not verify that ValueError is raised when n < 1. The acceptance criterion requires this behavior, but there is no test case for n = 0 or n < 0. Currently only negative total is tested for error handling; error handling for invalid n values is not tested."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.055331,
+ "seconds": 96.06,
+ "reviewer": "claude-haiku"
+}

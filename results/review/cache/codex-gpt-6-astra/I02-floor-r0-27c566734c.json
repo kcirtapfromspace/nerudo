@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "ledger/money.py",
+   "explanation": "apply_fee truncates using // instead of rounding half up. Return round_half_up(cents * bps, 10000); apply_fee(50, 100) must return 1."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "test_rounds_half_up expects 0 for a fee of 0.5 cents, enforcing truncation instead of the required half-up result of 1. Correct the expected value."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 12.07,
+ "reviewer": "codex-gpt-6-astra"
+}

@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.97,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The check `bps >= 10000` rejects 10000 bps, but the Intent says 0..10000 inclusive, so 100% must be allowed. Change it to `bps > 10000`."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_fee.py",
+   "explanation": "No test covers the 10000 bps boundary. The only bps rejection test uses 10001, so the off-by-one bug goes unnoticed. Add a test that apply_fee(cents, 10000) returns cents. Also consider tests for bps=0, bps=-1 and cents=0."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.008103599999999999,
+ "seconds": 3.96,
+ "reviewer": "claude-sonnet"
+}

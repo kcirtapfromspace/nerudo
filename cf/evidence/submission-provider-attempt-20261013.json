@@ -1,0 +1,140 @@
+{
+  "schema": "nerudo.submission-provider-attempt.v1",
+  "created_at": "2026-10-13T15:36:06.830212+00:00",
+  "immutable_attempt": 1,
+  "run": "20261013-151647",
+  "worker": "https://nerudo-scale-submission-20261013.patrickdeutsch.workers.dev",
+  "backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+  "repo": "nerudo/concurrency-20261013-151647",
+  "url": "https://nerudo-submission-web.patrickdeutsch.workers.dev/nerudo/concurrency-20261013-151647",
+  "started_at": "2026-10-13T15:16:54.482938+00:00",
+  "result": "partial",
+  "attempted_providers": 3,
+  "completed_providers": 2,
+  "landed_providers": 2,
+  "max_overlapping_workflows": 3,
+  "initial_harness_timeout_seconds": 900,
+  "providers": [
+    {
+      "provider": "claude",
+      "status": "completed",
+      "exit_code": 0,
+      "model": "claude-opus-5-5",
+      "requested_model": null,
+      "observed_model": "claude-opus-5-5",
+      "runtime_seconds": 280.833,
+      "started_s": 1791904637.209847,
+      "ended_s": 1791904920.198716,
+      "landed": true,
+      "attempted": true,
+      "completed": true,
+      "context_commit": "eb2f9389e886820314b525f827ee849ecb559ab9",
+      "receipt_state": "landed",
+      "receipt_change_id": "claude-feature",
+      "receipt_revision": 1,
+      "trunk_commit": "51f4b287da25c6db42bd4eb90baf66ef7bd06b52",
+      "stdout_sha256": "eb771353c867901fd78ebda1f0bdc40eaad278883c84980826b14ecd48238ac4",
+      "auth_blocked": false,
+      "runtime_unavailable": false
+    },
+    {
+      "provider": "codex",
+      "status": "completed",
+      "exit_code": 0,
+      "model": null,
+      "requested_model": null,
+      "observed_model": null,
+      "runtime_seconds": 354.711,
+      "started_s": 1791904637.167766,
+      "ended_s": 1791904992.2895732,
+      "landed": true,
+      "attempted": true,
+      "completed": true,
+      "context_commit": "f921065089762906d6219f19dd0f582cd5fca032",
+      "receipt_state": "landed",
+      "receipt_change_id": "codex-feature",
+      "receipt_revision": 2,
+      "trunk_commit": "e36d1e2ffabe5b23c5de870a1abeec469531a5fd",
+      "stdout_sha256": "a4b0d2f872b7849ce206dc2e08295d4feba0388ff13cdaf8de540472d8639607",
+      "auth_blocked": false,
+      "runtime_unavailable": false
+    },
+    {
+      "provider": "hermes",
+      "status": "timeout",
+      "exit_code": 130,
+      "model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "requested_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "observed_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "runtime_seconds": 902.434,
+      "started_s": 1791904636.980675,
+      "ended_s": 1791905557.614113,
+      "landed": false,
+      "attempted": true,
+      "completed": false,
+      "context_commit": null,
+      "receipt_state": "not_submitted",
+      "receipt_change_id": null,
+      "receipt_revision": null,
+      "trunk_commit": null,
+      "stdout_sha256": "0a3a949f550c8e9f9e840ae9f5b5efed0fd922eeca69547b27b02b506a476dab",
+      "auth_blocked": false,
+      "runtime_unavailable": false,
+      "timeout_seconds": 900,
+      "error": "native workflow exceeded 900 seconds"
+    }
+  ],
+  "native_child_agent_provenance": {
+    "claude": {
+      "observed_completed_children": [
+        "evidence-planner",
+        "evidence-reviewer"
+      ],
+      "successful_tool_results": 2,
+      "observed_model": "claude-opus-5-5",
+      "stdout_sha256": "eb771353c867901fd78ebda1f0bdc40eaad278883c84980826b14ecd48238ac4"
+    },
+    "codex": {
+      "observed_completed_children": [],
+      "native_child_execution_attested": false,
+      "observed_model": null,
+      "stdout_sha256": "a4b0d2f872b7849ce206dc2e08295d4feba0388ff13cdaf8de540472d8639607",
+      "note": "Captured native stream has no collaboration tool/subprocess or emitted model ID."
+    }
+  },
+  "independent_audit": {
+    "final_head": "e36d1e2ffabe5b23c5de870a1abeec469531a5fd",
+    "live_head_matches": true,
+    "nerudo_verify": {
+      "ok": true,
+      "output": "nerudo verify: trunk llm-20261013-151647, fetched with a read-only token\n  \u2713 3 commits on trunk (seed included); 3 pass the trunk checks\n  \u2713 no landing needed a seal\n  \u2713 2 landed changes, each on trunk once (Change-Id trailer)\n  \u2713 2 Context: trailers resolve to immutable copies in the context repo; each copy's source is its receipt's fork@commit\n  \u2713 landing log: 2 entries, hash chain intact, ends at a4d9f94b2f38 = trunk tip e36d1e2\n"
+    },
+    "runtime_tests": {
+      "ok": true,
+      "exit_code": 0,
+      "output": "\u2714 subtotal sums multiple quantities in default USD, USD and EUR (0.608375ms)\n\u2714 empty and zero-priced carts total zero (0.101541ms)\n\u2714 subtotal preserves frozen items and arrays (0.450583ms)\n\u2714 subtotal rejects nonpositive and nonintegral quantities (0.36025ms)\n\u2714 subtotal validates each unit price before multiplying by quantity (0.247958ms)\n\u2714 subtotal rejects unsupported currencies including for empty carts (0.127917ms)\n\u2714 price converts USD cents to dollars (0.481167ms)\n\u2714 price applies the fixed 0.9 multiplier for EUR without rounding (0.116125ms)\n\u2714 price rejects invalid cents (0.231083ms)\n\u2714 price rejects missing or unsupported currencies (0.103208ms)\n\u2714 isCurrency recognizes only USD and EUR (0.067125ms)\n\u2139 tests 11\n\u2139 suites 0\n\u2139 pass 11\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 90.566792\n"
+    },
+    "full_fixture_acceptance": {
+      "ok": false,
+      "output": "FAIL: final runtime acceptance: Missing required module: src/receipt.ts\n"
+    },
+    "landed_changes": 2,
+    "ci_runs": 4,
+    "ejected_ci": 1,
+    "queued": 0
+  },
+  "limitations": [
+    "The initial landing barrier is artificial and logged separately.",
+    "Local runtime tests and final acceptance are external checks, not deployed Worker runtime CI.",
+    "Workflow overlap establishes real agent concurrency; it does not establish server capacity.",
+    "Only two of three provider workflows completed and landed; Hermes timed out before submitting a change.",
+    "The complete receipt fixture failed acceptance because src/receipt.ts was not present on main.",
+    "Codex emitted no model identity or native child execution evidence.",
+    "Any subsequent Hermes recovery is a separate attempt and cannot turn this original concurrent attempt into three completed workflows."
+  ],
+  "tested_scope": {
+    "allowances_required": false,
+    "deployed_worker_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+    "allowance_replay_key_correction_included": false
+  }
+}

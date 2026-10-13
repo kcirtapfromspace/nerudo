@@ -1,0 +1,130 @@
+{
+  "started": "2026-10-12T16:02:36-0600",
+  "versions": {
+    "commit": "128b641+dirty",
+    "wrangler": "4.148.0",
+    "gitea": "gitea version 28.1.0 built with go1.27.1 : sqlite, sqlite_unlock_notify",
+    "toxiproxy": "toxiproxy-server version 2.12.0",
+    "git": "git version 2.55.0",
+    "python": "3.14.7"
+  },
+  "args": {
+    "cases": "git_hang",
+    "scenarios": "approvals,ci,recovery,ci_red",
+    "ci_down_k": "1,8",
+    "ci_down_seconds": 20,
+    "ci_hang_seconds": 45,
+    "flaky_changes": 12,
+    "flaky_outage": 3,
+    "flaky_toxicity": 0.4,
+    "flaky_seconds": 45,
+    "hang_changes": 6,
+    "hang_seconds": 40,
+    "kill_reps": 3,
+    "growth": "32,64,128",
+    "seed": 1,
+    "strict": false,
+    "no_build": false,
+    "evidence": "/tmp/scratch/scale/resilience/faults-before-git_hang.json",
+    "keep": true
+  },
+  "known_gaps": {},
+  "cases": {
+    "git_hang": {
+      "changes": 6,
+      "faults": [
+        {
+          "fault": "replies",
+          "hang_s": 40.5,
+          "stall_kinds": [],
+          "landed_before": 0,
+          "landed_at_back": 1,
+          "next_landing_after_s": 3.5
+        },
+        {
+          "fault": "requests",
+          "hang_s": 40.4,
+          "stall_kinds": [],
+          "landed_before": 2,
+          "landed_at_back": 3,
+          "next_landing_after_s": 3.1
+        }
+      ],
+      "deadline_lines_logged": 0,
+      "landing_loop_errors_logged": 2,
+      "fetch_retries": 0,
+      "recovered_attempts": 2,
+      "pushes_again": null,
+      "external_moves": 0,
+      "batches": 6,
+      "landed": 6
+    }
+  },
+  "checks": [
+    {
+      "case": "git_hang",
+      "check": "replies: during the fault the queue showed a stall of the git host (none)",
+      "status": "FAIL",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "replies: the next landing came 3 s after the git host answered again (budget 90 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "requests: during the fault the queue showed a stall of the git host (none)",
+      "status": "FAIL",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "requests: the next landing came 3 s after the git host answered again (budget 90 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-160240: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-160240: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-160240: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-160240: landseq verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "git_hang",
+      "check": "the Worker stopped hung git requests at its deadline (0 log lines)",
+      "status": "FAIL",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "no lost reply was taken for someone else's move of main (external_moves = 0)",
+      "status": "pass",
+      "gap": null,
+      "external_moves": 0
+    }
+  ]
+}

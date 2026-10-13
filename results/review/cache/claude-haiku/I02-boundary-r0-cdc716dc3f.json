@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.98,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/money.py",
+   "explanation": "The validation condition `bps >= 10000` rejects bps=10000, but the Intent explicitly requires '10000 bps (100%) is allowed'. The condition should be `bps > 10000` to allow the full inclusive range 0..10000."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_fee.py",
+   "explanation": "No test verifies that bps=10000 (the boundary case explicitly mentioned in the Intent as allowed) is accepted. Add a test like `apply_fee(100, 10000)` to verify this boundary case works correctly."
+  }
+ ],
+ "model": "claude-haiku-4-5-20251001",
+ "cost_usd": 0.012243,
+ "seconds": 18.24,
+ "reviewer": "claude-haiku"
+}

@@ -1,0 +1,1765 @@
+{
+  "schema": "nerudo.submission-video.v3",
+  "updated_at": "2026-10-13T21:21:57.262826+00:00",
+  "edition": "semantic_attention_luna",
+  "status": "complete_local_artifact",
+  "selected_for_submission": true,
+  "ready_for_manual_upload": true,
+  "eligible_for_submission": true,
+  "filename": "nerudo-submission-visuals.mp4",
+  "public_video_url": null,
+  "duration_seconds": 510.68,
+  "bytes": 32527343,
+  "sha256": "9bd70ee26aa9cc15aa178ac1d2024c9d96e893c9b7235bb736d8c274b7abd0c5",
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "width": 1600,
+    "height": 1000,
+    "fps": 25,
+    "frames": 12767,
+    "duration_seconds": 510.68,
+    "measured_bit_rate": 317899
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "channel_layout": "mono",
+    "duration_seconds": 510.68,
+    "requested_bit_rate": 256000,
+    "measured_bit_rate": 185527
+  },
+  "production": {
+    "backend_version": "a1cbe028-4447-41e2-9bc8-377bdca25415",
+    "frontend_version": "ff8d53e4-35f4-47ac-a1bc-7bcaffdd38a5",
+    "backend_source_commit": "5a74c0100dbba28dcd64c07ca98aa88adf191f78",
+    "worker_wasm_sha256": "f62080b3935398b6b7eb0503ae55d58db2f03b7dcec66be154f13cda0986ec1f",
+    "preflight_packet_commit": "c2fd4724c367c9b6d3b5ba3655955e4f0e045726",
+    "browser_observed_source_head_prefixes": [
+      "168de01",
+      "553849c"
+    ]
+  },
+  "capture": {
+    "status": "completed_and_final_export_verified",
+    "fresh_browsing_planned": false,
+    "public_origin": "https://nerudo-web.patrickdeutsch.workers.dev",
+    "allowed_public_origins": [
+      "https://nerudo-web.patrickdeutsch.workers.dev",
+      "https://nerudo-submission-web.patrickdeutsch.workers.dev"
+    ],
+    "anonymous": true,
+    "methods_allowed": [
+      "GET",
+      "HEAD",
+      "OPTIONS"
+    ],
+    "scene_count": 8,
+    "recorded_at": "2026-10-13T20:47:09.522Z",
+    "browser_page_errors": [],
+    "raw_video_sha256": "a7526b43801e01d10bd6cc1e2188b040c49e33183ef4cb606ef32ae5f277b037",
+    "journal_sha256": "ff5b71015b2fb06faa8026cdca67e8fe746d30e6af8634b18b8e0cd482408f50",
+    "chapter_segments_sha256": "7f23501b32ed4310389f0d5eb7df9da98062713b9cb4e18c79e00cfbc806ddca",
+    "planned_counts": {
+      "timed_actions": 78,
+      "setup_actions": 13,
+      "highlights": 43,
+      "explanations": 11
+    },
+    "counts_scope": "Completed read-only choreography. Counts include explanatory/attention annotations and preparation; they are not a workload or model-concurrency result.",
+    "provider_receipt_scope": "Preserved original Oct 13 Claude/Codex receipts on isolated backend 79c259ad. The current repository contains the later separate Hermes landing, so its current sidebar/head is not the initial two-landing snapshot.",
+    "fresh_browsing": true,
+    "actual_counts": {
+      "timed_actions": 78,
+      "setup_actions": 13,
+      "initial_scene_routes": 8,
+      "chapter_ready_markers": 8,
+      "journal_entries": 107,
+      "highlights": 43,
+      "explanations": 11
+    },
+    "recording_source_script_sha256": "3b56fa1ad6fa8bca8d19c2d841985ec36bc9dbfd557ff65b0d3961f473068b86",
+    "isolated_provider_fixture_observed": {
+      "head_prefix": "981d878",
+      "backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+      "public_origin": "https://nerudo-submission-web.patrickdeutsch.workers.dev",
+      "scope": "Current isolated fixture includes the later separate Hermes landing. Preserved original Claude/Codex receipts are shown; this head is not the initial two-landing outcome or a production source head."
+    }
+  },
+  "narration": {
+    "provider": {
+      "name": "Deepgram via Cloudflare Workers AI",
+      "model": "@cf/deepgram/aura-2-en",
+      "voice": "luna",
+      "kind": "neural",
+      "gender": "female",
+      "style": "natural conversational",
+      "quality": "high"
+    },
+    "approved": true,
+    "source_unchanged": true,
+    "tempo_altered": false,
+    "added_transition_seconds": 0,
+    "lead_seconds": 0,
+    "prepared_audio_sha256": "6fa0c01f5d8239796237fec432baf67c3a415dc1a5101ce7671a9ebee10d5041",
+    "manifest_sha256": "ceaf0bfdd98c35047ee3358a0b5481d2ad63a539865e575a6083ca7c3a8d854a",
+    "source_script_sha256": "8e95b67daa78b95e75d858d76e5fe7719cfb7df86d2d6836387c6de6e424d7d3",
+    "clips": [
+      {
+        "id": "purpose",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "4ab033d7604d312bcf3eda16e0dbf2c1167c682c0644d9faebd5bbe1128acf45",
+        "inputSeconds": 56.56,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 56.56,
+        "tempo": 1,
+        "spokenSeconds": 56.56,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "901efc77c7c346bd93aeaf4381a86ef62f58c6a88a0525c25135c302839760e7",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "0dc18adaa10d69f826fc2ff6e0d51c241e05a5d4e08b59ee320438a82053c984",
+        "input_spoken_text_sha256": "d7b6471acabaa489c826afbb8a3b4b8b6262e57c9da5efd22e0deb935f0b9a47"
+      },
+      {
+        "id": "integration",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "1a9a91b2153731dfc6c135cad470dc1831f40634c9232cb9f301e0e45320e672",
+        "inputSeconds": 54.48,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 54.48,
+        "tempo": 1,
+        "spokenSeconds": 54.48,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "51f5c129d1a6af6c5f6f2843a7bc79aabdbf66d573725560b042ce77407301df",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76",
+        "input_spoken_text_sha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76"
+      },
+      {
+        "id": "attempts",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "03c86bbd3f2005cfc76ca3530bd182aca274178dcf7f7ab3e18c98f2e10c41f8",
+        "inputSeconds": 52.04,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 52.04,
+        "tempo": 1,
+        "spokenSeconds": 52.04,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "097dce7a4fb3abfa682c358149151e17283cadc83e3f7c7f48d4c01b6e4d605b",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1",
+        "input_spoken_text_sha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1"
+      },
+      {
+        "id": "authority",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "614f3474b9279a3b884ddd7a233b29ad6cd3aed584cdc17aba53ba0cf2c89a22",
+        "inputSeconds": 60,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 60,
+        "tempo": 1,
+        "spokenSeconds": 60,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "915734a1989c07b33dd70b27c00f8e878704f29579eeddec63ad623043f1b12b",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc",
+        "input_spoken_text_sha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc"
+      },
+      {
+        "id": "models",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "0c6a423e660865f0ceb9996ef673d7dd9600013f339c4e03d6c94cad59aa6471",
+        "inputSeconds": 66.6,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 66.6,
+        "tempo": 1,
+        "spokenSeconds": 66.6,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "b8ae468e55bf9c99382de7f4a2de9dc3425afab5e84126b4c6cbe1371debef00",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970",
+        "input_spoken_text_sha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970"
+      },
+      {
+        "id": "scale",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "d7a043e368e0cecc7f8a00d7e3f69daf4dc1b401fa2affac91e73320d946481a",
+        "inputSeconds": 80.08,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 80.08,
+        "tempo": 1,
+        "spokenSeconds": 80.08,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "b07556f2f786978a99d212b820405cb1aff87c14d820d1f0e6ae49fed18bd9ac",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04",
+        "input_spoken_text_sha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04"
+      },
+      {
+        "id": "architecture",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "bcac8f14ae8728e8c829c9cbb110d2e9e225f4954ef5e983f3cd3f0c9c441e86",
+        "inputSeconds": 69.24,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 69.24,
+        "tempo": 1,
+        "spokenSeconds": 69.24,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "21cbe934c2cd0d3ac7e99fa01650c0381d984262c32f9d10230227320d2b5f08",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "3c4456801017d5760dd0e0eba60779d61e44f1106f17d0f8ed378514aecb3b47",
+        "input_spoken_text_sha256": "204d10fabd26646eb59d4382cf2629d07f4ba1ff621bfe2e0be138c7d7b53998"
+      },
+      {
+        "id": "reproduce",
+        "provider": {
+          "name": "Deepgram via Cloudflare Workers AI",
+          "model": "@cf/deepgram/aura-2-en",
+          "voice": "luna",
+          "kind": "neural",
+          "gender": "female",
+          "style": "natural conversational",
+          "quality": "high"
+        },
+        "inputSha256": "07f9e257df928e24ced3558386321532637e0f1ecc4486f2b43d2cd95bba4dbd",
+        "inputSeconds": 71.68,
+        "trimStartSeconds": 0,
+        "trimEndSeconds": 71.68,
+        "tempo": 1,
+        "spokenSeconds": 71.68,
+        "transitionSeconds": 0,
+        "leadSeconds": 0,
+        "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+        "preparedSha256": "08ed3c6a7ef7f28eb450f5c0f88ce88317f9ae63109189cbeffa3fde726664d1",
+        "sampleRate": "24000",
+        "channels": 1,
+        "approved_display_text_sha256": "70488e0c72fd52e6ebe9811d19ceb6058b91caf8f5bb89a98592463ae14a22b4",
+        "input_spoken_text_sha256": "09464f6e4d002b717dede82a58479c4052abaf0ce2fdf5e445b0c8aeec8d6dd9"
+      }
+    ],
+    "captions": {
+      "method": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+      "display_text": "Approved source script with branding and technical terms retained; not raw ASR text.",
+      "cue_count": 105,
+      "maximum_words": 20,
+      "maximum_chars": 145,
+      "overlap": false,
+      "exact_display_text_coverage": true,
+      "normalized_asr_units": 1311,
+      "exact_matched_units": 1291,
+      "localized_substitution_units": 20,
+      "insertion_or_deletion_spans": 0,
+      "asr_tail_seconds_range": [
+        0.0651,
+        0.205
+      ],
+      "validation_limit": "ASR spelling substitutions are not evidence that the generated speech changed a fact. This validates sequence coverage and source timing, not pronunciation.",
+      "direct_listening_claim": false,
+      "scenes": [
+        {
+          "id": "purpose",
+          "audio_seconds": 56.56,
+          "asr_seconds": 56.475,
+          "asr_tail_seconds": 0.085,
+          "asr_sha256": "34713cf14d4374e39ab99457d92446459a13563cd2f11e8b0f822a6b0d0c3253",
+          "audio_sha256": "4ab033d7604d312bcf3eda16e0dbf2c1167c682c0644d9faebd5bbe1128acf45",
+          "caption_count": 13,
+          "maximum_caption_words": 16,
+          "maximum_caption_chars": 107,
+          "first_caption_start": 0.16,
+          "last_caption_end": 56.475,
+          "exact_display_text_coverage": true,
+          "canonical_words": 147,
+          "asr_words": 146,
+          "normalized_units": 150,
+          "exact_matched_units": 147,
+          "inferred_units": 3
+        },
+        {
+          "id": "integration",
+          "audio_seconds": 54.48,
+          "asr_seconds": 54.375,
+          "asr_tail_seconds": 0.105,
+          "asr_sha256": "91c7c0d756982565894bbeadc6aeb32bd9b5369ae7672c7d5cab534e95cdda59",
+          "audio_sha256": "1a9a91b2153731dfc6c135cad470dc1831f40634c9232cb9f301e0e45320e672",
+          "caption_count": 12,
+          "maximum_caption_words": 18,
+          "maximum_caption_chars": 112,
+          "first_caption_start": 0.0,
+          "last_caption_end": 54.375,
+          "exact_display_text_coverage": true,
+          "canonical_words": 160,
+          "asr_words": 160,
+          "normalized_units": 161,
+          "exact_matched_units": 158,
+          "inferred_units": 3
+        },
+        {
+          "id": "attempts",
+          "audio_seconds": 52.04,
+          "asr_seconds": 51.835,
+          "asr_tail_seconds": 0.205,
+          "asr_sha256": "f26c322e4f98df5333e062c59fa7c09d9a6a0dcf2e40281495c68b9bc91dd350",
+          "audio_sha256": "03c86bbd3f2005cfc76ca3530bd182aca274178dcf7f7ab3e18c98f2e10c41f8",
+          "caption_count": 14,
+          "maximum_caption_words": 20,
+          "maximum_caption_chars": 119,
+          "first_caption_start": 0.24,
+          "last_caption_end": 51.835,
+          "exact_display_text_coverage": true,
+          "canonical_words": 160,
+          "asr_words": 160,
+          "normalized_units": 162,
+          "exact_matched_units": 159,
+          "inferred_units": 3
+        },
+        {
+          "id": "authority",
+          "audio_seconds": 60.0,
+          "asr_seconds": 59.934937,
+          "asr_tail_seconds": 0.0651,
+          "asr_sha256": "16f18fe7704085bdcb67c8b3e4fbc41d28a656eef5f561cd9244eaa4a02b0601",
+          "audio_sha256": "614f3474b9279a3b884ddd7a233b29ad6cd3aed584cdc17aba53ba0cf2c89a22",
+          "caption_count": 13,
+          "maximum_caption_words": 20,
+          "maximum_caption_chars": 118,
+          "first_caption_start": 0.16,
+          "last_caption_end": 59.9349,
+          "exact_display_text_coverage": true,
+          "canonical_words": 160,
+          "asr_words": 160,
+          "normalized_units": 162,
+          "exact_matched_units": 160,
+          "inferred_units": 2
+        },
+        {
+          "id": "models",
+          "audio_seconds": 66.6,
+          "asr_seconds": 66.399994,
+          "asr_tail_seconds": 0.2,
+          "asr_sha256": "70e4babd9ea9e497e8a9687a2264e158349053081debadb6addb3726f47b3c47",
+          "audio_sha256": "0c6a423e660865f0ceb9996ef673d7dd9600013f339c4e03d6c94cad59aa6471",
+          "caption_count": 13,
+          "maximum_caption_words": 20,
+          "maximum_caption_chars": 131,
+          "first_caption_start": 0.16,
+          "last_caption_end": 66.4,
+          "exact_display_text_coverage": true,
+          "canonical_words": 158,
+          "asr_words": 161,
+          "normalized_units": 164,
+          "exact_matched_units": 163,
+          "inferred_units": 1
+        },
+        {
+          "id": "scale",
+          "audio_seconds": 80.08,
+          "asr_seconds": 79.875,
+          "asr_tail_seconds": 0.205,
+          "asr_sha256": "1ac002c8913e3d9173112adfee909de030467abe328bcbf99982026325dc8f67",
+          "audio_sha256": "d7a043e368e0cecc7f8a00d7e3f69daf4dc1b401fa2affac91e73320d946481a",
+          "caption_count": 13,
+          "maximum_caption_words": 19,
+          "maximum_caption_chars": 133,
+          "first_caption_start": 0.08,
+          "last_caption_end": 79.875,
+          "exact_display_text_coverage": true,
+          "canonical_words": 182,
+          "asr_words": 189,
+          "normalized_units": 193,
+          "exact_matched_units": 191,
+          "inferred_units": 2
+        },
+        {
+          "id": "architecture",
+          "audio_seconds": 69.24,
+          "asr_seconds": 69.14,
+          "asr_tail_seconds": 0.1,
+          "asr_sha256": "966c1f405d9452ed5bc8cfd824d35de9de8a804176e9e5cd91e0ff5cee72924d",
+          "audio_sha256": "bcac8f14ae8728e8c829c9cbb110d2e9e225f4954ef5e983f3cd3f0c9c441e86",
+          "caption_count": 12,
+          "maximum_caption_words": 19,
+          "maximum_caption_chars": 145,
+          "first_caption_start": 0.24,
+          "last_caption_end": 69.14,
+          "exact_display_text_coverage": true,
+          "canonical_words": 145,
+          "asr_words": 149,
+          "normalized_units": 154,
+          "exact_matched_units": 152,
+          "inferred_units": 2
+        },
+        {
+          "id": "reproduce",
+          "audio_seconds": 71.68,
+          "asr_seconds": 71.51,
+          "asr_tail_seconds": 0.17,
+          "asr_sha256": "ec2fa9545cae0e4c82c7b7bc9f02756a315164aa262128ad6a88f06e40ff5b76",
+          "audio_sha256": "07f9e257df928e24ced3558386321532637e0f1ecc4486f2b43d2cd95bba4dbd",
+          "caption_count": 15,
+          "maximum_caption_words": 18,
+          "maximum_caption_chars": 136,
+          "first_caption_start": 0.08,
+          "last_caption_end": 71.51,
+          "exact_display_text_coverage": true,
+          "canonical_words": 160,
+          "asr_words": 163,
+          "normalized_units": 165,
+          "exact_matched_units": 161,
+          "inferred_units": 4
+        }
+      ],
+      "fresh_visual_visibility_qa": "Passed at all 54 annotation cues and eight critical ready-cut boundaries; not frame-by-frame inspection."
+    },
+    "new_encoded_track_qa": {
+      "status": "passed",
+      "integrated_loudness_lufs": -16.22,
+      "true_peak_dbtp": -1.87,
+      "loudness_range_lu": 2.7,
+      "pause_detection_threshold_db": -40,
+      "minimum_detected_pause_seconds": 0.15,
+      "detected_natural_pauses": 230,
+      "maximum_detected_pause_seconds": 0.717333,
+      "pauses_at_least_1_5_seconds": 0,
+      "scope": "Encoded full track including chapter joins; objective level and pause analysis. No direct-listening or pronunciation claim."
+    }
+  },
+  "render": {
+    "status": "completed_and_verified",
+    "cut_view_preparation": true,
+    "setup_excluded": true,
+    "chapter_retiming": false,
+    "narration_padding": false,
+    "tutorial_annotations": [
+      "Highlights and arrows anchored to actual product elements.",
+      "Explicitly labelled two-card explanations derived from the recorded code, evidence or architecture."
+    ],
+    "performance_scope": "Edited explanatory demonstration; no interaction-latency or capacity claim.",
+    "recording_source_script_sha256": "3b56fa1ad6fa8bca8d19c2d841985ec36bc9dbfd557ff65b0d3961f473068b86",
+    "export_repair_source_sha256": "607b94e83731815243f91880f6af338ffc6c135c5198d753ac64254dbf984b87",
+    "export_guard_failure": {
+      "reason": "Original end-duration calibration exceeded its 0.25-second guard; teardown tail is not a valid start-clock anchor.",
+      "source_script_sha256": "3b56fa1ad6fa8bca8d19c2d841985ec36bc9dbfd557ff65b0d3961f473068b86",
+      "raw_video_duration_seconds": 558.04,
+      "original_guard_passed": false,
+      "repair_status": "completed_and_independently_validated",
+      "repair_method": "Measured constant origin from eleven actual raw visual transitions; exact ready cuts and separately verified first-ready frames.",
+      "scope": "Original guard failure retained as history. Final alignment uses the separate measured calibration, not a claim that the original calibration passed."
+    },
+    "footer_repair": {
+      "status": "passed",
+      "source_issue": "Chromium native screencast gray padding clipped the lower caption band.",
+      "replacement_bounds": {
+        "left": 0,
+        "top": 885,
+        "width": 1600,
+        "height": 115
+      },
+      "canonical_caption_renderer_count": 1,
+      "overlapping_old_and_new_caption_layers": false,
+      "product_content_above_y": 885,
+      "preservation_scope": "Overlay geometry leaves product pixels above y=885 transparent; final image encoding applies.",
+      "validation": "Six focused helper checks include pre-encoding product pixel preservation and complete opaque footer. Final semantic frames show one readable footer with no native gray padding or old caption overlap.",
+      "helper_check_report_sha256": "2d3bc1daa5b8a7b054759423916e9f8b9c74f520b3ef27738256f4056c920f31"
+    },
+    "method": "Fresh read-only product capture, independently calibrated ready cuts, one complete canonical caption footer after cuts. Narration and caption inputs remain unchanged.",
+    "rendered_at": "2026-10-13T21:11:55.052Z",
+    "raw_duration_seconds": 558.04,
+    "ready_segments": 69,
+    "excluded_cue_preparations": 78,
+    "ready_cut_video_sha256": "dc66fdd29049840c788be657620bbc3a2856fea196d5e3334117dd4bd7b7807f",
+    "chapter_segments_sha256": "7f23501b32ed4310389f0d5eb7df9da98062713b9cb4e18c79e00cfbc806ddca",
+    "provenance": {
+      "recording_source_script_path": "cf/scripts/record_submission.mjs",
+      "recording_source_script_sha256": "3b56fa1ad6fa8bca8d19c2d841985ec36bc9dbfd557ff65b0d3961f473068b86",
+      "actual_exporter_source_sha256": "607b94e83731815243f91880f6af338ffc6c135c5198d753ac64254dbf984b87",
+      "caption_helper_path": "cf/scripts/render_submission_captions.py",
+      "caption_helper_sha256": "a69b40c4f2f920be3d8cf91a309b0db7936bdd3bb61181c8b99a3605fc7ca41b",
+      "scope": "Actual recording and repaired export used the preserved hashes above. The current reusable recorder adds input-binding guards; it did not create or re-render this artifact.",
+      "current_reusable_recorder_sha256": "50a436bc8cedebcc46dd344b4526536a154fa696acb6d5fa00a42dbf184f9a25"
+    },
+    "calibration": {
+      "status": "passed",
+      "method": "Constant raw-video origin measured from eleven actual explanation-border onsets; no end-duration alignment or duration scaling.",
+      "report_sha256": "980b64c0b50f66becfdbcb9a91d2ce911f5b51781254bf660dd87f81b59e707f",
+      "raw_video_sha256": "a7526b43801e01d10bd6cc1e2188b040c49e33183ef4cb606ef32ae5f277b037",
+      "journal_sha256": "ff5b71015b2fb06faa8026cdca67e8fe746d30e6af8634b18b8e0cd482408f50",
+      "visual_anchor_count": 11,
+      "raw_origin_offset_seconds": -0.27,
+      "frame_aware_common_offset_interval_seconds": {
+        "lowerSeconds": -0.28136033299995233,
+        "upperSeconds": -0.24223720799999882,
+        "nonempty": true,
+        "widthSeconds": 0.03912312499995352,
+        "gapSeconds": 0
+      },
+      "frame_carry_allowance_seconds": 0.04,
+      "scope": "Frame-aware compatible offset interval with one-frame carry allowance; not a sub-frame capture-clock accuracy claim."
+    }
+  },
+  "claims": {
+    "product_demo": "Scripted six-client demo, not six live coding models.",
+    "first_provider_attempt": "Immutable Oct13 attempt: three overlapping clients, Claude/Codex landed, Hermes900s timeout,2/3 completed;11runtime tests/verify pass,full acceptance fails missing receipt.ts.",
+    "coordination": "Codex TS2554 rejection, Claude pinned-context read, and repaired second revision shown in a separate immutable audit.",
+    "later_recovery": "Separate outcome, never added to the original concurrent attempt.",
+    "batch_contract": "Integrated green batch tip, not every intermediate commit.",
+    "scale": "Historical synthetic integration;five-minute rate and pre-failure peak distinguished.",
+    "memory": "WASM linear memory, not total RAM."
+  },
+  "provider_evidence": {
+    "first_attempt_path": "cf/evidence/submission-provider-attempt-20261013.json",
+    "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+    "isolated_backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+    "outcome": "3 overlapping attempts; 2 completed/landed; Hermes timeout900s; verify/11runtime tests pass; full acceptance fails absent receipt.ts. Recovery is separate.",
+    "coordination_path": "cf/evidence/submission-coordination-20261013.json",
+    "coordination_sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d"
+  },
+  "plan": {
+    "path": "cf/evidence/submission-video-plan-20261013.json",
+    "schema": "nerudo.submission-video-plan.v3",
+    "sha256": "80fdfdf10ac6d6c5fc6889e349cfe7456823adf530b7ab725b0ba66deed603d4",
+    "status": "executed_and_final_export_verified"
+  },
+  "verification": {
+    "preflight": {
+      "status": "passed",
+      "scene_count": 8,
+      "timed_actions": 78,
+      "setup_actions": 13,
+      "journal_entries": 107,
+      "page_errors": [],
+      "journal_sha256": "ea0dc5e60fb3bf60e668efa0c8c5e7725f9e0a5905cea3a249ecf638e1119b7f",
+      "frozen_local_plan_sha256": "295362f12ad4407291ac6293e09e05713b0420cc4e92cdfa706241e04ed85e85",
+      "scope": "Actual read-only DOM/semantic targets and prepared annotations; not the completed timed capture or final encoded media."
+    },
+    "fresh_capture": {
+      "status": "completed_and_final_export_verified",
+      "scene_count": 8,
+      "timed_actions": 78,
+      "setup_actions": 13,
+      "page_errors": [],
+      "journal_sha256": "ff5b71015b2fb06faa8026cdca67e8fe746d30e6af8634b18b8e0cd482408f50",
+      "scope": "All eight chapters, 78 timed actions and 13 setup actions completed anonymously with recorded assertions and no page errors; final encoded media has separate QA below."
+    },
+    "ffprobe": {
+      "status": "passed",
+      "duration_seconds": 510.68,
+      "frame_count": 12767,
+      "fps": 25,
+      "width": 1600,
+      "height": 1000,
+      "bytes": 32527343
+    },
+    "full_audio_video_decode": {
+      "status": "passed",
+      "exit_code": 0
+    },
+    "visual_narration_alignment": {
+      "status": "passed",
+      "annotation_frames_reviewed": 54,
+      "critical_first_ready_frames_reviewed": 8,
+      "scene_count": 8,
+      "root_reviewed_scenes": [
+        "integration",
+        "models"
+      ],
+      "independently_reviewed_scenes": [
+        "purpose",
+        "attempts",
+        "authority",
+        "scale",
+        "architecture",
+        "reproduce"
+      ],
+      "scope": "Every annotation cue and eight critical ready-cut first frames were inspected for target/narration alignment and readable captions; not exhaustive viewing of all 12,767 frames."
+    },
+    "annotations_and_caption_visibility": {
+      "status": "passed",
+      "footer": {
+        "status": "passed",
+        "source_issue": "Chromium native screencast gray padding clipped the lower caption band.",
+        "replacement_bounds": {
+          "left": 0,
+          "top": 885,
+          "width": 1600,
+          "height": 115
+        },
+        "canonical_caption_renderer_count": 1,
+        "overlapping_old_and_new_caption_layers": false,
+        "product_content_above_y": 885,
+        "preservation_scope": "Overlay geometry leaves product pixels above y=885 transparent; final image encoding applies.",
+        "validation": "Six focused helper checks include pre-encoding product pixel preservation and complete opaque footer. Final semantic frames show one readable footer with no native gray padding or old caption overlap.",
+        "helper_check_report_sha256": "2d3bc1daa5b8a7b054759423916e9f8b9c74f520b3ef27738256f4056c920f31"
+      },
+      "caption_count": 105,
+      "scope": "Every annotation cue and eight critical ready-cut first frames were inspected for target/narration alignment and readable captions; not exhaustive viewing of all 12,767 frames."
+    },
+    "encoded_loudness_and_silence": {
+      "status": "passed",
+      "integrated_loudness_lufs": -16.22,
+      "true_peak_dbtp": -1.87,
+      "loudness_range_lu": 2.7,
+      "pause_detection_threshold_db": -40,
+      "minimum_detected_pause_seconds": 0.15,
+      "detected_natural_pauses": 230,
+      "maximum_detected_pause_seconds": 0.717333,
+      "pauses_at_least_1_5_seconds": 0,
+      "scope": "Encoded full track including chapter joins; objective level and pause analysis. No direct-listening or pronunciation claim."
+    },
+    "size_limit_bytes": 2147483648,
+    "direct_listening_claim": false,
+    "capture_clock_calibration": {
+      "status": "passed",
+      "method": "Constant raw-video origin measured from eleven actual explanation-border onsets; no end-duration alignment or duration scaling.",
+      "report_sha256": "980b64c0b50f66becfdbcb9a91d2ce911f5b51781254bf660dd87f81b59e707f",
+      "raw_video_sha256": "a7526b43801e01d10bd6cc1e2188b040c49e33183ef4cb606ef32ae5f277b037",
+      "journal_sha256": "ff5b71015b2fb06faa8026cdca67e8fe746d30e6af8634b18b8e0cd482408f50",
+      "visual_anchor_count": 11,
+      "raw_origin_offset_seconds": -0.27,
+      "frame_aware_common_offset_interval_seconds": {
+        "lowerSeconds": -0.28136033299995233,
+        "upperSeconds": -0.24223720799999882,
+        "nonempty": true,
+        "widthSeconds": 0.03912312499995352,
+        "gapSeconds": 0
+      },
+      "frame_carry_allowance_seconds": 0.04,
+      "scope": "Frame-aware compatible offset interval with one-frame carry allowance; not a sub-frame capture-clock accuracy claim."
+    },
+    "ready_cut_timing": {
+      "status": "passed",
+      "ready_segments": 69,
+      "cue_preparations_removed": 78,
+      "fps": 25,
+      "frame_count": 12767,
+      "duration_seconds": 510.68,
+      "cue_frame_rounding_bound_seconds": 0.02,
+      "maximum_encoded_frame_step_error_seconds": 3.63806207381856e-14,
+      "source_preparation_overlaps_above_one_frame": [],
+      "audio_timeline_gap_free": true,
+      "semantic_assertions": 56,
+      "scope": "Numerical frame/ready-cut audit combined with separate first-ready and annotation-frame visual checks. Preparation intervals are edited out; no interaction-latency claim."
+    },
+    "final_visual_qa_report_sha256": "0a8c4f90e191fb1597b1767bd9cdc088e7ecc63f1fc8c46c7cac8d0c43aa36d4",
+    "final_recording_metadata_sha256": "e8436ba2e57bd1c7862deba3c7f7537c2ce4109356db99409e2ad724393f3eda",
+    "local_report_sha256": {
+      "independent-calibration.json": "980b64c0b50f66becfdbcb9a91d2ce911f5b51781254bf660dd87f81b59e707f",
+      "independent-sync-qa.json": "a83ed41a47d2c5987975e610559bd18acae89eb25fb4ea00e8b69b21c2a75f1c",
+      "independent-first-ready-visual-qa.json": "44485325d64026d0a37485066fe72757270bc06fad83fe9b24edf87d7a352f36",
+      "independent-final-visual-qa.json": "93101bc4c3307fee5498cd36a73c49a1c33f0a9ea7e04e071a6e3791a5a0a4ee",
+      "fixed-band-renderer-checks.json": "2d3bc1daa5b8a7b054759423916e9f8b9c74f520b3ef27738256f4056c920f31",
+      "visual-qa-frame-index.json": "f6ad63dcd4216fbe49a0e89ea28a32a9d3a879e175c28f91d87b787f83cb4746",
+      "visual-recording-metadata.json": "e8436ba2e57bd1c7862deba3c7f7537c2ce4109356db99409e2ad724393f3eda",
+      "visual-qa.json": "0a8c4f90e191fb1597b1767bd9cdc088e7ecc63f1fc8c46c7cac8d0c43aa36d4",
+      "recorder-final-binding-checks.json": "9131fea44a26d17fbbf90b9b7936f5f7b0b51c78da384cbb8346c30be1aac851"
+    },
+    "reusable_recorder_input_guards": {
+      "status": "passed",
+      "checks": 21,
+      "source_script_sha256": "50a436bc8cedebcc46dd344b4526536a154fa696acb6d5fa00a42dbf184f9a25",
+      "report_sha256": "9131fea44a26d17fbbf90b9b7936f5f7b0b51c78da384cbb8346c30be1aac851",
+      "scope": "Isolated negative inputs plus read-only positive validation mode; no renderer/browser/audio regeneration or product mutation. Approved final media retains actual607 exporter provenance."
+    },
+    "limits": [
+      "Semantic visual inspection samples every annotation cue and critical first frames; not frame-by-frame viewing of every frame",
+      "No interaction-latency or capacity conclusion from edited preparation intervals",
+      "No new voice generation or claim of direct listening; approved Luna input retained"
+    ]
+  },
+  "historical_editions": [
+    {
+      "edition": "natural_luna_retimed_capture",
+      "eligible_for_submission": false,
+      "status": "superseded_do_not_submit",
+      "reason": "Replaced by a fresh narration-aligned capture with explicit attention guidance.",
+      "historical_public_record_sha256": "ca053ffbf50dbbedb625f37812e2022caddebf12a277a5c67ffa5ec9763c63fa",
+      "record_state_scope": "The enclosed values describe the prior verified edition; current eligibility is false.",
+      "record": {
+        "schema": "nerudo.submission-video.v2",
+        "created_at": "2026-10-13T19:35:51.666Z",
+        "edition": "natural_luna",
+        "status": "complete_local_artifact",
+        "selected_for_submission": true,
+        "ready_for_manual_upload": true,
+        "filename": "nerudo-submission-natural.mp4",
+        "public_video_url": null,
+        "duration_seconds": 510.68,
+        "bytes": 30731088,
+        "sha256": "04c5679b356d98f5d68664986f4751e1e75860d1999aed24bb8048fe961ddf75",
+        "video": {
+          "codec_name": "h264",
+          "width": 1600,
+          "height": 1000,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "25/1",
+          "duration": "510.680000",
+          "nb_frames": "12767"
+        },
+        "audio": {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 1,
+          "channel_layout": "mono",
+          "duration": "510.680000",
+          "bit_rate": "185527"
+        },
+        "production": {
+          "backend_version": "a1cbe028-4447-41e2-9bc8-377bdca25415",
+          "frontend_version": "ff8d53e4-35f4-47ac-a1bc-7bcaffdd38a5",
+          "backend_source_commit": "5a74c0100dbba28dcd64c07ca98aa88adf191f78",
+          "worker_wasm_sha256": "f62080b3935398b6b7eb0503ae55d58db2f03b7dcec66be154f13cda0986ec1f",
+          "preflight_packet_commit": "c2fd4724c367c9b6d3b5ba3655955e4f0e045726",
+          "browser_observed_source_head_prefixes": [
+            "168de01",
+            "4ba439d"
+          ]
+        },
+        "capture": {
+          "public_origin": "https://nerudo-web.patrickdeutsch.workers.dev",
+          "anonymous": true,
+          "methods_allowed": [
+            "GET",
+            "HEAD",
+            "OPTIONS"
+          ],
+          "scene_count": 8,
+          "successful_action_count": 36,
+          "scene_and_action_success": true,
+          "browser_page_errors": [],
+          "scenes": [
+            {
+              "id": "purpose",
+              "title": "01 / A Git platform for concurrent coding agents",
+              "seconds": 55,
+              "label": "Public product · scripted six-client demo",
+              "path": "/"
+            },
+            {
+              "id": "integration",
+              "title": "02 / The integrated check catches a stale caller",
+              "seconds": 60,
+              "label": "Recorded demo outcome · actual CI receipt",
+              "path": "/nerudo/demo/pulls/10"
+            },
+            {
+              "id": "attempts",
+              "title": "03 / Compare competing attempts and their plans",
+              "seconds": 60,
+              "label": "Scripted demo · trials do not publish a winner",
+              "path": "/nerudo/demo/tasks/T-5"
+            },
+            {
+              "id": "authority",
+              "title": "04 / Human authority stays bound to exact commits",
+              "seconds": 60,
+              "label": "Recorded approval and release · anonymous read-only view",
+              "path": "/nerudo/demo/pulls/16"
+            },
+            {
+              "id": "models",
+              "title": "05 / Real coding models, including unfinished outcomes",
+              "seconds": 60,
+              "label": "Fresh isolated run · pinned build 79c259ad · 2/3 complete · acceptance incomplete",
+              "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json"
+            },
+            {
+              "id": "scale",
+              "title": "06 / Scale measurements with the conditions visible",
+              "seconds": 70,
+              "label": "Recorded synthetic benchmarks · scope and failures included",
+              "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md"
+            },
+            {
+              "id": "architecture",
+              "title": "07 / Cloudflare architecture and verification bounds",
+              "seconds": 55,
+              "label": "Workers · Durable Objects · Artifacts · isolated CI Worker",
+              "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md"
+            },
+            {
+              "id": "reproduce",
+              "title": "08 / Reproduce the work and see what remains",
+              "seconds": 60,
+              "label": "Public source · MIT OR Apache-2.0 · reproducible evidence",
+              "path": "/nerudo/nerudo/repo/file%3ASUBMISSION.md"
+            }
+          ],
+          "reused": true,
+          "fresh_browsing": false,
+          "recorded_at": "2026-10-13T15:52:19.146Z",
+          "source_plan_duration_seconds": 480,
+          "source_video_duration_seconds": 479.88,
+          "source_video_sha256": "19ef0d4096e39b3e1232b37db41dd62d868f4b9fb3150660218dde97896bea99",
+          "source_journal_sha256": "65bb2949897a6806f537f8344e559e9efc16c8819059b9f31ee8d476ea408c3b",
+          "source_metadata_sha256": "4a0beff24956aff1cd65e2904e05c67e7a9fbc6b4ca7d8f838f5fbe89a2b43c5",
+          "action_counts_scope": "Original anonymous browser capture; no actions were rerun during renarration."
+        },
+        "narration": {
+          "provider": {
+            "name": "Deepgram via Cloudflare Workers AI",
+            "model": "@cf/deepgram/aura-2-en",
+            "voice": "luna",
+            "kind": "neural",
+            "gender": "female",
+            "style": "natural conversational",
+            "quality": "high"
+          },
+          "approved": true,
+          "disclosure": "Actual public-site interactions. Product demo is scripted. Historical model and scale evidence is dated and scoped. Narration: Deepgram via Cloudflare Workers AI, @cf/deepgram/aura-2-en, voice luna; approved natural female narration.",
+          "tempo_altered": false,
+          "added_transition_seconds": 0,
+          "lead_seconds": 0,
+          "source_script_sha256": "8e95b67daa78b95e75d858d76e5fe7719cfb7df86d2d6836387c6de6e424d7d3",
+          "manifest_sha256": "ceaf0bfdd98c35047ee3358a0b5481d2ad63a539865e575a6083ca7c3a8d854a",
+          "prepared_audio_sha256": "6fa0c01f5d8239796237fec432baf67c3a415dc1a5101ce7671a9ebee10d5041",
+          "clips": [
+            {
+              "id": "purpose",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "4ab033d7604d312bcf3eda16e0dbf2c1167c682c0644d9faebd5bbe1128acf45",
+              "inputSeconds": 56.56,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 56.56,
+              "tempo": 1,
+              "spokenSeconds": 56.56,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "901efc77c7c346bd93aeaf4381a86ef62f58c6a88a0525c25135c302839760e7",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "0dc18adaa10d69f826fc2ff6e0d51c241e05a5d4e08b59ee320438a82053c984",
+              "input_spoken_text_sha256": "d7b6471acabaa489c826afbb8a3b4b8b6262e57c9da5efd22e0deb935f0b9a47"
+            },
+            {
+              "id": "integration",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "1a9a91b2153731dfc6c135cad470dc1831f40634c9232cb9f301e0e45320e672",
+              "inputSeconds": 54.48,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 54.48,
+              "tempo": 1,
+              "spokenSeconds": 54.48,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "51f5c129d1a6af6c5f6f2843a7bc79aabdbf66d573725560b042ce77407301df",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76",
+              "input_spoken_text_sha256": "fb4e2f31de09b24292a42e74ff9cf224662ab149567c6106f0ebce90c7cf3b76"
+            },
+            {
+              "id": "attempts",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "03c86bbd3f2005cfc76ca3530bd182aca274178dcf7f7ab3e18c98f2e10c41f8",
+              "inputSeconds": 52.04,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 52.04,
+              "tempo": 1,
+              "spokenSeconds": 52.04,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "097dce7a4fb3abfa682c358149151e17283cadc83e3f7c7f48d4c01b6e4d605b",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1",
+              "input_spoken_text_sha256": "960d7c26bb94a2222581c2bce21896c868cab85abd5ec90ac0e7fc634a01e2b1"
+            },
+            {
+              "id": "authority",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "614f3474b9279a3b884ddd7a233b29ad6cd3aed584cdc17aba53ba0cf2c89a22",
+              "inputSeconds": 60,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 60,
+              "tempo": 1,
+              "spokenSeconds": 60,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "915734a1989c07b33dd70b27c00f8e878704f29579eeddec63ad623043f1b12b",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc",
+              "input_spoken_text_sha256": "fc440cf33fd4473a8d34b27546b478f54f8520a213a35ecfe849bee4aaa61efc"
+            },
+            {
+              "id": "models",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "0c6a423e660865f0ceb9996ef673d7dd9600013f339c4e03d6c94cad59aa6471",
+              "inputSeconds": 66.6,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 66.6,
+              "tempo": 1,
+              "spokenSeconds": 66.6,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "b8ae468e55bf9c99382de7f4a2de9dc3425afab5e84126b4c6cbe1371debef00",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970",
+              "input_spoken_text_sha256": "69e926f9fc72703fe1e2e9984495fa4216cac518f6a73489b8b914b7737ab970"
+            },
+            {
+              "id": "scale",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "d7a043e368e0cecc7f8a00d7e3f69daf4dc1b401fa2affac91e73320d946481a",
+              "inputSeconds": 80.08,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 80.08,
+              "tempo": 1,
+              "spokenSeconds": 80.08,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "b07556f2f786978a99d212b820405cb1aff87c14d820d1f0e6ae49fed18bd9ac",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04",
+              "input_spoken_text_sha256": "48085b347d5ee7a6cb04c85a45fb5e2790ce934a89338a8802c45d38ae7adc04"
+            },
+            {
+              "id": "architecture",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "bcac8f14ae8728e8c829c9cbb110d2e9e225f4954ef5e983f3cd3f0c9c441e86",
+              "inputSeconds": 69.24,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 69.24,
+              "tempo": 1,
+              "spokenSeconds": 69.24,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "21cbe934c2cd0d3ac7e99fa01650c0381d984262c32f9d10230227320d2b5f08",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "3c4456801017d5760dd0e0eba60779d61e44f1106f17d0f8ed378514aecb3b47",
+              "input_spoken_text_sha256": "204d10fabd26646eb59d4382cf2629d07f4ba1ff621bfe2e0be138c7d7b53998"
+            },
+            {
+              "id": "reproduce",
+              "provider": {
+                "name": "Deepgram via Cloudflare Workers AI",
+                "model": "@cf/deepgram/aura-2-en",
+                "voice": "luna",
+                "kind": "neural",
+                "gender": "female",
+                "style": "natural conversational",
+                "quality": "high"
+              },
+              "inputSha256": "07f9e257df928e24ced3558386321532637e0f1ecc4486f2b43d2cd95bba4dbd",
+              "inputSeconds": 71.68,
+              "trimStartSeconds": 0,
+              "trimEndSeconds": 71.68,
+              "tempo": 1,
+              "spokenSeconds": 71.68,
+              "transitionSeconds": 0,
+              "leadSeconds": 0,
+              "captionTiming": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+              "preparedSha256": "08ed3c6a7ef7f28eb450f5c0f88ce88317f9ae63109189cbeffa3fde726664d1",
+              "sampleRate": "24000",
+              "channels": 1,
+              "approved_display_text_sha256": "70488e0c72fd52e6ebe9811d19ceb6058b91caf8f5bb89a98592463ae14a22b4",
+              "input_spoken_text_sha256": "09464f6e4d002b717dede82a58479c4052abaf0ce2fdf5e445b0c8aeec8d6dd9"
+            }
+          ],
+          "pacing": {
+            "chapter_durations_follow_unaltered_audio": true,
+            "synthetic_blank_padding_seconds": 0,
+            "final_long_silences": [],
+            "whole_encoded_track_pause_scan": {
+              "file_sha256": "04c5679b356d98f5d68664986f4751e1e75860d1999aed24bb8048fe961ddf75",
+              "threshold_db": -40,
+              "minimum_pause_seconds": 0.15,
+              "maximum_detected_silence_seconds": 0.717333,
+              "silences_at_least_1_5_seconds": [],
+              "chapter_join_seconds": [
+                56.56,
+                111.04,
+                163.08,
+                223.08,
+                289.68,
+                369.76,
+                439.0
+              ],
+              "pause_count": 230,
+              "whole_encoded_track_scanned": true
+            },
+            "renderer_encoded_track_pause_scan": {
+              "threshold_db": -45,
+              "minimum_seconds": 0.01,
+              "maximum_detected_silence_seconds": 0.70925,
+              "silences_at_least_1_5_seconds": []
+            }
+          },
+          "loudness": {
+            "scope": "Final encoded AAC track",
+            "integrated_lufs": -16.22,
+            "true_peak_dbtp": -1.87,
+            "loudness_range_lu": 2.7,
+            "normalization_scope": "Whole track; tempo unchanged"
+          },
+          "captions": {
+            "method": "Known script aligned to ASR word timestamps (Deepgram Nova-3)",
+            "display_text": "Approved source script with branding and technical terms retained; not raw ASR text.",
+            "cue_count": 105,
+            "maximum_words": 20,
+            "maximum_chars": 145,
+            "overlap": false,
+            "exact_display_text_coverage": true,
+            "normalized_asr_units": 1311,
+            "exact_matched_units": 1291,
+            "localized_substitution_units": 20,
+            "insertion_or_deletion_spans": 0,
+            "asr_tail_seconds_range": [
+              0.0651,
+              0.205
+            ],
+            "validation_limit": "ASR spelling substitutions are not evidence that the generated speech changed a fact. This validates sequence coverage and source timing, not pronunciation.",
+            "direct_listening_claim": false,
+            "scenes": [
+              {
+                "id": "purpose",
+                "audio_seconds": 56.56,
+                "asr_seconds": 56.475,
+                "asr_tail_seconds": 0.085,
+                "asr_sha256": "34713cf14d4374e39ab99457d92446459a13563cd2f11e8b0f822a6b0d0c3253",
+                "audio_sha256": "4ab033d7604d312bcf3eda16e0dbf2c1167c682c0644d9faebd5bbe1128acf45",
+                "caption_count": 13,
+                "maximum_caption_words": 16,
+                "maximum_caption_chars": 107,
+                "first_caption_start": 0.16,
+                "last_caption_end": 56.475,
+                "exact_display_text_coverage": true,
+                "canonical_words": 147,
+                "asr_words": 146,
+                "normalized_units": 150,
+                "exact_matched_units": 147,
+                "inferred_units": 3
+              },
+              {
+                "id": "integration",
+                "audio_seconds": 54.48,
+                "asr_seconds": 54.375,
+                "asr_tail_seconds": 0.105,
+                "asr_sha256": "91c7c0d756982565894bbeadc6aeb32bd9b5369ae7672c7d5cab534e95cdda59",
+                "audio_sha256": "1a9a91b2153731dfc6c135cad470dc1831f40634c9232cb9f301e0e45320e672",
+                "caption_count": 12,
+                "maximum_caption_words": 18,
+                "maximum_caption_chars": 112,
+                "first_caption_start": 0.0,
+                "last_caption_end": 54.375,
+                "exact_display_text_coverage": true,
+                "canonical_words": 160,
+                "asr_words": 160,
+                "normalized_units": 161,
+                "exact_matched_units": 158,
+                "inferred_units": 3
+              },
+              {
+                "id": "attempts",
+                "audio_seconds": 52.04,
+                "asr_seconds": 51.835,
+                "asr_tail_seconds": 0.205,
+                "asr_sha256": "f26c322e4f98df5333e062c59fa7c09d9a6a0dcf2e40281495c68b9bc91dd350",
+                "audio_sha256": "03c86bbd3f2005cfc76ca3530bd182aca274178dcf7f7ab3e18c98f2e10c41f8",
+                "caption_count": 14,
+                "maximum_caption_words": 20,
+                "maximum_caption_chars": 119,
+                "first_caption_start": 0.24,
+                "last_caption_end": 51.835,
+                "exact_display_text_coverage": true,
+                "canonical_words": 160,
+                "asr_words": 160,
+                "normalized_units": 162,
+                "exact_matched_units": 159,
+                "inferred_units": 3
+              },
+              {
+                "id": "authority",
+                "audio_seconds": 60.0,
+                "asr_seconds": 59.934937,
+                "asr_tail_seconds": 0.0651,
+                "asr_sha256": "16f18fe7704085bdcb67c8b3e4fbc41d28a656eef5f561cd9244eaa4a02b0601",
+                "audio_sha256": "614f3474b9279a3b884ddd7a233b29ad6cd3aed584cdc17aba53ba0cf2c89a22",
+                "caption_count": 13,
+                "maximum_caption_words": 20,
+                "maximum_caption_chars": 118,
+                "first_caption_start": 0.16,
+                "last_caption_end": 59.9349,
+                "exact_display_text_coverage": true,
+                "canonical_words": 160,
+                "asr_words": 160,
+                "normalized_units": 162,
+                "exact_matched_units": 160,
+                "inferred_units": 2
+              },
+              {
+                "id": "models",
+                "audio_seconds": 66.6,
+                "asr_seconds": 66.399994,
+                "asr_tail_seconds": 0.2,
+                "asr_sha256": "70e4babd9ea9e497e8a9687a2264e158349053081debadb6addb3726f47b3c47",
+                "audio_sha256": "0c6a423e660865f0ceb9996ef673d7dd9600013f339c4e03d6c94cad59aa6471",
+                "caption_count": 13,
+                "maximum_caption_words": 20,
+                "maximum_caption_chars": 131,
+                "first_caption_start": 0.16,
+                "last_caption_end": 66.4,
+                "exact_display_text_coverage": true,
+                "canonical_words": 158,
+                "asr_words": 161,
+                "normalized_units": 164,
+                "exact_matched_units": 163,
+                "inferred_units": 1
+              },
+              {
+                "id": "scale",
+                "audio_seconds": 80.08,
+                "asr_seconds": 79.875,
+                "asr_tail_seconds": 0.205,
+                "asr_sha256": "1ac002c8913e3d9173112adfee909de030467abe328bcbf99982026325dc8f67",
+                "audio_sha256": "d7a043e368e0cecc7f8a00d7e3f69daf4dc1b401fa2affac91e73320d946481a",
+                "caption_count": 13,
+                "maximum_caption_words": 19,
+                "maximum_caption_chars": 133,
+                "first_caption_start": 0.08,
+                "last_caption_end": 79.875,
+                "exact_display_text_coverage": true,
+                "canonical_words": 182,
+                "asr_words": 189,
+                "normalized_units": 193,
+                "exact_matched_units": 191,
+                "inferred_units": 2
+              },
+              {
+                "id": "architecture",
+                "audio_seconds": 69.24,
+                "asr_seconds": 69.14,
+                "asr_tail_seconds": 0.1,
+                "asr_sha256": "966c1f405d9452ed5bc8cfd824d35de9de8a804176e9e5cd91e0ff5cee72924d",
+                "audio_sha256": "bcac8f14ae8728e8c829c9cbb110d2e9e225f4954ef5e983f3cd3f0c9c441e86",
+                "caption_count": 12,
+                "maximum_caption_words": 19,
+                "maximum_caption_chars": 145,
+                "first_caption_start": 0.24,
+                "last_caption_end": 69.14,
+                "exact_display_text_coverage": true,
+                "canonical_words": 145,
+                "asr_words": 149,
+                "normalized_units": 154,
+                "exact_matched_units": 152,
+                "inferred_units": 2
+              },
+              {
+                "id": "reproduce",
+                "audio_seconds": 71.68,
+                "asr_seconds": 71.51,
+                "asr_tail_seconds": 0.17,
+                "asr_sha256": "ec2fa9545cae0e4c82c7b7bc9f02756a315164aa262128ad6a88f06e40ff5b76",
+                "audio_sha256": "07f9e257df928e24ced3558386321532637e0f1ecc4486f2b43d2cd95bba4dbd",
+                "caption_count": 15,
+                "maximum_caption_words": 18,
+                "maximum_caption_chars": 136,
+                "first_caption_start": 0.08,
+                "last_caption_end": 71.51,
+                "exact_display_text_coverage": true,
+                "canonical_words": 160,
+                "asr_words": 163,
+                "normalized_units": 165,
+                "exact_matched_units": 161,
+                "inferred_units": 4
+              }
+            ]
+          }
+        },
+        "render": {
+          "chapter_retiming": [
+            {
+              "id": "purpose",
+              "source_start": 0,
+              "source_end": 55,
+              "render_start": 0,
+              "render_end": 56.56,
+              "scale": 1.02836364
+            },
+            {
+              "id": "integration",
+              "source_start": 55,
+              "source_end": 115,
+              "render_start": 56.56,
+              "render_end": 111.04,
+              "scale": 0.908
+            },
+            {
+              "id": "attempts",
+              "source_start": 115,
+              "source_end": 175,
+              "render_start": 111.04,
+              "render_end": 163.08,
+              "scale": 0.86733333
+            },
+            {
+              "id": "authority",
+              "source_start": 175,
+              "source_end": 235,
+              "render_start": 163.08,
+              "render_end": 223.08,
+              "scale": 1
+            },
+            {
+              "id": "models",
+              "source_start": 235,
+              "source_end": 295,
+              "render_start": 223.08,
+              "render_end": 289.68,
+              "scale": 1.11
+            },
+            {
+              "id": "scale",
+              "source_start": 295,
+              "source_end": 365,
+              "render_start": 289.68,
+              "render_end": 369.76,
+              "scale": 1.144
+            },
+            {
+              "id": "architecture",
+              "source_start": 365,
+              "source_end": 420,
+              "render_start": 369.76,
+              "render_end": 439.0,
+              "scale": 1.25890909
+            },
+            {
+              "id": "reproduce",
+              "source_start": 420,
+              "source_end": 480,
+              "render_start": 439.0,
+              "render_end": 510.68,
+              "scale": 1.19466667
+            }
+          ],
+          "caption_replacement": {
+            "width": 1600,
+            "height": 1000,
+            "fps": 25,
+            "overlay_window_height": 200,
+            "replacement_scope": "Only detected existing recording-overlay pixels; transparent above each measured border",
+            "measurement": {
+              "frames": 11997,
+              "detected_frames": 11379,
+              "detected_fraction": 0.9484871217804451,
+              "isolated_border_frames_interpolated": 15,
+              "band_heights": [
+                0,
+                115,
+                135
+              ]
+            },
+            "render_duration_seconds": 510.68,
+            "chapter_retiming": [
+              {
+                "id": "purpose",
+                "source_start": 0,
+                "source_end": 55,
+                "render_start": 0,
+                "render_end": 56.56,
+                "scale": 1.0283636363636364
+              },
+              {
+                "id": "integration",
+                "source_start": 55,
+                "source_end": 115,
+                "render_start": 56.56,
+                "render_end": 111.03999999999999,
+                "scale": 0.9079999999999999
+              },
+              {
+                "id": "attempts",
+                "source_start": 115,
+                "source_end": 175,
+                "render_start": 111.03999999999999,
+                "render_end": 163.07999999999998,
+                "scale": 0.8673333333333333
+              },
+              {
+                "id": "authority",
+                "source_start": 175,
+                "source_end": 235,
+                "render_start": 163.07999999999998,
+                "render_end": 223.07999999999998,
+                "scale": 1
+              },
+              {
+                "id": "models",
+                "source_start": 235,
+                "source_end": 295,
+                "render_start": 223.07999999999998,
+                "render_end": 289.67999999999995,
+                "scale": 1.1099999999999999
+              },
+              {
+                "id": "scale",
+                "source_start": 295,
+                "source_end": 365,
+                "render_start": 289.67999999999995,
+                "render_end": 369.75999999999993,
+                "scale": 1.144
+              },
+              {
+                "id": "architecture",
+                "source_start": 365,
+                "source_end": 420,
+                "render_start": 369.75999999999993,
+                "render_end": 438.99999999999994,
+                "scale": 1.2589090909090908
+              },
+              {
+                "id": "reproduce",
+                "source_start": 420,
+                "source_end": 480,
+                "render_start": 438.99999999999994,
+                "render_end": 510.67999999999995,
+                "scale": 1.1946666666666668
+              }
+            ],
+            "layers": 247,
+            "segments": 312
+          },
+          "visual_scope": "Each source chapter retimed to natural unaltered narration; no chapter or action omitted. Existing recording-overlay band replaced. Original product footage above each detected band retained, subject to lossy re-encoding; no whole-frame pixel identity claim.",
+          "no_fresh_browsing": true,
+          "renderer_sha256": "cdf197462cf01f883856113b0578ef05f0227df308ab11c76301475f4f30efed",
+          "caption_helper_sha256": "d802a86e764cbc7a7ba2ca4dd4fafe6e6b74ad398e469c4e6b6f718c7a6f926a",
+          "local_render_plan_sha256": "e694d4e8b3eb3a1b11c62b6ad399144fb67ed03c3e388508625ced61050b4677",
+          "rendered_captions_sha256": "ecaedade75202e463cf14c9ff387eb65e67f6930ffc699a27f761ccf46daa1ca",
+          "audio_export_correction": {
+            "initialAACBitrate": "128k",
+            "initialEncodedTruePeakDbtp": 0.56,
+            "published": false,
+            "finalAACBitrate": "256k",
+            "wholeTrackWavRetained": true,
+            "voiceTempoChanged": false,
+            "reason": "The initial render failed the final encoded true-peak gate; higher bitrate preserved the normalized waveform without overshoot."
+          },
+          "caption_visibility_limit": "New labels/captions appear within the detected existing recording band. Initial-load/navigation intervals without that band remain transparent; captions are not visible on every frame."
+        },
+        "claims": {
+          "product_demo": "Scripted six-client demo, not six live coding models.",
+          "first_provider_attempt": "Immutable Oct13 attempt: three overlapping clients, Claude/Codex landed, Hermes900s timeout,2/3 completed;11runtime tests/verify pass,full acceptance fails missing receipt.ts.",
+          "coordination": "Codex TS2554 rejection, Claude pinned-context read, and repaired second revision shown in a separate immutable audit.",
+          "later_recovery": "Separate outcome, never added to the original concurrent attempt.",
+          "batch_contract": "Integrated green batch tip, not every intermediate commit.",
+          "scale": "Historical synthetic integration;five-minute rate and pre-failure peak distinguished.",
+          "memory": "WASM linear memory, not total RAM."
+        },
+        "provider_evidence": {
+          "first_attempt_path": "cf/evidence/submission-provider-attempt-20261013.json",
+          "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+          "isolated_backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+          "outcome": "3 overlapping attempts; 2 completed/landed; Hermes timeout900s; verify/11runtime tests pass; full acceptance fails absent receipt.ts. Recovery is separate.",
+          "coordination_path": "cf/evidence/submission-coordination-20261013.json",
+          "coordination_sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d"
+        },
+        "plan": {
+          "path": "cf/evidence/submission-video-plan-20261013.json",
+          "schema": "nerudo.submission-video-plan.v2",
+          "sha256": "eee31e9c5cb45a167fdbe35f0329bf46fb1e7f7dc8a7be76cedbb712d6d7961c"
+        },
+        "verification": {
+          "ffprobe": "passed",
+          "full_audio_video_decode": "passed",
+          "representative_frames": {
+            "status": "passed",
+            "chapter_frames": 8,
+            "extra_border_frames": [
+              "compressed-border",
+              "tall-border"
+            ],
+            "old_captions_observed": false,
+            "scope": "Representative chapter/border frames plus all remaining zero-band intervals; no exhaustive per-frame visibility or whole-frame pixel-identity claim."
+          },
+          "size_limit_bytes": 2147483648,
+          "final_encoded_loudness_and_silence_gate": "passed",
+          "speech_content_and_caption_timing": "ASR sequence coverage and known-script alignment passed; no pronunciation or direct-listening claim.",
+          "whole_encoded_track_pause_scan": "passed: -40 dB threshold, minimum 0.15 s; 230 natural pauses, maximum 0.717333 s, none at least 1.5 s; includes all chapter joins.",
+          "full_decode": {
+            "passed": true,
+            "command": "ffmpeg -v error -i nerudo-submission-natural.mp4 -f null -",
+            "exit_code": 0
+          },
+          "zero_band_intervals": {
+            "intervals_checked": 15,
+            "boundary_and_midpoint_samples": 45,
+            "source_seconds": 24.12,
+            "render_seconds": 26.335852,
+            "old_captions_observed_in_samples": false,
+            "explanation": "Original first load and page navigations temporarily remove the browser recording overlay before it is recreated. Beginning, midpoint and ending samples of every remaining zero-band interval show product/loading content with no prior caption. These frames remain transparent to preserve original product pixels; caption visibility is limited to the existing recording band. Fifteen isolated compression-damaged border frames are inferred only from matching immediate neighbors and masked."
+          },
+          "narration_helper_negative_gates": {
+            "passed": 5,
+            "total": 5,
+            "checks": [
+              "missing_manifest",
+              "basic_voice",
+              "text_mismatch",
+              "stale_audio",
+              "long_gap"
+            ],
+            "scope": "isolated local helper negative gates; explicit padding fixture is not provider evidence"
+          },
+          "caption_mask_gates": {
+            "passed": 4,
+            "total": 4,
+            "checks": [
+              "zero band fully transparent",
+              "115px mask alpha confined to existing band",
+              "135px mask alpha confined to existing band",
+              "overlong cue rejected"
+            ]
+          },
+          "prepared_audio_hash_gate": {
+            "passed": true,
+            "expectedSha256": "6fa0c01f5d8239796237fec432baf67c3a415dc1a5101ce7671a9ebee10d5041"
+          },
+          "final_qa_record": {
+            "filename": "natural-video-qa.json",
+            "sha256": "9b5fdb9f0055449260abb45ce8160158019547ccbd46e8837739463e51924d9d",
+            "scope": "Local QA record summarized in this public evidence; media/contact sheets are retained with the local artifact."
+          }
+        },
+        "eligible_for_submission": true
+      }
+    },
+    {
+      "edition": "original_system_voice",
+      "eligible_for_submission": false,
+      "status": "superseded_do_not_submit",
+      "reason": "Replaced at the entrant request with natural female neural narration and continuous chapter pacing.",
+      "record": {
+        "schema": "nerudo.submission-video.v1",
+        "created_at": "2026-10-13T16:06:00.995602+00:00",
+        "status": "complete_local_artifact",
+        "filename": "nerudo-submission.mp4",
+        "public_video_url": null,
+        "duration_seconds": 480,
+        "bytes": 26426753,
+        "sha256": "90a81ebcf87d0174e24fc3e84b7abb311792d4b377699f3b1fbce278da487c31",
+        "video": {
+          "codec_name": "h264",
+          "width": 1600,
+          "height": 1000,
+          "avg_frame_rate": "25/1",
+          "pix_fmt": "yuv420p",
+          "duration": "479.880000",
+          "nb_frames": "11997"
+        },
+        "audio": {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 1,
+          "channel_layout": "mono",
+          "duration": "480.000000"
+        },
+        "production": {
+          "backend_version": "a1cbe028-4447-41e2-9bc8-377bdca25415",
+          "frontend_version": "ff8d53e4-35f4-47ac-a1bc-7bcaffdd38a5",
+          "backend_source_commit": "5a74c0100dbba28dcd64c07ca98aa88adf191f78",
+          "worker_wasm_sha256": "f62080b3935398b6b7eb0503ae55d58db2f03b7dcec66be154f13cda0986ec1f",
+          "preflight_packet_commit": "c2fd4724c367c9b6d3b5ba3655955e4f0e045726",
+          "browser_observed_source_head_prefixes": [
+            "168de01",
+            "4ba439d"
+          ]
+        },
+        "capture": {
+          "public_origin": "https://nerudo-web.patrickdeutsch.workers.dev",
+          "anonymous": true,
+          "methods_allowed": [
+            "GET",
+            "HEAD",
+            "OPTIONS"
+          ],
+          "scene_count": 8,
+          "successful_action_count": 36,
+          "scene_and_action_success": true,
+          "browser_page_errors": [],
+          "scenes": [
+            {
+              "id": "purpose",
+              "title": "01 / A Git platform for concurrent coding agents",
+              "seconds": 55,
+              "label": "Public product · scripted six-client demo",
+              "path": "/"
+            },
+            {
+              "id": "integration",
+              "title": "02 / The integrated check catches a stale caller",
+              "seconds": 60,
+              "label": "Recorded demo outcome · actual CI receipt",
+              "path": "/nerudo/demo/pulls/10"
+            },
+            {
+              "id": "attempts",
+              "title": "03 / Compare competing attempts and their plans",
+              "seconds": 60,
+              "label": "Scripted demo · trials do not publish a winner",
+              "path": "/nerudo/demo/tasks/T-5"
+            },
+            {
+              "id": "authority",
+              "title": "04 / Human authority stays bound to exact commits",
+              "seconds": 60,
+              "label": "Recorded approval and release · anonymous read-only view",
+              "path": "/nerudo/demo/pulls/16"
+            },
+            {
+              "id": "models",
+              "title": "05 / Real coding models, including unfinished outcomes",
+              "seconds": 60,
+              "label": "Fresh isolated run · pinned build 79c259ad · 2/3 complete · acceptance incomplete",
+              "path": "/nerudo/nerudo/repo/file%3Acf/evidence/submission-provider-attempt-20261013.json"
+            },
+            {
+              "id": "scale",
+              "title": "06 / Scale measurements with the conditions visible",
+              "seconds": 70,
+              "label": "Recorded synthetic benchmarks · scope and failures included",
+              "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md"
+            },
+            {
+              "id": "architecture",
+              "title": "07 / Cloudflare architecture and verification bounds",
+              "seconds": 55,
+              "label": "Workers · Durable Objects · Artifacts · isolated CI Worker",
+              "path": "/nerudo/nerudo/repo/file%3ABENCHMARKS.md"
+            },
+            {
+              "id": "reproduce",
+              "title": "08 / Reproduce the work and see what remains",
+              "seconds": 60,
+              "label": "Public source · MIT OR Apache-2.0 · reproducible evidence",
+              "path": "/nerudo/nerudo/repo/file%3ASUBMISSION.md"
+            }
+          ]
+        },
+        "narration": {
+          "voice": "macOS Samantha system voice",
+          "disclosure": "Actual public-site interactions. Product demo is scripted. Historical model and scale evidence is dated and scoped. Narration: macOS Samantha system voice.",
+          "captions": "Approximate sentence timing, burned into the recording overlay; SRT retained with the local artifact.",
+          "configured_rate_words_per_minute": 155
+        },
+        "claims": {
+          "product_demo": "Scripted six-client demo, not six live coding models.",
+          "first_provider_attempt": "Immutable Oct13 attempt: three overlapping clients, Claude/Codex landed, Hermes900s timeout,2/3 completed;11runtime tests/verify pass,full acceptance fails missing receipt.ts.",
+          "coordination": "Codex TS2554 rejection, Claude pinned-context read, and repaired second revision shown in a separate immutable audit.",
+          "later_recovery": "Separate outcome, never added to the original concurrent attempt.",
+          "batch_contract": "Integrated green batch tip, not every intermediate commit.",
+          "scale": "Historical synthetic integration;five-minute rate and pre-failure peak distinguished.",
+          "memory": "WASM linear memory, not total RAM."
+        },
+        "provider_evidence": {
+          "first_attempt_path": "cf/evidence/submission-provider-attempt-20261013.json",
+          "sha256": "32f22580831705b1ccc6a027ede66a90e7c718d361fe24223f610f3f834b03b4",
+          "isolated_backend_version": "79c259ad-080f-4f14-9fa1-18ec64830ab3",
+          "outcome": "3 overlapping attempts; 2 completed/landed; Hermes timeout900s; verify/11runtime tests pass; full acceptance fails absent receipt.ts. Recovery is separate.",
+          "coordination_path": "cf/evidence/submission-coordination-20261013.json",
+          "coordination_sha256": "aa00e0299dbf844901b3bb0e81fe2052d17a3d335c1da7d96c6738768189e71d"
+        },
+        "plan": "cf/evidence/submission-video-plan-20261013.json",
+        "verification": {
+          "ffprobe": "passed",
+          "full_audio_video_decode": "passed",
+          "representative_frames": {
+            "checked_seconds": [
+              25,
+              90,
+              140,
+              225,
+              262,
+              278,
+              312,
+              330,
+              340,
+              385,
+              455
+            ],
+            "result": "Actual public product, plans, context, signature, audit, acceptance failure, charts, and run instructions visible; chapter labels/captions readable."
+          },
+          "size_limit_bytes": 2147483648,
+          "export_helper_smoke": {
+            "status": "passed",
+            "helper_test_only": true,
+            "ordering": [
+              "context.close",
+              "video.saveAs",
+              "browser.close"
+            ],
+            "duration_seconds": 1.4,
+            "bytes": 21601,
+            "width": 800,
+            "height": 500
+          }
+        },
+        "export_recovery": {
+          "original_failure": "video.saveAs: Target page, context or browser has been closed",
+          "cause": "The browser was closed before the Playwright artifact save call.",
+          "retained_raw_capture": true,
+          "recovered_without_rerecording": true,
+          "recovery": "Encoded the finalized retained WebM with the prepared narration using ffmpeg.",
+          "source_fix": "Moved video.saveAs before browser.close; independent short helper export verified the fixed ordering."
+        }
+      }
+    }
+  ],
+  "size_mib": 31.02,
+  "rendered_at": "2026-10-13T21:11:55.052Z",
+  "manual_submission": {
+    "required": true,
+    "status": "ready_for_manual_upload",
+    "public_video_url": null,
+    "selected_filename": "nerudo-submission-visuals.mp4",
+    "superseded_filenames": [
+      "nerudo-submission.mp4",
+      "nerudo-submission-natural.mp4"
+    ],
+    "scope": "Local verified artifact only. Entrant reviews, manually uploads and submits through the official form."
+  }
+}

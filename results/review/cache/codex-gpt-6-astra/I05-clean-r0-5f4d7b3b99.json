@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.99,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "Length and isupper() do not enforce a 3-letter ISO currency code: 'U1D', 'U$D', and unassigned 'ZZZ' pass. Validate against supported ISO currency codes and test these invalid inputs."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_currency.py",
+   "explanation": "No test exercises the migration or verifies that existing rows and balances remain unchanged. Add migration coverage checking preservation of existing data, the USD default, and the NOT NULL constraint."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 22.72,
+ "reviewer": "codex-gpt-6-astra"
+}

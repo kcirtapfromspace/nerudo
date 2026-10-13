@@ -1,0 +1,26 @@
+# Landing rules for a replay of landseq's own history. The sequencer reads them from
+# trunk, never from the change being landed.
+
+# One unit per crate or app under cf/ and per bench directory: changes to different crates
+# share a batch. Every other path (a README, Cargo.lock) is its own unit.
+[footprint]
+units = ["cf/*", "bench/*"]
+
+# Changes to CI, the CI Worker and these rules wait for a person's signed seal.
+[seals]
+governance = [".github/**", "cf/landseq-ci/**", "landseq.toml"]
+
+[seals.require]
+governance = { roles = ["maintainer"], count = 1 }
+
+# No [ci] in the replay: landseq's history predates its own tsconfig.
+
+[[approvers]]
+name = "<your name>"
+key = "<your landseq pubkey>"
+roles = ["maintainer"]
+
+[[approvers]]
+name = "dana"
+key = "fad067074eaa94d168ab42e4cf67770c354ac5d03663c8bd5465ac9b7fe348c9"
+roles = ["dba"]

@@ -1,0 +1,74 @@
+# Landing rules for the `landseq demo` trunk. The sequencer reads them from trunk, never
+# from the change being landed.
+
+# Each targets/<name> directory is one footprint unit. Changes whose units don't overlap
+# land in the same batch and share one CI run.
+[footprint]
+units = ["targets/*"]
+
+# Every change appends a line here. Git would call two appends a conflict; the sequencer
+# appends them in landing order.
+[[commutative]]
+path = "CHANGELOG.md"
+rule = "append"
+
+# deps.lock is generated from deps/*.txt. Agents may regenerate it; the sequencer
+# regenerates it at landing, so it is never stale on trunk.
+[[derived]]
+path = "deps.lock"
+generator = "digest-index"
+source = "deps"
+
+# Agents add migrations as NEXT_<name>.sql; the sequencer numbers them at landing, so two
+# agents can't both take the same number.
+[[allocate]]
+dir = "migrations"
+pending_prefix = "NEXT_"
+width = 4
+
+# Changes that need a human's signed seal before they land: edits to CI, to these rules or
+# to tsconfig.json (so an agent can't weaken the type check), and irreversible SQL (drop
+# table, drop column, delete from, truncate).
+[seals]
+governance = ["ci/**", "landseq.toml", "tsconfig.json"]
+migrations = ["migrations/*.sql"]
+
+# How many approvers must seal each kind of change. Changing the approver list is itself a
+# governance change, so it takes a quorum of the approvers already listed here.
+[seals.require]
+governance = { roles = ["maintainer"], count = 1 }
+irreversible = { roles = ["maintainer"], count = 1 }
+
+# The real part of each batch's CI run: tsc (ts-rust, built as WebAssembly) type-checks the
+# batch's tree in the landseq-ci Worker. When a batch fails, the sequencer lands the changes
+# before the first one that breaks the check, and ejects that one.
+[ci]
+typecheck = { tsconfig = "tsconfig.json" }
+
+# Who can seal. `landseq demo` lists you (LANDSEQ_USER, or your login name) with your key.
+# A team lists each person with their own key and roles, and can require two maintainers
+# for governance.
+[[approvers]]
+name = "<your name>"
+key = "<your landseq pubkey>"
+roles = ["maintainer"]
+
+# A second person, so that @dba and review requests reach someone else. Nobody holds this
+# key's private half: dana can be mentioned and asked for a review, but never seals.
+[[approvers]]
+name = "dana"
+key = "fad067074eaa94d168ab42e4cf67770c354ac5d03663c8bd5465ac9b7fe348c9"
+roles = ["dba"]
+
+# Invariants every trunk commit must satisfy. A batch that breaks one doesn't land.
+[[checks]]
+kind = "unique-numbering"
+dir = "migrations"
+
+[[checks]]
+kind = "no-pending"
+dir = "migrations"
+prefix = "NEXT_"
+
+[[checks]]
+kind = "derived-consistent"

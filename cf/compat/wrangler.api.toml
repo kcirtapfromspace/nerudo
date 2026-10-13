@@ -1,0 +1,12 @@
+name = "landseq"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# The transfer already happened. Do not create or delete Durable Object namespaces here.
+[[services]]
+binding = "NERUDO"
+service = "nerudo"
+
+# Preserve the source Worker's applied migration tag after its namespaces move.
+[[migrations]]
+tag = "v2"

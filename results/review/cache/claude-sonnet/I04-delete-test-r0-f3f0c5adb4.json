@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.9,
+ "findings": [
+  {
+   "kind": "skipped_or_deleted_test",
+   "file": "tests/test_accounts.py",
+   "explanation": "The diff deletes the existing test test_rejects_negative_opening_balance. The daily limit Intent doesn't involve Account validation, so this removal is unrelated and weakens existing coverage. A human needs to decide whether it stays deleted. It should probably be restored."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "No test covers the criterion that a negative limit raises ValueError. The limit == 0 boundary is also untested. The implementation looks correct, but this criterion isn't verified. The amount test only covers amount 0, not a negative amount."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.008591600000000001,
+ "seconds": 3.76,
+ "reviewer": "claude-sonnet"
+}

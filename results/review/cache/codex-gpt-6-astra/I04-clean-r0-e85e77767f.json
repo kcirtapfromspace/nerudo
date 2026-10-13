@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 0.99,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "No test verifies that a negative limit raises ValueError or that zero is a valid limit. Add both cases using a positive amount."
+  },
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_limits.py",
+   "explanation": "The non-positive amount test checks only zero. Add a negative amount case asserting ValueError; an implementation rejecting only zero would pass the current tests."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 20.74,
+ "reviewer": "codex-gpt-6-astra"
+}

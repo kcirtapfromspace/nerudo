@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "boundary_bug",
+   "file": "ledger/accounts.py",
+   "explanation": "transfer subtracts cents before checking funds. Transferring 51 from a balance of 50 raises InsufficientFunds but leaves the source at -1, violating error atomicity. Check available funds before changing either balance."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_transfer.py",
+   "explanation": "test_insufficient_funds_changes_nothing only checks the exception, so it passes despite the source balance changing. Assert both balances remain (50, 7) after the error; also assert unchanged balances after the other rejected transfers."
+  }
+ ],
+ "model": "gpt-6-astra",
+ "cost_usd": null,
+ "seconds": 23.71,
+ "reviewer": "codex-gpt-6-astra"
+}

@@ -1,0 +1,249 @@
+{
+  "recorded_utc": "2026-10-12T07:20:07.787184+00:00",
+  "run_id": "20261012-070045",
+  "repo": "landseq/concurrency-20261012-070045",
+  "url": "https://landseq-web.patrickdeutsch.workers.dev/landseq/concurrency-20261012-070045",
+  "base_head": "01a6b5914933490df9f13b7a8320306dd7a32816",
+  "final_head": "0d6b386b800615942f5bcf2bcb1a89aa8a0d5c94",
+  "success": true,
+  "live_head_matches": true,
+  "max_overlapping_workflows": 3,
+  "three_workflow_overlap_seconds": 376.543,
+  "providers": [
+    {
+      "provider": "claude",
+      "status": "completed",
+      "observed_model": "claude-opus-5-5",
+      "started_utc": "2026-10-12T07:00:58.271649+00:00",
+      "ended_utc": "2026-10-12T07:07:14.826718+00:00",
+      "runtime_seconds": 376.491,
+      "receipt": {
+        "req": {
+          "change_id": "claude-feature",
+          "rev": 1,
+          "fork": "llm-20261012-070045--claude",
+          "commit": "2c0253684ea188d5f858241c60e3b532c83cd80f",
+          "base": "01a6b5914933490df9f13b7a8320306dd7a32816",
+          "task": "T-1",
+          "context_commit": "bd593034e1c77b18fb35c11d5d2de18ac9e3a158"
+        },
+        "state": "landed",
+        "seq": 1,
+        "trunk_commit": "2b52a5e6578ccb8e6ef2e2eb578acf43c3f6c851",
+        "reason": null,
+        "seal_reasons": [],
+        "allowance": null,
+        "sealed_by": [],
+        "submitted_ms": 1791788821425,
+        "landed_ms": 1791788822322,
+        "batch": 1,
+        "allocated": [],
+        "footprint": [
+          "src/price.ts",
+          "tests/price.test.mjs"
+        ],
+        "ci_runs": 1,
+        "subject": "Make price explicitly currency-aware (T-1)",
+        "number": 1,
+        "size": {
+          "files": 2,
+          "adds": 32,
+          "dels": 8
+        }
+      },
+      "land_tool_calls": 1,
+      "barrier_events": [
+        {
+          "at": "2026-10-12T07:06:57.915081+00:00",
+          "all_ready": false,
+          "reason": "timeout"
+        }
+      ]
+    },
+    {
+      "provider": "codex",
+      "status": "completed",
+      "observed_model": null,
+      "started_utc": "2026-10-12T07:00:58.235929+00:00",
+      "ended_utc": "2026-10-12T07:08:55.025967+00:00",
+      "runtime_seconds": 476.733,
+      "receipt": {
+        "req": {
+          "change_id": "codex-feature",
+          "rev": 2,
+          "fork": "llm-20261012-070045--codex",
+          "commit": "c24b6d1fb54d97b8863f159b23657cadd30350ba",
+          "base": "2b52a5e6578ccb8e6ef2e2eb578acf43c3f6c851",
+          "task": "T-2",
+          "context_commit": "67dec9d84ebec638e62c2525cd162598cabb93e2"
+        },
+        "state": "landed",
+        "seq": 2,
+        "trunk_commit": "664f50e975db176a5fe04b867eb48318a00d5963",
+        "reason": null,
+        "seal_reasons": [],
+        "allowance": null,
+        "sealed_by": [],
+        "submitted_ms": 1791788920367,
+        "landed_ms": 1791788921170,
+        "batch": 2,
+        "allocated": [],
+        "footprint": [
+          "src/cart.ts",
+          "tests/cart.test.mjs"
+        ],
+        "ci_runs": 1,
+        "subject": "Add cart subtotals through the currency-aware price API",
+        "number": 2,
+        "size": {
+          "files": 2,
+          "adds": 63,
+          "dels": 0
+        }
+      },
+      "land_tool_calls": 2,
+      "barrier_events": [
+        {
+          "at": "2026-10-12T07:07:50.509956+00:00",
+          "all_ready": false,
+          "reason": "timeout"
+        }
+      ]
+    },
+    {
+      "provider": "hermes",
+      "status": "completed",
+      "observed_model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+      "started_utc": "2026-10-12T07:00:58.283248+00:00",
+      "ended_utc": "2026-10-12T07:17:24.867106+00:00",
+      "runtime_seconds": 970.227,
+      "receipt": {
+        "req": {
+          "change_id": "hermes-feature",
+          "rev": 1,
+          "fork": "llm-20261012-070045--hermes",
+          "commit": "b6b10f2d4267e5206d24747dd3572a70f11269b6",
+          "base": "664f50e975db176a5fe04b867eb48318a00d5963",
+          "task": "T-3",
+          "context_commit": "b7ed18d67872136156a2995fae0f898acbc89abc"
+        },
+        "state": "landed",
+        "seq": 3,
+        "trunk_commit": "0d6b386b800615942f5bcf2bcb1a89aa8a0d5c94",
+        "reason": null,
+        "seal_reasons": [],
+        "allowance": null,
+        "sealed_by": [],
+        "submitted_ms": 1791789399873,
+        "landed_ms": 1791789400510,
+        "batch": 3,
+        "allocated": [],
+        "footprint": [
+          "src/receipt.ts",
+          "tests/receipt.test.mjs"
+        ],
+        "ci_runs": 1,
+        "subject": "Add receipt formatting on top of the shared price API (T-3)",
+        "number": 3,
+        "size": {
+          "files": 2,
+          "adds": 39,
+          "dels": 0
+        }
+      },
+      "land_tool_calls": 1,
+      "barrier_events": [
+        {
+          "at": "2026-10-12T07:16:37.306440+00:00",
+          "all_ready": true,
+          "reason": null
+        }
+      ]
+    }
+  ],
+  "runtime_tests": {
+    "ok": true,
+    "exit_code": 0,
+    "output": "\u2714 subtotal supports default USD and EUR and preserves frozen inputs (1.252375ms)\n\u2714 subtotal handles empty carts, zero prices, and unrounded currency conversion (0.167042ms)\n\u2714 subtotal rejects unsupported currencies even for empty carts (0.291459ms)\n\u2714 subtotal rejects quantities that are not positive integers (0.138083ms)\n\u2714 subtotal validates individual unit prices before multiplying or summing (0.293125ms)\n\u2714 price converts USD cents to dollars (0.416875ms)\n\u2714 price applies the fixed 0.9 multiplier for EUR without rounding (0.098958ms)\n\u2714 price rejects invalid cents (0.232333ms)\n\u2714 price rejects missing or unsupported currencies (0.116209ms)\n\u2714 receipt defaults to USD with exactly two decimals (0.90925ms)\n\u2714 receipt converts EUR through the shared price API and rounds for display (0.172833ms)\n\u2714 receipt preserves the price API's cents validation (0.319334ms)\n\u2714 receipt rejects unsupported currencies, including falsy and inherited keys (0.116042ms)\n\u2139 tests 13\n\u2139 suites 0\n\u2139 pass 13\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 92.751416\n"
+  },
+  "acceptance": {
+    "ok": true,
+    "output": "PASS: final runtime acceptance for price, cart, receipt\n"
+  },
+  "landseq_verify": {
+    "ok": true,
+    "output": "landseq verify: trunk llm-20261012-070045, fetched with a read-only token\n  \u2713 4 commits on trunk (seed included); 4 pass the trunk checks\n  \u2713 no landing needed a seal\n  \u2713 3 landed changes, each on trunk once (Change-Id trailer)\n  \u2713 3 Context: trailers resolve to immutable copies in the context repo; each copy's source is its receipt's fork@commit\n  \u2713 landing log: 3 entries, hash chain intact, ends at 195501764746 = trunk tip 0d6b386\n"
+  },
+  "stats": {
+    "approvers": [
+      "kcirtapfromspace"
+    ],
+    "awaiting_allowance": 0,
+    "awaiting_seal": 0,
+    "batch_sizes": [
+      1,
+      1,
+      1
+    ],
+    "batches": 3,
+    "ci_runs": 5,
+    "ejected_check": 0,
+    "ejected_ci": 1,
+    "ejected_conflict": 0,
+    "ejected_other": 0,
+    "external_moves": 0,
+    "fetches": 0,
+    "git_requests": 10,
+    "head": "0d6b386b800615942f5bcf2bcb1a89aa8a0d5c94",
+    "landed": 3,
+    "log_head_hash": "195501764746e7ed0b5eec1582fab48ec0c1f77954b3c517cf6a8ebae6dd4302",
+    "not_picked": 0,
+    "objects_cached": 47,
+    "paused": null,
+    "pushes": 3,
+    "queued": 0,
+    "recovered_attempts": 0,
+    "rules_digest": "974d26b91dadc3f701c158bed8833b14016b394f5561d75c83b123aeaa3addb9",
+    "seq": 3,
+    "submitted": 4,
+    "ui_objects_cached": 47,
+    "wasm_memory_bytes": 1703936
+  },
+  "hermes_runtime": {
+    "model": "Qwen3.8-Flash-Next-UD-IQ4_XS",
+    "provider": "native Hermes custom-provider route to local llama.cpp",
+    "actual_server_context": 65536,
+    "model_preloaded_before_workflows": true,
+    "one_server_shared_with_subagents": true
+  },
+  "native_subagent_observations": {
+    "hermes": {
+      "planner": {
+        "completed": true,
+        "model_calls": 4,
+        "inspection_calls": 12,
+        "mutation_calls": 0
+      },
+      "probe": {
+        "completed": true,
+        "model_calls": 1,
+        "inspection_calls": 0,
+        "mutation_calls": 0
+      },
+      "reviewer": {
+        "executed": false,
+        "reason": "Requested reviewer exceeded native two-child budget after planner and probe."
+      },
+      "readonly_policy": "Prompt policy; native children inherit write tools. Completed children made no mutation calls."
+    }
+  },
+  "limitations": [
+    "The initial landing barrier is artificial and logged separately.",
+    "Local runtime tests and final acceptance are external checks, not deployed Worker runtime CI.",
+    "Workflow overlap establishes real agent concurrency; it does not establish server capacity.",
+    "The first Claude and Codex barriers timed out; candidates were not ready together. Three sessions overlapped and three changes landed in three batches.",
+    "Model preload and setup are outside the workflow interval. This is provider interoperability and recovery evidence, not a server saturation benchmark.",
+    "Gemini is configured but unauthenticated. Ollama attempts are recorded separately and not counted as successful.",
+    "The preceding four-provider trial failed setup and timing checks; it is not counted in this successful clean run."
+  ]
+}

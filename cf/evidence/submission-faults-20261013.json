@@ -1,0 +1,1307 @@
+{
+  "started": "2026-10-13T08:53:10-0600",
+  "versions": {
+    "commit": "b653c86+dirty",
+    "wrangler": "4.148.0",
+    "gitea": "gitea version 28.1.0 built with go1.27.1 : sqlite, sqlite_unlock_notify",
+    "toxiproxy": "toxiproxy-server version 2.12.0",
+    "git": "git version 2.55.0",
+    "python": "3.14.7"
+  },
+  "args": {
+    "cases": "parity,ci_down,ci_hang,git_flaky,git_hang,kill9,growth",
+    "scenarios": "approvals,ci,recovery,authority_recovery,allowance_recovery,ci_red",
+    "ci_down_k": "1,8",
+    "ci_down_seconds": 20,
+    "ci_hang_seconds": 45,
+    "flaky_changes": 12,
+    "flaky_outage": 3,
+    "flaky_toxicity": 0.4,
+    "flaky_seconds": 45,
+    "hang_changes": 6,
+    "hang_seconds": 40,
+    "kill_reps": 3,
+    "growth": "32,64,128",
+    "seed": 1,
+    "strict": true,
+    "no_build": false,
+    "evidence": "/Users/thinkstudio/landseq/output/nerudo-submission/cf/evidence/submission-faults-20261013.json",
+    "keep": true
+  },
+  "known_gaps": {},
+  "cases": {
+    "ci_down": [
+      {
+        "k": 1,
+        "outage_s": 20.0,
+        "ci_requests": 5,
+        "per_trunk": 5.0,
+        "per_trunk_per_min": 15.0,
+        "landing_loop_errors_logged": 5,
+        "recovery_s": 13.2
+      },
+      {
+        "k": 8,
+        "outage_s": 20.0,
+        "ci_requests": 40,
+        "per_trunk": 5.0,
+        "per_trunk_per_min": 15.0,
+        "landing_loop_errors_logged": 40,
+        "recovery_s": 17.9
+      }
+    ],
+    "ci_hang": {
+      "hang_s": 45,
+      "requests_during_hang": 2,
+      "seconds_between_requests": [
+        26.2
+      ],
+      "recovery_s": 4.2
+    },
+    "git_flaky": {
+      "changes": 12,
+      "fault_s": 17.8,
+      "landed_under_fault": 12,
+      "landing_loop_errors_logged": 0,
+      "error_kinds": [],
+      "fetch_failed_ejections": 0,
+      "fetch_retries_logged": 12,
+      "fetch_retries": 12,
+      "external_moves": 0,
+      "recovered_attempts": 0,
+      "batches": 12
+    },
+    "git_hang": {
+      "changes": 6,
+      "faults": [
+        {
+          "fault": "replies",
+          "hang_s": 40.3,
+          "stall_kinds": [
+            "git_unavailable"
+          ],
+          "landed_before": 0,
+          "landed_at_back": 1,
+          "next_landing_after_s": 3.1
+        },
+        {
+          "fault": "requests",
+          "hang_s": 40.3,
+          "stall_kinds": [
+            "git_unavailable"
+          ],
+          "landed_before": 2,
+          "landed_at_back": 3,
+          "next_landing_after_s": 8.9
+        }
+      ],
+      "deadline_lines_logged": 2,
+      "landing_loop_errors_logged": 4,
+      "fetch_retries": 0,
+      "recovered_attempts": 2,
+      "pushes_again": 2,
+      "external_moves": 0,
+      "batches": 6,
+      "landed": 6
+    },
+    "kill9": [
+      {
+        "rep": 1,
+        "landed_before_kill": 1,
+        "stalled_after_restart": 0,
+        "nudged": false,
+        "recovered_attempts": 0
+      },
+      {
+        "rep": 2,
+        "landed_before_kill": 3,
+        "stalled_after_restart": 0,
+        "nudged": false,
+        "recovered_attempts": 1
+      },
+      {
+        "rep": 3,
+        "landed_before_kill": 5,
+        "stalled_after_restart": 0,
+        "nudged": false,
+        "recovered_attempts": 1
+      }
+    ],
+    "growth": [
+      {
+        "n": 32,
+        "drain_s": 1.36,
+        "batches": 2,
+        "git_requests": 9,
+        "rounds": [
+          {
+            "alarm_ms": 1791903641591,
+            "apply_ms": 2.0,
+            "at_ms": 1791903641591,
+            "batch": 1,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 87.0,
+            "fetch_ms": 116.0,
+            "fetch_retries": 0,
+            "fetched": 5,
+            "gate_ms": 4.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 0.0,
+            "oldest_ms": 6170.0,
+            "pack_bytes": 14000,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 0.0,
+            "push_ms": 600.0,
+            "queued": 32,
+            "record_ms": 3.0,
+            "requests": 7,
+            "round_ms": 727.0,
+            "rx_bytes": 9117,
+            "waiting": 16
+          },
+          {
+            "alarm_ms": 1791903641591,
+            "apply_ms": 2.0,
+            "at_ms": 1791903642318,
+            "batch": 2,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 0.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 1.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 0.0,
+            "oldest_ms": 3561.0,
+            "pack_bytes": 20359,
+            "pack_ms": 1.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 603.0,
+            "queued": 16,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 611.0,
+            "rx_bytes": 286,
+            "waiting": 0
+          }
+        ]
+      },
+      {
+        "n": 64,
+        "drain_s": 2.58,
+        "batches": 4,
+        "git_requests": 13,
+        "rounds": [
+          {
+            "alarm_ms": 1791903662355,
+            "apply_ms": 1.0,
+            "at_ms": 1791903662355,
+            "batch": 1,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 86.0,
+            "fetch_ms": 115.0,
+            "fetch_retries": 0,
+            "fetched": 5,
+            "gate_ms": 5.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 2.0,
+            "oldest_ms": 12793.0,
+            "pack_bytes": 13989,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 591.0,
+            "queued": 64,
+            "record_ms": 2.0,
+            "requests": 7,
+            "round_ms": 719.0,
+            "rx_bytes": 17357,
+            "waiting": 48
+          },
+          {
+            "alarm_ms": 1791903662355,
+            "apply_ms": 2.0,
+            "at_ms": 1791903663074,
+            "batch": 2,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 1.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 4.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 1.0,
+            "oldest_ms": 9997.0,
+            "pack_bytes": 20346,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 0.0,
+            "push_ms": 609.0,
+            "queued": 48,
+            "record_ms": 2.0,
+            "requests": 2,
+            "round_ms": 621.0,
+            "rx_bytes": 286,
+            "waiting": 32
+          },
+          {
+            "alarm_ms": 1791903662355,
+            "apply_ms": 1.0,
+            "at_ms": 1791903663695,
+            "batch": 3,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 1.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 1.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 1.0,
+            "oldest_ms": 7397.0,
+            "pack_bytes": 26372,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 576.0,
+            "queued": 32,
+            "record_ms": 2.0,
+            "requests": 2,
+            "round_ms": 585.0,
+            "rx_bytes": 286,
+            "waiting": 16
+          },
+          {
+            "alarm_ms": 1791903662355,
+            "apply_ms": 2.0,
+            "at_ms": 1791903664280,
+            "batch": 4,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 0.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 1.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 1.0,
+            "oldest_ms": 4714.0,
+            "pack_bytes": 32345,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 0.0,
+            "push_ms": 614.0,
+            "queued": 16,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 623.0,
+            "rx_bytes": 286,
+            "waiting": 0
+          }
+        ]
+      },
+      {
+        "n": 128,
+        "drain_s": 5.09,
+        "batches": 8,
+        "git_requests": 21,
+        "rounds": [
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 1.0,
+            "at_ms": 1791903698244,
+            "batch": 1,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 1.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 96.0,
+            "fetch_ms": 127.0,
+            "fetch_retries": 0,
+            "fetched": 5,
+            "gate_ms": 12.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 2.0,
+            "oldest_ms": 26294.0,
+            "pack_bytes": 13997,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 621.0,
+            "queued": 128,
+            "record_ms": 3.0,
+            "requests": 7,
+            "round_ms": 770.0,
+            "rx_bytes": 30486,
+            "waiting": 112
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903699014,
+            "batch": 2,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 2.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 6.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 2.0,
+            "oldest_ms": 23867.0,
+            "pack_bytes": 20362,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 595.0,
+            "queued": 112,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 613.0,
+            "rx_bytes": 286,
+            "waiting": 96
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903699627,
+            "batch": 3,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 1.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 6.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 2.0,
+            "oldest_ms": 21241.0,
+            "pack_bytes": 26360,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 591.0,
+            "queued": 96,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 608.0,
+            "rx_bytes": 286,
+            "waiting": 80
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903700235,
+            "batch": 4,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 2.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 4.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 1.0,
+            "oldest_ms": 18607.0,
+            "pack_bytes": 32357,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 597.0,
+            "queued": 80,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 612.0,
+            "rx_bytes": 286,
+            "waiting": 64
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903700847,
+            "batch": 5,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 1.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 4.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 1.0,
+            "oldest_ms": 16007.0,
+            "pack_bytes": 38428,
+            "pack_ms": 2.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 601.0,
+            "queued": 64,
+            "record_ms": 2.0,
+            "requests": 2,
+            "round_ms": 614.0,
+            "rx_bytes": 286,
+            "waiting": 48
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903701462,
+            "batch": 6,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 1.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 3.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 0.0,
+            "oldest_ms": 13328.0,
+            "pack_bytes": 44355,
+            "pack_ms": 3.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 605.0,
+            "queued": 48,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 618.0,
+            "rx_bytes": 286,
+            "waiting": 32
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903702080,
+            "batch": 7,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 0.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 0.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 2.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 1.0,
+            "oldest_ms": 10609.0,
+            "pack_bytes": 50447,
+            "pack_ms": 3.0,
+            "parked": 0,
+            "pick_ms": 1.0,
+            "push_ms": 614.0,
+            "queued": 32,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 626.0,
+            "rx_bytes": 286,
+            "waiting": 16
+          },
+          {
+            "alarm_ms": 1791903698244,
+            "apply_ms": 2.0,
+            "at_ms": 1791903702707,
+            "batch": 8,
+            "batched": 16,
+            "ci": "",
+            "ci_ms": 0.0,
+            "divert_ms": 0.0,
+            "ejected": 0,
+            "events_ms": 1.0,
+            "fetch_max_ms": 0.0,
+            "fetch_ms": 0.0,
+            "fetch_retries": 0,
+            "fetched": 0,
+            "gate_ms": 1.0,
+            "head_ms": 0.0,
+            "landed": 16,
+            "load_ms": 0.0,
+            "oldest_ms": 7722.0,
+            "pack_bytes": 56683,
+            "pack_ms": 4.0,
+            "parked": 0,
+            "pick_ms": 0.0,
+            "push_ms": 589.0,
+            "queued": 16,
+            "record_ms": 3.0,
+            "requests": 2,
+            "round_ms": 599.0,
+            "rx_bytes": 286,
+            "waiting": 0
+          }
+        ]
+      }
+    ]
+  },
+  "checks": [
+    {
+      "case": "parity",
+      "check": "scenario approvals",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario ci",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario authority_recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario allowance_recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario ci_red",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: 5 CI requests per trunk in 20 s (5 in all; budget 8 per trunk)",
+      "status": "pass",
+      "gap": null,
+      "per_trunk": 5.0,
+      "budget": 7.666904369990031
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: the queue or the change says that CI is unreachable",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-085434: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-085434: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-085434: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1 scn-cidown1-085434: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: no queue shows a stall after CI came back",
+      "status": "pass",
+      "gap": null,
+      "stalls": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=1: all landed 13.2 s after CI came back (budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: 5 CI requests per trunk in 20 s (40 in all; budget 8 per trunk)",
+      "status": "pass",
+      "gap": null,
+      "per_trunk": 5.0,
+      "budget": 7.667000865936279
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: the queue or the change says that CI is unreachable",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-085511: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-085511: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-085511: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown2-085511: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-085514: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-085514: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-085514: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown3-085514: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-085518: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-085518: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-085518: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown4-085518: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-085521: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-085521: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-085521: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown5-085521: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-085525: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-085525: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-085525: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown6-085525: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-085528: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-085528: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-085528: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown7-085528: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-085532: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-085532: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-085532: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown8-085532: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-085535: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-085535: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-085535: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8 scn-cidown9-085535: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: no queue shows a stall after CI came back",
+      "status": "pass",
+      "gap": null,
+      "stalls": {}
+    },
+    {
+      "case": "ci_down",
+      "check": "K=8: all landed 17.9 s after CI came back (budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-085619: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-085619: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-085619: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "ci_hang",
+      "check": "scn-cihang1-085619: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "ci_hang",
+      "check": "the Worker gave up on a hung CI request after its deadline of 25 s (next request after 26 s, budget 30 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "during the hang, the queue says that CI is unavailable and that it gave no answer",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "ci_hang",
+      "check": "landed 4.2 s after CI came back (budget 75 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-085717: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-085717: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-085717: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "git_flaky",
+      "check": "scn-flaky1-085717: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "git_flaky",
+      "check": "the faults had an effect: 12/12 landed in 18 s; 0 landing-loop errors, 12 fetches tried again, 0 fetch_failed ejections, 0 attempts recovered",
+      "status": "pass",
+      "gap": null,
+      "note": "with no effect, the case tests nothing: raise --flaky-outage or --flaky-toxicity"
+    },
+    {
+      "case": "git_flaky",
+      "check": "no lost reply was taken for someone else's move of main (external_moves = 0)",
+      "status": "pass",
+      "gap": null,
+      "external_moves": 0
+    },
+    {
+      "case": "git_hang",
+      "check": "replies: during the fault the queue showed a stall of the git host (git_unavailable)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "replies: the next landing came 3 s after the git host answered again (budget 90 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "requests: during the fault the queue showed a stall of the git host (git_unavailable)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "requests: the next landing came 9 s after the git host answered again (budget 90 s)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-085743: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-085743: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-085743: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "git_hang",
+      "check": "scn-hang1-085743: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "git_hang",
+      "check": "the Worker stopped hung git requests at its deadline (2 log lines)",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "git_hang",
+      "check": "no lost reply was taken for someone else's move of main (external_moves = 0)",
+      "status": "pass",
+      "gap": null,
+      "external_moves": 0
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1: the queue drained after the restart with no help",
+      "status": "pass",
+      "gap": null,
+      "stalled": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-085931: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-085931: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-085931: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 1 scn-kill1-085931: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2: the queue drained after the restart with no help",
+      "status": "pass",
+      "gap": null,
+      "stalled": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-085951: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-085951: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-085951: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 2 scn-kill2-085951: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3: the queue drained after the restart with no help",
+      "status": "pass",
+      "gap": null,
+      "stalled": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-090010: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-090010: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-090010: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "kill9",
+      "check": "rep 3 scn-kill3-090010: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-090029: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-090029: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-090029: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=32 scn-growth1-090029: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-090043: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-090043: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-090043: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=64 scn-growth2-090043: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-090106: no change ejected for the fault",
+      "status": "pass",
+      "gap": null,
+      "blamed": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-090106: no change still waiting",
+      "status": "pass",
+      "gap": null,
+      "waiting": []
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-090106: each landed change on main once and in the log once, no other on main",
+      "status": "pass",
+      "gap": null,
+      "wrong": {}
+    },
+    {
+      "case": "growth",
+      "check": "N=128 scn-growth3-090106: nerudo verify passes",
+      "status": "pass",
+      "gap": null,
+      "error": ""
+    },
+    {
+      "case": "growth",
+      "check": "N 32\u219264: drain time \u00d71.9 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 1.9
+    },
+    {
+      "case": "growth",
+      "check": "N 64\u2192128: drain time \u00d72.0 (budget \u00d73.0)",
+      "status": "pass",
+      "gap": null,
+      "ratio": 1.97
+    }
+  ],
+  "tested_worker_wasm_sha256": "3222fbc57db1b3674a1868d1a05f47b937e0c168ef050fa1e54c85a8a5404bae",
+  "validation_scope": "Full strict local suite before the final allowance replay-key correction; final-code targeted replay regressions are recorded separately."
+}

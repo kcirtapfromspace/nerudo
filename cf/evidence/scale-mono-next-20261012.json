@@ -1,0 +1,2608 @@
+{
+ "date": "2026-10-12",
+ "branch": "mono-next",
+ "step1": {
+  "commit": "b2d223e",
+  "what": "one fetch for a change with its files; base files only where a merge, seal or rule reads them; PR sizes read while the push runs",
+  "scale_safe_reference": {
+   "tiny_median_s": 0.734,
+   "m25_median_s": 1.499,
+   "source": "cf/evidence/scale-mono-combined-20261012.json (same Worker, same day)"
+  },
+  "tiny": {
+   "trunk": "mono-tiny-n1",
+   "version": "1ff70c40-068f-4abf-a27e-bf4d1aca3eb6",
+   "singles": [
+    {
+     "step": "single",
+     "cid": "s0",
+     "state": "landed",
+     "server_s": 0.969,
+     "client_s": 1.17
+    },
+    {
+     "step": "single",
+     "cid": "s1",
+     "state": "landed",
+     "server_s": 0.665,
+     "client_s": 0.85
+    },
+    {
+     "step": "single",
+     "cid": "s2",
+     "state": "landed",
+     "server_s": 0.654,
+     "client_s": 0.87
+    },
+    {
+     "step": "single",
+     "cid": "s3",
+     "state": "landed",
+     "server_s": 0.704,
+     "client_s": 0.9
+    },
+    {
+     "step": "single",
+     "cid": "s4",
+     "state": "landed",
+     "server_s": 0.667,
+     "client_s": 0.85
+    },
+    {
+     "step": "single",
+     "cid": "s5",
+     "state": "landed",
+     "server_s": 0.732,
+     "client_s": 0.94
+    }
+   ],
+   "summary": {
+    "n": 6,
+    "landed": 6,
+    "median_s": 0.704,
+    "min_s": 0.654,
+    "max_s": 0.969
+   },
+   "wasm_memory_bytes": 1638400,
+   "sizes": [
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    }
+   ],
+   "rounds": [
+    {
+     "fetched": 3,
+     "fetch_ms": 559.0,
+     "push_ms": 370.0,
+     "round_ms": 929.0,
+     "requests": 6
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 283.0,
+     "push_ms": 343.0,
+     "round_ms": 626.0,
+     "requests": 4
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 282.0,
+     "push_ms": 334.0,
+     "round_ms": 616.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 276.0,
+     "push_ms": 390.0,
+     "round_ms": 666.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 282.0,
+     "push_ms": 347.0,
+     "round_ms": 629.0,
+     "requests": 3
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 279.0,
+     "push_ms": 414.0,
+     "round_ms": 693.0,
+     "requests": 3
+    }
+   ]
+  },
+  "m25": {
+   "trunk": "mono-m25-n1",
+   "version": "38612f33-f0ac-4a85-91fc-968461c5dc06",
+   "singles": [
+    {
+     "step": "single",
+     "cid": "s0",
+     "state": "landed",
+     "server_s": 1.773,
+     "client_s": 1.99
+    },
+    {
+     "step": "single",
+     "cid": "s1",
+     "state": "landed",
+     "server_s": 1.296,
+     "client_s": 1.48
+    },
+    {
+     "step": "single",
+     "cid": "s2",
+     "state": "landed",
+     "server_s": 1.491,
+     "client_s": 1.66
+    },
+    {
+     "step": "single",
+     "cid": "s3",
+     "state": "landed",
+     "server_s": 1.281,
+     "client_s": 1.51
+    },
+    {
+     "step": "single",
+     "cid": "s4",
+     "state": "landed",
+     "server_s": 1.619,
+     "client_s": 1.79
+    },
+    {
+     "step": "single",
+     "cid": "s5",
+     "state": "landed",
+     "server_s": 1.299,
+     "client_s": 1.49
+    }
+   ],
+   "summary": {
+    "n": 6,
+    "landed": 6,
+    "median_s": 1.491,
+    "min_s": 1.281,
+    "max_s": 1.773
+   },
+   "wasm_memory_bytes": 2097152,
+   "sizes": [
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    },
+    {
+     "files": 2,
+     "adds": 2,
+     "dels": 1
+    }
+   ],
+   "rounds": [
+    {
+     "fetched": 3,
+     "fetch_ms": 1351.0,
+     "push_ms": 381.0,
+     "round_ms": 1732.0,
+     "requests": 6
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 897.0,
+     "push_ms": 361.0,
+     "round_ms": 1258.0,
+     "requests": 4
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 1048.0,
+     "push_ms": 403.0,
+     "round_ms": 1451.0,
+     "requests": 4
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 882.0,
+     "push_ms": 361.0,
+     "round_ms": 1243.0,
+     "requests": 4
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 1188.0,
+     "push_ms": 391.0,
+     "round_ms": 1579.0,
+     "requests": 4
+    },
+    {
+     "fetched": 1,
+     "fetch_ms": 845.0,
+     "push_ms": 416.0,
+     "round_ms": 1261.0,
+     "requests": 4
+    }
+   ]
+  },
+  "m700": {
+   "version": "fc0f8fb3-b892-43f6-89c4-07b22370c01e",
+   "steps": [
+    {
+     "step": "repo",
+     "existing": true
+    },
+    {
+     "step": "deploy",
+     "version": "fc0f8fb3-b892-43f6-89c4-07b22370c01e"
+    },
+    {
+     "step": "init",
+     "status": 200,
+     "s": 12.2,
+     "objects": 3682,
+     "error": null,
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3682,
+      "store_bytes": 2807763,
+      "ui_objects_cached": 0,
+      "landed": 0,
+      "batches": 0,
+      "batch_sizes": [],
+      "git_requests": 0,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 0
+     }
+    },
+    {
+     "step": "fork",
+     "fork": "mono-m700--a00-2"
+    },
+    {
+     "step": "land_one",
+     "submit_status": 200,
+     "s": 4.1,
+     "result": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791841464401,
+      "landed_ms": 1791841468330,
+      "batch": 1
+     },
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3708,
+      "store_bytes": 2809310,
+      "ui_objects_cached": 0,
+      "landed": 1,
+      "batches": 1,
+      "batch_sizes": [
+       1
+      ],
+      "git_requests": 5,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 1
+     }
+    },
+    {
+     "step": "land_batch",
+     "n": 5,
+     "s": 7.2,
+     "results": {
+      "b0": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791841474299,
+       "landed_ms": 1791841477870,
+       "batch": 2
+      },
+      "b1": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791841474696,
+       "landed_ms": 1791841480886,
+       "batch": 3
+      },
+      "b2": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791841474857,
+       "landed_ms": 1791841480886,
+       "batch": 3
+      },
+      "b3": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791841475026,
+       "landed_ms": 1791841480886,
+       "batch": 3
+      },
+      "b4": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791841475191,
+       "landed_ms": 1791841480886,
+       "batch": 3
+      }
+     },
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3738,
+      "store_bytes": 2815668,
+      "ui_objects_cached": 0,
+      "landed": 6,
+      "batches": 3,
+      "batch_sizes": [
+       1,
+       1,
+       4
+      ],
+      "git_requests": 11,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 6
+     }
+    },
+    {
+     "step": "verify",
+     "ok": true,
+     "landed": [
+      "b4",
+      "b3",
+      "b2",
+      "b1",
+      "b0",
+      "one"
+     ],
+     "changelog_missing": [],
+     "fsck": 0,
+     "fsck_err": ""
+    }
+   ]
+  },
+  "faults_all": "nix run .#faults: 82 passed, 5 known gaps, 0 failed"
+ },
+ "step2": {
+  "commits": [
+   "719f3f5",
+   "83a0a6f"
+  ],
+  "what": "lazy mode: trees and commits one at a time through the Artifacts binding (readTree, readCommit), kept in Durable Object storage; a trunk goes lazy when a git fetch of head's trees fails with HTTP 5xx or gives more than 1 MB",
+  "binding_probe": {
+   "readTree_ms": "about 45 each, one after the other; 6 at once 71 ms; 20 at once 127 ms (throwaway driver Worker, deleted)",
+   "readCommit": "fields only: no time zones, no extra headers, message without its last newline; the object is made again with each zone and checked by its id",
+   "git_on_d120k": "every fetch that walks the tree answers HTTP 500, also want <small commit> with have head; a want of blobs works (0.19 s); a push works (7 s)"
+  },
+  "first_version_all_lazy": {
+   "note": "every Artifacts trunk lazy: small repos became slower, so the size rule was added",
+   "tiny": {
+    "version": "c84657d6-2072-413d-9043-f644e730a675",
+    "name": "mono-tiny-n2",
+    "repo": "mono-tiny-n2",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.6
+     },
+     {
+      "step": "deploy",
+      "version": "c84657d6-2072-413d-9043-f644e730a675"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 2.1,
+      "objects": 3,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 3,
+       "store_bytes": 1083,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-tiny-n2--a00"
+     },
+     {
+      "step": "singles",
+      "n": 6,
+      "landed": 6,
+      "median_s": 0.901,
+      "min_s": 0.702,
+      "max_s": 1.494,
+      "stats": {
+       "wasm_memory_bytes": 1638400,
+       "objects_cached": 90,
+       "store_bytes": 19238,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 6,
+       "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ],
+       "git_requests": 22,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     }
+    ],
+    "singles": [
+     {
+      "step": "single",
+      "cid": "s0",
+      "state": "landed",
+      "server_s": 1.436,
+      "client_s": 1.72
+     },
+     {
+      "step": "single",
+      "cid": "s1",
+      "state": "landed",
+      "server_s": 0.901,
+      "client_s": 1.09
+     },
+     {
+      "step": "single",
+      "cid": "s2",
+      "state": "landed",
+      "server_s": 0.727,
+      "client_s": 0.9
+     },
+     {
+      "step": "single",
+      "cid": "s3",
+      "state": "landed",
+      "server_s": 1.494,
+      "client_s": 1.67
+     },
+     {
+      "step": "single",
+      "cid": "s4",
+      "state": "landed",
+      "server_s": 0.702,
+      "client_s": 0.88
+     },
+     {
+      "step": "single",
+      "cid": "s5",
+      "state": "landed",
+      "server_s": 0.779,
+      "client_s": 0.97
+     }
+    ],
+    "invocations_alarm": []
+   },
+   "m25": {
+    "version": "9e0e12f1-439a-4037-9d60-70f9ecb03ecd",
+    "name": "mono-m25-n2",
+    "repo": "mono-m25-n2",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 6.0
+     },
+     {
+      "step": "deploy",
+      "version": "9e0e12f1-439a-4037-9d60-70f9ecb03ecd"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 2.4,
+      "objects": 3,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 3,
+       "store_bytes": 1084,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m25-n2--a00"
+     },
+     {
+      "step": "singles",
+      "n": 6,
+      "landed": 6,
+      "median_s": 1.8,
+      "min_s": 1.67,
+      "max_s": 2.223,
+      "stats": {
+       "wasm_memory_bytes": 1769472,
+       "objects_cached": 106,
+       "store_bytes": 73310,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 6,
+       "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ],
+       "git_requests": 26,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     }
+    ],
+    "singles": [
+     {
+      "step": "single",
+      "cid": "s0",
+      "state": "landed",
+      "server_s": 2.223,
+      "client_s": 2.45
+     },
+     {
+      "step": "single",
+      "cid": "s1",
+      "state": "landed",
+      "server_s": 1.67,
+      "client_s": 1.93
+     },
+     {
+      "step": "single",
+      "cid": "s2",
+      "state": "landed",
+      "server_s": 2.18,
+      "client_s": 2.37
+     },
+     {
+      "step": "single",
+      "cid": "s3",
+      "state": "landed",
+      "server_s": 1.716,
+      "client_s": 1.92
+     },
+     {
+      "step": "single",
+      "cid": "s4",
+      "state": "landed",
+      "server_s": 1.8,
+      "client_s": 2.02
+     },
+     {
+      "step": "single",
+      "cid": "s5",
+      "state": "landed",
+      "server_s": 1.68,
+      "client_s": 1.89
+     }
+    ],
+    "invocations_alarm": []
+   },
+   "m700": {
+    "version": "1821fdfd-2bb8-4d26-af01-9956df17cf99",
+    "name": "mono-m700-n2",
+    "repo": "mono-m700",
+    "steps": [
+     {
+      "step": "repo",
+      "existing": true
+     },
+     {
+      "step": "deploy",
+      "version": "1821fdfd-2bb8-4d26-af01-9956df17cf99"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 2.1,
+      "objects": 3,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 3,
+       "store_bytes": 1172,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m700--a00-3"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 6.7,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791842964917,
+       "landed_ms": 1791842971437,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 1638400,
+       "objects_cached": 31,
+       "store_bytes": 3562,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 5,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 5,
+      "s": 10.8,
+      "results": {
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842980341,
+        "landed_ms": 1791842990249,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842980533,
+        "landed_ms": 1791842990249,
+        "batch": 3
+       },
+       "b3": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842980696,
+        "landed_ms": 1791842990249,
+        "batch": 3
+       },
+       "b4": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842980854,
+        "landed_ms": 1791842990249,
+        "batch": 3
+       },
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842980149,
+        "landed_ms": 1791842986054,
+        "batch": 2
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 1638400,
+       "objects_cached": 61,
+       "store_bytes": 10230,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        4
+       ],
+       "git_requests": 11,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b4",
+       "b3",
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     }
+    ],
+    "singles": [],
+    "invocations_alarm": []
+   },
+   "d120k": {
+    "version": "3aaaa6ff-6861-417c-a7ac-4abaaeee8c69",
+    "name": "mono-d120k-n4",
+    "repo": "mono-d120k",
+    "steps": [
+     {
+      "step": "repo",
+      "existing": true
+     },
+     {
+      "step": "deploy",
+      "version": "3aaaa6ff-6861-417c-a7ac-4abaaeee8c69"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 1.7,
+      "objects": 3,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 3,
+       "store_bytes": 1176,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-d120k--a00-1"
+     },
+     {
+      "step": "trunk_fetch",
+      "ok": false,
+      "error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 10.7,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791842696169,
+       "landed_ms": 1791842706677,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 1769472,
+       "objects_cached": 49,
+       "store_bytes": 36125,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 6,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 3,
+      "s": 16.1,
+      "results": {
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842718956,
+        "landed_ms": 1791842734245,
+        "batch": 3
+       },
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842718585,
+        "landed_ms": 1791842725730,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791842718798,
+        "landed_ms": 1791842734245,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 1900544,
+       "objects_cached": 100,
+       "store_bytes": 75930,
+       "ui_objects_cached": 0,
+       "landed": 4,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        2
+       ],
+       "git_requests": 15,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 4
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "by": "landing log (git fetch failed)",
+      "landed": [
+       "one",
+       "b0",
+       "b1",
+       "b2"
+      ],
+      "git_error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+     }
+    ],
+    "singles": [],
+    "invocations_alarm": []
+   }
+  },
+  "d120k_first_landing": {
+   "version": "e44a0151-afaf-407f-b3e0-132d99e0d8c1",
+   "name": "mono-d120k-n3",
+   "repo": "mono-d120k",
+   "steps": [
+    {
+     "step": "repo",
+     "existing": true
+    },
+    {
+     "step": "deploy",
+     "version": "e44a0151-afaf-407f-b3e0-132d99e0d8c1"
+    },
+    {
+     "step": "init",
+     "status": 200,
+     "s": 1.9,
+     "objects": 3,
+     "error": null,
+     "stats": {
+      "wasm_memory_bytes": 1376256,
+      "objects_cached": 3,
+      "store_bytes": 1084,
+      "ui_objects_cached": 0,
+      "landed": 0,
+      "batches": 0,
+      "batch_sizes": [],
+      "git_requests": 0,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 0
+     }
+    },
+    {
+     "step": "fork",
+     "fork": "mono-d120k--a00"
+    },
+    {
+     "step": "land_one",
+     "submit_status": 200,
+     "s": 11.4,
+     "result": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791842456646,
+      "landed_ms": 1791842467921,
+      "batch": 1
+     },
+     "stats": {
+      "wasm_memory_bytes": 1769472,
+      "objects_cached": 43,
+      "store_bytes": 25294,
+      "ui_objects_cached": 0,
+      "landed": 1,
+      "batches": 1,
+      "batch_sizes": [
+       1
+      ],
+      "git_requests": 6,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 1
+     }
+    },
+    {
+     "step": "land_batch",
+     "n": 3,
+     "s": 21.0,
+     "results": {
+      "b0": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791842481043,
+       "landed_ms": 1791842490999,
+       "batch": 2
+      },
+      "b1": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791842481233,
+       "landed_ms": 1791842501769,
+       "batch": 3
+      },
+      "b2": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791842481418,
+       "landed_ms": 1791842501769,
+       "batch": 3
+      }
+     },
+     "stats": {
+      "wasm_memory_bytes": 1900544,
+      "objects_cached": 97,
+      "store_bytes": 94736,
+      "ui_objects_cached": 0,
+      "landed": 4,
+      "batches": 3,
+      "batch_sizes": [
+       1,
+       1,
+       2
+      ],
+      "git_requests": 17,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 4
+     }
+    },
+    {
+     "step": "verify",
+     "ok": true,
+     "by": "landing log (git fetch failed)",
+     "landed": [
+      "one",
+      "b0",
+      "b1",
+      "b2"
+     ],
+     "git_error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+    }
+   ],
+   "singles": [],
+   "invocations_alarm": []
+  },
+  "d120k_checked_through_binding": "readFile on main: CHANGELOG.md has '- one', '- b0', '- b1', '- b2'; each edited file has its changed line; log shows the landed commits in order",
+  "hybrid": {
+   "tiny": {
+    "version": "e0f11a8b-b899-4d23-9e4b-bc01d5d8f565",
+    "name": "mono-tiny-n3",
+    "repo": "mono-tiny-n3",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.4
+     },
+     {
+      "step": "deploy",
+      "version": "e0f11a8b-b899-4d23-9e4b-bc01d5d8f565"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 1.9,
+      "objects": 34,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 34,
+       "store_bytes": 3485,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-tiny-n3--a00"
+     },
+     {
+      "step": "singles",
+      "n": 6,
+      "landed": 6,
+      "median_s": 0.732,
+      "min_s": 0.625,
+      "max_s": 0.927,
+      "stats": {
+       "wasm_memory_bytes": 1638400,
+       "objects_cached": 112,
+       "store_bytes": 20325,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 6,
+       "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ],
+       "git_requests": 22,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     }
+    ],
+    "singles": [
+     {
+      "step": "single",
+      "cid": "s0",
+      "state": "landed",
+      "server_s": 0.927,
+      "client_s": 1.17
+     },
+     {
+      "step": "single",
+      "cid": "s1",
+      "state": "landed",
+      "server_s": 0.68,
+      "client_s": 0.84
+     },
+     {
+      "step": "single",
+      "cid": "s2",
+      "state": "landed",
+      "server_s": 0.625,
+      "client_s": 0.79
+     },
+     {
+      "step": "single",
+      "cid": "s3",
+      "state": "landed",
+      "server_s": 0.732,
+      "client_s": 0.91
+     },
+     {
+      "step": "single",
+      "cid": "s4",
+      "state": "landed",
+      "server_s": 0.833,
+      "client_s": 1.0
+     },
+     {
+      "step": "single",
+      "cid": "s5",
+      "state": "landed",
+      "server_s": 0.686,
+      "client_s": 1.19
+     }
+    ],
+    "invocations_alarm": [
+     [
+      14,
+      924
+     ],
+     [
+      1,
+      674
+     ],
+     [
+      1,
+      617
+     ],
+     [
+      1,
+      1030
+     ]
+    ]
+   },
+   "m25": {
+    "version": "cc12920c-9407-4cbe-8ea9-8ef0fc88ac77",
+    "name": "mono-m25-n3",
+    "repo": "mono-m25-n3",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 5.3
+     },
+     {
+      "step": "deploy",
+      "version": "cc12920c-9407-4cbe-8ea9-8ef0fc88ac77"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 1.7,
+      "objects": 259,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 259,
+       "store_bytes": 201996,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m25-n3--a00"
+     },
+     {
+      "step": "singles",
+      "n": 6,
+      "landed": 6,
+      "median_s": 1.344,
+      "min_s": 1.261,
+      "max_s": 1.665,
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 341,
+       "store_bytes": 265535,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 6,
+       "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ],
+       "git_requests": 26,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     }
+    ],
+    "singles": [
+     {
+      "step": "single",
+      "cid": "s0",
+      "state": "landed",
+      "server_s": 1.665,
+      "client_s": 1.88
+     },
+     {
+      "step": "single",
+      "cid": "s1",
+      "state": "landed",
+      "server_s": 1.325,
+      "client_s": 1.55
+     },
+     {
+      "step": "single",
+      "cid": "s2",
+      "state": "landed",
+      "server_s": 1.344,
+      "client_s": 1.5
+     },
+     {
+      "step": "single",
+      "cid": "s3",
+      "state": "landed",
+      "server_s": 1.341,
+      "client_s": 1.49
+     },
+     {
+      "step": "single",
+      "cid": "s4",
+      "state": "landed",
+      "server_s": 1.261,
+      "client_s": 1.47
+     },
+     {
+      "step": "single",
+      "cid": "s5",
+      "state": "landed",
+      "server_s": 1.556,
+      "client_s": 1.72
+     }
+    ],
+    "invocations_alarm": []
+   },
+   "d120k_before_83a0a6f": {
+    "version": "0e2c9412-30d1-4b25-a2f1-9b6284141b2e",
+    "name": "mono-d120k-n5",
+    "repo": "mono-d120k",
+    "steps": [
+     {
+      "step": "repo",
+      "existing": true
+     },
+     {
+      "step": "deploy",
+      "version": "0e2c9412-30d1-4b25-a2f1-9b6284141b2e"
+     },
+     {
+      "step": "init",
+      "status": 500,
+      "s": 3.9,
+      "objects": null,
+      "error": "INTERNAL SERVER ERROR",
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 0,
+       "store_bytes": 0,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     }
+    ],
+    "singles": [],
+    "invocations_alarm": []
+   }
+  },
+  "faults_all": "nix run .#faults (719f3f5): 82 passed, 5 known gaps, 0 failed"
+ },
+ "step3": {
+  "commit": "8b2f403",
+  "what": "UI copy of trunk read one object at a time on lazy trunks (records misses, runs again); views read only the paths they show; plain git push takes main from the landing log; import by Artifacts fork",
+  "final": {
+   "tiny": {
+    "version": "91b549ef-d758-4f29-8075-ac4b8b49e46e",
+    "name": "mono-tiny-n6",
+    "repo": "mono-tiny-n6",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 0.6
+     },
+     {
+      "step": "deploy",
+      "version": "91b549ef-d758-4f29-8075-ac4b8b49e46e"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 2.0,
+      "objects": 34,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 34,
+       "store_bytes": 3485,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-tiny-n6--a00"
+     },
+     {
+      "step": "singles",
+      "n": 6,
+      "landed": 6,
+      "median_s": 0.67,
+      "min_s": 0.632,
+      "max_s": 1.086,
+      "stats": {
+       "wasm_memory_bytes": 1638400,
+       "objects_cached": 112,
+       "store_bytes": 20403,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 6,
+       "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ],
+       "git_requests": 22,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     }
+    ],
+    "singles": [
+     {
+      "step": "single",
+      "cid": "s0",
+      "state": "landed",
+      "server_s": 1.086,
+      "client_s": 1.41
+     },
+     {
+      "step": "single",
+      "cid": "s1",
+      "state": "landed",
+      "server_s": 0.688,
+      "client_s": 0.91
+     },
+     {
+      "step": "single",
+      "cid": "s2",
+      "state": "landed",
+      "server_s": 0.632,
+      "client_s": 0.81
+     },
+     {
+      "step": "single",
+      "cid": "s3",
+      "state": "landed",
+      "server_s": 0.67,
+      "client_s": 0.86
+     },
+     {
+      "step": "single",
+      "cid": "s4",
+      "state": "landed",
+      "server_s": 0.662,
+      "client_s": 0.83
+     },
+     {
+      "step": "single",
+      "cid": "s5",
+      "state": "landed",
+      "server_s": 0.658,
+      "client_s": 0.95
+     }
+    ],
+    "invocations_alarm": [
+     [
+      35,
+      1201
+     ],
+     [
+      4,
+      688
+     ],
+     [
+      2,
+      632
+     ],
+     [
+      4,
+      677
+     ]
+    ]
+   },
+   "m25": {
+    "version": "1a230790-286e-4fe1-9307-5aadb0c2d25e",
+    "name": "mono-m25-n6",
+    "repo": "mono-m25-n6",
+    "steps": [
+     {
+      "step": "repo",
+      "pushed_s": 5.3
+     },
+     {
+      "step": "deploy",
+      "version": "1a230790-286e-4fe1-9307-5aadb0c2d25e"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 2.2,
+      "objects": 259,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 259,
+       "store_bytes": 201996,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m25-n6--a00"
+     },
+     {
+      "step": "singles",
+      "n": 6,
+      "landed": 6,
+      "median_s": 1.028,
+      "min_s": 0.939,
+      "max_s": 1.313,
+      "stats": {
+       "wasm_memory_bytes": 2097152,
+       "objects_cached": 341,
+       "store_bytes": 265607,
+       "ui_objects_cached": 0,
+       "landed": 6,
+       "batches": 6,
+       "batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ],
+       "git_requests": 26,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 6
+      }
+     }
+    ],
+    "singles": [
+     {
+      "step": "single",
+      "cid": "s0",
+      "state": "landed",
+      "server_s": 1.313,
+      "client_s": 1.48
+     },
+     {
+      "step": "single",
+      "cid": "s1",
+      "state": "landed",
+      "server_s": 0.939,
+      "client_s": 1.11
+     },
+     {
+      "step": "single",
+      "cid": "s2",
+      "state": "landed",
+      "server_s": 1.028,
+      "client_s": 1.2
+     },
+     {
+      "step": "single",
+      "cid": "s3",
+      "state": "landed",
+      "server_s": 0.965,
+      "client_s": 1.11
+     },
+     {
+      "step": "single",
+      "cid": "s4",
+      "state": "landed",
+      "server_s": 1.07,
+      "client_s": 1.26
+     },
+     {
+      "step": "single",
+      "cid": "s5",
+      "state": "landed",
+      "server_s": 0.949,
+      "client_s": 1.1
+     }
+    ],
+    "invocations_alarm": [
+     [
+      16,
+      1320
+     ],
+     [
+      1,
+      932
+     ],
+     [
+      1,
+      1026
+     ],
+     [
+      1,
+      1066
+     ],
+     [
+      1,
+      944
+     ]
+    ]
+   },
+   "m700": {
+    "version": "412aa291-0545-41ac-a846-a5be64e2c8f7",
+    "name": "mono-m700-n6",
+    "repo": "mono-m700",
+    "steps": [
+     {
+      "step": "repo",
+      "existing": true
+     },
+     {
+      "step": "deploy",
+      "version": "412aa291-0545-41ac-a846-a5be64e2c8f7"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 13.9,
+      "objects": 3682,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3682,
+       "store_bytes": 2807767,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-m700--e00"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 4.7,
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791844682382,
+       "landed_ms": 1791844686935,
+       "batch": 1
+      },
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3714,
+       "store_bytes": 2837876,
+       "ui_objects_cached": 0,
+       "landed": 1,
+       "batches": 1,
+       "batch_sizes": [
+        1
+       ],
+       "git_requests": 6,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 1
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 3,
+      "s": 7.1,
+      "results": {
+       "b0": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791844690833,
+        "landed_ms": 1791844694441,
+        "batch": 2
+       },
+       "b1": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791844691019,
+        "landed_ms": 1791844697603,
+        "batch": 3
+       },
+       "b2": {
+        "state": "landed",
+        "reason": null,
+        "submitted_ms": 1791844691236,
+        "landed_ms": 1791844697603,
+        "batch": 3
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3753,
+       "store_bytes": 2919190,
+       "ui_objects_cached": 0,
+       "landed": 4,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        2
+       ],
+       "git_requests": 14,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 4
+      }
+     },
+     {
+      "step": "verify",
+      "ok": true,
+      "landed": [
+       "b2",
+       "b1",
+       "b0",
+       "one"
+      ],
+      "changelog_missing": [],
+      "fsck": 0,
+      "fsck_err": ""
+     },
+     {
+      "step": "ui",
+      "reads": {
+       "state": {
+        "status": 200,
+        "s": 0.14,
+        "bytes": 2469
+       },
+       "change": {
+        "status": 200,
+        "s": 3.48,
+        "bytes": 2516,
+        "files": 2
+       },
+       "tree": {
+        "status": 200,
+        "s": 0.26,
+        "bytes": 347
+       },
+       "tree_dir": {
+        "status": 200,
+        "s": 0.73,
+        "bytes": 982
+       },
+       "tree_file": {
+        "status": 200,
+        "s": 0.31,
+        "bytes": 8251,
+        "has_text": true
+       },
+       "history": {
+        "status": 200,
+        "s": 0.29,
+        "bytes": 615
+       },
+       "history_file": {
+        "status": 200,
+        "s": 0.71,
+        "bytes": 221,
+        "landings": 1
+       },
+       "release_draft": {
+        "status": 200,
+        "s": 2.14,
+        "bytes": 1768
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 14155776,
+       "objects_cached": 3753,
+       "store_bytes": 2919190,
+       "ui_objects_cached": 51,
+       "landed": 4,
+       "batches": 3,
+       "batch_sizes": [
+        1,
+        1,
+        2
+       ],
+       "git_requests": 14,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 4
+      }
+     },
+     {
+      "step": "git_push",
+      "rc": 0,
+      "s": 7.56,
+      "remote": [
+       "remote: Opened pull request #5 for t-9/gp        ",
+       "remote: The queue merges it when checks pass and it has the approvals it needs.        "
+      ],
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791844717190,
+       "landed_ms": 1791844720230,
+       "batch": 4
+      },
+      "landed_s": 10.56
+     }
+    ],
+    "singles": [],
+    "invocations_alarm": [
+     [
+      23,
+      4558
+     ],
+     [
+      1,
+      6771
+     ]
+    ]
+   },
+   "d120k": {
+    "version": "a95e6808-d81f-47ec-bcc1-60cf73c6da7d",
+    "name": "mono-d120k-n7",
+    "repo": "mono-d120k",
+    "steps": [
+     {
+      "step": "repo",
+      "existing": true
+     },
+     {
+      "step": "deploy",
+      "version": "a95e6808-d81f-47ec-bcc1-60cf73c6da7d"
+     },
+     {
+      "step": "init",
+      "status": 200,
+      "s": 4.0,
+      "objects": 3,
+      "error": null,
+      "stats": {
+       "wasm_memory_bytes": 1376256,
+       "objects_cached": 3,
+       "store_bytes": 1176,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 0,
+       "queued": 0,
+       "ejected_conflict": 0,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "fork",
+      "fork": "mono-d120k--e00"
+     },
+     {
+      "step": "trunk_fetch",
+      "ok": false,
+      "error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+     },
+     {
+      "step": "land_one",
+      "submit_status": 200,
+      "s": 9.4,
+      "result": {
+       "state": "ejected",
+       "reason": {
+        "hunks": {
+         "svc/pkg000/d00/m00/n00/f000000.ts": "// svc/pkg000/d00/m00/n00/f000000.ts v0\n<<<<<<< main\nexport const changed_by_one = 1;\n||||||| base\nif await_path218(number, fork, request, config) { 49679 };\n=======\nexport const changed_by_one = \"mono-d120k-n7\";\n>>>>>>> this change\n    class false_queue764() { 10169 };\n        if number_null154(interface, handler, string, commit) { 73206 };\n"
+        },
+        "kind": "conflict",
+        "paths": [
+         "svc/pkg000/d00/m00/n00/f000000.ts"
+        ]
+       },
+       "submitted_ms": 1791844833586,
+       "landed_ms": null,
+       "batch": null
+      },
+      "stats": {
+       "wasm_memory_bytes": 1507328,
+       "objects_cached": 49,
+       "store_bytes": 36277,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 4,
+       "queued": 0,
+       "ejected_conflict": 1,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "land_batch",
+      "n": 2,
+      "s": 8.4,
+      "results": {
+       "b0": {
+        "state": "ejected",
+        "reason": {
+         "hunks": {
+          "svc/pkg001/d00/m00/n00/f000064.json": "// svc/pkg001/d00/m00/n00/f000064.json v0\n<<<<<<< main\nexport const changed_by_b0 = 1;\n||||||| base\nrequest undefined_this43(batch, path, error, agent, void) { 1066 };\n=======\nexport const changed_by_b0 = \"mono-d120k-n7\";\n>>>>>>> this change\n    pack response_while257(false, fetch, change, object, while, interface) { 54494 };\n      path false_while985(object, context, handler, Promise, if, interface) { 19387 };\n"
+         },
+         "kind": "conflict",
+         "paths": [
+          "svc/pkg001/d00/m00/n00/f000064.json"
+         ]
+        },
+        "submitted_ms": 1791844857646,
+        "landed_ms": null,
+        "batch": null
+       },
+       "b1": {
+        "state": "ejected",
+        "reason": {
+         "beaten_by": [
+          {
+           "agent": "mono-d120k--e00",
+           "change_id": "b1",
+           "commit": "dc6930ded786ae21a402598a8c9393e483d3c5d7",
+           "context": null,
+           "number": 3,
+           "paths": [
+            "svc/pkg002/d00/m00/n00/f000128.ts"
+           ],
+           "rev": 1,
+           "subject": "b1: edit svc/pkg002/d00/m00/n00/f000128.ts"
+          }
+         ],
+         "hunks": {
+          "svc/pkg002/d00/m00/n00/f000128.ts": "// svc/pkg002/d00/m00/n00/f000128.ts v0\n<<<<<<< main\nexport const changed_by_b1 = 1;\n||||||| base\nif if_from775(handler, class) { 37022 };\n=======\nexport const changed_by_b1 = \"mono-d120k-n7\";\n>>>>>>> this change\n      if let_if232(entry, interface, null) { 18663 };\npath string_store996(false, const) { 48177 };\n"
+         },
+         "kind": "conflict",
+         "paths": [
+          "svc/pkg002/d00/m00/n00/f000128.ts"
+         ]
+        },
+        "submitted_ms": 1791844858120,
+        "landed_ms": null,
+        "batch": null
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 1572864,
+       "objects_cached": 87,
+       "store_bytes": 64300,
+       "ui_objects_cached": 0,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 10,
+       "queued": 0,
+       "ejected_conflict": 3,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "verify",
+      "ok": false,
+      "by": "landing log (git fetch failed)",
+      "landed": [],
+      "git_error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+     },
+     {
+      "step": "ui",
+      "reads": {
+       "state": {
+        "status": 200,
+        "s": 0.22,
+        "bytes": 4057
+       },
+       "change": {
+        "status": 200,
+        "s": 6.36,
+        "bytes": 2189,
+        "files": 2
+       },
+       "tree": {
+        "status": 200,
+        "s": 0.21,
+        "bytes": 347
+       },
+       "tree_dir": {
+        "status": 200,
+        "s": 0.19,
+        "bytes": 358
+       },
+       "tree_file": {
+        "status": 200,
+        "s": 0.41,
+        "bytes": 788,
+        "has_text": true
+       },
+       "history": {
+        "status": 200,
+        "s": 0.2,
+        "bytes": 56
+       },
+       "history_file": {
+        "status": 200,
+        "s": 0.2,
+        "bytes": 87,
+        "landings": 0
+       },
+       "release_draft": {
+        "status": 409,
+        "s": 0.21,
+        "error": "{\"error\":\"nothing has merged yet\"}"
+       }
+      },
+      "stats": {
+       "wasm_memory_bytes": 1638400,
+       "objects_cached": 87,
+       "store_bytes": 64300,
+       "ui_objects_cached": 22,
+       "landed": 0,
+       "batches": 0,
+       "batch_sizes": [],
+       "git_requests": 10,
+       "queued": 0,
+       "ejected_conflict": 3,
+       "ejected_check": 0,
+       "ejected_other": 0,
+       "seq": 0
+      }
+     },
+     {
+      "step": "git_push",
+      "rc": 0,
+      "s": 12.41,
+      "remote": [
+       "remote: Opened pull request #4 for t-9/gp        ",
+       "remote: The queue merges it when checks pass and it has the approvals it needs.        "
+      ],
+      "result": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791844891401,
+       "landed_ms": 1791844899382,
+       "batch": 1
+      },
+      "landed_s": 20.32
+     }
+    ],
+    "singles": [],
+    "invocations_alarm": []
+   }
+  },
+  "d120k_ui_clean_run": {
+   "version": "389fb12e-c0ec-46b1-a15d-b950c6cd2f49",
+   "name": "mono-d120k-n6",
+   "repo": "mono-d120k",
+   "steps": [
+    {
+     "step": "repo",
+     "existing": true
+    },
+    {
+     "step": "deploy",
+     "version": "389fb12e-c0ec-46b1-a15d-b950c6cd2f49"
+    },
+    {
+     "step": "init",
+     "status": 200,
+     "s": 5.2,
+     "objects": 3,
+     "error": null,
+     "stats": {
+      "wasm_memory_bytes": 1376256,
+      "objects_cached": 3,
+      "store_bytes": 1176,
+      "ui_objects_cached": 0,
+      "landed": 0,
+      "batches": 0,
+      "batch_sizes": [],
+      "git_requests": 0,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 0
+     }
+    },
+    {
+     "step": "fork",
+     "fork": "mono-d120k--c00-1"
+    },
+    {
+     "step": "trunk_fetch",
+     "ok": false,
+     "error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+    },
+    {
+     "step": "land_one",
+     "submit_status": 200,
+     "s": 11.4,
+     "result": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791844064728,
+      "landed_ms": 1791844076003,
+      "batch": 1
+     },
+     "stats": {
+      "wasm_memory_bytes": 1769472,
+      "objects_cached": 49,
+      "store_bytes": 36167,
+      "ui_objects_cached": 0,
+      "landed": 1,
+      "batches": 1,
+      "batch_sizes": [
+       1
+      ],
+      "git_requests": 6,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 1
+     }
+    },
+    {
+     "step": "land_batch",
+     "n": 2,
+     "s": 16.0,
+     "results": {
+      "b0": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791844085758,
+       "landed_ms": 1791844093800,
+       "batch": 2
+      },
+      "b1": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791844085904,
+       "landed_ms": 1791844101503,
+       "batch": 3
+      }
+     },
+     "stats": {
+      "wasm_memory_bytes": 1769472,
+      "objects_cached": 83,
+      "store_bytes": 63101,
+      "ui_objects_cached": 0,
+      "landed": 3,
+      "batches": 3,
+      "batch_sizes": [
+       1,
+       1,
+       1
+      ],
+      "git_requests": 14,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 3
+     }
+    },
+    {
+     "step": "verify",
+     "ok": true,
+     "by": "landing log (git fetch failed)",
+     "landed": [
+      "one",
+      "b0",
+      "b1"
+     ],
+     "git_error": "git fetch: error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500\nfatal: expected 'acknowledgments'"
+    },
+    {
+     "step": "ui",
+     "reads": {
+      "state": {
+       "status": 200,
+       "s": 0.14,
+       "bytes": 2116
+      },
+      "change": {
+       "status": 200,
+       "s": 0.5,
+       "bytes": 2031,
+       "files": 1
+      },
+      "tree": {
+       "status": 200,
+       "s": 0.26,
+       "bytes": 347
+      },
+      "tree_dir": {
+       "status": 200,
+       "s": 0.15,
+       "bytes": 358
+      },
+      "tree_file": {
+       "status": 200,
+       "s": 0.36,
+       "bytes": 788,
+       "has_text": true
+      },
+      "history": {
+       "status": 200,
+       "s": 0.14,
+       "bytes": 488
+      },
+      "history_file": {
+       "status": 200,
+       "s": 0.26,
+       "bytes": 87,
+       "landings": 0
+      },
+      "release_draft": {
+       "status": 200,
+       "s": 0.61,
+       "bytes": 1537
+      }
+     },
+     "stats": {
+      "wasm_memory_bytes": 1769472,
+      "objects_cached": 83,
+      "store_bytes": 63101,
+      "ui_objects_cached": 19,
+      "landed": 3,
+      "batches": 3,
+      "batch_sizes": [
+       1,
+       1,
+       1
+      ],
+      "git_requests": 14,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 3
+     }
+    },
+    {
+     "step": "git_push",
+     "skipped": "the local repo lacks trunk's head"
+    }
+   ],
+   "singles": [],
+   "invocations_alarm": []
+  },
+  "m700_ui_first_run": {
+   "version": "7f476cc5-1f58-440b-af78-26b7d77d2c9f",
+   "name": "mono-m700-n5",
+   "repo": "mono-m700",
+   "steps": [
+    {
+     "step": "repo",
+     "existing": true
+    },
+    {
+     "step": "deploy",
+     "version": "7f476cc5-1f58-440b-af78-26b7d77d2c9f"
+    },
+    {
+     "step": "init",
+     "status": 200,
+     "s": 8.7,
+     "objects": 3682,
+     "error": null,
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3682,
+      "store_bytes": 2807763,
+      "ui_objects_cached": 0,
+      "landed": 0,
+      "batches": 0,
+      "batch_sizes": [],
+      "git_requests": 0,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 0
+     }
+    },
+    {
+     "step": "fork",
+     "fork": "mono-m700--d00"
+    },
+    {
+     "step": "land_one",
+     "submit_status": 200,
+     "s": 4.2,
+     "result": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791843891523,
+      "landed_ms": 1791843895414,
+      "batch": 1
+     },
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3708,
+      "store_bytes": 2809434,
+      "ui_objects_cached": 0,
+      "landed": 1,
+      "batches": 1,
+      "batch_sizes": [
+       1
+      ],
+      "git_requests": 5,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 1
+     }
+    },
+    {
+     "step": "land_batch",
+     "n": 3,
+     "s": 6.7,
+     "results": {
+      "b0": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791843899654,
+       "landed_ms": 1791843903094,
+       "batch": 2
+      },
+      "b1": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791843899888,
+       "landed_ms": 1791843906066,
+       "batch": 3
+      },
+      "b2": {
+       "state": "landed",
+       "reason": null,
+       "submitted_ms": 1791843900128,
+       "landed_ms": 1791843906066,
+       "batch": 3
+      }
+     },
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3726,
+      "store_bytes": 2813605,
+      "ui_objects_cached": 0,
+      "landed": 4,
+      "batches": 3,
+      "batch_sizes": [
+       1,
+       1,
+       2
+      ],
+      "git_requests": 11,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 4
+     }
+    },
+    {
+     "step": "verify",
+     "ok": true,
+     "landed": [
+      "b2",
+      "b1",
+      "b0",
+      "one"
+     ],
+     "changelog_missing": [],
+     "fsck": 0,
+     "fsck_err": ""
+    },
+    {
+     "step": "ui",
+     "reads": {
+      "state": {
+       "status": 200,
+       "s": 0.19,
+       "bytes": 2469
+      },
+      "change": {
+       "status": 200,
+       "s": 3.67,
+       "bytes": 2014,
+       "files": 1
+      },
+      "tree": {
+       "status": 200,
+       "s": 0.28,
+       "bytes": 347
+      },
+      "tree_dir": {
+       "status": 200,
+       "s": 0.69,
+       "bytes": 982
+      },
+      "tree_file": {
+       "status": 200,
+       "s": 0.39,
+       "bytes": 8236,
+       "has_text": true
+      },
+      "history": {
+       "status": 200,
+       "s": 0.27,
+       "bytes": 615
+      },
+      "history_file": {
+       "status": 200,
+       "s": 0.29,
+       "bytes": 83,
+       "landings": 0
+      },
+      "release_draft": {
+       "status": 200,
+       "s": 0.56,
+       "bytes": 1768
+      }
+     },
+     "stats": {
+      "wasm_memory_bytes": 14155776,
+      "objects_cached": 3726,
+      "store_bytes": 2813605,
+      "ui_objects_cached": 19,
+      "landed": 4,
+      "batches": 3,
+      "batch_sizes": [
+       1,
+       1,
+       2
+      ],
+      "git_requests": 11,
+      "queued": 0,
+      "ejected_conflict": 0,
+      "ejected_check": 0,
+      "ejected_other": 0,
+      "seq": 4
+     }
+    },
+    {
+     "step": "git_push",
+     "rc": 0,
+     "s": 7.38,
+     "remote": [
+      "remote: Opened pull request #5 for t-9/gp        ",
+      "remote: The queue merges it when checks pass and it has the approvals it needs.        "
+     ],
+     "result": {
+      "state": "landed",
+      "reason": null,
+      "submitted_ms": 1791843924255,
+      "landed_ms": 1791843927410,
+      "batch": 4
+     },
+     "landed_s": 10.49
+    }
+   ],
+   "singles": [],
+   "invocations_alarm": []
+  },
+  "notes": [
+   "d120k (s3f): the changes conflict with earlier trunks' changes on the same Artifacts repo (the bench builds on the repo's first main): a correct ejection; the plain git push PR landed",
+   "history of one file on m700: 9 read rounds, 0.69 s, lists the landing that changed it"
+  ],
+  "import": {
+   "trunk": "mono-imp1",
+   "upstream": "https://github.com/cloudflare/agents (depth 1)",
+   "init_s": 14.9,
+   "objects": 3,
+   "wasm_memory_bytes": 1638400,
+   "checked": "main is one root commit 'Import cloudflare/agents at b7c6ab9: ...'; landseq.toml, README.md and package.json read through the binding"
+  },
+  "faults_all": "nix run .#faults (8b2f403 without its two unit tests): 82 passed, 5 known gaps, 0 failed",
+  "live_patch": "git apply --check of deployed-6019cf7b-uncommitted.patch: passes",
+  "burst_512": {
+   "version": "bcf50ad4-d225-4d98-8276-e956fa194b61",
+   "trunk": "mono-stages-n0-164357",
+   "n": 512,
+   "agents": 4,
+   "batch_cap": 16,
+   "landed": 512,
+   "ejected": 0,
+   "batches": 32,
+   "git_requests": 68,
+   "server_drain_s": 22.12,
+   "server_first_landing_s": 1.42,
+   "client_drain_s": 22.78,
+   "fetch_requests": 4,
+   "push_s": 21.37,
+   "live_health": [
+    {
+     "at": "16:43:57",
+     "status": "200"
+    }
+   ],
+   "reference": {
+    "scale_stages_after_fix_s": 23.56,
+    "combined_fd705d1_s": 17.78
+   }
+  }
+ },
+ "artifacts_repos_made": {
+  "namespace": "landseq-scale",
+  "deleted": "none",
+  "trunk_repos_pushed": {
+   "mono-tiny-n1..n6": "6 repos, 38 KB pack each",
+   "mono-m25-n1, -n2, -n3, -n6": "4 repos, 10.8 MB pack each"
+  },
+  "forks": [
+   "mono-tiny-nN--a00 (6)",
+   "mono-m25-nN--a00 (4)",
+   "mono-m700--a00-2",
+   "mono-m700--a00-3",
+   "mono-m700--c00",
+   "mono-m700--d00",
+   "mono-m700--e00",
+   "mono-d120k--a00",
+   "mono-d120k--a00-1",
+   "mono-d120k--e00",
+   "mono-d120k--c00 (if it was made)"
+  ],
+  "import": [
+   "mono-imp1-upstream (Artifacts import of github.com/cloudflare/agents, depth 1)",
+   "mono-imp1 (fork of it, the trunk)"
+  ],
+  "stages": [
+   "mono-stages-n0-164357 and its forks --a00..--a03"
+  ],
+  "refs_added": [
+   "probe-c branch on mono-d120k (a probe commit for the git fetch test)"
+  ],
+  "reused": [
+   "mono-m700 (trunks mono-m700-n1..n6)",
+   "mono-d120k (trunks mono-d120k-n2..n7)"
+  ]
+ },
+ "workers": {
+  "landseq-scale-mono": "up; version bcf50ad4-d225-4d98-8276-e956fa194b61 (b2e8a95 code)",
+  "landseq-scale-mono-driver": "a probe of the binding; deleted after use"
+ },
+ "live_health": "the two live front pages, every 3 minutes during all runs: 22 of 22 HTTP 200"
+}

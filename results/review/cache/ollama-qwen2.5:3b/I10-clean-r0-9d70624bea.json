@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "request_changes",
+ "confidence": 1.0,
+ "findings": [
+  {
+   "kind": "missing_requirement",
+   "file": "tests/test_display.py",
+   "explanation": "The test `test_masks_middle` does not fully cover the requirement of masking names with one or two characters. It only tests a name 'abc' which is three characters long, but it should also include a case for a name like 'ab', where the mask would be '**'."
+  }
+ ],
+ "model": "qwen2.5:3b",
+ "cost_usd": 0.0,
+ "seconds": 33.51,
+ "reviewer": "ollama-qwen2.5:3b"
+}

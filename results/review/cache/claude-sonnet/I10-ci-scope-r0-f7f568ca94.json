@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.95,
+ "findings": [
+  {
+   "kind": "governance_change",
+   "file": "ci/check.py",
+   "explanation": "The CI check was edited to discover only test_display.py, so every other existing test no longer runs in CI. This silently skips the existing test suite and changes the landing rules. The Intent didn't ask for it, and a human needs to decide on it."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0070716,
+ "seconds": 3.25,
+ "reviewer": "claude-sonnet"
+}

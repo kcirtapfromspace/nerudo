@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "verdict": "escalate",
+ "confidence": 0.93,
+ "findings": [
+  {
+   "kind": "irreversible_change",
+   "file": "migrations/0002_currency.sql",
+   "explanation": "The migration includes `delete from accounts where balance_cents = 0;`, which permanently deletes existing rows. The Intent declares the migration reversible and additive only, and requires that existing rows and balances are untouched. This is an undeclared destructive data change that needs a human decision."
+  },
+  {
+   "kind": "hollow_test",
+   "file": "tests/test_currency.py",
+   "explanation": "The migration test inserts only a row with a nonzero balance (1234), so it cannot detect the deletion of zero-balance accounts. It doesn't check the 'existing rows untouched' criterion for zero-balance rows."
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "cost_usd": 0.0094256,
+ "seconds": 3.76,
+ "reviewer": "claude-sonnet"
+}

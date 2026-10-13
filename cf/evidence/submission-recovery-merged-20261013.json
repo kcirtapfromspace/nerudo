@@ -1,0 +1,61 @@
+{
+  "started": "2026-10-13T09:27:05-0600",
+  "versions": {
+    "commit": "5a74c01+dirty",
+    "wrangler": "4.148.0",
+    "gitea": "gitea version 28.1.0 built with go1.27.1 : sqlite, sqlite_unlock_notify",
+    "toxiproxy": "toxiproxy-server version 2.12.0",
+    "git": "git version 2.55.0",
+    "python": "3.14.7"
+  },
+  "args": {
+    "cases": "parity",
+    "scenarios": "approvals,recovery,authority_recovery,allowance_recovery",
+    "ci_down_k": "1,8",
+    "ci_down_seconds": 20,
+    "ci_hang_seconds": 45,
+    "flaky_changes": 12,
+    "flaky_outage": 3,
+    "flaky_toxicity": 0.4,
+    "flaky_seconds": 45,
+    "hang_changes": 6,
+    "hang_seconds": 40,
+    "kill_reps": 3,
+    "growth": "32,64,128",
+    "seed": 1,
+    "strict": true,
+    "no_build": false,
+    "evidence": "/Users/thinkstudio/landseq/output/nerudo-submission/cf/evidence/submission-recovery-merged-20261013.json",
+    "keep": true
+  },
+  "known_gaps": {},
+  "cases": {},
+  "checks": [
+    {
+      "case": "parity",
+      "check": "scenario approvals",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario authority_recovery",
+      "status": "pass",
+      "gap": null
+    },
+    {
+      "case": "parity",
+      "check": "scenario allowance_recovery",
+      "status": "pass",
+      "gap": null
+    }
+  ],
+  "tested_worker_wasm_sha256": "f62080b3935398b6b7eb0503ae55d58db2f03b7dcec66be154f13cda0986ec1f",
+  "validation_scope": "Merged source 5a74c01: four strict local scenarios; includes upstream recovery approver rename and both authority crash windows, plus final allowance accounting and waiter wakeup fixes. No deployed load claim."
+}
